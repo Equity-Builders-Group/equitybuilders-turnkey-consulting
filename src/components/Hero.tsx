@@ -185,8 +185,8 @@ const Hero = () => {
           </div>
 
           {/* Right content - iPhone frame with your image */}
-          <div className="relative lg:justify-self-start pl-24">
-            <div className="relative w-64 h-[500px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px] mx-auto">
+          <div className="relative flex justify-center lg:justify-start lg:pl-24">
+            <div className="relative w-64 h-[500px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px]">
               {/* iPhone frame */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[3rem] p-2 shadow-2xl">
                 <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
