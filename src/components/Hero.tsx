@@ -17,10 +17,15 @@ const Hero = () => {
         const hls = new Hls();
         hls.loadSource(hlsUrl);
         hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          video.play();
+        hls.on(Hls.Events.MEDIA_ATTACHED, () => {
+          console.log('Media has been attached');
+          // Now you can load the manifest
+          hls.on(Hls.Events.MANIFEST_PARSED, () => {
+            console.log('Manifest has been parsed, trying to play...');
+            video.play();
+          });
         });
-        
+              
         return () => {
           hls.destroy();
         };
