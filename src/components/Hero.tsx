@@ -234,6 +234,7 @@ const Hero = () => {
                           controls
                           autoPlay
                           muted
+                          loop
                           playsInline
                           onVolumeChange={() => {
                             if (videoRef.current) {
