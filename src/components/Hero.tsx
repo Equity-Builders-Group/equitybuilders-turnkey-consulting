@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
-import { Play, Megaphone } from "lucide-react";
+import { Play, Volume2 } from "lucide-react";
 import Hls from "hls.js";
 
 const Hero = () => {
@@ -316,8 +316,8 @@ const Hero = () => {
                 }}
               >
                 <div className="relative flex flex-col items-center">
-                  {/* Megaphone/Sound Horn Icon */}
-                  <Megaphone 
+                  {/* Volume/Sound Icon */}
+                  <Volume2 
                     size={48} 
                     className="text-white drop-shadow-lg mb-4" 
                   />
