@@ -111,9 +111,9 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-2 lg:gap-2 items-center max-w-7xl">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-2 items-center max-w-7xl">
           {/* Left content */}
-          <div className="space-y-12">
+          <div className="space-y-12 order-2 lg:order-1">
             {/* Main headline with bold styling */}
             <div className="space-y-6">
               <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-accent/30">
