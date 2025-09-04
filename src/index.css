@@ -8,26 +8,31 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 147 25% 15%;
+    --background: 147 15% 98%;
+    --foreground: 147 100% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 147 25% 15%;
+    --card-foreground: 147 100% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 147 25% 15%;
+    --popover-foreground: 147 100% 8%;
 
-    --primary: 147 69% 25%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 147 85% 35%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 147 35% 85%;
-    --secondary-foreground: 147 25% 15%;
+    --secondary: 147 60% 25%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 147 15% 95%;
-    --muted-foreground: 147 15% 45%;
+    --muted: 147 25% 90%;
+    --muted-foreground: 147 35% 35%;
 
-    --accent: 147 45% 65%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 147 70% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Custom green gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(147, 85%, 35%), hsl(147, 70%, 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(147, 60%, 25%), hsl(147, 85%, 35%));
+    --gradient-accent: linear-gradient(135deg, hsl(147, 70%, 45%), hsl(147, 85%, 55%));
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -56,26 +61,31 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 147 25% 8%;
-    --foreground: 147 15% 92%;
+    --background: 147 60% 8%;
+    --foreground: 147 25% 95%;
 
-    --card: 147 25% 10%;
-    --card-foreground: 147 15% 92%;
+    --card: 147 45% 12%;
+    --card-foreground: 147 25% 95%;
 
-    --popover: 147 25% 10%;
-    --popover-foreground: 147 15% 92%;
+    --popover: 147 45% 12%;
+    --popover-foreground: 147 25% 95%;
 
-    --primary: 147 55% 45%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 147 75% 55%;
+    --primary-foreground: 147 100% 8%;
 
-    --secondary: 147 25% 18%;
-    --secondary-foreground: 147 15% 92%;
+    --secondary: 147 85% 35%;
+    --secondary-foreground: 147 100% 8%;
 
-    --muted: 147 25% 15%;
-    --muted-foreground: 147 15% 65%;
+    --muted: 147 35% 15%;
+    --muted-foreground: 147 25% 75%;
 
-    --accent: 147 45% 35%;
-    --accent-foreground: 147 15% 92%;
+    --accent: 147 80% 65%;
+    --accent-foreground: 147 100% 8%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(147, 75%, 55%), hsl(147, 80%, 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(147, 85%, 35%), hsl(147, 75%, 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(147, 80%, 65%), hsl(147, 85%, 75%));
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;

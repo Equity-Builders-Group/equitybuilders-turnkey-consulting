@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 const About = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-gradient-to-br from-accent/20 via-background to-primary/10">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
@@ -67,29 +67,29 @@ const About = () => {
           </div>
           
           <div className="relative">
-            <div className="aspect-[4/5] bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+            <div className="aspect-[4/5] bg-gradient-primary rounded-2xl overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
               <div className="relative z-10 h-full p-8 flex flex-col justify-between">
                 <div className="space-y-4">
-                  <div className="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold">Growth-Focused Results</h3>
-                  <p className="text-muted-foreground">
+                  <h3 className="text-2xl font-bold text-white">Growth-Focused Results</h3>
+                  <p className="text-white/90">
                     Average 40% improvement in operational efficiency within the first 6 months.
                   </p>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold text-primary">40%</div>
-                    <div className="text-sm text-muted-foreground">Efficiency Gain</div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center border border-white/30">
+                    <div className="text-2xl font-bold text-accent">40%</div>
+                    <div className="text-sm text-white/80">Efficiency Gain</div>
                   </div>
-                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold text-primary">6mo</div>
-                    <div className="text-sm text-muted-foreground">Avg Timeline</div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center border border-white/30">
+                    <div className="text-2xl font-bold text-accent">6mo</div>
+                    <div className="text-sm text-white/80">Avg Timeline</div>
                   </div>
                 </div>
               </div>

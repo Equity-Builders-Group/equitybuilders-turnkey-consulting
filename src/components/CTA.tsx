@@ -4,12 +4,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const CTA = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-accent relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-20 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <Card className="border-0 shadow-2xl bg-gradient-to-br from-card to-card/80 backdrop-blur-sm">
+          <Card className="border-0 shadow-2xl bg-white/95 backdrop-blur-sm">
             <CardHeader className="text-center pb-8">
-              <CardTitle className="text-4xl font-bold mb-4">
+              <CardTitle className="text-4xl font-bold mb-4 text-primary">
                 Ready to Transform Your Business?
               </CardTitle>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -51,19 +57,19 @@ const CTA = () => {
                 </div>
               </div>
               
-              <div className="bg-muted/50 rounded-lg p-6 space-y-4">
-                <h3 className="text-lg font-semibold text-center">Get Started Today</h3>
+              <div className="bg-gradient-primary rounded-lg p-6 space-y-4">
+                <h3 className="text-lg font-semibold text-center text-white">Get Started Today</h3>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Input 
                     placeholder="Enter your email address" 
                     type="email"
-                    className="flex-1 h-12"
+                    className="flex-1 h-12 bg-white/90 border-white text-primary placeholder:text-primary/60"
                   />
-                  <Button size="lg" className="h-12 px-8">
+                  <Button size="lg" className="h-12 px-8 bg-white text-primary hover:bg-white/90">
                     Schedule Free Consultation
                   </Button>
                 </div>
-                <p className="text-sm text-muted-foreground text-center">
+                <p className="text-sm text-white/90 text-center">
                   No spam. Unsubscribe at any time. Free consultation includes a detailed assessment.
                 </p>
               </div>
