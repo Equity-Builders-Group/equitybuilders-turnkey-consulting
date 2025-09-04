@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
-import { Play } from "lucide-react";
+import { Play, Volume2 } from "lucide-react";
 import Hls from "hls.js";
 
 const Hero = () => {
@@ -12,7 +12,7 @@ const Hero = () => {
   useEffect(() => {
     if (videoRef.current) {
       const video = videoRef.current;
-      const hlsUrl = "https://vz-447b6532-fd2.b-cdn.net/c6b998b8-9763-4324-94ea-1b19b14c3dc1/playlist.m3u8";
+      const hlsUrl = "https://vz-04e4a328-e19.b-cdn.net/bcdn_token=FlVqBXqhnnes9vOqZNQrtrbUItFo4yN1nlJoxXQLSfk&expires=1757108587&token_path=%2Ff7d046f6-838a-4f35-a366-910e288d31db%2F/f7d046f6-838a-4f35-a366-910e288d31db/playlist.m3u8";
 
       if (Hls.isSupported()) {
         const hls = new Hls();
@@ -151,7 +151,7 @@ const Hero = () => {
                 <span className="text-accent font-bold text-sm sm:text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION DEVELOPMENT</span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-8xl font-black leading-none text-white">
+              <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white text-center sm:text-left">
                 FROM EMPTY
                 <span className="block text-accent drop-shadow-2xl">
                   LOT TO
@@ -217,7 +217,7 @@ const Hero = () => {
 
           {/* Right content - iPhone frame with your image */}
           <div className="relative flex justify-center lg:justify-start lg:pl-24">
-            <div className="relative w-64 h-[500px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px]">
+            <div className="relative w-80 h-[600px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px]">
               {/* iPhone frame */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[3rem] p-2 shadow-2xl">
                 <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
@@ -261,7 +261,7 @@ const Hero = () => {
                         <video 
                           ref={videoRef}
                           className="w-full h-full object-cover"
-                          controls
+                          controls={!isVideoMuted} // Hide controls when muted to prevent interference
                           autoPlay
                           muted
                           loop
@@ -302,27 +302,30 @@ const Hero = () => {
             
             {/* Floating arrow with unmute text - only show when video is playing and muted */}
             {isVideoPlaying && isVideoMuted && (
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse z-20">
-                <div className="relative">
-                  {/* Curved arrow pointing up */}
-                  <svg 
-                    width="120" 
-                    height="60" 
-                    viewBox="0 0 120 60" 
-                    className="text-white drop-shadow-lg"
-                  >
-                    <path 
-                      d="M20 50 Q 60 20 100 30 L 90 35 M 100 30 L 95 20" 
-                      stroke="currentColor" 
-                      strokeWidth="3" 
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+              <div 
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse z-20 cursor-pointer"
+                onClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.muted = false;
+                    setIsVideoMuted(false);
+                    if (!hasUnmutedOnce) {
+                      setHasUnmutedOnce(true);
+                      videoRef.current.currentTime = 0;
+                    }
+                  }
+                }}
+              >
+                <div className="relative flex flex-col items-center">
+                  {/* Volume/Sound Icon */}
+                  <Volume2 
+                    size={48} 
+                    className="text-white drop-shadow-lg mb-4" 
+                  />
                   {/* Text */}
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg drop-shadow-lg whitespace-nowrap">
-                    Turn On Your Sound
+                  <div className="bg-black/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow-2xl">
+                    <div className="text-white font-bold text-lg drop-shadow-lg whitespace-nowrap">
+                      Turn On Your Sound
+                    </div>
                   </div>
                 </div>
               </div>
