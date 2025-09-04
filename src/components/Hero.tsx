@@ -217,7 +217,7 @@ const Hero = () => {
 
           {/* Right content - iPhone frame with your image */}
           <div className="relative flex justify-center lg:justify-start lg:pl-24">
-            <div className="relative w-64 h-[500px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px]">
+            <div className="relative w-80 h-[600px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px]">
               {/* iPhone frame */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[3rem] p-2 shadow-2xl">
                 <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
@@ -333,8 +333,10 @@ const Hero = () => {
                     />
                   </svg>
                   {/* Text */}
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg drop-shadow-lg whitespace-nowrap">
-                    Turn On Your Sound
+                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow-2xl">
+                    <div className="text-white font-bold text-lg drop-shadow-lg whitespace-nowrap">
+                      Turn On Your Sound
+                    </div>
                   </div>
                 </div>
               </div>
