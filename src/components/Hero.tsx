@@ -261,7 +261,7 @@ const Hero = () => {
                         <video 
                           ref={videoRef}
                           className="w-full h-full object-cover"
-                          controls
+                          controls={!isVideoMuted} // Hide controls when muted to prevent interference
                           autoPlay
                           muted
                           loop
@@ -302,7 +302,19 @@ const Hero = () => {
             
             {/* Floating arrow with unmute text - only show when video is playing and muted */}
             {isVideoPlaying && isVideoMuted && (
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse z-20">
+              <div 
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse z-20 cursor-pointer"
+                onClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.muted = false;
+                    setIsVideoMuted(false);
+                    if (!hasUnmutedOnce) {
+                      setHasUnmutedOnce(true);
+                      videoRef.current.currentTime = 0;
+                    }
+                  }
+                }}
+              >
                 <div className="relative">
                   {/* Curved arrow pointing up */}
                   <svg 
