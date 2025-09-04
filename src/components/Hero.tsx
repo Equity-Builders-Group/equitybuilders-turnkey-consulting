@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Play } from "lucide-react";
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <section className="relative min-h-screen bg-gradient-primary overflow-hidden">
@@ -226,41 +228,21 @@ const Hero = () => {
                       <div className="w-full h-full bg-black">
                         {/* Video player */}
                         <video 
+                          ref={videoRef}
                           src="https://www.dropbox.com/scl/fi/tpjlx539ucrc6xupunzr9/IMG_5896.mov?rlkey=dkftvfl3my0xmfsuegfu0xv0k&dl=1"
                           className="w-full h-full object-cover"
                           controls
                           autoPlay
                           muted
                           playsInline
+                          onVolumeChange={() => {
+                            if (videoRef.current) {
+                              setIsVideoMuted(videoRef.current.muted);
+                            }
+                          }}
                         >
                           Your browser does not support the video tag.
                         </video>
-                        
-                        {/* Floating arrow with unmute text */}
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none animate-pulse">
-                          <div className="relative">
-                            {/* Curved arrow */}
-                            <svg 
-                              width="120" 
-                              height="80" 
-                              viewBox="0 0 120 80" 
-                              className="text-white drop-shadow-lg"
-                            >
-                              <path 
-                                d="M20 20 Q 60 5 100 30 L 90 25 M 100 30 L 90 35" 
-                                stroke="currentColor" 
-                                strokeWidth="3" 
-                                fill="none"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                            {/* Text */}
-                            <div className="absolute -top-8 left-0 text-white font-bold text-lg drop-shadow-lg">
-                              Click to unmute!
-                            </div>
-                          </div>
-                        </div>
 
                         {/* Close button */}
                         <button
@@ -278,6 +260,34 @@ const Hero = () => {
               {/* iPhone frame shadow */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-600/50 to-slate-900/50 rounded-[3rem] blur-xl scale-105 -z-10"></div>
             </div>
+            
+            {/* Floating arrow with unmute text - only show when video is playing and muted */}
+            {isVideoPlaying && isVideoMuted && (
+              <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 animate-pulse">
+                <div className="relative">
+                  {/* Curved arrow pointing up */}
+                  <svg 
+                    width="120" 
+                    height="60" 
+                    viewBox="0 0 120 60" 
+                    className="text-white drop-shadow-lg"
+                  >
+                    <path 
+                      d="M20 50 Q 60 20 100 30 L 90 35 M 100 30 L 95 20" 
+                      stroke="currentColor" 
+                      strokeWidth="3" 
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  {/* Text */}
+                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg drop-shadow-lg whitespace-nowrap">
+                    Turn On Your Sound
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
