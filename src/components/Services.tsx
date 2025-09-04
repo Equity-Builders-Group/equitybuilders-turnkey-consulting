@@ -82,8 +82,8 @@ const Services = () => {
           <div className="absolute inset-0 bg-gradient-to-l from-secondary/80 to-transparent"></div>
         </div>
         
-        {/* Floating service images - hidden on mobile */}
-        <div className="hidden lg:block absolute top-20 left-20 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-accent/50 -rotate-12 transform hover:-rotate-6 transition-all duration-700">
+        {/* Floating service images - adjusted for mobile */}
+        <div className="absolute top-20 left-4 lg:left-20 w-48 h-48 lg:w-80 lg:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 lg:border-8 border-accent/50 -rotate-12 transform hover:-rotate-6 transition-all duration-700">
           <img 
             src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
             alt="Business development and consulting expert" 
@@ -125,7 +125,7 @@ const Services = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 mt-32 lg:mt-0">
           <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-full border border-white/30 mb-8">
             <span className="text-white font-bold text-xl">💼 OUR EXPERT SERVICES</span>
           </div>
