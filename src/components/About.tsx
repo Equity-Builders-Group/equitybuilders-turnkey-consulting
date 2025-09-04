@@ -2,7 +2,51 @@ import { Button } from "@/components/ui/button";
 
 const About = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-accent/20 via-background to-primary/10">
+    <section className="py-20 bg-gradient-to-br from-accent/20 via-background to-primary/10 relative overflow-hidden">
+      {/* Background with your real photo and construction projects */}
+      <div className="absolute inset-0">
+        {/* Main professional photo background */}
+        <div className="absolute right-0 top-0 w-1/2 h-full opacity-25">
+          <img 
+            src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
+            alt="TurnKey Development leadership and expertise" 
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/40 to-background"></div>
+        </div>
+        
+        {/* Construction project texture */}
+        <div className="absolute left-0 bottom-0 w-3/5 h-1/2 opacity-15">
+          <img 
+            src="/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png" 
+            alt="Quality construction and development work" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background to-transparent"></div>
+        </div>
+      </div>
+
+      {/* Enhanced textured background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Architectural texture overlays */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="w-full h-full" style={{
+            backgroundImage: `
+              linear-gradient(45deg, rgba(120, 100, 25, 0.1) 25%, transparent 25%),
+              linear-gradient(-45deg, rgba(120, 100, 25, 0.1) 25%, transparent 25%),
+              linear-gradient(45deg, transparent 75%, rgba(120, 100, 25, 0.1) 75%),
+              linear-gradient(-45deg, transparent 75%, rgba(120, 100, 25, 0.1) 75%)
+            `,
+            backgroundSize: '30px 30px',
+            backgroundPosition: '0 0, 0 15px, 15px -15px, -15px 0px'
+          }}></div>
+        </div>
+        
+        {/* Wood grain texture */}
+        <div className="absolute inset-0 opacity-8">
+          <div className="w-full h-full bg-gradient-to-br from-amber-900/10 via-amber-700/5 to-amber-800/10"></div>
+        </div>
+      </div>
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
@@ -67,16 +111,28 @@ const About = () => {
           </div>
           
           <div className="relative">
-            <div className="aspect-[4/5] bg-gradient-primary rounded-2xl overflow-hidden shadow-2xl">
+            <div className="aspect-[4/5] bg-gradient-primary rounded-2xl overflow-hidden shadow-2xl relative">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-              {/* Professional image */}
-              <div className="absolute bottom-4 left-4 w-20 h-20 rounded-xl overflow-hidden border-4 border-white/30">
+              
+              {/* Your real professional image */}
+              <div className="absolute inset-4 rounded-xl overflow-hidden">
                 <img 
-                  src="/src/assets/professional-headshot-2.jpg" 
-                  alt="TurnKey Development consultant" 
+                  src="/lovable-uploads/099d43ed-30ee-447a-8302-8f31d970c7b5.png" 
+                  alt="TurnKey Development founder and business consultant" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+              </div>
+              
+              {/* Construction project overlay */}
+              <div className="absolute bottom-4 right-4 w-24 h-24 rounded-xl overflow-hidden border-4 border-white/30">
+                <img 
+                  src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
+                  alt="Construction project showcase" 
                   className="w-full h-full object-cover"
                 />
               </div>
+              
               <div className="relative z-10 h-full p-8 flex flex-col justify-between">
                 <div className="space-y-4">
                   <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">

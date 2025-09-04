@@ -1,46 +1,71 @@
 import { Button } from "@/components/ui/button";
-import professionalHeadshot1 from "@/assets/professional-headshot-1.jpg";
-import professionalHeadshot2 from "@/assets/professional-headshot-2.jpg";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen bg-gradient-primary overflow-hidden">
-      {/* Dominant background image */}
-      <div className="absolute inset-0">
-        <div className="absolute right-0 top-0 w-3/5 h-full opacity-60">
+      {/* Background image overlays with your real photos */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Large background professional image */}
+        <div className="absolute right-0 top-0 w-3/5 h-full opacity-40">
           <img 
-            src={professionalHeadshot1} 
-            alt="Business transformation expert" 
+            src="/lovable-uploads/099d43ed-30ee-447a-8302-8f31d970c7b5.png" 
+            alt="TurnKey Development founder and consultant" 
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-l from-primary/80 via-primary/60 to-primary"></div>
         </div>
+
+        {/* Construction project background for texture */}
+        <div className="absolute left-0 bottom-0 w-2/5 h-2/3 opacity-20">
+          <img 
+            src="/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png" 
+            alt="Construction project by TurnKey Development" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary to-transparent"></div>
+        </div>
       </div>
 
       {/* Floating professional images */}
-      <div className="absolute top-16 right-16 w-72 h-72 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700">
+      <div className="absolute top-16 right-16 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700">
         <img 
-          src={professionalHeadshot2} 
-          alt="TurnKey Development consultant" 
+          src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
+          alt="TurnKey Development business consultant" 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/30"></div>
       </div>
 
-      {/* Additional floating image */}
-      <div className="absolute bottom-32 right-8 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-6 transform hover:-rotate-3 transition-all duration-500">
+      {/* Additional floating construction project image */}
+      <div className="absolute bottom-32 right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-6 transform hover:-rotate-3 transition-all duration-500">
         <img 
-          src={professionalHeadshot1} 
-          alt="Business growth specialist" 
-          className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+          src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
+          alt="Architectural project showcase" 
+          className="w-full h-full object-cover hover:scale-110 transition-all duration-500"
         />
       </div>
 
-      {/* Dynamic background elements */}
+      {/* Textured background elements with construction theme */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-32 left-16 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-16 left-32 w-80 h-80 bg-white/10 rounded-full blur-2xl"></div>
         <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] bg-secondary/15 rounded-full blur-3xl"></div>
+        
+        {/* Wood grain texture overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="w-full h-full bg-gradient-to-br from-amber-800/30 via-amber-600/20 to-amber-900/30"></div>
+        </div>
+        
+        {/* Construction grid pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="w-full h-full" style={{
+            backgroundImage: `
+              linear-gradient(0deg, rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}></div>
+        </div>
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">

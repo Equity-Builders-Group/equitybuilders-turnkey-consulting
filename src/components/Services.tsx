@@ -1,6 +1,4 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import professionalHeadshot1 from "@/assets/professional-headshot-1.jpg";
-import professionalHeadshot2 from "@/assets/professional-headshot-2.jpg";
 
 const Services = () => {
   const services = [
@@ -63,41 +61,67 @@ const Services = () => {
 
   return (
     <section className="py-32 bg-gradient-secondary relative overflow-hidden">
-      {/* Background images */}
+      {/* Background images with your real photos and construction projects */}
       <div className="absolute inset-0">
-        <div className="absolute left-0 top-0 w-2/5 h-full opacity-50">
+        <div className="absolute left-0 top-0 w-2/5 h-full opacity-30">
           <img 
-            src={professionalHeadshot2} 
-            alt="Strategic consulting expert" 
+            src="/lovable-uploads/099d43ed-30ee-447a-8302-8f31d970c7b5.png" 
+            alt="TurnKey Development strategic consultant" 
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-transparent"></div>
         </div>
         
+        {/* Construction texture background */}
+        <div className="absolute right-0 bottom-0 w-3/5 h-2/3 opacity-15">
+          <img 
+            src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
+            alt="Construction project showcasing expertise" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-secondary/80 to-transparent"></div>
+        </div>
+        
         {/* Floating service images */}
         <div className="absolute top-20 left-20 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-accent/50 -rotate-12 transform hover:-rotate-6 transition-all duration-700">
           <img 
-            src={professionalHeadshot1} 
-            alt="Business development specialist" 
+            src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
+            alt="Business development and consulting expert" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-secondary/40"></div>
         </div>
 
-        <div className="absolute bottom-20 right-32 w-64 h-64 rounded-full overflow-hidden shadow-xl border-6 border-white/40 rotate-12">
+        <div className="absolute bottom-20 right-32 w-72 h-72 rounded-2xl overflow-hidden shadow-xl border-6 border-white/40 rotate-12">
           <img 
-            src={professionalHeadshot2} 
-            alt="Digital transformation expert" 
-            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            src="/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png" 
+            alt="Architectural development project" 
+            className="w-full h-full object-cover hover:scale-110 transition-all duration-500"
           />
         </div>
       </div>
 
-      {/* Dynamic background elements */}
+      {/* Enhanced textured background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-32 left-40 w-80 h-80 bg-white/10 rounded-full blur-2xl"></div>
         <div className="absolute top-1/2 right-1/3 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl"></div>
+        
+        {/* Blueprint/architectural grid texture */}
+        <div className="absolute inset-0 opacity-8">
+          <div className="w-full h-full" style={{
+            backgroundImage: `
+              linear-gradient(0deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+        
+        {/* Wood/construction material texture */}
+        <div className="absolute inset-0 opacity-3">
+          <div className="w-full h-full bg-gradient-to-br from-amber-700/20 via-amber-500/10 to-amber-800/15"></div>
+        </div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
