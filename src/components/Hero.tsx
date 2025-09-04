@@ -79,26 +79,27 @@ const Hero = () => {
             {/* Main headline with bold styling */}
             <div className="space-y-6">
               <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-accent/30">
-                <span className="text-accent font-bold text-lg">🚀 TRANSFORM YOUR BUSINESS</span>
+                <span className="text-accent font-bold text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION</span>
               </div>
               
               <h1 className="text-6xl lg:text-8xl font-black leading-none text-white">
-                DISCOVER THE
+                FROM EMPTY
                 <span className="block text-accent drop-shadow-2xl">
-                  POWER OF
+                  LOT TO
                 </span>
                 <span className="block bg-gradient-to-r from-white to-accent bg-clip-text text-transparent">
-                  TURNKEY
+                  COMPLETED
                 </span>
                 <span className="block text-white">
-                  DEVELOPMENT
+                  PROJECT
                 </span>
               </h1>
               
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl">
                 <p className="text-2xl text-white font-semibold leading-relaxed">
-                  FREE 15-Minute Strategy Call to 
-                  <span className="text-accent"> Skyrocket Your Revenue 📈</span>
+                  We guide investors, developers, and first-time builders through every step of the 
+                  <span className="text-accent"> pre-construction and construction process 🏗️</span>
+                  — from land search to permits to builder selection.
                 </p>
               </div>
             </div>
@@ -109,7 +110,7 @@ const Hero = () => {
                 size="lg" 
                 className="text-2xl px-12 py-8 bg-white text-primary hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
               >
-                🎯 GET FREE STRATEGY SESSION
+                📞 Book Your Consultation Today
               </Button>
               
               <div className="flex items-center gap-4 text-white/90">
@@ -118,7 +119,7 @@ const Hero = () => {
                   <div className="w-10 h-10 rounded-full border-2 border-white bg-secondary"></div>
                   <div className="w-10 h-10 rounded-full border-2 border-white bg-primary"></div>
                 </div>
-                <span className="text-lg">Join 500+ successful businesses</span>
+                <span className="text-lg">Join 100+ successful developers</span>
               </div>
             </div>
             
@@ -178,10 +179,10 @@ const Hero = () => {
                         {/* Introduction overlay */}
                         <div className="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-sm rounded-2xl p-6">
                           <p className="text-white font-semibold text-center text-lg">
-                            👋 Your Business Partner
+                            👋 Your Construction Partner
                           </p>
                           <p className="text-white/80 text-base text-center mt-2">
-                            Tap to see my intro video
+                            Tap to see how we build together
                           </p>
                         </div>
                       </>
