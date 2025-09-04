@@ -12,7 +12,7 @@ const Hero = () => {
   useEffect(() => {
     if (videoRef.current) {
       const video = videoRef.current;
-      const hlsUrl = "https://vz-04e4a328-e19.b-cdn.net/bcdn_token=FlVqBXqhnnes9vOqZNQrtrbUItFo4yN1nlJoxXQLSfk&expires=1757108587&token_path=%2Ff7d046f6-838a-4f35-a366-910e288d31db%2F/f7d046f6-838a-4f35-a366-910e288d31db/playlist.m3u8";
+      const hlsUrl = "https://vz-447b6532-fd2.b-cdn.net/c6b998b8-9763-4324-94ea-1b19b14c3dc1/playlist.m3u8";
 
       if (Hls.isSupported()) {
         const hls = new Hls();
