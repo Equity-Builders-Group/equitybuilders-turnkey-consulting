@@ -1,6 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Play } from "lucide-react";
 
 const Hero = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
   return (
     <section className="relative min-h-screen bg-gradient-primary overflow-hidden">
       {/* Background image overlays with your real photos */}
@@ -69,7 +73,8 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="max-w-4xl">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl">
+          {/* Left content */}
           <div className="space-y-12">
             {/* Main headline with bold styling */}
             <div className="space-y-6">
@@ -137,6 +142,70 @@ const Hero = () => {
                   <div className="text-white/80 font-medium">Years Experience</div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Right content - iPhone frame with your image */}
+          <div className="relative lg:justify-self-end">
+            <div className="relative w-80 h-[600px] mx-auto">
+              {/* iPhone frame */}
+              <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[3rem] p-2 shadow-2xl">
+                <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
+                  {/* Notch */}
+                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-black rounded-full z-20"></div>
+                  
+                  {/* Content area */}
+                  <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative">
+                    {!isVideoPlaying ? (
+                      <>
+                        {/* Your image */}
+                        <img 
+                          src="/lovable-uploads/969dc144-8ea0-45cc-8375-b4bc44dc44c5.png" 
+                          alt="Business transformation expert introduction" 
+                          className="w-full h-full object-cover"
+                        />
+                        
+                        {/* Play button overlay */}
+                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                          <button
+                            onClick={() => setIsVideoPlaying(true)}
+                            className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 hover:scale-110 shadow-2xl"
+                          >
+                            <Play className="w-8 h-8 text-primary ml-1" fill="currentColor" />
+                          </button>
+                        </div>
+                        
+                        {/* Introduction overlay */}
+                        <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-2xl p-4">
+                          <p className="text-white font-semibold text-center">
+                            👋 Your Business Partner
+                          </p>
+                          <p className="text-white/80 text-sm text-center mt-1">
+                            Tap to see my intro video
+                          </p>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="w-full h-full bg-black flex items-center justify-center">
+                        {/* Video player placeholder - replace with actual video component */}
+                        <div className="text-white text-center">
+                          <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                          <p>Loading video...</p>
+                          <button
+                            onClick={() => setIsVideoPlaying(false)}
+                            className="mt-4 px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/80 transition-colors"
+                          >
+                            Back to Image
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              
+              {/* iPhone frame shadow */}
+              <div className="absolute inset-0 bg-gradient-to-b from-slate-600/50 to-slate-900/50 rounded-[3rem] blur-xl scale-105 -z-10"></div>
             </div>
           </div>
         </div>
