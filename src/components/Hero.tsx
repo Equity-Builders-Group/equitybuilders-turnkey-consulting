@@ -4,12 +4,12 @@ import { Play } from "lucide-react";
 import Hls from "hls.js";
 
 const Hero = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true); // Auto-start video
   const [isVideoMuted, setIsVideoMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (isVideoPlaying && videoRef.current) {
+    if (videoRef.current) {
       const video = videoRef.current;
       const hlsUrl = "https://vz-04e4a328-e19.b-cdn.net/bcdn_token=FlVqBXqhnnes9vOqZNQrtrbUItFo4yN1nlJoxXQLSfk&expires=1757108587&token_path=%2Ff7d046f6-838a-4f35-a366-910e288d31db%2F/f7d046f6-838a-4f35-a366-910e288d31db/playlist.m3u8";
 
@@ -35,7 +35,7 @@ const Hero = () => {
         video.play();
       }
     }
-  }, [isVideoPlaying]);
+  }, []);  // Run once on mount
 
   return (
     <section className="relative min-h-screen bg-gradient-primary overflow-hidden">
