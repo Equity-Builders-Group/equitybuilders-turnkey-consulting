@@ -82,8 +82,8 @@ const Services = () => {
           <div className="absolute inset-0 bg-gradient-to-l from-secondary/80 to-transparent"></div>
         </div>
         
-        {/* Floating service images */}
-        <div className="absolute top-20 left-20 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-accent/50 -rotate-12 transform hover:-rotate-6 transition-all duration-700">
+        {/* Floating service images - hidden on mobile */}
+        <div className="hidden lg:block absolute top-20 left-20 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-accent/50 -rotate-12 transform hover:-rotate-6 transition-all duration-700">
           <img 
             src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
             alt="Business development and consulting expert" 
@@ -92,7 +92,7 @@ const Services = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-secondary/40"></div>
         </div>
 
-        <div className="absolute bottom-20 right-32 w-72 h-72 rounded-2xl overflow-hidden shadow-xl border-6 border-white/40 rotate-12">
+        <div className="hidden lg:block absolute bottom-20 right-32 w-72 h-72 rounded-2xl overflow-hidden shadow-xl border-6 border-white/40 rotate-12">
           <img 
             src="/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png" 
             alt="Architectural development project" 
