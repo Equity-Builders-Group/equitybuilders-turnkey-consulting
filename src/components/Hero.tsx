@@ -8,8 +8,8 @@ const Hero = () => {
         {/* Large background professional image */}
         <div className="absolute right-0 top-0 w-3/5 h-full opacity-40">
           <img 
-            src="/lovable-uploads/969dc144-8ea0-45cc-8375-b4bc44dc44c5.png" 
-            alt="TurnKey Development founder and business consultant" 
+            src="/lovable-uploads/099d43ed-30ee-447a-8302-8f31d970c7b5.png" 
+            alt="TurnKey Development founder and consultant" 
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-l from-primary/80 via-primary/60 to-primary"></div>
@@ -29,16 +29,11 @@ const Hero = () => {
       {/* Floating professional images */}
       <div className="absolute top-16 right-16 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700">
         <img 
-          src="/lovable-uploads/969dc144-8ea0-45cc-8375-b4bc44dc44c5.png" 
-          alt="TurnKey Development business consultant and founder" 
+          src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
+          alt="TurnKey Development business consultant" 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/30"></div>
-        
-        {/* Introduction badge overlay */}
-        <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-xl p-3 border border-white/20">
-          <p className="text-white font-bold text-sm text-center">Your Business Transformation Expert</p>
-        </div>
       </div>
 
       {/* Additional floating construction project image */}
@@ -74,106 +69,73 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="max-w-4xl">
-            <div className="space-y-12">
-              {/* Main headline with bold styling */}
-              <div className="space-y-6">
-                <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-accent/30">
-                  <span className="text-accent font-bold text-lg">🚀 TRANSFORM YOUR BUSINESS</span>
-                </div>
-                
-                <h1 className="text-5xl lg:text-6xl font-black leading-none text-white">
-                  DISCOVER THE
-                  <span className="block text-accent drop-shadow-2xl">
-                    POWER OF
-                  </span>
-                  <span className="block bg-gradient-to-r from-white to-accent bg-clip-text text-transparent">
-                    TURNKEY
-                  </span>
-                  <span className="block text-white">
-                    DEVELOPMENT
-                  </span>
-                </h1>
-                
-                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
-                  <p className="text-xl text-white font-semibold leading-relaxed">
-                    FREE 15-Minute Strategy Call to 
-                    <span className="text-accent"> Skyrocket Your Revenue 📈</span>
-                  </p>
-                </div>
+        <div className="max-w-4xl">
+          <div className="space-y-12">
+            {/* Main headline with bold styling */}
+            <div className="space-y-6">
+              <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-accent/30">
+                <span className="text-accent font-bold text-lg">🚀 TRANSFORM YOUR BUSINESS</span>
               </div>
               
-              {/* Bold CTA section */}
-              <div className="space-y-6">
-                <Button 
-                  size="lg" 
-                  className="text-xl px-12 py-6 bg-white text-primary hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
-                >
-                  🎯 GET FREE STRATEGY SESSION
-                </Button>
-                
-                <div className="flex items-center gap-4 text-white/90">
-                  <div className="flex -space-x-2">
-                    <div className="w-10 h-10 rounded-full border-2 border-white bg-accent"></div>
-                    <div className="w-10 h-10 rounded-full border-2 border-white bg-secondary"></div>
-                    <div className="w-10 h-10 rounded-full border-2 border-white bg-primary"></div>
-                  </div>
-                  <span className="text-lg">Join 500+ successful businesses</span>
-                </div>
-              </div>
+              <h1 className="text-6xl lg:text-8xl font-black leading-none text-white">
+                DISCOVER THE
+                <span className="block text-accent drop-shadow-2xl">
+                  POWER OF
+                </span>
+                <span className="block bg-gradient-to-r from-white to-accent bg-clip-text text-transparent">
+                  TURNKEY
+                </span>
+                <span className="block text-white">
+                  DEVELOPMENT
+                </span>
+              </h1>
               
-              {/* Results showcase */}
-              <div className="bg-black/20 backdrop-blur-sm p-6 rounded-3xl border border-white/20">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="text-center space-y-2">
-                    <div className="text-3xl font-black text-accent">500+</div>
-                    <div className="text-white/80 font-medium text-sm">Projects Delivered</div>
-                  </div>
-                  <div className="text-center space-y-2">
-                    <div className="text-3xl font-black text-accent">98%</div>
-                    <div className="text-white/80 font-medium text-sm">Success Rate</div>
-                  </div>
-                  <div className="text-center space-y-2">
-                    <div className="text-3xl font-black text-accent">40%</div>
-                    <div className="text-white/80 font-medium text-sm">Revenue Boost</div>
-                  </div>
-                  <div className="text-center space-y-2">
-                    <div className="text-3xl font-black text-accent">15+</div>
-                    <div className="text-white/80 font-medium text-sm">Years Experience</div>
-                  </div>
-                </div>
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl">
+                <p className="text-2xl text-white font-semibold leading-relaxed">
+                  FREE 15-Minute Strategy Call to 
+                  <span className="text-accent"> Skyrocket Your Revenue 📈</span>
+                </p>
               </div>
             </div>
-          </div>
-          
-          {/* Right side with your new professional introduction image */}
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="relative">
-              {/* Main introduction image */}
-              <div className="w-96 h-96 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/30 transform rotate-2 hover:rotate-0 transition-all duration-700">
-                <img 
-                  src="/lovable-uploads/969dc144-8ea0-45cc-8375-b4bc44dc44c5.png" 
-                  alt="TurnKey Development founder and business transformation expert" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent"></div>
-                
-                {/* Introduction overlay */}
-                <div className="absolute bottom-6 left-6 right-6 bg-black/70 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <h3 className="text-white font-bold text-lg mb-1">Your Business Partner</h3>
-                  <p className="text-white/90 text-sm">Ready to transform your vision into results</p>
-                </div>
-              </div>
+            
+            {/* Bold CTA section */}
+            <div className="space-y-6">
+              <Button 
+                size="lg" 
+                className="text-2xl px-12 py-8 bg-white text-primary hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+              >
+                🎯 GET FREE STRATEGY SESSION
+              </Button>
               
-              {/* Floating construction project showcase */}
-              <div className="absolute -bottom-8 -left-8 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 rotate-6">
-                <img 
-                  src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
-                  alt="Construction project showcase" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-accent/30"></div>
+              <div className="flex items-center gap-4 text-white/90">
+                <div className="flex -space-x-2">
+                  <div className="w-10 h-10 rounded-full border-2 border-white bg-accent"></div>
+                  <div className="w-10 h-10 rounded-full border-2 border-white bg-secondary"></div>
+                  <div className="w-10 h-10 rounded-full border-2 border-white bg-primary"></div>
+                </div>
+                <span className="text-lg">Join 500+ successful businesses</span>
+              </div>
+            </div>
+            
+            {/* Results showcase */}
+            <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="text-center space-y-2">
+                  <div className="text-4xl font-black text-accent">500+</div>
+                  <div className="text-white/80 font-medium">Projects Delivered</div>
+                </div>
+                <div className="text-center space-y-2">
+                  <div className="text-4xl font-black text-accent">98%</div>
+                  <div className="text-white/80 font-medium">Success Rate</div>
+                </div>
+                <div className="text-center space-y-2">
+                  <div className="text-4xl font-black text-accent">40%</div>
+                  <div className="text-white/80 font-medium">Revenue Boost</div>
+                </div>
+                <div className="text-center space-y-2">
+                  <div className="text-4xl font-black text-accent">15+</div>
+                  <div className="text-white/80 font-medium">Years Experience</div>
+                </div>
               </div>
             </div>
           </div>
