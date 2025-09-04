@@ -117,10 +117,10 @@ const Hero = () => {
             {/* Main headline with bold styling */}
             <div className="space-y-6">
               <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-accent/30">
-                <span className="text-accent font-bold text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION DEVELOPMENT</span>
+                <span className="text-accent font-bold text-sm sm:text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION DEVELOPMENT</span>
               </div>
               
-              <h1 className="text-6xl lg:text-8xl font-black leading-none text-white">
+              <h1 className="text-4xl sm:text-5xl lg:text-8xl font-black leading-none text-white">
                 FROM EMPTY
                 <span className="block text-accent drop-shadow-2xl">
                   LOT TO
@@ -134,7 +134,7 @@ const Hero = () => {
               </h1>
               
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl">
-                <p className="text-2xl text-white font-semibold leading-relaxed">
+                <p className="text-lg sm:text-2xl text-white font-semibold leading-relaxed">
                   We guide investors, developers, and first-time builders through every step of the 
                   <span className="text-accent"> pre-construction and construction process 🏗️</span>
                   — from land search to permits to builder selection.
@@ -146,7 +146,7 @@ const Hero = () => {
             <div className="space-y-6">
               <Button 
                 size="lg" 
-                className="text-2xl px-12 py-8 bg-white text-primary hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+                className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-white text-primary hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
               >
                 📞 Book Your Consultation Today
               </Button>
@@ -263,7 +263,7 @@ const Hero = () => {
             
             {/* Floating arrow with unmute text - only show when video is playing and muted */}
             {isVideoPlaying && isVideoMuted && (
-              <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 animate-pulse">
+              <div className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 animate-pulse z-20">
                 <div className="relative">
                   {/* Curved arrow pointing up */}
                   <svg 
