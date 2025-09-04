@@ -8,8 +8,8 @@ const Hero = () => {
         {/* Large background professional image */}
         <div className="absolute right-0 top-0 w-3/5 h-full opacity-40">
           <img 
-            src="/lovable-uploads/099d43ed-30ee-447a-8302-8f31d970c7b5.png" 
-            alt="TurnKey Development founder and consultant" 
+            src="/lovable-uploads/969dc144-8ea0-45cc-8375-b4bc44dc44c5.png" 
+            alt="TurnKey Development founder and business consultant" 
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-l from-primary/80 via-primary/60 to-primary"></div>
@@ -29,11 +29,16 @@ const Hero = () => {
       {/* Floating professional images */}
       <div className="absolute top-16 right-16 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700">
         <img 
-          src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
-          alt="TurnKey Development business consultant" 
+          src="/lovable-uploads/969dc144-8ea0-45cc-8375-b4bc44dc44c5.png" 
+          alt="TurnKey Development business consultant and founder" 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/30"></div>
+        
+        {/* Introduction badge overlay */}
+        <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-xl p-3 border border-white/20">
+          <p className="text-white font-bold text-sm text-center">Your Business Transformation Expert</p>
+        </div>
       </div>
 
       {/* Additional floating construction project image */}
