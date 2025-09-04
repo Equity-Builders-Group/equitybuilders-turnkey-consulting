@@ -73,7 +73,7 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-2 lg:gap-8 items-center max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-2 lg:gap-2 items-center max-w-7xl">
           {/* Left content */}
           <div className="space-y-12">
             {/* Main headline with bold styling */}
