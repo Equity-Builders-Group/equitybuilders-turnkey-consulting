@@ -1,9 +1,36 @@
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Play } from "lucide-react";
+import Hls from "hls.js";
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (isVideoPlaying && videoRef.current) {
+      const video = videoRef.current;
+      const hlsUrl = "https://vz-04e4a328-e19.b-cdn.net/bcdn_token=FlVqBXqhnnes9vOqZNQrtrbUItFo4yN1nlJoxXQLSfk&expires=1757108587&token_path=%2Ff7d046f6-838a-4f35-a366-910e288d31db%2F/f7d046f6-838a-4f35-a366-910e288d31db/playlist.m3u8";
+
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(hlsUrl);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          video.play();
+        });
+        
+        return () => {
+          hls.destroy();
+        };
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Native HLS support (Safari)
+        video.src = hlsUrl;
+        video.play();
+      }
+    }
+  }, [isVideoPlaying]);
 
   return (
     <section className="relative min-h-screen bg-gradient-primary overflow-hidden">
@@ -223,22 +250,29 @@ const Hero = () => {
                         </div>
                       </>
                     ) : (
-                      <div className="w-full h-full bg-black relative">
-                        {/* CDN Video Embed */}
-                        <div className="w-full h-full">
-                          <iframe 
-                            src="https://iframe.mediadelivery.net/embed/189413/f7d046f6-838a-4f35-a366-910e288d31db?token=dbbc86f69ce87df605d09618ef8b5a015eb13744581b747d426b8e31bc5315cc&expires=1757108465&autoplay=true&loop=true&muted=true&preload=true&responsive=true"
-                            className="w-full h-full border-0"
-                            loading="lazy"
-                            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
-                            allowFullScreen
-                          />
-                        </div>
+                      <div className="w-full h-full bg-black">
+                        {/* HLS Video player */}
+                        <video 
+                          ref={videoRef}
+                          className="w-full h-full object-cover"
+                          controls
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          onVolumeChange={() => {
+                            if (videoRef.current) {
+                              setIsVideoMuted(videoRef.current.muted);
+                            }
+                          }}
+                        >
+                          Your browser does not support HLS video streaming.
+                        </video>
 
                         {/* Close button */}
                         <button
                           onClick={() => setIsVideoPlaying(false)}
-                          className="absolute top-4 right-4 px-4 py-2 bg-black/60 text-white rounded-lg hover:bg-black/80 transition-colors backdrop-blur-sm z-10"
+                          className="absolute top-4 right-4 px-4 py-2 bg-black/60 text-white rounded-lg hover:bg-black/80 transition-colors backdrop-blur-sm"
                         >
                           ✕ Close
                         </button>
@@ -251,6 +285,34 @@ const Hero = () => {
               {/* iPhone frame shadow */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-600/50 to-slate-900/50 rounded-[3rem] blur-xl scale-105 -z-10"></div>
             </div>
+            
+            {/* Floating arrow with unmute text - only show when video is playing and muted */}
+            {isVideoPlaying && isVideoMuted && (
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse z-20">
+                <div className="relative">
+                  {/* Curved arrow pointing up */}
+                  <svg 
+                    width="120" 
+                    height="60" 
+                    viewBox="0 0 120 60" 
+                    className="text-white drop-shadow-lg"
+                  >
+                    <path 
+                      d="M20 50 Q 60 20 100 30 L 90 35 M 100 30 L 95 20" 
+                      stroke="currentColor" 
+                      strokeWidth="3" 
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  {/* Text */}
+                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-white font-bold text-lg drop-shadow-lg whitespace-nowrap">
+                    Turn On Your Sound
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
