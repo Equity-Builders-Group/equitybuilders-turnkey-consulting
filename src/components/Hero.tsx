@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Play } from "lucide-react";
 
 const Hero = () => {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
 
   return (
     <section className="relative min-h-screen bg-gradient-primary overflow-hidden">
