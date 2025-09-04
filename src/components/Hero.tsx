@@ -151,7 +151,7 @@ const Hero = () => {
                 <span className="text-accent font-bold text-sm sm:text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION DEVELOPMENT</span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-8xl font-black leading-none text-white">
+              <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white text-center sm:text-left">
                 FROM EMPTY
                 <span className="block text-accent drop-shadow-2xl">
                   LOT TO
