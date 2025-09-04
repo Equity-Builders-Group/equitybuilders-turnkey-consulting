@@ -183,7 +183,7 @@ const Hero = () => {
           </div>
 
           {/* Right content - iPhone frame with your image */}
-          <div className="relative lg:justify-self-start">
+          <div className="relative lg:justify-self-start pl-8">
             <div className="relative w-64 h-[500px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px] mx-auto">
               {/* iPhone frame */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[3rem] p-2 shadow-2xl">
