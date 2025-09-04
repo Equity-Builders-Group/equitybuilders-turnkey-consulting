@@ -4,95 +4,112 @@ import professionalHeadshot2 from "@/assets/professional-headshot-2.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-primary flex items-center overflow-hidden">
-      {/* Background image overlays */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Large background professional image */}
-        <div className="absolute right-0 top-0 w-1/2 h-full opacity-20">
+    <section className="relative min-h-screen bg-gradient-primary overflow-hidden">
+      {/* Dominant background image */}
+      <div className="absolute inset-0">
+        <div className="absolute right-0 top-0 w-3/5 h-full opacity-60">
           <img 
             src={professionalHeadshot1} 
-            alt="Professional consultant background" 
-            className="w-full h-full object-cover object-center transform scale-110"
+            alt="Business transformation expert" 
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-transparent to-primary"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-primary/80 via-primary/60 to-primary"></div>
         </div>
-        
-        {/* Floating professional image */}
-        <div className="absolute top-20 right-20 w-48 h-48 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/30 rotate-6 transform hover:rotate-3 transition-transform duration-500">
-          <img 
-            src={professionalHeadshot2} 
-            alt="TurnKey Development expert" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
-        {/* Decorative gradient elements */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-3xl"></div>
+      </div>
+
+      {/* Floating professional images */}
+      <div className="absolute top-16 right-16 w-72 h-72 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700">
+        <img 
+          src={professionalHeadshot2} 
+          alt="TurnKey Development consultant" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/30"></div>
+      </div>
+
+      {/* Additional floating image */}
+      <div className="absolute bottom-32 right-8 w-48 h-48 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-6 transform hover:-rotate-3 transition-all duration-500">
+        <img 
+          src={professionalHeadshot1} 
+          alt="Business growth specialist" 
+          className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+        />
+      </div>
+
+      {/* Dynamic background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-32 left-16 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-16 left-32 w-80 h-80 bg-white/10 rounded-full blur-2xl"></div>
+        <div className="absolute top-1/2 left-1/3 w-[500px] h-[500px] bg-secondary/15 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-white">
-                Transform Your Business with
-                <span className="text-accent block drop-shadow-lg">
-                  TurnKey Development
+        <div className="max-w-4xl">
+          <div className="space-y-12">
+            {/* Main headline with bold styling */}
+            <div className="space-y-6">
+              <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-accent/30">
+                <span className="text-accent font-bold text-lg">🚀 TRANSFORM YOUR BUSINESS</span>
+              </div>
+              
+              <h1 className="text-6xl lg:text-8xl font-black leading-none text-white">
+                DISCOVER THE
+                <span className="block text-accent drop-shadow-2xl">
+                  POWER OF
+                </span>
+                <span className="block bg-gradient-to-r from-white to-accent bg-clip-text text-transparent">
+                  TURNKEY
+                </span>
+                <span className="block text-white">
+                  DEVELOPMENT
                 </span>
               </h1>
-              <p className="text-xl text-white/90 leading-relaxed">
-                Strategic consulting solutions that drive growth, optimize operations, 
-                and deliver measurable results for your organization.
-              </p>
+              
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl">
+                <p className="text-2xl text-white font-semibold leading-relaxed">
+                  FREE 15-Minute Strategy Call to 
+                  <span className="text-accent"> Skyrocket Your Revenue 📈</span>
+                </p>
+              </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-lg px-8 py-6 bg-white text-primary hover:bg-white/90 shadow-xl">
-                Schedule Free Consultation
+            {/* Bold CTA section */}
+            <div className="space-y-6">
+              <Button 
+                size="lg" 
+                className="text-2xl px-12 py-8 bg-white text-primary hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+              >
+                🎯 GET FREE STRATEGY SESSION
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-primary">
-                Learn More
-              </Button>
+              
+              <div className="flex items-center gap-4 text-white/90">
+                <div className="flex -space-x-2">
+                  <div className="w-10 h-10 rounded-full border-2 border-white bg-accent"></div>
+                  <div className="w-10 h-10 rounded-full border-2 border-white bg-secondary"></div>
+                  <div className="w-10 h-10 rounded-full border-2 border-white bg-primary"></div>
+                </div>
+                <span className="text-lg">Join 500+ successful businesses</span>
+              </div>
             </div>
             
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/20">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-accent">500+</div>
-                <div className="text-sm text-white/80">Projects Delivered</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-accent">98%</div>
-                <div className="text-sm text-white/80">Client Satisfaction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-accent">15+</div>
-                <div className="text-sm text-white/80">Years Experience</div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="relative">
-            <div className="aspect-square bg-gradient-accent rounded-3xl p-8 relative overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl"></div>
-              {/* Professional image overlay */}
-              <div className="absolute top-4 right-4 w-24 h-24 rounded-full overflow-hidden border-4 border-white/30">
-                <img 
-                  src="/src/assets/professional-headshot-1.jpg" 
-                  alt="Professional consultant" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="relative z-10 h-full flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="w-32 h-32 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto border border-white/30">
-                    <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white">Accelerate Growth</h3>
-                  <p className="text-white/90">Strategic solutions tailored to your business needs</p>
+            {/* Results showcase */}
+            <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="text-center space-y-2">
+                  <div className="text-4xl font-black text-accent">500+</div>
+                  <div className="text-white/80 font-medium">Projects Delivered</div>
+                </div>
+                <div className="text-center space-y-2">
+                  <div className="text-4xl font-black text-accent">98%</div>
+                  <div className="text-white/80 font-medium">Success Rate</div>
+                </div>
+                <div className="text-center space-y-2">
+                  <div className="text-4xl font-black text-accent">40%</div>
+                  <div className="text-white/80 font-medium">Revenue Boost</div>
+                </div>
+                <div className="text-center space-y-2">
+                  <div className="text-4xl font-black text-accent">15+</div>
+                  <div className="text-white/80 font-medium">Years Experience</div>
                 </div>
               </div>
             </div>
