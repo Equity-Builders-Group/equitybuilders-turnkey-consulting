@@ -185,7 +185,7 @@ const Hero = () => {
           </div>
 
           {/* Right content - iPhone frame with your image */}
-          <div className="relative flex justify-left lg:justify-start lg:pl-24">
+          <div className="relative flex justify-center lg:justify-start lg:pl-24">
             <div className="relative w-64 h-[500px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px]">
               {/* iPhone frame */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[3rem] p-2 shadow-2xl">
@@ -292,7 +292,7 @@ const Hero = () => {
         </div>
 
         {/* Mobile floating images - after content */}
-        <div className="lg:hidden mt-8 flex justify-center">
+        <div className="lg:hidden mt-20 flex justify-center">
           <div className="w-40 h-24 rounded-xl overflow-hidden shadow-lg border-2 border-accent/60 rotate-2">
             <img 
               src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
