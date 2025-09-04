@@ -30,8 +30,26 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Floating professional images */}
-      <div className="absolute top-16 right-16 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700">
+      {/* Left side floating construction images - hidden on mobile */}
+      <div className="hidden lg:block absolute top-20 left-8 w-64 h-64 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 rotate-6 transform hover:rotate-3 transition-all duration-500">
+        <img 
+          src="/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png" 
+          alt="Construction project by TurnKey Development" 
+          className="w-full h-full object-cover hover:scale-110 transition-all duration-500"
+        />
+      </div>
+
+      <div className="hidden lg:block absolute bottom-40 left-16 w-72 h-48 rounded-3xl overflow-hidden shadow-2xl border-6 border-white/40 -rotate-3 transform hover:-rotate-1 transition-all duration-700">
+        <img 
+          src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
+          alt="Architectural project showcase" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-accent/30"></div>
+      </div>
+
+      {/* Right side floating professional images - hidden on mobile */}
+      <div className="hidden lg:block absolute top-16 right-16 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700">
         <img 
           src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
           alt="TurnKey Development business consultant" 
@@ -40,8 +58,8 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/30"></div>
       </div>
 
-      {/* Additional floating construction project image */}
-      <div className="absolute bottom-32 right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-6 transform hover:-rotate-3 transition-all duration-500">
+      {/* Additional right side floating construction project image */}
+      <div className="hidden lg:block absolute bottom-32 right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-6 transform hover:-rotate-3 transition-all duration-500">
         <img 
           src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
           alt="Architectural project showcase" 
@@ -73,6 +91,24 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
+        {/* Mobile floating images - before content */}
+        <div className="lg:hidden mb-8 flex justify-center gap-4">
+          <div className="w-32 h-32 rounded-xl overflow-hidden shadow-lg border-2 border-accent/60 rotate-3">
+            <img 
+              src="/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png" 
+              alt="Construction project by TurnKey Development" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="w-32 h-32 rounded-xl overflow-hidden shadow-lg border-2 border-white/40 -rotate-3">
+            <img 
+              src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
+              alt="TurnKey Development business consultant" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-2 lg:gap-2 items-center max-w-7xl">
           {/* Left content */}
           <div className="space-y-12">
@@ -216,6 +252,17 @@ const Hero = () => {
               {/* iPhone frame shadow */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-600/50 to-slate-900/50 rounded-[3rem] blur-xl scale-105 -z-10"></div>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile floating images - after content */}
+        <div className="lg:hidden mt-8 flex justify-center">
+          <div className="w-40 h-24 rounded-xl overflow-hidden shadow-lg border-2 border-accent/60 rotate-2">
+            <img 
+              src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
+              alt="Architectural project showcase" 
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
