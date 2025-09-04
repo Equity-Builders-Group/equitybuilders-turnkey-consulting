@@ -93,22 +93,6 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
-        {/* Logo section */}
-        <div className="flex justify-center mb-8">
-          <div className="flex flex-col sm:flex-row items-center gap-4 bg-white/10 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/20">
-            <div className="w-16 h-16 sm:w-12 sm:h-12">
-              <img 
-                src="/lovable-uploads/4599910b-4b3b-4e6e-8e37-a11e8a1a92c5.png" 
-                alt="Equity Builders Logo" 
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="text-white font-bold text-xl sm:text-2xl">
-              EQUITY BUILDERS
-            </div>
-          </div>
-        </div>
-
         {/* Mobile floating images - before content */}
         <div className="lg:hidden mb-8 flex justify-center gap-4">
           <div className="w-32 h-32 rounded-xl overflow-hidden shadow-lg border-2 border-accent/60 rotate-3">
