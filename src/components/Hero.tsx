@@ -147,12 +147,12 @@ const Hero = () => {
 
           {/* Right content - iPhone frame with your image */}
           <div className="relative lg:justify-self-end">
-            <div className="relative w-80 h-[600px] mx-auto">
+            <div className="relative w-96 h-[800px] mx-auto">
               {/* iPhone frame */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[3rem] p-2 shadow-2xl">
                 <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
                   {/* Notch */}
-                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-black rounded-full z-20"></div>
+                  <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full z-20"></div>
                   
                   {/* Content area */}
                   <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative">
@@ -169,18 +169,18 @@ const Hero = () => {
                         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                           <button
                             onClick={() => setIsVideoPlaying(true)}
-                            className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 hover:scale-110 shadow-2xl"
+                            className="w-28 h-28 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 hover:scale-110 shadow-2xl"
                           >
-                            <Play className="w-8 h-8 text-primary ml-1" fill="currentColor" />
+                            <Play className="w-12 h-12 text-primary ml-1" fill="currentColor" />
                           </button>
                         </div>
                         
                         {/* Introduction overlay */}
-                        <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm rounded-2xl p-4">
-                          <p className="text-white font-semibold text-center">
+                        <div className="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-sm rounded-2xl p-6">
+                          <p className="text-white font-semibold text-center text-lg">
                             👋 Your Business Partner
                           </p>
-                          <p className="text-white/80 text-sm text-center mt-1">
+                          <p className="text-white/80 text-base text-center mt-2">
                             Tap to see my intro video
                           </p>
                         </div>
