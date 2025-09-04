@@ -26,8 +26,8 @@ const CTA = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-accent to-transparent"></div>
         </div>
         
-        {/* Floating CTA images */}
-        <div className="absolute bottom-20 left-16 w-80 h-80 rounded-2xl overflow-hidden shadow-2xl border-6 border-white/50 rotate-6 transform hover:rotate-3 transition-all duration-700">
+        {/* Floating CTA images - adjusted for mobile */}
+        <div className="absolute bottom-20 left-4 lg:left-16 w-48 h-48 lg:w-80 lg:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 lg:border-6 border-white/50 rotate-6 hover:rotate-3 transition-all duration-700">
           <img 
             src="/lovable-uploads/099d43ed-30ee-447a-8302-8f31d970c7b5.png" 
             alt="Professional business growth expert" 
@@ -36,8 +36,8 @@ const CTA = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-accent/30"></div>
         </div>
         
-        {/* Additional construction project showcase */}
-        <div className="absolute top-20 right-20 w-64 h-64 rounded-full overflow-hidden shadow-xl border-4 border-accent/60 -rotate-12">
+        {/* Additional construction project showcase - centered on mobile */}
+        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 lg:top-20 lg:left-auto lg:right-20 lg:transform-none w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-xl border-4 border-accent/60 -rotate-12">
           <img 
             src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
             alt="Architectural development expertise" 
@@ -69,7 +69,7 @@ const CTA = () => {
         </div>
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 mt-48 lg:mt-0">
         <div className="max-w-5xl mx-auto">
           {/* Bold headline section */}
           <div className="text-center mb-16">
