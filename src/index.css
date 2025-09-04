@@ -29,6 +29,9 @@ All colors MUST be HSL.
     --accent: 120 90% 35%;
     --accent-foreground: 0 0% 100%;
 
+    --highlight: 46 100% 50%;
+    --highlight-foreground: 0 0% 0%;
+
     /* Custom vibrant green gradients */
     --gradient-primary: linear-gradient(135deg, hsl(120, 100%, 25%), hsl(120, 90%, 35%));
     --gradient-secondary: linear-gradient(135deg, hsl(120, 80%, 20%), hsl(120, 100%, 25%));
@@ -81,6 +84,9 @@ All colors MUST be HSL.
 
     --accent: 120 100% 65%;
     --accent-foreground: 120 100% 8%;
+
+    --highlight: 46 100% 60%;
+    --highlight-foreground: 0 0% 0%;
 
     /* Dark mode gradients */
     --gradient-primary: linear-gradient(135deg, hsl(120, 85%, 55%), hsl(120, 100%, 65%));

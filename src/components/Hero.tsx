@@ -78,16 +78,16 @@ const Hero = () => {
           <div className="space-y-12">
             {/* Main headline with bold styling */}
             <div className="space-y-6">
-              <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-accent/30">
-                <span className="text-accent font-bold text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION DEVELOPMENT</span>
+              <div className="inline-block bg-highlight/20 backdrop-blur-sm px-6 py-3 rounded-full border border-highlight/30">
+                <span className="text-highlight font-bold text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION DEVELOPMENT</span>
               </div>
               
               <h1 className="text-6xl lg:text-8xl font-black leading-none text-white">
                 FROM EMPTY
-                <span className="block text-accent drop-shadow-2xl">
+                <span className="block text-highlight drop-shadow-2xl">
                   LOT TO
                 </span>
-                <span className="block bg-gradient-to-r from-white to-accent bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent">
                   COMPLETED
                 </span>
                 <span className="block text-white">
@@ -98,7 +98,7 @@ const Hero = () => {
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl">
                 <p className="text-2xl text-white font-semibold leading-relaxed">
                   We guide investors, developers, and first-time builders through every step of the 
-                  <span className="text-accent"> pre-construction and construction process 🏗️</span>
+                  <span className="text-highlight"> pre-construction and construction process 🏗️</span>
                   — from land search to permits to builder selection.
                 </p>
               </div>
@@ -108,7 +108,7 @@ const Hero = () => {
             <div className="space-y-6">
               <Button 
                 size="lg" 
-                className="text-2xl px-12 py-8 bg-white text-primary hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+                className="text-2xl px-12 py-8 bg-white text-primary hover:bg-highlight hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
               >
                 📞 Book Your Consultation Today
               </Button>
@@ -127,19 +127,19 @@ const Hero = () => {
             <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-accent">500+</div>
+                  <div className="text-4xl font-black text-highlight">500+</div>
                   <div className="text-white/80 font-medium">Projects Delivered</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-accent">98%</div>
+                  <div className="text-4xl font-black text-highlight">98%</div>
                   <div className="text-white/80 font-medium">Success Rate</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-accent">40%</div>
+                  <div className="text-4xl font-black text-highlight">40%</div>
                   <div className="text-white/80 font-medium">Revenue Boost</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-accent">15+</div>
+                  <div className="text-4xl font-black text-highlight">15+</div>
                   <div className="text-white/80 font-medium">Years Experience</div>
                 </div>
               </div>
