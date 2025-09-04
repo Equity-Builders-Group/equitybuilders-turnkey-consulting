@@ -263,7 +263,7 @@ const Hero = () => {
             
             {/* Floating arrow with unmute text - only show when video is playing and muted */}
             {isVideoPlaying && isVideoMuted && (
-              <div className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 animate-pulse z-20">
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-pulse z-20">
                 <div className="relative">
                   {/* Curved arrow pointing up */}
                   <svg 
