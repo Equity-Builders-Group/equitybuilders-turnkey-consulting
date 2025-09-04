@@ -73,7 +73,7 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center max-w-7xl">
           {/* Left content */}
           <div className="space-y-12">
             {/* Main headline with bold styling */}
@@ -147,12 +147,12 @@ const Hero = () => {
 
           {/* Right content - iPhone frame with your image */}
           <div className="relative lg:justify-self-end">
-            <div className="relative w-96 h-[800px] mx-auto">
+            <div className="relative w-64 h-[500px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px] mx-auto">
               {/* iPhone frame */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[3rem] p-2 shadow-2xl">
                 <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
                   {/* Notch */}
-                  <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-32 h-8 bg-black rounded-full z-20"></div>
+                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-20 h-6 sm:w-24 sm:h-6 lg:w-32 lg:h-8 bg-black rounded-full z-20"></div>
                   
                   {/* Content area */}
                   <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative">
@@ -186,18 +186,26 @@ const Hero = () => {
                         </div>
                       </>
                     ) : (
-                      <div className="w-full h-full bg-black flex items-center justify-center">
-                        {/* Video player placeholder - replace with actual video component */}
-                        <div className="text-white text-center">
-                          <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                          <p>Loading video...</p>
-                          <button
-                            onClick={() => setIsVideoPlaying(false)}
-                            className="mt-4 px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/80 transition-colors"
-                          >
-                            Back to Image
-                          </button>
-                        </div>
+                      <div className="w-full h-full bg-black">
+                        {/* Video player */}
+                        <video 
+                          src="https://www.dropbox.com/scl/fi/tpjlx539ucrc6xupunzr9/IMG_5896.mov?rlkey=dkftvfl3my0xmfsuegfu0xv0k&dl=1"
+                          className="w-full h-full object-cover"
+                          controls
+                          autoPlay
+                          muted
+                          playsInline
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                        
+                        {/* Close button */}
+                        <button
+                          onClick={() => setIsVideoPlaying(false)}
+                          className="absolute top-4 right-4 px-4 py-2 bg-black/60 text-white rounded-lg hover:bg-black/80 transition-colors backdrop-blur-sm"
+                        >
+                          ✕ Close
+                        </button>
                       </div>
                     )}
                   </div>
