@@ -1,13 +1,35 @@
 import { Button } from "@/components/ui/button";
+import professionalHeadshot1 from "@/assets/professional-headshot-1.jpg";
+import professionalHeadshot2 from "@/assets/professional-headshot-2.jpg";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen bg-gradient-primary flex items-center overflow-hidden">
-      {/* Background decorative elements */}
+      {/* Background image overlays */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Large background professional image */}
+        <div className="absolute right-0 top-0 w-1/2 h-full opacity-20">
+          <img 
+            src={professionalHeadshot1} 
+            alt="Professional consultant background" 
+            className="w-full h-full object-cover object-center transform scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent to-primary"></div>
+        </div>
+        
+        {/* Floating professional image */}
+        <div className="absolute top-20 right-20 w-48 h-48 rounded-2xl overflow-hidden shadow-2xl border-4 border-white/30 rotate-6 transform hover:rotate-3 transition-transform duration-500">
+          <img 
+            src={professionalHeadshot2} 
+            alt="TurnKey Development expert" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        {/* Decorative gradient elements */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
