@@ -69,6 +69,14 @@ const About = () => {
           <div className="relative">
             <div className="aspect-[4/5] bg-gradient-primary rounded-2xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+              {/* Professional image */}
+              <div className="absolute bottom-4 left-4 w-20 h-20 rounded-xl overflow-hidden border-4 border-white/30">
+                <img 
+                  src="/src/assets/professional-headshot-2.jpg" 
+                  alt="TurnKey Development consultant" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="relative z-10 h-full p-8 flex flex-col justify-between">
                 <div className="space-y-4">
                   <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">

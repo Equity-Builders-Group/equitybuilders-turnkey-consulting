@@ -54,6 +54,14 @@ const Hero = () => {
           <div className="relative">
             <div className="aspect-square bg-gradient-accent rounded-3xl p-8 relative overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl"></div>
+              {/* Professional image overlay */}
+              <div className="absolute top-4 right-4 w-24 h-24 rounded-full overflow-hidden border-4 border-white/30">
+                <img 
+                  src="/src/assets/professional-headshot-1.jpg" 
+                  alt="Professional consultant" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="relative z-10 h-full flex items-center justify-center">
                 <div className="text-center space-y-4">
                   <div className="w-32 h-32 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto border border-white/30">

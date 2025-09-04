@@ -8,31 +8,31 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 147 15% 98%;
-    --foreground: 147 100% 8%;
+    --background: 120 15% 98%;
+    --foreground: 120 100% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 147 100% 8%;
+    --card-foreground: 120 100% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 147 100% 8%;
+    --popover-foreground: 120 100% 8%;
 
-    --primary: 147 85% 35%;
+    --primary: 120 100% 25%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 147 60% 25%;
+    --secondary: 120 80% 20%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 147 25% 90%;
-    --muted-foreground: 147 35% 35%;
+    --muted: 120 25% 90%;
+    --muted-foreground: 120 35% 35%;
 
-    --accent: 147 70% 45%;
+    --accent: 120 90% 35%;
     --accent-foreground: 0 0% 100%;
 
-    /* Custom green gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(147, 85%, 35%), hsl(147, 70%, 45%));
-    --gradient-secondary: linear-gradient(135deg, hsl(147, 60%, 25%), hsl(147, 85%, 35%));
-    --gradient-accent: linear-gradient(135deg, hsl(147, 70%, 45%), hsl(147, 85%, 55%));
+    /* Custom vibrant green gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(120, 100%, 25%), hsl(120, 90%, 35%));
+    --gradient-secondary: linear-gradient(135deg, hsl(120, 80%, 20%), hsl(120, 100%, 25%));
+    --gradient-accent: linear-gradient(135deg, hsl(120, 90%, 35%), hsl(120, 100%, 45%));
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -61,31 +61,31 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 147 60% 8%;
-    --foreground: 147 25% 95%;
+    --background: 120 60% 8%;
+    --foreground: 120 25% 95%;
 
-    --card: 147 45% 12%;
-    --card-foreground: 147 25% 95%;
+    --card: 120 45% 12%;
+    --card-foreground: 120 25% 95%;
 
-    --popover: 147 45% 12%;
-    --popover-foreground: 147 25% 95%;
+    --popover: 120 45% 12%;
+    --popover-foreground: 120 25% 95%;
 
-    --primary: 147 75% 55%;
-    --primary-foreground: 147 100% 8%;
+    --primary: 120 85% 55%;
+    --primary-foreground: 120 100% 8%;
 
-    --secondary: 147 85% 35%;
-    --secondary-foreground: 147 100% 8%;
+    --secondary: 120 90% 35%;
+    --secondary-foreground: 120 100% 8%;
 
-    --muted: 147 35% 15%;
-    --muted-foreground: 147 25% 75%;
+    --muted: 120 35% 15%;
+    --muted-foreground: 120 25% 75%;
 
-    --accent: 147 80% 65%;
-    --accent-foreground: 147 100% 8%;
+    --accent: 120 100% 65%;
+    --accent-foreground: 120 100% 8%;
 
     /* Dark mode gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(147, 75%, 55%), hsl(147, 80%, 65%));
-    --gradient-secondary: linear-gradient(135deg, hsl(147, 85%, 35%), hsl(147, 75%, 55%));
-    --gradient-accent: linear-gradient(135deg, hsl(147, 80%, 65%), hsl(147, 85%, 75%));
+    --gradient-primary: linear-gradient(135deg, hsl(120, 85%, 55%), hsl(120, 100%, 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(120, 90%, 35%), hsl(120, 85%, 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(120, 100%, 65%), hsl(120, 100%, 75%));
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
