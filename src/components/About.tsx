@@ -3,10 +3,20 @@ import { Button } from "@/components/ui/button";
 const About = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-accent/20 via-background to-primary/10 relative overflow-hidden">
-      {/* Background with your real photo and construction projects */}
+      {/* Background with architectural drawing and construction projects */}
       <div className="absolute inset-0">
+        {/* Architectural drawing background */}
+        <div className="absolute inset-0 opacity-10">
+          <img 
+            src="/lovable-uploads/5df938db-8063-4672-9fdb-4bb75420dbc7.png" 
+            alt="Construction site plan and architectural drawing" 
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-background/60"></div>
+        </div>
+        
         {/* Main professional photo background */}
-        <div className="absolute right-0 top-0 w-1/2 h-full opacity-25">
+        <div className="absolute right-0 top-0 w-1/2 h-full opacity-20">
           <img 
             src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
             alt="TurnKey Development leadership and expertise" 
@@ -16,7 +26,7 @@ const About = () => {
         </div>
         
         {/* Construction project texture */}
-        <div className="absolute left-0 bottom-0 w-3/5 h-1/2 opacity-15">
+        <div className="absolute left-0 bottom-0 w-3/5 h-1/2 opacity-12">
           <img 
             src="/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png" 
             alt="Quality construction and development work" 
