@@ -6,6 +6,7 @@ import Hls from "hls.js";
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true); // Auto-start video
   const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const [hasUnmutedOnce, setHasUnmutedOnce] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -267,7 +268,15 @@ const Hero = () => {
                           playsInline
                           onVolumeChange={() => {
                             if (videoRef.current) {
-                              setIsVideoMuted(videoRef.current.muted);
+                              const previousMuted = isVideoMuted;
+                              const currentMuted = videoRef.current.muted;
+                              setIsVideoMuted(currentMuted);
+                              
+                              // If video was previously muted and is now unmuted for the first time
+                              if (previousMuted && !currentMuted && !hasUnmutedOnce) {
+                                setHasUnmutedOnce(true);
+                                videoRef.current.currentTime = 0; // Restart from beginning
+                              }
                             }
                           }}
                         >
