@@ -236,6 +236,32 @@ const Hero = () => {
                           Your browser does not support the video tag.
                         </video>
                         
+                        {/* Floating arrow with unmute text */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none animate-pulse">
+                          <div className="relative">
+                            {/* Curved arrow */}
+                            <svg 
+                              width="120" 
+                              height="80" 
+                              viewBox="0 0 120 80" 
+                              className="text-white drop-shadow-lg"
+                            >
+                              <path 
+                                d="M20 20 Q 60 5 100 30 L 90 25 M 100 30 L 90 35" 
+                                stroke="currentColor" 
+                                strokeWidth="3" 
+                                fill="none"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            {/* Text */}
+                            <div className="absolute -top-8 left-0 text-white font-bold text-lg drop-shadow-lg">
+                              Click to unmute!
+                            </div>
+                          </div>
+                        </div>
+
                         {/* Close button */}
                         <button
                           onClick={() => setIsVideoPlaying(false)}
