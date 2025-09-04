@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
-import { Play } from "lucide-react";
+import { Play, Megaphone } from "lucide-react";
 import Hls from "hls.js";
 
 const Hero = () => {
@@ -315,25 +315,14 @@ const Hero = () => {
                   }
                 }}
               >
-                <div className="relative">
-                  {/* Curved arrow pointing up */}
-                  <svg 
-                    width="120" 
-                    height="60" 
-                    viewBox="0 0 120 60" 
-                    className="text-white drop-shadow-lg"
-                  >
-                    <path 
-                      d="M20 50 Q 60 20 100 30 L 90 35 M 100 30 L 95 20" 
-                      stroke="currentColor" 
-                      strokeWidth="3" 
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                <div className="relative flex flex-col items-center">
+                  {/* Megaphone/Sound Horn Icon */}
+                  <Megaphone 
+                    size={48} 
+                    className="text-white drop-shadow-lg mb-4" 
+                  />
                   {/* Text */}
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow-2xl">
+                  <div className="bg-black/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow-2xl">
                     <div className="text-white font-bold text-lg drop-shadow-lg whitespace-nowrap">
                       Turn On Your Sound
                     </div>
