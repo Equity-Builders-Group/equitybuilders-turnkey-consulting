@@ -196,18 +196,6 @@ const ClientShowcase = () => {
           ))}
         </div>
 
-        {/* Upload section for admin */}
-        <div className="mt-20 text-center">
-          <div className="bg-muted/50 backdrop-blur-sm p-8 rounded-3xl border border-border max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Add Your Project</h3>
-            <p className="text-muted-foreground mb-6">
-              Ready to showcase your next development? Upload project images and share your success story.
-            </p>
-            <div className="flex items-center justify-center gap-4 text-primary text-lg font-semibold">
-              <span>📤</span> Contact us to feature your project
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
