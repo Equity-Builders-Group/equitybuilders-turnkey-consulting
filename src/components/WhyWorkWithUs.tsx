@@ -56,7 +56,7 @@ const WhyWorkWithUs = () => {
           </h2>
           
           <p className="text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-            We don't just talk about results — we deliver them. Here's what sets us apart in the competitive world of real estate development.
+            We don't just talk about results — we deliver them. We will teach you how to fish in this Real Estate development game for a fraction of your profit potential. Here's what sets us apart in the competitive world of real estate development.
           </p>
         </div>
         
