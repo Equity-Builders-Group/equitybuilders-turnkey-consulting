@@ -160,7 +160,7 @@ const Hero = () => {
           <div className="space-y-12 order-2 lg:order-1">
             {/* Main headline with bold styling */}
             <div className="space-y-6">
-              <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-accent/30">
+              <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/60">
                 <span className="text-accent font-bold text-sm sm:text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION DEVELOPMENT</span>
               </div>
               
