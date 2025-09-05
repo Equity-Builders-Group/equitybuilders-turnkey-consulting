@@ -126,7 +126,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-20 relative z-10">
         {/* Mobile-only top heading */}
         <div className="lg:hidden mb-12">
-          <h2 className="text-5xl sm:text-6xl font-bangla font-black leading-none text-white text-center">
+          <h2 className="text-5xl sm:text-6xl font-black leading-none text-white text-center">
             TURNKEY,
             <span className="block text-accent drop-shadow-2xl">
               WE WILL DO
