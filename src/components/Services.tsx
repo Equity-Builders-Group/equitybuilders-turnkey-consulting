@@ -131,15 +131,14 @@ const Services = () => {
           </div>
           
           <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white">
-            ACCELERATE YOUR
+            WE WILL TAKE YOU
             <span className="block text-accent drop-shadow-2xl">
-              BUSINESS SUCCESS
+              FROM A TO Z
             </span>
           </h2>
           
           <p className="text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-            Comprehensive consulting solutions designed to transform your business 
-            and <span className="text-accent font-semibold">drive sustainable growth</span> across all operational areas.
+            Use our experience, our team, our vendors, relationships, and take all of our knowledge and processes around developing residential 1 to 4 family properties for a flat fee.
           </p>
         </div>
         
