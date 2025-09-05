@@ -60,7 +60,7 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
           {/* VSL Player */}
           <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl aspect-video max-w-4xl mx-auto">
             <iframe
-              src="https://vz-447b6532-fd2.b-cdn.net/c6b998b8-9763-4324-94ea-1b19b14c3dc1/iframe?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
+              src="https://vz-447b6532-fd2.b-cdn.net/114d20b4-b152-48e8-b8d1-0a0e12470326/iframe?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
               className="w-full h-full border-none"
               title="TurnKey Development VSL"
               allow="autoplay; fullscreen"
