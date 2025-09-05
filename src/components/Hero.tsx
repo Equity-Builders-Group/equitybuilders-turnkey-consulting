@@ -161,7 +161,7 @@ const Hero = () => {
             {/* Main headline with bold styling */}
             <div className="space-y-6">
               <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/60">
-                <span className="text-accent font-bold text-sm sm:text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION DEVELOPMENT</span>
+                <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION DEVELOPMENT</span>
               </div>
               
               <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white text-center sm:text-left">
