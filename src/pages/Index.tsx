@@ -5,6 +5,8 @@ import WhyWorkWithUs from "@/components/WhyWorkWithUs";
 import ClientShowcase from "@/components/ClientShowcase";
 import About from "@/components/About";
 import CTA from "@/components/CTA";
+import NovalTransition from "@/components/NovalTransition";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -16,6 +18,8 @@ const Index = () => {
       <ClientShowcase />
       <About />
       <CTA />
+      <NovalTransition />
+      <Footer />
     </div>
   );
 };
