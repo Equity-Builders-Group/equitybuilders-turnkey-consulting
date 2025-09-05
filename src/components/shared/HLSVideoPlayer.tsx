@@ -222,7 +222,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
         <div 
           className={`absolute cursor-pointer z-20 ${
             unmuteButtonPosition === "center" 
-              ? "top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse" 
+              ? "top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" 
               : "bottom-6 left-6 right-6"
           }`}
           onClick={handleUnmuteClick}
@@ -230,13 +230,19 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
           <div className="flex flex-col items-center">
             <Volume2 
               size={unmuteButtonPosition === "center" ? 48 : 32} 
-              className="text-white drop-shadow-2xl mb-2" 
+              className="text-white drop-shadow-2xl mb-2 animate-pulse" 
             />
             
-            <div className="bg-black/80 backdrop-blur-sm px-6 py-3 rounded-full border-2 border-white">
-              <span className="text-white font-bold text-lg">
-                🔊 Turn On Sound
-              </span>
+            <div className="relative">
+              {/* Pulsing border effect */}
+              <div className="absolute inset-0 bg-transparent rounded-full border-2 border-white animate-ping"></div>
+              
+              {/* Main button */}
+              <div className="relative bg-black/80 backdrop-blur-sm px-6 py-3 rounded-full border-2 border-white">
+                <span className="text-white font-bold text-lg">
+                  🔊 Turn On Sound
+                </span>
+              </div>
             </div>
           </div>
         </div>
