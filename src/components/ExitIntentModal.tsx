@@ -1,5 +1,6 @@
-import { X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { X, Volume2 } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import Hls from "hls.js";
 
 interface ExitIntentModalProps {
   isOpen: boolean;
@@ -8,6 +9,9 @@ interface ExitIntentModalProps {
 
 const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
   const [showModal, setShowModal] = useState(false);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const [hasUnmutedOnce, setHasUnmutedOnce] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -20,6 +24,34 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
     return () => {
       document.body.style.overflow = 'unset';
     };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (videoRef.current && isOpen) {
+      const video = videoRef.current;
+      const hlsUrl = "https://vz-447b6532-fd2.b-cdn.net/114d20b4-b152-48e8-b8d1-0a0e12470326/playlist.m3u8";
+
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(hlsUrl);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MEDIA_ATTACHED, () => {
+          console.log('Media has been attached');
+          hls.on(Hls.Events.MANIFEST_PARSED, () => {
+            console.log('Manifest has been parsed, trying to play...');
+            video.play();
+          });
+        });
+              
+        return () => {
+          hls.destroy();
+        };
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Native HLS support (Safari)
+        video.src = hlsUrl;
+        video.play();
+      }
+    }
   }, [isOpen]);
 
   if (!showModal) return null;
@@ -57,15 +89,64 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
             </p>
           </div>
 
-          {/* VSL Player */}
+          {/* HLS Video Player */}
           <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl aspect-video max-w-4xl mx-auto">
-            <iframe
-              src="https://vz-447b6532-fd2.b-cdn.net/114d20b4-b152-48e8-b8d1-0a0e12470326/iframe?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
-              className="w-full h-full border-none"
-              title="TurnKey Development VSL"
-              allow="autoplay; fullscreen"
-              allowFullScreen
-            />
+            <video 
+              ref={videoRef}
+              className="w-full h-full object-cover"
+              controls={!isVideoMuted}
+              autoPlay
+              muted
+              loop
+              playsInline
+              onVolumeChange={() => {
+                if (videoRef.current) {
+                  const previousMuted = isVideoMuted;
+                  const currentMuted = videoRef.current.muted;
+                  setIsVideoMuted(currentMuted);
+                  
+                  // If video was previously muted and is now unmuted for the first time
+                  if (previousMuted && !currentMuted && !hasUnmutedOnce) {
+                    setHasUnmutedOnce(true);
+                    videoRef.current.currentTime = 0; // Restart from beginning
+                  }
+                }
+              }}
+            >
+              Your browser does not support HLS video streaming.
+            </video>
+
+            {/* Turn On Sound button - only show when video is muted */}
+            {isVideoMuted && (
+              <div 
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse z-20 cursor-pointer"
+                onClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.muted = false;
+                    setIsVideoMuted(false);
+                    if (!hasUnmutedOnce) {
+                      setHasUnmutedOnce(true);
+                      videoRef.current.currentTime = 0;
+                    }
+                  }
+                }}
+              >
+                <div className="relative flex flex-col items-center">
+                  {/* Volume/Sound Icon */}
+                  <Volume2 
+                    size={48} 
+                    className="text-white drop-shadow-2xl mb-2" 
+                  />
+                  
+                  {/* Turn On Sound Text */}
+                  <div className="bg-black/80 backdrop-blur-sm px-6 py-3 rounded-full border-2 border-white">
+                    <span className="text-white font-bold text-lg">
+                      🔊 Turn On Sound
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* CTA below video */}
