@@ -193,7 +193,7 @@ const Hero = () => {
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl">
                 <p className="text-lg sm:text-2xl text-white font-semibold leading-relaxed">
                   We guide investors, developers, and first-time builders through every step of the 
-                  <span className="text-accent"> pre-construction and construction process 🏗️</span>
+                  <span className="text-highlight"> pre-construction and construction process 🏗️</span>
                   — from land search to permits to builder selection.
                 </p>
               </div>
