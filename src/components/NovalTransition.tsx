@@ -26,8 +26,7 @@ const NovalTransition = () => {
               className="h-10 w-auto"
             />
             <div className="text-white font-['Georgia',serif] whitespace-nowrap">
-              <div className="text-2xl font-bold tracking-wide">NOVAL</div>
-              <div className="text-sm font-light tracking-widest opacity-90">CAPITAL GROUP</div>
+              <div className="text-xl font-bold tracking-wide">NOVAL CAPITAL GROUP</div>
             </div>
           </a>
         </div>
