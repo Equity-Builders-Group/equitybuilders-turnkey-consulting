@@ -160,6 +160,19 @@ const Hero = () => {
           <div className="space-y-12 order-2 lg:order-1">
             {/* Main headline with bold styling */}
             <div className="space-y-6">
+              {/* Desktop-only top heading */}
+              <div className="hidden lg:block">
+                <h3 className="text-3xl font-black leading-none text-white text-center sm:text-left mb-4">
+                  TURN KEY DEVELOPMENT,
+                  <span className="block text-accent drop-shadow-2xl">
+                    WE WILL DO
+                  </span>
+                  <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent">
+                    ALL THE WORK!
+                  </span>
+                </h3>
+              </div>
+              
               <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/60">
                 <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION DEVELOPMENT</span>
               </div>
