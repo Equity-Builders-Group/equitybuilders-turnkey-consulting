@@ -174,7 +174,7 @@ const Hero = () => {
               </div>
               
               <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/60">
-                <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">🏗️ DONE-FOR-YOU CONSTRUCTION DEVELOPMENT</span>
+                <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">🏗️ DONE-FOR-YOU NEW CONSTRUCTION</span>
               </div>
               
               <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white text-center sm:text-left">
