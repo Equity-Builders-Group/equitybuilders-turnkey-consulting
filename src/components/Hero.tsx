@@ -174,12 +174,12 @@ const Hero = () => {
 
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-2 items-center max-w-7xl">
           {/* Left content */}
-          <div className="space-y-12 order-2 lg:order-1">
+          <div className="space-y-12 order-2 lg:order-1 text-center lg:text-left">
             {/* Main headline with bold styling */}
             <div className="space-y-6">
               {/* Desktop-only top heading */}
               <div className="hidden lg:block">
-                <h3 className="text-3xl font-black leading-none text-white text-center sm:text-left mb-4">
+                <h3 className="text-3xl font-black leading-none text-white text-left mb-4">
                   TURN KEY DEVELOPMENT,
                   <span className="block text-accent drop-shadow-2xl">
                     WE WILL DO
@@ -194,7 +194,7 @@ const Hero = () => {
                 <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">🏗️ DONE-FOR-YOU NEW CONSTRUCTION</span>
               </div>
               
-              <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white text-center sm:text-left">
+              <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white">
                 FROM EMPTY
                 <span className="block text-accent drop-shadow-2xl">
                   LOT TO
@@ -207,7 +207,7 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl">
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl mx-auto lg:mx-0">
                 <p className="text-lg sm:text-2xl text-white font-semibold leading-relaxed">
                   We guide investors, developers, and first-time builders through every step of the 
                   <span className="text-highlight"> pre-construction and construction process 🏗️</span>
@@ -226,7 +226,7 @@ const Hero = () => {
                 📞 Book Your Consultation Today
               </Button>
               
-              <div className="flex items-center gap-4 text-white/90">
+              <div className="flex items-center justify-center lg:justify-start gap-4 text-white/90">
                 <div className="flex -space-x-2">
                   <div className="w-10 h-10 rounded-full border-2 border-white bg-accent"></div>
                   <div className="w-10 h-10 rounded-full border-2 border-white bg-secondary"></div>
