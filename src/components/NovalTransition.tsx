@@ -7,7 +7,7 @@ const NovalTransition = () => {
         <div className="flex items-center justify-between max-w-4xl mx-auto">
           {/* Text and Arrow */}
           <div className="flex items-center gap-6">
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
+            <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-white">
               Looking For Something More Passive?
             </h2>
             <ArrowRight className="text-emerald-300" size={32} />
@@ -23,7 +23,7 @@ const NovalTransition = () => {
             <img 
               src="/lovable-uploads/b840c248-e891-4529-bc14-29c4cf690268.png" 
               alt="Noval Capital Group Logo" 
-              className="h-10 w-auto"
+              className="h-10 w-auto pr-8"
             />
             <div className="text-white font-['Georgia',serif] whitespace-nowrap">
               <div className="text-xl font-bold tracking-wide">NOVAL CAPITAL GROUP</div>
