@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Award, BookOpen, Key, Heart } from "lucide-react";
+import { Award, BookOpen, Key, Handshake } from "lucide-react";
 
 const WhyWorkWithUs = () => {
   const reasons = [
@@ -25,11 +25,11 @@ const WhyWorkWithUs = () => {
       statsLabel: "Permit Success Rate"
     },
     {
-      title: "Community Driven",
-      description: "We focus on empowering emerging developers and investors, particularly in underserved communities.",
-      icon: <Heart className="w-8 h-8" />,
-      stats: "50+",
-      statsLabel: "Developers Empowered"
+      title: "Mentorship Included",
+      description: "We will let you see behind the curtain and process full transparency of actual costs and process.",
+      icon: <Handshake className="w-8 h-8" />,
+      stats: "100%",
+      statsLabel: "Transparency"
     }
   ];
 
