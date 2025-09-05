@@ -2,12 +2,29 @@ import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
 import { Play, Volume2 } from "lucide-react";
 import Hls from "hls.js";
+import ConsultationModal from "./ConsultationModal";
+import ExitIntentModal from "./ExitIntentModal";
+import useExitIntent from "@/hooks/useExitIntent";
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true); // Auto-start video
   const [isVideoMuted, setIsVideoMuted] = useState(true);
   const [hasUnmutedOnce, setHasUnmutedOnce] = useState(false);
+  const [showConsultationModal, setShowConsultationModal] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  
+  // Exit intent functionality
+  const { showExitIntent, closeExitIntent } = useExitIntent();
+
+  // Listen for custom consultation event from exit intent modal
+  useEffect(() => {
+    const handleOpenConsultation = () => {
+      setShowConsultationModal(true);
+    };
+
+    window.addEventListener('openConsultation', handleOpenConsultation);
+    return () => window.removeEventListener('openConsultation', handleOpenConsultation);
+  }, []);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -203,6 +220,7 @@ const Hero = () => {
             <div className="space-y-6">
               <Button 
                 size="lg" 
+                onClick={() => setShowConsultationModal(true)}
                 className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-white text-primary hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
               >
                 📞 Book Your Consultation Today
@@ -370,6 +388,16 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Modals */}
+      <ConsultationModal 
+        isOpen={showConsultationModal} 
+        onClose={() => setShowConsultationModal(false)} 
+      />
+      <ExitIntentModal 
+        isOpen={showExitIntent} 
+        onClose={closeExitIntent} 
+      />
     </section>
   );
 };
