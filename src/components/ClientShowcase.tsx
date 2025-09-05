@@ -1,10 +1,14 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, DollarSign, Users, Image as ImageIcon } from "lucide-react";
+import { Calendar, MapPin, DollarSign, Users, Image as ImageIcon, Search, X } from "lucide-react";
 import { useState } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 const ClientShowcase = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const projects = [
     {
@@ -63,6 +67,33 @@ const ClientShowcase = () => {
     }
   };
 
+  const openLightbox = (images: string[], startIndex: number = 0) => {
+    setLightboxImages(images);
+    setCurrentImageIndex(startIndex);
+    setLightboxOpen(true);
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % lightboxImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + lightboxImages.length) % lightboxImages.length);
+  };
+
+  const handleCardClick = (e: React.MouseEvent, projectId: number) => {
+    // Prevent card expansion when clicking on images
+    if ((e.target as HTMLElement).closest('.image-clickable')) {
+      return;
+    }
+    setSelectedProject(selectedProject === projectId ? null : projectId);
+  };
+
+  const handleImageClick = (e: React.MouseEvent, images: string[], index: number = 0) => {
+    e.stopPropagation();
+    openLightbox(images, index);
+  };
+
   return (
     <section className="py-32 bg-gradient-to-br from-background via-background/50 to-secondary/20 relative overflow-hidden">
       {/* Background elements */}
@@ -93,31 +124,40 @@ const ClientShowcase = () => {
           {projects.map((project, index) => (
             <Card 
               key={project.id} 
-              className={`group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 border-2 ${
-                selectedProject === project.id ? 'border-primary shadow-xl' : 'border-border hover:border-primary/50'
+              className={`group cursor-pointer transition-all duration-500 hover:shadow-2xl border-2 transform ${
+                selectedProject === project.id 
+                  ? 'border-green-500 shadow-2xl bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 -translate-y-6 scale-105' 
+                  : 'hover:-translate-y-2 border-border hover:border-primary/50'
               }`}
-              onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
+              onClick={(e) => handleCardClick(e, project.id)}
             >
               <CardContent className="p-0">
                 {/* Image Gallery */}
-                <div className="relative h-64 overflow-hidden rounded-t-lg">
-                  <div className="flex transition-transform duration-500 ease-in-out">
+                <div className="relative h-64 overflow-hidden rounded-t-lg image-clickable">
+                  <div 
+                    className="flex transition-transform duration-500 ease-in-out cursor-pointer group/image"
+                    onClick={(e) => handleImageClick(e, project.images, 0)}
+                  >
                     <img 
                       src={project.images[0]} 
                       alt={`${project.title} - Main view`}
                       className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
+                    {/* Magnifying glass overlay */}
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <Search className="w-12 h-12 text-white animate-pulse" />
+                    </div>
                   </div>
                   
                   {/* Status badge */}
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 pointer-events-none">
                     <Badge className={`${getStatusColor(project.status)} text-white font-semibold`}>
                       {project.status}
                     </Badge>
                   </div>
                   
                   {/* Image count */}
-                  <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                  <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm flex items-center gap-1 pointer-events-none">
                     <ImageIcon size={14} />
                     {project.images.length}
                   </div>
@@ -172,12 +212,21 @@ const ClientShowcase = () => {
                       {project.images.length > 1 && (
                         <div className="grid grid-cols-2 gap-2">
                           {project.images.slice(1).map((image, idx) => (
-                            <img 
+                            <div 
                               key={idx}
-                              src={image} 
-                              alt={`${project.title} - Additional view ${idx + 1}`}
-                              className="w-full h-24 object-cover rounded-lg hover:scale-105 transition-transform"
-                            />
+                              className="relative group/thumb cursor-pointer image-clickable"
+                              onClick={(e) => handleImageClick(e, project.images, idx + 1)}
+                            >
+                              <img 
+                                src={image} 
+                                alt={`${project.title} - Additional view ${idx + 1}`}
+                                className="w-full h-24 object-cover rounded-lg hover:scale-105 transition-transform"
+                              />
+                              {/* Magnifying glass overlay for thumbnails */}
+                              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/thumb:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                                <Search className="w-6 h-6 text-white animate-pulse" />
+                              </div>
+                            </div>
                           ))}
                         </div>
                       )}
@@ -195,6 +244,55 @@ const ClientShowcase = () => {
             </Card>
           ))}
         </div>
+
+        {/* Lightbox Dialog */}
+        <Dialog open={lightboxOpen} onOpenChange={setLightboxOpen}>
+          <DialogContent className="max-w-4xl w-full p-0 bg-black/95 border-0">
+            <div className="relative">
+              {/* Close button */}
+              <button 
+                onClick={() => setLightboxOpen(false)}
+                className="absolute top-4 right-4 z-50 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors"
+              >
+                <X size={24} />
+              </button>
+              
+              {/* Main image */}
+              <div className="relative flex items-center justify-center min-h-[60vh]">
+                <img 
+                  src={lightboxImages[currentImageIndex]} 
+                  alt={`Enlarged view ${currentImageIndex + 1}`}
+                  className="max-w-full max-h-[80vh] object-contain"
+                />
+                
+                {/* Navigation buttons */}
+                {lightboxImages.length > 1 && (
+                  <>
+                    <button 
+                      onClick={prevImage}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors"
+                    >
+                      ←
+                    </button>
+                    <button 
+                      onClick={nextImage}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors"
+                    >
+                      →
+                    </button>
+                  </>
+                )}
+              </div>
+              
+              {/* Image counter */}
+              {lightboxImages.length > 1 && (
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm">
+                  {currentImageIndex + 1} of {lightboxImages.length}
+                </div>
+              )}
+            </div>
+          </DialogContent>
+        </Dialog>
 
       </div>
     </section>
