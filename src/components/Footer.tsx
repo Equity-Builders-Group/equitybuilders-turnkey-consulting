@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="text-center">
           <p className="text-white text-sm md:text-base">
-            Copyright Equity Builders Group LLC 2025. All rights reserved.
+            Copyright © 2025, Equity Builders Group LLC. All rights reserved.
           </p>
         </div>
       </div>
