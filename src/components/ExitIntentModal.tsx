@@ -13,6 +13,8 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
   const [hasUnmutedOnce, setHasUnmutedOnce] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  console.log('ExitIntentModal render - isOpen:', isOpen, 'showModal:', showModal);
+
   useEffect(() => {
     if (isOpen) {
       setShowModal(true);
