@@ -1,17 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
-import { Play, Volume2 } from "lucide-react";
-import Hls from "hls.js";
+import { Play } from "lucide-react";
+import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
 import ConsultationModal from "./ConsultationModal";
 import ExitIntentModal from "./ExitIntentModal";
 import useExitIntent from "@/hooks/useExitIntent";
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true); // Auto-start video
-  const [isVideoMuted, setIsVideoMuted] = useState(true);
-  const [hasUnmutedOnce, setHasUnmutedOnce] = useState(false);
   const [showConsultationModal, setShowConsultationModal] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
   
   // Exit intent functionality
   const { showExitIntent, closeExitIntent } = useExitIntent();
@@ -26,34 +24,14 @@ const Hero = () => {
     return () => window.removeEventListener('openConsultation', handleOpenConsultation);
   }, []);
 
-  useEffect(() => {
-    if (videoRef.current) {
-      const video = videoRef.current;
-      const hlsUrl = "https://vz-447b6532-fd2.b-cdn.net/c6b998b8-9763-4324-94ea-1b19b14c3dc1/playlist.m3u8";
+  const handleVideoStart = () => {
+    setIsVideoPlaying(true);
+  };
 
-      if (Hls.isSupported()) {
-        const hls = new Hls();
-        hls.loadSource(hlsUrl);
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MEDIA_ATTACHED, () => {
-          console.log('Media has been attached');
-          // Now you can load the manifest
-          hls.on(Hls.Events.MANIFEST_PARSED, () => {
-            console.log('Manifest has been parsed, trying to play...');
-            video.play();
-          });
-        });
-              
-        return () => {
-          hls.destroy();
-        };
-      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS support (Safari)
-        video.src = hlsUrl;
-        video.play();
-      }
-    }
-  }, []);  // Run once on mount
+  const handleVideoClose = () => {
+    setIsVideoPlaying(false);
+    videoPlayerRef.current?.reset();
+  };
 
   return (
     <section className="relative min-h-screen bg-gradient-primary overflow-hidden">
@@ -282,7 +260,7 @@ const Hero = () => {
                         {/* Play button overlay */}
                         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                           <button
-                            onClick={() => setIsVideoPlaying(true)}
+                            onClick={handleVideoStart}
                             className="w-28 h-28 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 hover:scale-110 shadow-2xl"
                           >
                             <Play className="w-12 h-12 text-primary ml-1" fill="currentColor" />
@@ -300,37 +278,24 @@ const Hero = () => {
                         </div>
                       </>
                     ) : (
-                      <div className="w-full h-full bg-black">
+                      <div className="w-full h-full bg-black relative">
                         {/* HLS Video player */}
-                        <video 
-                          ref={videoRef}
+                        <HLSVideoPlayer
+                          ref={videoPlayerRef}
+                          videoUrl="https://vz-447b6532-fd2.b-cdn.net/c6b998b8-9763-4324-94ea-1b19b14c3dc1/playlist.m3u8"
+                          autoPlay={isVideoPlaying}
+                          showControls={true}
+                          showUnmuteButton={true}
+                          unmuteButtonPosition="bottom"
+                          componentName="Hero"
                           className="w-full h-full object-cover"
-                          controls={!isVideoMuted} // Hide controls when muted to prevent interference
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          onVolumeChange={() => {
-                            if (videoRef.current) {
-                              const previousMuted = isVideoMuted;
-                              const currentMuted = videoRef.current.muted;
-                              setIsVideoMuted(currentMuted);
-                              
-                              // If video was previously muted and is now unmuted for the first time
-                              if (previousMuted && !currentMuted && !hasUnmutedOnce) {
-                                setHasUnmutedOnce(true);
-                                videoRef.current.currentTime = 0; // Restart from beginning
-                              }
-                            }
-                          }}
-                        >
-                          Your browser does not support HLS video streaming.
-                        </video>
+                          containerClassName="w-full h-full"
+                        />
 
                         {/* Close button */}
                         <button
-                          onClick={() => setIsVideoPlaying(false)}
-                          className="absolute top-4 right-4 px-4 py-2 bg-black/60 text-white rounded-lg hover:bg-black/80 transition-colors backdrop-blur-sm"
+                          onClick={handleVideoClose}
+                          className="absolute top-4 right-4 px-4 py-2 bg-black/60 text-white rounded-lg hover:bg-black/80 transition-colors backdrop-blur-sm z-30"
                         >
                           ✕ Close
                         </button>
@@ -343,37 +308,6 @@ const Hero = () => {
               {/* iPhone frame shadow */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-600/50 to-slate-900/50 rounded-[3rem] blur-xl scale-105 -z-10"></div>
             </div>
-            
-            {/* Floating arrow with unmute text - only show when video is playing and muted */}
-            {isVideoPlaying && isVideoMuted && (
-              <div 
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse z-20 cursor-pointer"
-                onClick={() => {
-                  if (videoRef.current) {
-                    videoRef.current.muted = false;
-                    setIsVideoMuted(false);
-                    if (!hasUnmutedOnce) {
-                      setHasUnmutedOnce(true);
-                      videoRef.current.currentTime = 0;
-                    }
-                  }
-                }}
-              >
-                <div className="relative flex flex-col items-center">
-                  {/* Volume/Sound Icon */}
-                  <Volume2 
-                    size={48} 
-                    className="text-white drop-shadow-lg mb-4" 
-                  />
-                  {/* Text */}
-                  <div className="bg-black/80 backdrop-blur-sm px-4 py-2 rounded-lg shadow-2xl">
-                    <div className="text-white font-bold text-lg drop-shadow-lg whitespace-nowrap">
-                      Turn On Your Sound
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
 

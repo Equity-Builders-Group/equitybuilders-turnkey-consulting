@@ -1,6 +1,6 @@
-import { X, Volume2 } from "lucide-react";
+import { X } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
-import Hls from "hls.js";
+import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
 
 interface ExitIntentModalProps {
   isOpen: boolean;
@@ -9,9 +9,7 @@ interface ExitIntentModalProps {
 
 const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
   const [showModal, setShowModal] = useState(false);
-  const [isVideoMuted, setIsVideoMuted] = useState(true);
-  const [hasUnmutedOnce, setHasUnmutedOnce] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
 
   console.log('ExitIntentModal render - isOpen:', isOpen, 'showModal:', showModal);
 
@@ -29,64 +27,9 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
   }, [isOpen]);
 
   useEffect(() => {
-    if (videoRef.current && isOpen && showModal) {
-      const video = videoRef.current;
-      const hlsUrl = "https://vz-447b6532-fd2.b-cdn.net/114d20b4-b152-48e8-b8d1-0a0e12470326/playlist.m3u8";
-      
-      console.log('ExitIntentModal: Starting video initialization');
-      console.log('ExitIntentModal: Video element available:', !!video);
-      console.log('ExitIntentModal: Video URL:', hlsUrl);
-      
-      // Reset video state
-      video.currentTime = 0;
-      video.muted = true;
-      setIsVideoMuted(true);
-      setHasUnmutedOnce(false);
-
-      if (Hls.isSupported()) {
-        console.log('ExitIntentModal: Using HLS.js for video playback');
-        const hls = new Hls({
-          startLevel: -1,
-          capLevelToPlayerSize: true,
-          maxBufferLength: 30,
-          maxMaxBufferLength: 60
-        });
-        
-        hls.on(Hls.Events.ERROR, (event, data) => {
-          if (data.fatal) {
-            console.error('ExitIntentModal Fatal HLS Error:', event, data);
-          }
-        });
-        
-        hls.on(Hls.Events.MANIFEST_PARSED, () => {
-          console.log('ExitIntentModal: Manifest parsed, starting playback');
-          video.play().catch(error => {
-            console.error('ExitIntentModal: Error playing video:', error);
-          });
-        });
-        
-        hls.loadSource(hlsUrl);
-        hls.attachMedia(video);
-              
-        return () => {
-          console.log('ExitIntentModal: Cleaning up HLS');
-          hls.destroy();
-        };
-      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        // Native HLS support (Safari)
-        console.log('ExitIntentModal: Using native HLS support');
-        video.src = hlsUrl;
-        video.addEventListener('loadeddata', () => {
-          console.log('ExitIntentModal: Video data loaded, starting playback');
-          video.play().catch(error => {
-            console.error('ExitIntentModal: Error playing video:', error);
-          });
-        });
-      } else {
-        console.error('ExitIntentModal: HLS not supported');
-      }
-    } else {
-      console.log('ExitIntentModal: Video not ready yet - isOpen:', isOpen, 'showModal:', showModal, 'videoRef:', !!videoRef.current);
+    if (isOpen && showModal) {
+      console.log('ExitIntentModal: Modal opened, resetting video player');
+      videoPlayerRef.current?.reset();
     }
   }, [isOpen, showModal]);
 
@@ -127,62 +70,17 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
 
           {/* HLS Video Player */}
           <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl aspect-video max-w-4xl mx-auto">
-            <video 
-              ref={videoRef}
+            <HLSVideoPlayer
+              ref={videoPlayerRef}
+              videoUrl="https://vz-447b6532-fd2.b-cdn.net/114d20b4-b152-48e8-b8d1-0a0e12470326/playlist.m3u8"
+              autoPlay={isOpen && showModal}
+              showControls={true}
+              showUnmuteButton={true}
+              unmuteButtonPosition="center"
+              componentName="ExitIntentModal"
               className="w-full h-full object-cover"
-              controls={!isVideoMuted}
-              autoPlay
-              muted
-              loop
-              playsInline
-              onVolumeChange={() => {
-                if (videoRef.current) {
-                  const previousMuted = isVideoMuted;
-                  const currentMuted = videoRef.current.muted;
-                  setIsVideoMuted(currentMuted);
-                  
-                  // If video was previously muted and is now unmuted for the first time
-                  if (previousMuted && !currentMuted && !hasUnmutedOnce) {
-                    setHasUnmutedOnce(true);
-                    videoRef.current.currentTime = 0; // Restart from beginning
-                  }
-                }
-              }}
-            >
-              Your browser does not support HLS video streaming.
-            </video>
-
-            {/* Turn On Sound button - only show when video is muted */}
-            {isVideoMuted && (
-              <div 
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse z-20 cursor-pointer"
-                onClick={() => {
-                  if (videoRef.current) {
-                    videoRef.current.muted = false;
-                    setIsVideoMuted(false);
-                    if (!hasUnmutedOnce) {
-                      setHasUnmutedOnce(true);
-                      videoRef.current.currentTime = 0;
-                    }
-                  }
-                }}
-              >
-                <div className="relative flex flex-col items-center">
-                  {/* Volume/Sound Icon */}
-                  <Volume2 
-                    size={48} 
-                    className="text-white drop-shadow-2xl mb-2" 
-                  />
-                  
-                  {/* Turn On Sound Text */}
-                  <div className="bg-black/80 backdrop-blur-sm px-6 py-3 rounded-full border-2 border-white">
-                    <span className="text-white font-bold text-lg">
-                      🔊 Turn On Sound
-                    </span>
-                  </div>
-                </div>
-              </div>
-            )}
+              containerClassName="w-full h-full"
+            />
           </div>
 
           {/* CTA below video */}
