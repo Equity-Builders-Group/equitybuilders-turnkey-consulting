@@ -95,7 +95,7 @@ const WhyWorkWithUs = () => {
           <div className="bg-white/10 backdrop-blur-sm p-12 rounded-3xl border border-white/20 max-w-4xl mx-auto">
             <h3 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h3>
             <p className="text-white/90 text-xl mb-8 leading-relaxed">
-              Join the ranks of successful developers who've transformed their vision into reality with our proven process.
+              Join the ranks of successful developers by leveraging our experience and track record. Will do what it takes to get you across the finish line. Let's start building up your net-worth today.
             </p>
             <div className="flex items-center justify-center gap-4 text-accent text-2xl font-bold">
               <span>🚀</span> Let's Build Your Success Story Together
