@@ -18,16 +18,16 @@ const NovalTransition = () => {
             href="https://novalcapitalgroup.com/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300"
+            className="flex items-center gap-4 hover:opacity-80 transition-opacity duration-300 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3"
           >
             <img 
               src="/lovable-uploads/b840c248-e891-4529-bc14-29c4cf690268.png" 
               alt="Noval Capital Group Logo" 
-              className="h-8 w-auto"
+              className="h-10 w-auto"
             />
-            <div className="text-white">
-              <div className="text-lg font-bold tracking-wide">NOVAL</div>
-              <div className="text-xs font-light tracking-widest opacity-90">CAPITAL GROUP</div>
+            <div className="text-white font-['Georgia',serif] whitespace-nowrap">
+              <div className="text-2xl font-bold tracking-wide">NOVAL</div>
+              <div className="text-sm font-light tracking-widest opacity-90">CAPITAL GROUP</div>
             </div>
           </a>
         </div>
