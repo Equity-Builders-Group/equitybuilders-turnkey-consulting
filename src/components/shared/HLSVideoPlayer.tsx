@@ -266,7 +266,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
                       box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
                     }
                     70% {
-                      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+                      box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
                     }
                     100% {
                       box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
