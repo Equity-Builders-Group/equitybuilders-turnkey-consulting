@@ -234,16 +234,46 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
             />
             
             <div className="relative">
-              {/* Gradient wave effect */}
-              <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-white/40 via-white/60 to-white/40 animate-pulse" style={{transform: 'scale(1.1)'}}></div>
-              <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-white/20 via-white/40 to-white/20 animate-pulse delay-75" style={{transform: 'scale(1.05)'}}></div>
-              
-              {/* Main button */}
-              <div className="relative bg-black/80 backdrop-blur-sm px-6 py-3 rounded-full border-2 border-white">
-                <span className="text-white font-bold text-lg">
+              {/* Pulse animation wrapper */}
+              <div 
+                className="relative bg-black/80 backdrop-blur-sm px-6 py-3 rounded-full border-2 border-white"
+                style={{
+                  boxShadow: '0 0 0 1.5px rgba(0, 0, 0, 0.08)'
+                }}
+              >
+                {/* Pulse effect */}
+                <div 
+                  className="absolute inset-0 rounded-full pointer-events-none"
+                  style={{
+                    animation: 'pulse-shadow 1.5s infinite ease-out',
+                    animationName: 'pulse-shadow',
+                    animationDuration: '1.5s',
+                    animationIterationCount: 'infinite',
+                    animationTimingFunction: 'ease-out',
+                  }}
+                ></div>
+                
+                <span className="relative text-white font-bold text-lg z-10">
                   🔊 Turn On Sound
                 </span>
               </div>
+              
+              {/* CSS Animation */}
+              <style dangerouslySetInnerHTML={{
+                __html: `
+                  @keyframes pulse-shadow {
+                    0% {
+                      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+                    }
+                    70% {
+                      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+                    }
+                    100% {
+                      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+                    }
+                  }
+                `
+              }} />
             </div>
           </div>
         </div>
