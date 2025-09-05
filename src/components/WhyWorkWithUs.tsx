@@ -97,8 +97,8 @@ const WhyWorkWithUs = () => {
             <p className="text-white/90 text-xl mb-8 leading-relaxed">
               Join the ranks of successful developers by leveraging our experience and track record. Will do what it takes to get you across the finish line. Let's start building up your net-worth today.
             </p>
-            <div className="flex items-center justify-center gap-4 text-accent text-2xl font-bold">
-              <span>🚀</span> Let's Build Your Success Story Together
+            <div className="flex items-center justify-center gap-4 text-yellow-400 text-2xl font-bold">
+              <span>💰</span> Let's start building up your net-worth today.
             </div>
           </div>
         </div>
