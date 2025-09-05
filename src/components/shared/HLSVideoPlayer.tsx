@@ -234,8 +234,9 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
             />
             
             <div className="relative">
-              {/* Pulsing border effect */}
-              <div className="absolute inset-0 bg-transparent rounded-full border-2 border-white animate-ping"></div>
+              {/* Gradient wave effect */}
+              <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-white/40 via-white/60 to-white/40 animate-pulse" style={{transform: 'scale(1.1)'}}></div>
+              <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-white/20 via-white/40 to-white/20 animate-pulse delay-75" style={{transform: 'scale(1.05)'}}></div>
               
               {/* Main button */}
               <div className="relative bg-black/80 backdrop-blur-sm px-6 py-3 rounded-full border-2 border-white">
