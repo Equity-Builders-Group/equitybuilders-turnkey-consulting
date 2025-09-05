@@ -1,6 +1,8 @@
 import Hero from "@/components/Hero";
 import LogoStrip from "@/components/LogoStrip";
 import Services from "@/components/Services";
+import WhyWorkWithUs from "@/components/WhyWorkWithUs";
+import ClientShowcase from "@/components/ClientShowcase";
 import About from "@/components/About";
 import CTA from "@/components/CTA";
 
@@ -10,6 +12,8 @@ const Index = () => {
       <Hero />
       <LogoStrip />
       <Services />
+      <WhyWorkWithUs />
+      <ClientShowcase />
       <About />
       <CTA />
     </div>
