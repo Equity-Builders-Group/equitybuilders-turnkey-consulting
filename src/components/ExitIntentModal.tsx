@@ -31,63 +31,54 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
       const video = videoRef.current;
       const hlsUrl = "https://vz-447b6532-fd2.b-cdn.net/114d20b4-b152-48e8-b8d1-0a0e12470326/playlist.m3u8";
       
+      // Reset video state
+      video.currentTime = 0;
+      video.muted = true;
+      setIsVideoMuted(true);
+      setHasUnmutedOnce(false);
+      
       console.log('ExitIntentModal: Starting video initialization');
-      console.log('ExitIntentModal: HLS supported:', Hls.isSupported());
       console.log('ExitIntentModal: Video URL:', hlsUrl);
 
       if (Hls.isSupported()) {
         console.log('ExitIntentModal: Using HLS.js for video playback');
         const hls = new Hls({
-          debug: true,
-          enableWorker: false
+          startLevel: -1,
+          capLevelToPlayerSize: true,
+          maxBufferLength: 30,
+          maxMaxBufferLength: 60
         });
         
         hls.on(Hls.Events.ERROR, (event, data) => {
           console.error('ExitIntentModal HLS Error:', event, data);
-          if (data.fatal) {
-            console.error('ExitIntentModal Fatal HLS error, attempting recovery');
-            switch (data.type) {
-              case Hls.ErrorTypes.NETWORK_ERROR:
-                console.log('ExitIntentModal: Network error, trying to recover');
-                hls.startLoad();
-                break;
-              case Hls.ErrorTypes.MEDIA_ERROR:
-                console.log('ExitIntentModal: Media error, trying to recover');
-                hls.recoverMediaError();
-                break;
-              default:
-                console.error('ExitIntentModal: Unrecoverable error, destroying HLS instance');
-                hls.destroy();
-                break;
-            }
-          }
+        });
+        
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          console.log('ExitIntentModal: Manifest parsed, starting playback');
+          video.play().catch(error => {
+            console.error('ExitIntentModal: Error playing video:', error);
+          });
         });
         
         hls.loadSource(hlsUrl);
         hls.attachMedia(video);
-        hls.on(Hls.Events.MEDIA_ATTACHED, () => {
-          console.log('ExitIntentModal: Media has been attached');
-          hls.on(Hls.Events.MANIFEST_PARSED, () => {
-            console.log('ExitIntentModal: Manifest has been parsed, trying to play...');
-            video.play().catch(error => {
-              console.error('ExitIntentModal: Error playing video:', error);
-            });
-          });
-        });
               
         return () => {
-          console.log('ExitIntentModal: Destroying HLS instance');
+          console.log('ExitIntentModal: Cleaning up HLS');
           hls.destroy();
         };
       } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
         // Native HLS support (Safari)
         console.log('ExitIntentModal: Using native HLS support');
         video.src = hlsUrl;
-        video.play().catch(error => {
-          console.error('ExitIntentModal: Error playing video with native HLS:', error);
+        video.addEventListener('loadeddata', () => {
+          console.log('ExitIntentModal: Video data loaded, starting playback');
+          video.play().catch(error => {
+            console.error('ExitIntentModal: Error playing video:', error);
+          });
         });
       } else {
-        console.error('ExitIntentModal: HLS not supported and no native support available');
+        console.error('ExitIntentModal: HLS not supported');
       }
     }
   }, [isOpen]);
