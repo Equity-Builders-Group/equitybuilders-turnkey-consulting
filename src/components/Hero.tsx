@@ -124,6 +124,19 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
+        {/* Mobile-only top heading */}
+        <div className="lg:hidden mb-12">
+          <h2 className="text-5xl sm:text-6xl font-bangla font-black leading-none text-white text-center">
+            TURNKEY,
+            <span className="block text-accent drop-shadow-2xl">
+              WE WILL DO
+            </span>
+            <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent">
+              ALL THE WORK!
+            </span>
+          </h2>
+        </div>
+
         {/* Mobile floating images - before content */}
         <div className="lg:hidden mb-8 flex justify-center gap-4">
           <div className="w-32 h-32 rounded-xl overflow-hidden shadow-lg border-2 border-accent/60 rotate-3">
