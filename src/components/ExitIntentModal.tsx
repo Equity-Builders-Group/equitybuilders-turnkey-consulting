@@ -29,18 +29,19 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
   }, [isOpen]);
 
   useEffect(() => {
-    if (videoRef.current && isOpen) {
+    if (videoRef.current && isOpen && showModal) {
       const video = videoRef.current;
       const hlsUrl = "https://vz-447b6532-fd2.b-cdn.net/114d20b4-b152-48e8-b8d1-0a0e12470326/playlist.m3u8";
+      
+      console.log('ExitIntentModal: Starting video initialization');
+      console.log('ExitIntentModal: Video element available:', !!video);
+      console.log('ExitIntentModal: Video URL:', hlsUrl);
       
       // Reset video state
       video.currentTime = 0;
       video.muted = true;
       setIsVideoMuted(true);
       setHasUnmutedOnce(false);
-      
-      console.log('ExitIntentModal: Starting video initialization');
-      console.log('ExitIntentModal: Video URL:', hlsUrl);
 
       if (Hls.isSupported()) {
         console.log('ExitIntentModal: Using HLS.js for video playback');
@@ -82,8 +83,10 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
       } else {
         console.error('ExitIntentModal: HLS not supported');
       }
+    } else {
+      console.log('ExitIntentModal: Video not ready yet - isOpen:', isOpen, 'showModal:', showModal, 'videoRef:', !!videoRef.current);
     }
-  }, [isOpen]);
+  }, [isOpen, showModal]);
 
   if (!showModal) return null;
 
