@@ -53,7 +53,9 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
         });
         
         hls.on(Hls.Events.ERROR, (event, data) => {
-          console.error('ExitIntentModal HLS Error:', event, data);
+          if (data.fatal) {
+            console.error('ExitIntentModal Fatal HLS Error:', event, data);
+          }
         });
         
         hls.on(Hls.Events.MANIFEST_PARSED, () => {
