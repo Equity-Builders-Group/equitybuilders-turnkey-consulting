@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from "react";
 import { Volume2 } from "lucide-react";
 import Hls from "hls.js";
+import VideoProgressForm from "./VideoProgressForm";
 
 interface HLSVideoPlayerProps {
   videoUrl: string;
@@ -13,6 +14,10 @@ interface HLSVideoPlayerProps {
   containerClassName?: string;
   unmuteButtonPosition?: "center" | "bottom";
   componentName?: string; // For debugging
+  enableProgressGate?: boolean; // Show form overlay at specified percentage
+  progressGatePercentage?: number; // Percentage to trigger form (0-100)
+  enablePlayheadStorage?: boolean; // Store/restore playhead position
+  onProgressGateSubmit?: (data: { name: string; email: string; phone: string; consent: boolean }) => void;
 }
 
 export interface HLSVideoPlayerRef {
@@ -36,13 +41,20 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
   className = "w-full h-full object-cover",
   containerClassName = "relative w-full h-full",
   unmuteButtonPosition = "center",
-  componentName = "HLSVideoPlayer"
+  componentName = "HLSVideoPlayer",
+  enableProgressGate = false,
+  progressGatePercentage = 20,
+  enablePlayheadStorage = false,
+  onProgressGateSubmit
 }, ref) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const hlsRef = useRef<Hls | null>(null);
   const [isVideoMuted, setIsVideoMuted] = useState(true);
   const [hasUnmutedOnce, setHasUnmutedOnce] = useState(false);
   const [isVideoReady, setIsVideoReady] = useState(false);
+  const [showProgressForm, setShowProgressForm] = useState(false);
+  const [hasTriggeredGate, setHasTriggeredGate] = useState(false);
+  const [isGatePaused, setIsGatePaused] = useState(false);
 
   // Expose methods via ref
   useImperativeHandle(ref, () => ({
@@ -63,6 +75,9 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
         videoRef.current.muted = true;
         setIsVideoMuted(true);
         setHasUnmutedOnce(false);
+        setShowProgressForm(false);
+        setHasTriggeredGate(false);
+        setIsGatePaused(false);
       }
     },
     setMuted: (muted: boolean) => {
@@ -87,6 +102,67 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
     }
   }));
 
+  // Load stored playhead position
+  useEffect(() => {
+    if (enablePlayheadStorage && videoRef.current && videoUrl && isVideoReady) {
+      const storageKey = `video_playhead_${btoa(videoUrl)}`;
+      const storedTime = localStorage.getItem(storageKey);
+      if (storedTime) {
+        const time = parseFloat(storedTime);
+        if (!isNaN(time) && time > 0) {
+          videoRef.current.currentTime = time;
+          console.log(`${componentName}: Restored playhead position:`, time);
+        }
+      }
+    }
+  }, [enablePlayheadStorage, videoUrl, isVideoReady, componentName]);
+
+  // Save playhead position
+  useEffect(() => {
+    if (!enablePlayheadStorage || !videoRef.current || !videoUrl) return;
+
+    const video = videoRef.current;
+    const storageKey = `video_playhead_${btoa(videoUrl)}`;
+
+    const handleTimeUpdate = () => {
+      if (video.currentTime > 0) {
+        localStorage.setItem(storageKey, video.currentTime.toString());
+      }
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, [enablePlayheadStorage, videoUrl]);
+
+  // Progress gate logic
+  useEffect(() => {
+    if (!enableProgressGate || !videoRef.current || hasTriggeredGate) return;
+
+    const video = videoRef.current;
+
+    const handleTimeUpdate = () => {
+      if (video.duration > 0) {
+        const percentage = (video.currentTime / video.duration) * 100;
+        if (percentage >= progressGatePercentage && !hasTriggeredGate) {
+          video.pause();
+          setShowProgressForm(true);
+          setHasTriggeredGate(true);
+          setIsGatePaused(true);
+          console.log(`${componentName}: Progress gate triggered at ${percentage}%`);
+        }
+      }
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, [enableProgressGate, progressGatePercentage, hasTriggeredGate, componentName]);
+
   useEffect(() => {
     if (videoRef.current && videoUrl) {
       const video = videoRef.current;
@@ -101,6 +177,9 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       setIsVideoMuted(true);
       setHasUnmutedOnce(false);
       setIsVideoReady(false);
+      setShowProgressForm(false);
+      setHasTriggeredGate(false);
+      setIsGatePaused(false);
 
       // Cleanup any existing HLS instance
       if (hlsRef.current) {
@@ -178,6 +257,31 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
     };
   }, [videoUrl, autoPlay, componentName, onVideoReady, onError]);
 
+  const handleProgressFormSubmit = (data: { name: string; email: string; phone: string; consent: boolean }) => {
+    setShowProgressForm(false);
+    setIsGatePaused(false);
+    onProgressGateSubmit?.(data);
+    
+    // Resume video playback
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error(`${componentName}: Error resuming video after form submission:`, error);
+      });
+    }
+  };
+
+  const handleProgressFormClose = () => {
+    setShowProgressForm(false);
+    setIsGatePaused(false);
+    
+    // Resume video playback
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error(`${componentName}: Error resuming video after form close:`, error);
+      });
+    }
+  };
+
   const handleVolumeChange = () => {
     if (videoRef.current) {
       const previousMuted = isVideoMuted;
@@ -208,7 +312,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       <video 
         ref={videoRef}
         className={className}
-        controls={showControls && !isVideoMuted}
+        controls={showControls && !isVideoMuted && !isGatePaused}
         muted
         loop
         playsInline
@@ -216,6 +320,14 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       >
         Your browser does not support HLS video streaming.
       </video>
+
+      {/* Progress Gate Form Overlay */}
+      {showProgressForm && (
+        <VideoProgressForm
+          onSubmit={handleProgressFormSubmit}
+          onClose={handleProgressFormClose}
+        />
+      )}
 
       {/* Unmute button - only show when video is muted and ready */}
       {showUnmuteButton && isVideoMuted && isVideoReady && (

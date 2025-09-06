@@ -80,6 +80,13 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
               componentName="ExitIntentModal"
               className="w-full h-full object-cover"
               containerClassName="w-full h-full"
+              enableProgressGate={true}
+              progressGatePercentage={20}
+              enablePlayheadStorage={true}
+              onProgressGateSubmit={(data) => {
+                console.log('Progress gate form submitted:', data);
+                // Handle form submission - save to database, etc.
+              }}
             />
           </div>
 
