@@ -28,8 +28,8 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
   const isFormValid = formData.name && formData.email && formData.phone && formData.consent;
 
   return (
-    <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-30 p-4 md:p-8">
-      <div className="bg-white rounded-2xl p-6 md:p-8 max-w-md w-full mx-4 relative max-h-[90vh] overflow-y-auto my-auto">
+    <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-30 p-2 md:p-4">
+      <div className="bg-white rounded-xl p-4 md:p-6 max-w-sm w-full mx-2 relative max-h-[95%] overflow-y-auto scale-90 md:scale-100">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
@@ -37,16 +37,16 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
           <X className="w-5 h-5" />
         </button>
 
-        <div className="text-center mb-4 md:mb-6">
-          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+        <div className="text-center mb-3 md:mb-4">
+          <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">
             Continue Watching
           </h3>
-          <p className="text-sm md:text-base text-gray-600">
+          <p className="text-xs md:text-sm text-gray-600">
             Enter your information to unlock the rest of this exclusive content
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-2 md:space-y-3">
           <div>
             <Label htmlFor="name" className="text-sm font-medium text-gray-700">
               Full Name *
@@ -107,13 +107,13 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
           <Button
             type="submit"
             disabled={!isFormValid}
-            className="w-full bg-yellow-500 hover:bg-yellow-600 text-black py-3 text-base md:text-lg font-semibold"
+            className="w-full bg-yellow-500 hover:bg-yellow-600 text-black py-2 md:py-3 text-sm md:text-base font-semibold"
           >
             Continue Watching
           </Button>
         </form>
 
-        <p className="text-xs text-gray-500 text-center mt-3 md:mt-4">
+        <p className="text-xs text-gray-500 text-center mt-2">
           Your information is secure and will never be shared with third parties
         </p>
       </div>
