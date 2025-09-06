@@ -55,6 +55,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
   const [showProgressForm, setShowProgressForm] = useState(false);
   const [hasTriggeredGate, setHasTriggeredGate] = useState(false);
   const [isGatePaused, setIsGatePaused] = useState(false);
+  const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
 
   // Expose methods via ref
   useImperativeHandle(ref, () => ({
@@ -78,6 +79,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
         setShowProgressForm(false);
         setHasTriggeredGate(false);
         setIsGatePaused(false);
+        // Don't reset hasSubmittedForm - this should persist
       }
     },
     setMuted: (muted: boolean) => {
@@ -101,6 +103,16 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       return videoRef.current ? videoRef.current.muted : true;
     }
   }));
+
+  // Check if form was previously submitted
+  useEffect(() => {
+    if (enableProgressGate && videoUrl) {
+      const storageKey = `video_form_submitted_${btoa(videoUrl)}`;
+      const hasSubmitted = localStorage.getItem(storageKey) === 'true';
+      setHasSubmittedForm(hasSubmitted);
+      console.log(`${componentName}: Form submission status:`, hasSubmitted);
+    }
+  }, [enableProgressGate, videoUrl, componentName]);
 
   // Load stored playhead position
   useEffect(() => {
@@ -139,14 +151,14 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
 
   // Progress gate logic
   useEffect(() => {
-    if (!enableProgressGate || !videoRef.current || hasTriggeredGate) return;
+    if (!enableProgressGate || !videoRef.current || hasSubmittedForm) return;
 
     const video = videoRef.current;
 
     const handleTimeUpdate = () => {
       if (video.duration > 0) {
         const percentage = (video.currentTime / video.duration) * 100;
-        if (percentage >= progressGatePercentage && !hasTriggeredGate) {
+        if (percentage >= progressGatePercentage && !hasTriggeredGate && !hasSubmittedForm) {
           video.pause();
           setShowProgressForm(true);
           setHasTriggeredGate(true);
@@ -161,7 +173,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate);
     };
-  }, [enableProgressGate, progressGatePercentage, hasTriggeredGate, componentName]);
+  }, [enableProgressGate, progressGatePercentage, hasTriggeredGate, hasSubmittedForm, componentName]);
 
   useEffect(() => {
     if (videoRef.current && videoUrl) {
@@ -180,6 +192,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       setShowProgressForm(false);
       setHasTriggeredGate(false);
       setIsGatePaused(false);
+      // Don't reset hasSubmittedForm here - it should persist across video reloads
 
       // Cleanup any existing HLS instance
       if (hlsRef.current) {
@@ -258,6 +271,13 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
   }, [videoUrl, autoPlay, componentName, onVideoReady, onError]);
 
   const handleProgressFormSubmit = (data: { name: string; email: string; phone: string; consent: boolean }) => {
+    // Save form submission to localStorage
+    if (videoUrl) {
+      const storageKey = `video_form_submitted_${btoa(videoUrl)}`;
+      localStorage.setItem(storageKey, 'true');
+      setHasSubmittedForm(true);
+    }
+
     setShowProgressForm(false);
     setIsGatePaused(false);
     onProgressGateSubmit?.(data);
@@ -273,6 +293,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
   const handleProgressFormClose = () => {
     setShowProgressForm(false);
     setIsGatePaused(false);
+    setHasTriggeredGate(false); // Reset so gate can trigger again
     
     // Resume video playback
     if (videoRef.current) {
