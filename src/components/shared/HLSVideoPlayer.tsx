@@ -295,10 +295,11 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
     setIsGatePaused(false);
     setHasTriggeredGate(false); // Reset so gate can trigger again
     
-    // Resume video playback
+    // Reset video to start and resume playback
     if (videoRef.current) {
+      videoRef.current.currentTime = 0;
       videoRef.current.play().catch(error => {
-        console.error(`${componentName}: Error resuming video after form close:`, error);
+        console.error(`${componentName}: Error restarting video after form close:`, error);
       });
     }
   };
