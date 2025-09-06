@@ -28,8 +28,8 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
   const isFormValid = formData.name && formData.email && formData.phone && formData.consent;
 
   return (
-    <div className="absolute inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-30">
-      <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 relative">
+    <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-30 p-4 md:p-8">
+      <div className="bg-white rounded-2xl p-6 md:p-8 max-w-md w-full mx-4 relative max-h-[90vh] overflow-y-auto my-auto">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
@@ -37,16 +37,16 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
           <X className="w-5 h-5" />
         </button>
 
-        <div className="text-center mb-6">
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">
+        <div className="text-center mb-4 md:mb-6">
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
             Continue Watching
           </h3>
-          <p className="text-gray-600">
+          <p className="text-sm md:text-base text-gray-600">
             Enter your information to unlock the rest of this exclusive content
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
           <div>
             <Label htmlFor="name" className="text-sm font-medium text-gray-700">
               Full Name *
@@ -107,13 +107,13 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
           <Button
             type="submit"
             disabled={!isFormValid}
-            className="w-full bg-primary hover:bg-primary/90 text-white py-3 text-lg font-semibold"
+            className="w-full bg-yellow-500 hover:bg-yellow-600 text-black py-3 text-base md:text-lg font-semibold"
           >
             Continue Watching
           </Button>
         </form>
 
-        <p className="text-xs text-gray-500 text-center mt-4">
+        <p className="text-xs text-gray-500 text-center mt-3 md:mt-4">
           Your information is secure and will never be shared with third parties
         </p>
       </div>
