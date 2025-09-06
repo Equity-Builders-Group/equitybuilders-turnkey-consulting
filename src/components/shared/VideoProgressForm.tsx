@@ -18,14 +18,95 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
     consent: false
   });
 
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    consent: ""
+  });
+
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    phone: false,
+    consent: false
+  });
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone: string) => {
+    const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+    return phoneRegex.test(phone);
+  };
+
+  const validateField = (field: string, value: string | boolean) => {
+    let error = "";
+    
+    switch (field) {
+      case "name":
+        if (!value || (typeof value === "string" && value.trim().length < 2)) {
+          error = "Name must be at least 2 characters";
+        }
+        break;
+      case "email":
+        if (!value) {
+          error = "Email is required";
+        } else if (typeof value === "string" && !validateEmail(value)) {
+          error = "Please enter a valid email address";
+        }
+        break;
+      case "phone":
+        if (!value) {
+          error = "Phone number is required";
+        } else if (typeof value === "string" && !validatePhone(value)) {
+          error = "Please enter a valid phone number (at least 10 digits)";
+        }
+        break;
+      case "consent":
+        if (!value) {
+          error = "You must consent to continue";
+        }
+        break;
+    }
+    
+    setErrors(prev => ({ ...prev, [field]: error }));
+    return error === "";
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+    validateField(field, formData[field as keyof typeof formData]);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.phone && formData.consent) {
+    
+    // Mark all fields as touched
+    setTouched({
+      name: true,
+      email: true,
+      phone: true,
+      consent: true
+    });
+
+    // Validate all fields
+    const nameValid = validateField("name", formData.name);
+    const emailValid = validateField("email", formData.email);
+    const phoneValid = validateField("phone", formData.phone);
+    const consentValid = validateField("consent", formData.consent);
+
+    if (nameValid && emailValid && phoneValid && consentValid) {
       onSubmit(formData);
     }
   };
 
-  const isFormValid = formData.name && formData.email && formData.phone && formData.consent;
+  const isFormValid = formData.name.trim().length >= 2 && 
+                     validateEmail(formData.email) && 
+                     validatePhone(formData.phone) && 
+                     formData.consent;
 
   return (
     <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-30 p-2">
@@ -47,45 +128,74 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-2">
-          <Input
-            type="text"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            placeholder="Full Name *"
-            required
-            className="text-sm"
-          />
-
-          <Input
-            type="email"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            placeholder="Email Address *"
-            required
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            className="text-sm"
-          />
-
-          <Input
-            type="tel"
-            value={formData.phone}
-            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            placeholder="Phone Number *"
-            required
-            pattern="[\+]?[0-9\s\-\(\)]{10,}"
-            className="text-sm"
-          />
-
-          <div className="flex items-start space-x-2 pt-1">
-            <Checkbox
-              id="consent"
-              checked={formData.consent}
-              onCheckedChange={(checked) => setFormData({ ...formData, consent: !!checked })}
-              className="mt-0.5 flex-shrink-0"
+          <div>
+            <Input
+              type="text"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onBlur={() => handleBlur("name")}
+              placeholder="Full Name *"
+              className={`text-sm ${touched.name && errors.name ? "border-red-500" : ""}`}
             />
-            <Label htmlFor="consent" className="text-xs text-gray-600 leading-tight">
-              I consent to receive SMS and communications about real estate opportunities *
-            </Label>
+            {touched.name && errors.name && (
+              <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+            )}
+          </div>
+
+          <div>
+            <Input
+              type="email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onBlur={() => handleBlur("email")}
+              placeholder="Email Address *"
+              className={`text-sm ${touched.email && errors.email ? "border-red-500" : ""}`}
+            />
+            {touched.email && errors.email && (
+              <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+            )}
+          </div>
+
+          <div>
+            <Input
+              type="tel"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              onBlur={() => handleBlur("phone")}
+              placeholder="Phone Number *"
+              className={`text-sm ${touched.phone && errors.phone ? "border-red-500" : ""}`}
+            />
+            {touched.phone && errors.phone && (
+              <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+            )}
+          </div>
+
+          <div>
+            <div className="flex items-start space-x-2 pt-1">
+              <Checkbox
+                id="consent"
+                checked={formData.consent}
+                onCheckedChange={(checked) => {
+                  setFormData({ ...formData, consent: !!checked });
+                  if (touched.consent) {
+                    validateField("consent", !!checked);
+                  }
+                }}
+                className="mt-0.5 flex-shrink-0"
+              />
+              <Label 
+                htmlFor="consent" 
+                className={`text-xs leading-tight cursor-pointer ${
+                  touched.consent && errors.consent ? "text-red-500" : "text-gray-600"
+                }`}
+                onClick={() => handleBlur("consent")}
+              >
+                I consent to receive SMS and communications about real estate opportunities *
+              </Label>
+            </div>
+            {touched.consent && errors.consent && (
+              <p className="text-red-500 text-xs mt-1">{errors.consent}</p>
+            )}
           </div>
 
           <Button
