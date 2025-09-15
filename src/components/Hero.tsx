@@ -160,7 +160,7 @@ const Hero = () => {
                 <h3 className="text-3xl font-black leading-none text-white text-left mb-4">
                   TURN KEY DEVELOPMENT,
                   <span className="block text-accent drop-shadow-2xl">
-                    WE WILL DO
+                    DONE-FOR-YOU. WE WILL DO
                   </span>
                   <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent">
                     ALL THE WORK!
@@ -169,11 +169,11 @@ const Hero = () => {
               </div>
               
               <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/60">
-                <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">🏗️ DONE-FOR-YOU NEW CONSTRUCTION</span>
+                <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">Making Over Six Figures A Year?</span>
               </div>
               
               <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white">
-                FROM EMPTY
+                GO FROM EMPTY
                 <span className="block text-accent drop-shadow-2xl">
                   LOT TO
                 </span>
@@ -187,9 +187,10 @@ const Hero = () => {
               
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl mx-auto lg:mx-0">
                 <p className="text-lg sm:text-2xl text-white font-semibold leading-relaxed">
-                  We guide investors, developers, and first-time builders through every step of the 
-                  <span className="text-highlight"> pre-construction and construction process 🏗️</span>
-                  — from land search to permits to builder selection.
+                  Are you a tech professional looking to accelerate your retirement goals?
+                  We will handle every step of the
+                  <span className="text-highlight"> pre-construction development process 🏗️</span>
+                  — from land search to permits to actual construction. Mentorship available if you want to learn as well.
                 </p>
               </div>
             </div>
