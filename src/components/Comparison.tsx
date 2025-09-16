@@ -24,7 +24,7 @@ const Comparison = () => {
   ];
 
   return (
-    <section className="w-full py-20 bg-gradient-to-b from-primary via-primary/20 to-background relative overflow-hidden">
+    <section className="w-full py-20 bg-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-16 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
