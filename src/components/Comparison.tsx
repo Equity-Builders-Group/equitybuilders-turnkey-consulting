@@ -84,8 +84,15 @@ const Comparison = () => {
               </div>
             </div>
 
+            {/* Mobile VS Badge - Between sections */}
+            <div className="flex justify-center lg:hidden order-1">
+              <div className="w-16 h-16 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-xl">
+                <span className="text-background font-bold text-base">VS</span>
+              </div>
+            </div>
+
             {/* TurnKey Development - Right Side */}
-            <div className="relative">
+            <div className="relative lg:order-2">
               <div className="bg-gradient-primary backdrop-blur-sm rounded-3xl p-8 border border-accent/30 relative overflow-hidden shadow-2xl">
                 {/* Background pattern */}
                 <div className="absolute inset-0 opacity-10">
@@ -116,17 +123,10 @@ const Comparison = () => {
             </div>
           </div>
 
-          {/* VS Badge */}
+          {/* Desktop VS Badge */}
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:block">
             <div className="w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl">
               <span className="text-background font-bold text-lg">VS</span>
-            </div>
-          </div>
-
-          {/* Mobile VS Badge */}
-          <div className="flex justify-center mt-8 lg:hidden">
-            <div className="w-16 h-16 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-xl">
-              <span className="text-background font-bold text-base">VS</span>
             </div>
           </div>
         </div>
