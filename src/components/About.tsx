@@ -42,7 +42,7 @@ const About = () => {
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
             <div className="space-y-8">
               <div className="space-y-4">
-                <h2 className="text-4xl font-bold">
+                <h2 className="text-4xl font-bold drop-shadow-lg">
                   Why Choose TurnKey Development?
                 </h2>
                 <p className="text-xl text-muted-foreground">

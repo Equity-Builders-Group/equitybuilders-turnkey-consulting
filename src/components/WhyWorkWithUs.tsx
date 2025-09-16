@@ -52,7 +52,7 @@ const WhyWorkWithUs = () => {
             <span className="text-white font-bold text-xl">WHY CHOOSE US</span>
           </div>
           
-          <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white">
+          <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white drop-shadow-lg">
             WHY WORK
             <span className="block text-accent drop-shadow-2xl">
               WITH US?
@@ -101,7 +101,7 @@ const WhyWorkWithUs = () => {
         {/* Call to action */}
         <div className="text-center mt-20">
           <div className="bg-white/10 backdrop-blur-sm p-12 rounded-3xl border border-white/20 max-w-4xl mx-auto">
-              <h3 className="text-4xl font-bold text-white mb-6 uppercase">Let's start building up your net-worth</h3>
+              <h3 className="text-4xl font-bold text-white mb-6 uppercase drop-shadow-lg">Let's start building up your net-worth</h3>
             <p className="text-white/90 text-xl mb-8 leading-relaxed">
               Join the ranks of successful developers by leveraging our experience and track record to accelerate your path to success. We will do what it takes to get you across the finish line with a return on your investment.
             </p>

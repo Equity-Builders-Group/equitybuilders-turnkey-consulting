@@ -108,7 +108,7 @@ const ClientShowcase = () => {
             <span className="text-primary font-bold text-xl">PROJECT GALLERY</span>
           </div>
           
-          <h2 className="text-5xl lg:text-6xl font-black mb-8 text-foreground">
+          <h2 className="text-5xl lg:text-6xl font-black mb-8 text-foreground drop-shadow-lg">
             CLIENT
             <span className="block text-primary drop-shadow-lg">
               SHOWCASE

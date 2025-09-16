@@ -225,7 +225,7 @@ const Services = () => {
             <span className="text-white font-bold text-xl">OUR EXPERT SERVICES</span>
           </div>
           
-          <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white">
+          <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white drop-shadow-lg">
             WE WILL TAKE YOU
             <span className="block text-accent drop-shadow-2xl">
               FROM A TO Z
