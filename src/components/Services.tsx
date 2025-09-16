@@ -105,49 +105,12 @@ const Services = () => {
 
   const servicesIncluded = [
     {
-      title: "Land Search & Negotiations",
+      title: "Comparative Market Analysis",
       category: "Services Included",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      )
-    },
-    {
-      title: "Survey Review & Analysis",
-      category: "Services Included",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-        </svg>
-      )
-    },
-    {
-      title: "Site Plan & Plat Preparation",
-      category: "Services Included",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
-        </svg>
-      )
-    },
-    {
-      title: "Construction Floor Plan Design & Development",
-      category: "Services Included",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
-        </svg>
-      )
-    },
-    {
-      title: "Budget Creation & Project Underwriting",
-      category: "Services Included",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
         </svg>
       )
     },
@@ -170,7 +133,7 @@ const Services = () => {
       )
     },
     {
-      title: "Entity Structuring & Setup",
+      title: "Entity Structuring & Setup Consulting",
       category: "Services Included",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -179,7 +142,7 @@ const Services = () => {
       )
     },
     {
-      title: "Exit Strategy & Real Estate Tax Planning",
+      title: "Exit & Tax Strategy Consulting",
       category: "Services Included",
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -259,7 +222,7 @@ const Services = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20 mt-48 lg:mt-0">
           <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-full border border-white/30 mb-8">
-            <span className="text-white font-bold text-xl">💼 OUR EXPERT SERVICES</span>
+            <span className="text-white font-bold text-xl">OUR EXPERT SERVICES</span>
           </div>
           
           <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white">
@@ -270,7 +233,7 @@ const Services = () => {
           </h2>
           
           <p className="text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-            Use our experience, our team, our vendors, relationships, and take all of our knowledge and processes around developing residential 1 to 4 family properties for a flat fee.
+            Use our experience, our team, our vendors, relationships, and take all of our knowledge and processes around developing residential multi-family properties for a flat fee.
           </p>
         </div>
         
@@ -300,10 +263,10 @@ const Services = () => {
         {/* Bold CTA at bottom of services */}
         <div className="text-center mt-20">
           <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 max-w-2xl mx-auto">
-            <h3 className="text-3xl font-bold text-white mb-4">Ready to Transform?</h3>
-            <p className="text-white/90 text-xl mb-6">Let's discuss how these services can accelerate your growth</p>
+            <h3 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h3>
+            <p className="text-white/90 text-xl mb-6">We can't make it any easier than this.</p>
             <div className="flex items-center justify-center gap-4 text-accent text-lg font-semibold">
-              <span>📞</span> Book Your Free Strategy Call Now
+              Book Your Free Strategy Call Now
             </div>
           </div>
         </div>

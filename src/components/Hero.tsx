@@ -202,7 +202,7 @@ const Hero = () => {
                 onClick={() => setShowConsultationModal(true)}
                 className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-white text-primary hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
               >
-                📞 Book Your Consultation Today
+                📞 Book Your Pre-Qualification Call Today
               </Button>
               
               <div className="flex items-center justify-center lg:justify-start gap-4 text-white/90">

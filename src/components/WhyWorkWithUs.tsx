@@ -5,10 +5,10 @@ const WhyWorkWithUs = () => {
   const reasons = [
     {
       title: "Proven Track Record",
-      description: "Over $1.2M in active construction and $5M+ in pre-construction pipeline.",
+      description: "Over $1.2M in active construction and $2.4M+ in development in the pipeline.",
       icon: <Award className="w-8 h-8" />,
-      stats: "$1.2M+",
-      statsLabel: "Active Construction"
+      stats: "$5M+",
+      statsLabel: "Pending Developments"
     },
     {
       title: "Experience",
@@ -28,7 +28,7 @@ const WhyWorkWithUs = () => {
       title: "Mentorship Included",
       description: "We will let you see behind the curtain and process full transparency of actual costs and process.",
       icon: <Handshake className="w-8 h-8" />,
-      stats: "100%",
+      stats: "FULL",
       statsLabel: "Transparency"
     }
   ];
@@ -45,7 +45,7 @@ const WhyWorkWithUs = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-full border border-white/30 mb-8">
-            <span className="text-white font-bold text-xl">🏆 WHY CHOOSE US</span>
+            <span className="text-white font-bold text-xl">WHY CHOOSE US</span>
           </div>
           
           <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white">
@@ -56,7 +56,11 @@ const WhyWorkWithUs = () => {
           </h2>
           
           <p className="text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-            We don't just talk about results — we deliver them. We will teach you how to fish in this Real Estate development game for a fraction of your profit potential. Here's what sets us apart in the competitive world of real estate development.
+            We don't just talk about results — we deliver them. We have a proven track record with HUD statements to back it up. You will not find another partner like us that is as vertically integrated from top to bottom.
+            Lavon is a licensed real estate mortgage broker, developer, and builder. He has been in the Real Estate industry for over 20 years with most recent construction experience built up and honed over the last 5 years during probably
+            one of the hardest times to build in the last 50 years with the Covid-19 pandemic. He has been through the trenches and knows what it takes to get a project done.<br/><br/>
+            
+            If you want to learn along the way we will also be very transparent and teach you how to fish in this Real Estate development game as an additional benefit.
           </p>
         </div>
         
@@ -95,10 +99,10 @@ const WhyWorkWithUs = () => {
           <div className="bg-white/10 backdrop-blur-sm p-12 rounded-3xl border border-white/20 max-w-4xl mx-auto">
             <h3 className="text-4xl font-bold text-white mb-6">Ready to Get Started?</h3>
             <p className="text-white/90 text-xl mb-8 leading-relaxed">
-              Join the ranks of successful developers by leveraging our experience and track record. Will do what it takes to get you across the finish line. Let's start building up your net-worth today.
+              Join the ranks of successful developers by leveraging our experience and track record to accelerate your path to success. We will do what it takes to get you across the finish line with a return on investment.
             </p>
-            <div className="flex items-center justify-center gap-4 text-yellow-400 text-2xl font-bold">
-              <span>💰</span> Let's start building up your net-worth today.
+            <div className="flex items-center justify-center gap-4 text-yellow-400 text-2xl font-bold uppercase">
+              Let's start building up your net-worth today.
             </div>
           </div>
         </div>

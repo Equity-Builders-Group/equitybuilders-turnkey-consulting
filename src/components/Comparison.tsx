@@ -39,13 +39,26 @@ const Comparison = () => {
           </div>
           
           <h2 className="text-4xl md:text-6xl font-black leading-tight text-foreground mb-6">
-            What Sets TurnKey
+            What Sets Turn Key
             <span className="block text-accent">Development Apart</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Discover how our done-for-you approach outperforms traditional real estate investing 
-            with superior support, better results, and unmatched ease of investment.
+            with superior support, better results, and unmatched ease of investment.<br/>
+            <br />
+          </p>
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Real Estate is the ONLY asset class in the world that allows you to gain 100% of control and value for just a fraction of the cost. This means that we are able to 
+            get over 100% returns on capital invested. Traditional investments in syndications, the stock market do not compare to the tangible security of Real Estate combined with the 
+            returns. When you build vs buy investment real estate the margins are huge!
+            <br /><br />
+          </p>
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            If you want to determine how fast you can multiply your money just divide your expected percentage returns by 72. This will give you the number of years it will take to double your money. This is called the "Rule of 72". 
+            The best alternative investments out today may give you a return of 10-15% on the high end. This means it will take you 7.2-4.8 years to double your money. We are doing that in 9-12 months! The best
+            part is that we will do all the heavy lifting for you! You can participate as much or as little as you want.
+            <br />
           </p>
         </div>
 

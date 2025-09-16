@@ -6,24 +6,20 @@ const LogoStrip = () => {
       assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
     },
     {
-      label: "Equity Builders",
-      assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
+      label: "Multiculture Mortgage",
+      assetFileName: "Multiculture_Mortgage_Stationary_Horizontal_Logo_cropped.png"
     },
     {
-      label: "Equity Builders", 
-      assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
+      label: "Noval Capital Group", 
+      assetFileName: "Noval-Capital-Final_Horizontal.png"
     },
     {
-      label: "Equity Builders",
-      assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
+      label: "The American Dream TV",
+      assetFileName: "TheAmericanDreamTV_Logo-1000x252.png"
     },
     {
-      label: "Equity Builders",
-      assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
-    },
-    {
-      label: "Equity Builders",
-      assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
+      label: "House Hacking The American Dream: Maximizing Cash Flow In An Unaffordable America",
+      assetFileName: "HouseHackingTheAmericanDream_Logo-Final_Horizontal.png"
     }
   ];
 
@@ -42,7 +38,7 @@ const LogoStrip = () => {
               <img 
                 src={`/lovable-uploads/${logo.assetFileName}`}
                 alt={logo.label}
-                className="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
+                className="h-14 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300 brightness-0 invert"
               />
             </div>
           ))}
@@ -52,7 +48,7 @@ const LogoStrip = () => {
               <img 
                 src={`/lovable-uploads/${logo.assetFileName}`}
                 alt={logo.label}
-                className="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
+                className="h-14 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300 brightness-0 invert"
               />
             </div>
           ))}

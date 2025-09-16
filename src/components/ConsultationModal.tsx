@@ -34,16 +34,16 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
 
         {/* Header */}
         <div className="p-6 border-b bg-gradient-primary text-white">
-          <h2 className="text-2xl font-bold">Book Your Consultation</h2>
-          <p className="text-white/90 mt-2">Let's discuss your construction project</p>
+          <h2 className="text-2xl font-bold">Book Your Call</h2>
+          <p className="text-white/90 mt-2">Let's discuss your real estate investment goals and see if it is a fit.</p>
         </div>
 
         {/* Iframe container */}
         <div className="w-full h-[calc(100%-120px)]">
           <iframe
-            src="https://multiculturemortgage.com/consultation"
+            src="https://equitybuilders.co/turnkey-call/"
             className="w-full h-full border-none"
-            title="Book Your Consultation"
+            title="Book Your Pre-Qualification Call"
             allow="fullscreen"
           />
         </div>
