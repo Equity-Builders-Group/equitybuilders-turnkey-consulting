@@ -104,8 +104,8 @@ const Comparison = () => {
                   <div className="space-y-4">
                     {turnkeyAdvantages.map((advantage, index) => (
                       <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent flex items-center justify-center mt-0.5">
-                          <Check className="w-4 h-4 text-white" />
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-accent flex items-center justify-center mt-0.5 shadow-lg border-2 border-white/30 hover:scale-110 transition-all duration-300">
+                          <Check className="w-6 h-6 text-white drop-shadow-md" strokeWidth={3} />
                         </div>
                         <span className="text-white font-medium">{advantage}</span>
                       </div>
