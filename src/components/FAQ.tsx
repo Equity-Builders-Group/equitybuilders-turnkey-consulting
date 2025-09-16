@@ -76,7 +76,7 @@ const FAQ = () => {
         </div>
         
         {/* Additional construction project showcase - centered on mobile */}
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 lg:top-20 lg:left-auto lg:right-20 lg:transform-none w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-xl border-4 border-accent/60 -rotate-12">
+        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 lg:top-20 lg:left-auto lg:right-20 lg:transform-none w-48 h-48 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-12">
           <img 
             src="/lovable-uploads/9622KinderAve_Exterior.jpg" 
             alt="9622 Kinder Avenue development expertise" 
