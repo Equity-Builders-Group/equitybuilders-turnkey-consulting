@@ -3,6 +3,7 @@ import Comparison from "@/components/Comparison";
 import LogoStrip from "@/components/LogoStrip";
 import Services from "@/components/Services";
 import WhyWorkWithUs from "@/components/WhyWorkWithUs";
+import MissingMiddleSection from "@/components/MissingMiddleSection";
 import ClientShowcase from "@/components/ClientShowcase";
 import About from "@/components/About";
 import CTA from "@/components/CTA";
@@ -17,6 +18,7 @@ const Index = () => {
       <LogoStrip />
       <Services />
       <WhyWorkWithUs />
+      <MissingMiddleSection />
       <ClientShowcase />
       <About />
       <CTA />
