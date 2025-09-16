@@ -22,7 +22,6 @@ const Index = () => {
       <MissingMiddleSection />
       <ClientShowcase />
       <About />
-      <VideoShowcase />
       <CTA />
       <NovalTransition />
       <Footer />

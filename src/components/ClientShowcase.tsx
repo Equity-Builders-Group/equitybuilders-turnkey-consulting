@@ -13,29 +13,29 @@ const ClientShowcase = () => {
   const projects = [
     {
       id: 1,
-      title: "Oakwood Residential Development",
-      location: "Austin, TX",
-      status: "Under Construction",
+      title: "Glen Ave Development",
+      location: "Houston, TX",
+      status: "Pending Construction",
       value: "$1.2M",
-      timeline: "8 months",
+      timeline: "6 months",
       team: "4 units",
       images: [
         "/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png",
         "/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png"
       ],
-      story: "From vacant lot to luxury 4-unit development. This project showcases our end-to-end process from land acquisition through final construction.",
+      story: "From vacant lot to luxury 4-unit, two separate duplex development. This project showcases our end-to-end process from land acquisition through final construction.",
       highlights: ["Zoning Approval in 30 Days", "15% Under Budget", "Pre-sold 2 Units"]
     },
     {
       id: 2,
-      title: "Riverside Family Homes",
+      title: "Calhoun Estates Development",
       location: "Houston, TX",
       status: "Planning Phase",
-      value: "$2.1M",
-      timeline: "12 months",
-      team: "6 units",
+      value: "$800K",
+      timeline: "9 months",
+      team: "4 units",
       images: [
-        "/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png",
+        "/lovable-uploads/5df938db-8063-4672-9fdb-4bb75420dbc7.png",
         "/lovable-uploads/5df938db-8063-4672-9fdb-4bb75420dbc7.png"
       ],
       story: "Transforming underutilized riverside property into modern family housing. Complex permitting and environmental considerations successfully navigated.",
@@ -105,7 +105,7 @@ const ClientShowcase = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <div className="inline-block bg-primary/10 backdrop-blur-sm px-8 py-4 rounded-full border border-primary/20 mb-8">
-            <span className="text-primary font-bold text-xl">📸 PROJECT GALLERY</span>
+            <span className="text-primary font-bold text-xl">PROJECT GALLERY</span>
           </div>
           
           <h2 className="text-5xl lg:text-6xl font-black mb-8 text-foreground">
