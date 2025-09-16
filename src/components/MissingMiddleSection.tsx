@@ -67,34 +67,36 @@ const MissingMiddleSection = () => {
             </p>
           </div>
 
-          <div 
-            className={`w-full max-w-7xl mx-auto transition-all duration-1200 delay-300 ease-out ${
-              isVisible 
-                ? 'opacity-100 scale-100' 
-                : 'opacity-0 scale-95'
-            }`}
-          >
-            <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 p-8 shadow-2xl">
-              <img 
-                src="/images/missing-middle-graphic.png"
-                alt="Missing Middle Density Housing Spectrum - showing progression from single family homes through ADU, duplex, fourplex, courtyard complex, townhouse, multiplex, live-work to mid-rise developments"
-                className="w-full h-auto rounded-xl shadow-lg"
-              />
-            </div>
-          </div>
+        </div>
+      </div>
 
-          <div 
-            className={`text-center mt-12 transition-all duration-1000 delay-600 ease-out ${
-              isVisible 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-5'
-            }`}
-          >
-            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-              The "missing middle" represents a crucial gap in housing options between single-family homes and large apartment buildings. 
-              These housing types offer opportunities for increased density while maintaining neighborhood character and affordability.
-            </p>
-          </div>
+      {/* Full-width graphic section */}
+      <div 
+        className={`w-full transition-all duration-1200 delay-300 ease-out ${
+          isVisible 
+            ? 'opacity-100 scale-100' 
+            : 'opacity-0 scale-95'
+        }`}
+      >
+        <img 
+          src="/images/missing-middle-graphic.png"
+          alt="Missing Middle Density Housing Spectrum - showing progression from single family homes through ADU, duplex, fourplex, courtyard complex, townhouse, multiplex, live-work to mid-rise developments"
+          className="w-full h-auto object-contain"
+        />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div 
+          className={`text-center mt-12 transition-all duration-1000 delay-600 ease-out ${
+            isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-5'
+          }`}
+        >
+          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+            The "missing middle" represents a crucial gap in housing options between single-family homes and large apartment buildings. 
+            These housing types offer opportunities for increased density while maintaining neighborhood character and affordability.
+          </p>
         </div>
       </div>
     </section>
