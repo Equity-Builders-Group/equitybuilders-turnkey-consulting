@@ -73,8 +73,8 @@ const Comparison = () => {
                   <div className="space-y-4">
                     {traditionalProblems.map((problem, index) => (
                       <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-muted/20 border border-muted/30">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-muted flex items-center justify-center mt-0.5">
-                          <Shield className="w-4 h-4 text-muted-foreground" />
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted flex items-center justify-center mt-0.5 shadow-md border-2 border-muted-foreground/20 hover:scale-110 transition-all duration-300">
+                          <Shield className="w-6 h-6 text-muted-foreground" strokeWidth={2.5} />
                         </div>
                         <span className="text-foreground font-medium">{problem}</span>
                       </div>
