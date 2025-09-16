@@ -118,14 +118,14 @@ const Comparison = () => {
 
           {/* VS Badge */}
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:block">
-            <div className="w-20 h-20 bg-foreground rounded-full flex items-center justify-center border-4 border-background shadow-2xl">
+            <div className="w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl">
               <span className="text-background font-bold text-lg">VS</span>
             </div>
           </div>
 
           {/* Mobile VS Badge */}
           <div className="flex justify-center mt-8 lg:hidden">
-            <div className="w-16 h-16 bg-foreground rounded-full flex items-center justify-center border-4 border-background shadow-xl">
+            <div className="w-16 h-16 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-xl">
               <span className="text-background font-bold text-base">VS</span>
             </div>
           </div>
