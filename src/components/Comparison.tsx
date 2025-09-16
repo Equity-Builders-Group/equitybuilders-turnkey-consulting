@@ -51,7 +51,7 @@ const Comparison = () => {
 
         {/* Comparison Grid */}
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-start space-y-8 lg:space-y-0">
             
             {/* Traditional Approach - Left Side */}
             <div className="relative">
@@ -85,14 +85,14 @@ const Comparison = () => {
             </div>
 
             {/* Mobile VS Badge - Between sections */}
-            <div className="flex justify-center lg:hidden order-1">
+            <div className="flex justify-center lg:hidden">
               <div className="w-16 h-16 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-xl">
                 <span className="text-background font-bold text-base">VS</span>
               </div>
             </div>
 
             {/* TurnKey Development - Right Side */}
-            <div className="relative lg:order-2">
+            <div className="relative">
               <div className="bg-gradient-primary backdrop-blur-sm rounded-3xl p-8 border border-accent/30 relative overflow-hidden shadow-2xl">
                 {/* Background pattern */}
                 <div className="absolute inset-0 opacity-10">
