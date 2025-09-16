@@ -1,4 +1,32 @@
 const LogoStrip = () => {
+  // Array of logos with label and asset file name
+  const logos = [
+    {
+      label: "Equity Builders",
+      assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
+    },
+    {
+      label: "Equity Builders",
+      assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
+    },
+    {
+      label: "Equity Builders", 
+      assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
+    },
+    {
+      label: "Equity Builders",
+      assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
+    },
+    {
+      label: "Equity Builders",
+      assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
+    },
+    {
+      label: "Equity Builders",
+      assetFileName: "EB_Logo_Icon_Circle_Horizontal.png"
+    }
+  ];
+
   return (
     <section className="w-full bg-primary py-8 overflow-hidden">
       <div 
@@ -9,21 +37,21 @@ const LogoStrip = () => {
       >
         <div className="flex animate-ticker whitespace-nowrap">
           {/* First set of logos */}
-          {Array.from({ length: 12 }).map((_, index) => (
+          {logos.map((logo, index) => (
             <div key={index} className="flex-shrink-0 mx-12">
               <img 
-                src="/lovable-uploads/EB_Logo_Icon_Circle_Horizontal.png" 
-                alt="Equity Builders Logo" 
+                src={`/lovable-uploads/${logo.assetFileName}`}
+                alt={logo.label}
                 className="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
           ))}
           {/* Duplicate set for seamless loop */}
-          {Array.from({ length: 12 }).map((_, index) => (
+          {logos.map((logo, index) => (
             <div key={`duplicate-${index}`} className="flex-shrink-0 mx-12">
               <img 
-                src="/lovable-uploads/EB_Logo_Icon_Circle_Horizontal.png" 
-                alt="Equity Builders Logo" 
+                src={`/lovable-uploads/${logo.assetFileName}`}
+                alt={logo.label}
                 className="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
