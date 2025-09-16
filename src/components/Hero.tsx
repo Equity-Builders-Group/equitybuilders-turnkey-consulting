@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
-import { Play } from "lucide-react";
+import { Play, Circle } from "lucide-react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
 import ConsultationModal from "./ConsultationModal";
 import ExitIntentModal from "./ExitIntentModal";
@@ -192,6 +192,45 @@ const Hero = () => {
                   We will handle every step of the <span className="text-highlight"> new construction development process 🏗️</span>
                   — from land search to permits to actual construction.
                 </p>
+              </div>
+            </div>
+
+            {/* Pain Points Section */}
+            <div className="bg-black/30 backdrop-blur-sm p-8 rounded-3xl border border-white/20 max-w-2xl mx-auto lg:mx-0">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center lg:text-left">
+                Are You Frustrated With...
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <Circle className="w-3 h-3 text-accent fill-current flex-shrink-0 mt-2" />
+                  <p className="text-white/90 text-lg leading-relaxed">
+                    <span className="font-semibold text-white">High taxes eating away</span> at your tech salary with no write-offs?
+                  </p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Circle className="w-3 h-3 text-accent fill-current flex-shrink-0 mt-2" />
+                  <p className="text-white/90 text-lg leading-relaxed">
+                    <span className="font-semibold text-white">Traditional investments</span> giving you mediocre 7-10% returns?
+                  </p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Circle className="w-3 h-3 text-accent fill-current flex-shrink-0 mt-2" />
+                  <p className="text-white/90 text-lg leading-relaxed">
+                    <span className="font-semibold text-white">Having money sitting in savings</span> losing value to inflation?
+                  </p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Circle className="w-3 h-3 text-accent fill-current flex-shrink-0 mt-2" />
+                  <p className="text-white/90 text-lg leading-relaxed">
+                    <span className="font-semibold text-white">Working harder</span> but not building real wealth or passive income?
+                  </p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Circle className="w-3 h-3 text-accent fill-current flex-shrink-0 mt-2" />
+                  <p className="text-white/90 text-lg leading-relaxed">
+                    <span className="font-semibold text-white">Not knowing how to break into real estate</span> without the time or expertise?
+                  </p>
+                </div>
               </div>
             </div>
             
