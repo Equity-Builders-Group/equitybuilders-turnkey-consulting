@@ -5,24 +5,24 @@ const VideoShowcase = () => {
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
 
   return (
-    <section className="w-full bg-black py-16">
-      <div className="container mx-auto px-4">
+    <section className="w-full bg-black">
+      <div className="w-full">
         {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center py-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
             See Us In Action
           </h2>
         </div>
         
-        {/* Video Container */}
-        <div className="w-full max-w-7xl mx-auto">
-          <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+        {/* Video Container - Full width, height matches 16:9 aspect ratio */}
+        <div className="w-full">
+          <div className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh]">
             <HLSVideoPlayer
               ref={videoPlayerRef}
               videoUrl="https://vz-447b6532-fd2.b-cdn.net/65558fdd-047e-401c-b75c-210360836388/playlist.m3u8"
               autoPlay={true}
               showControls={true}
-              className="w-full h-full rounded-lg overflow-hidden"
+              className="w-full h-full"
             />
           </div>
         </div>
