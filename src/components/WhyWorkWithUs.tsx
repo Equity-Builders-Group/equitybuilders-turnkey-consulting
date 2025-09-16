@@ -116,12 +116,6 @@ const WhyWorkWithUs = () => {
     {/* Full Screen Video Section */}
     <section className="w-full bg-black">
       <div className="w-full">
-        {/* Heading */}
-        <div className="text-center py-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            See Us In Action
-          </h2>
-        </div>
 
         {/* Video Container - Full screen width */}
         <div className="w-full">
