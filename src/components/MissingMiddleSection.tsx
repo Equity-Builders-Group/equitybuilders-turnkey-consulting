@@ -64,7 +64,7 @@ const MissingMiddleSection = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               The missing middle is the gap in the market with the highest returns and lowest barrier to entry. There is no old boys club, no huge
               regulatory red tape, or huge capital requirements to get a significant return in a short amount of time. Municipalities all across the country and 
-              new lending guidlines are changing at this very moment.Your level of risk
+              new lending guidelines are changing at this very moment.Your level of risk
               goes down when you work with us. We have been where you want to go!
             </p>
           </div>
