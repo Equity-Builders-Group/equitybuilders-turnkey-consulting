@@ -3,13 +3,13 @@ import { Shield, Check, Unlock } from "lucide-react";
 const Comparison = () => {
   const traditionalProblems = [
     "Limited Property Selection",
-    "Complex Financing Processes", 
-    "Time-Consuming Research Required",
-    "Manual Permit & Legal Work",
+    "Limited Market Knowledge",
+    "You Don't Know What You Don't Know",
     "Lack of Construction Expertise",
-    "No Project Management Support",
+    "You Need To Build A Team From Scratch",
+    "No Project Management Experience",
     "Inconsistent Quality Control",
-    "Limited Market Knowledge"
+    "Prior Experience Required for Financing", 
   ];
 
   const turnkeyAdvantages = [
@@ -20,7 +20,7 @@ const Comparison = () => {
     "Expert Construction Management",
     "End-to-End Project Oversight",
     "Guaranteed Quality Standards",
-    "Comprehensive Market Insights"
+    "Six Figures Delivered On A Silver Platter!"
   ];
 
   return (

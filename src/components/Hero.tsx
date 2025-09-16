@@ -169,11 +169,11 @@ const Hero = () => {
               </div>
               
               <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/60">
-                <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">Do You Have Over $100K Liquid? This is for you!</span>
+                <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">Do You Have Over $100K? This is for you!</span>
               </div>
               
               <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white">
-                GO FROM EMPTY
+                GO FROM AN EMPTY
                 <span className="block text-accent drop-shadow-2xl">
                   LOT TO
                 </span>
@@ -181,15 +181,15 @@ const Hero = () => {
                   SIX FIGURE
                 </span>
                 <span className="block text-white">
-                  PROFIT
+                  PROFITS
                 </span>
               </h1>
               
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl mx-auto lg:mx-0">
                 <p className="text-lg sm:text-2xl text-white font-semibold leading-relaxed">
-                  Are you a tech professional looking to accelerate your retirement goals? You need Real Estate profits and write-offs to keep more of your money every year.
+                  Are you a busy professional looking to accelerate your retirement goals? <br/>You need the benefits of Real Estate and the tax write-offs that come with it to keep more of your money every year.
                   <br/>
-                  We will handle every step of the <span className="text-highlight"> new construction development process 🏗️</span>
+                  Lets work together. We will handle every step of the  complex<span className="text-highlight"> new construction development process</span>
                   — from land search to permits to actual construction.
                 </p>
               </div>
@@ -219,20 +219,20 @@ const Hero = () => {
             <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-highlight">500+</div>
+                  <div className="text-4xl font-black text-highlight">5+</div>
                   <div className="text-white/80 font-medium">Projects Delivered</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-highlight">98%</div>
+                  <div className="text-4xl font-black text-highlight">100%</div>
                   <div className="text-white/80 font-medium">Success Rate</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-highlight">40%</div>
-                  <div className="text-white/80 font-medium">Revenue Boost</div>
+                  <div className="text-4xl font-black text-highlight">1.8x+</div>
+                  <div className="text-white/80 font-medium">ROI Multiples</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-highlight">15+</div>
-                  <div className="text-white/80 font-medium">Years Experience</div>
+                  <div className="text-4xl font-black text-highlight">5+</div>
+                  <div className="text-white/80 font-medium">Years of Experience</div>
                 </div>
               </div>
             </div>
