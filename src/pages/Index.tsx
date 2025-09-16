@@ -6,6 +6,7 @@ import WhyWorkWithUs from "@/components/WhyWorkWithUs";
 import MissingMiddleSection from "@/components/MissingMiddleSection";
 import ClientShowcase from "@/components/ClientShowcase";
 import About from "@/components/About";
+import VideoShowcase from "@/components/VideoShowcase";
 import CTA from "@/components/CTA";
 import NovalTransition from "@/components/NovalTransition";
 import Footer from "@/components/Footer";
@@ -21,6 +22,7 @@ const Index = () => {
       <MissingMiddleSection />
       <ClientShowcase />
       <About />
+      <VideoShowcase />
       <CTA />
       <NovalTransition />
       <Footer />
