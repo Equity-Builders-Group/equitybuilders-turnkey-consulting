@@ -1,6 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import ConsultationModal from "@/components/ConsultationModal";
+import { useState } from "react";
 
 const Services = () => {
+  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const processSteps = [
     {
       title: "Land Search & Vetting",
@@ -265,12 +269,21 @@ const Services = () => {
           <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 max-w-2xl mx-auto">
             <h3 className="text-3xl font-bold text-white mb-4">Let's Get Started?</h3>
             <p className="text-white/90 text-xl mb-6">We can't make it any easier than this.</p>
-            <div className="flex items-center justify-center gap-4 text-accent text-lg font-semibold">
+            <Button 
+              onClick={() => setIsConsultationModalOpen(true)}
+              size="lg"
+              className="text-accent text-lg font-semibold bg-white/10 hover:bg-white/20 border border-accent/50 hover:border-accent transition-all duration-300"
+            >
               Book Your Pre-Qualification Call Today
-            </div>
+            </Button>
           </div>
         </div>
       </div>
+
+      <ConsultationModal 
+        isOpen={isConsultationModalOpen}
+        onClose={() => setIsConsultationModalOpen(false)}
+      />
     </section>
   );
 };
