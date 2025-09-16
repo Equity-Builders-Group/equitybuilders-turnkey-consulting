@@ -122,12 +122,12 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-20 relative z-10">
         {/* Mobile-only top heading */}
         <div className="lg:hidden mb-12">
-          <h2 className="text-5xl sm:text-6xl font-black leading-none text-white text-center">
+          <h2 className="text-5xl sm:text-6xl font-black leading-none text-white text-center drop-shadow-lg">
             TURN KEY DEVELOPMENT,
             <span className="block text-accent drop-shadow-2xl">
               WE WILL DO
             </span>
-            <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent drop-shadow-lg">
               ALL THE WORK!
             </span>
           </h2>
@@ -158,12 +158,12 @@ const Hero = () => {
             <div className="space-y-6">
               {/* Desktop-only top heading */}
               <div className="hidden lg:block">
-                <h3 className="text-3xl font-black leading-none text-white text-left mb-4">
+                <h3 className="text-3xl font-black leading-none text-white text-left mb-4 drop-shadow-lg">
                   TURN KEY DEVELOPMENT,
                   <span className="block text-accent drop-shadow-2xl">
                     DONE-FOR-YOU.
                   </span>
-                  <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent">
+                  <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent drop-shadow-lg">
                     WE WILL DO ALL THE WORK!
                   </span>
                 </h3>
@@ -173,15 +173,15 @@ const Hero = () => {
                 <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">Do You Have Over $100K? This is for you!</span>
               </div>
               
-              <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white">
+              <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white drop-shadow-lg">
                 GO FROM AN EMPTY
                 <span className="block text-accent drop-shadow-2xl">
                   LOT TO
                 </span>
-                <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent drop-shadow-lg">
                   SIX FIGURE
                 </span>
-                <span className="block text-white">
+                <span className="block text-white drop-shadow-lg">
                   PROFITS
                 </span>
               </h1>

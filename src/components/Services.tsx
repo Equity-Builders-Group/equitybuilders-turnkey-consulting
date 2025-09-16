@@ -1,6 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import ConsultationModal from "@/components/ConsultationModal";
+import { useState } from "react";
 
 const Services = () => {
+  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const processSteps = [
     {
       title: "Land Search & Vetting",
@@ -225,7 +229,7 @@ const Services = () => {
             <span className="text-white font-bold text-xl">OUR EXPERT SERVICES</span>
           </div>
           
-          <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white">
+          <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white drop-shadow-lg">
             WE WILL TAKE YOU
             <span className="block text-accent drop-shadow-2xl">
               FROM A TO Z
@@ -265,12 +269,21 @@ const Services = () => {
           <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 max-w-2xl mx-auto">
             <h3 className="text-3xl font-bold text-white mb-4">Let's Get Started?</h3>
             <p className="text-white/90 text-xl mb-6">We can't make it any easier than this.</p>
-            <div className="flex items-center justify-center gap-4 text-accent text-lg font-semibold">
-              Book Your Pre-Qualification Call Today
-            </div>
+            <Button 
+              onClick={() => setIsConsultationModalOpen(true)}
+              size="lg"
+              className="text-black text-lg font-semibold bg-yellow-400 hover:bg-yellow-500 border border-yellow-500 hover:border-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Book Your Call Today
+            </Button>
           </div>
         </div>
       </div>
+
+      <ConsultationModal 
+        isOpen={isConsultationModalOpen}
+        onClose={() => setIsConsultationModalOpen(false)}
+      />
     </section>
   );
 };

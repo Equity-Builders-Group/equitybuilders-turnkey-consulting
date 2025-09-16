@@ -54,7 +54,7 @@ const MissingMiddleSection = () => {
               <span className="text-primary font-bold text-xl">OUR FOCUS IS ON THE MISSING MIDDLE</span>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl font-black mb-6 text-foreground">
+            <h2 className="text-4xl lg:text-5xl font-black mb-6 text-foreground drop-shadow-lg">
               THE GAP IN THE MARKET
               <span className="block text-primary drop-shadow-lg">
                 MISSING MIDDLE HOUSING

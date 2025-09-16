@@ -38,9 +38,9 @@ const Comparison = () => {
             <span className="text-accent font-semibold text-sm uppercase tracking-wider">Comparison</span>
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-black leading-tight text-foreground mb-6">
+          <h2 className="text-4xl md:text-6xl font-black leading-tight text-foreground mb-6 drop-shadow-lg">
             What Sets Turn Key
-            <span className="block text-accent">Development Apart</span>
+            <span className="block text-accent drop-shadow-lg">Development Apart</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
