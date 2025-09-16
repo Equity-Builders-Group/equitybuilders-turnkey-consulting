@@ -38,7 +38,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
   showUnmuteButton = true,
   onVideoReady,
   onError,
-  className = "w-full h-full object-cover",
+  className = "w-screen h-full object-cover",
   containerClassName = "relative w-full h-full",
   unmuteButtonPosition = "center",
   componentName = "HLSVideoPlayer",
