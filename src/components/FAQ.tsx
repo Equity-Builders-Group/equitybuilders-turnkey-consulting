@@ -78,8 +78,8 @@ const FAQ = () => {
         {/* Additional construction project showcase - centered on mobile */}
         <div className="absolute top-16 left-1/2 transform -translate-x-1/2 lg:top-20 lg:left-auto lg:right-20 lg:transform-none w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-xl border-4 border-accent/60 -rotate-12">
           <img 
-            src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
-            alt="Architectural development expertise" 
+            src="/lovable-uploads/9622KinderAve_Exterior.jpg" 
+            alt="9622 Kinder Avenue development expertise" 
             className="w-full h-full object-cover hover:scale-110 transition-all duration-500"
           />
         </div>
@@ -128,7 +128,7 @@ const FAQ = () => {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="border border-white/20 rounded-lg px-6 py-2 bg-white/10 backdrop-blur-sm"
+                  className="border border-white/20 rounded-lg px-6 py-2 bg-white/10 backdrop-blur-lg"
                 >
                   <AccordionTrigger className="text-left font-semibold text-lg text-white hover:text-white/80 transition-colors py-6">
                     {faq.question}

@@ -67,9 +67,10 @@ const Hero = () => {
         />
       </div>
 
+      {/* Pederson Exterior (Floating Left Bottom) */}
       <div className="hidden lg:block absolute bottom-40 left-16 w-72 h-48 rounded-3xl overflow-hidden shadow-2xl border-6 border-white/40 -rotate-3 transform hover:-rotate-1 transition-all duration-700">
         <img 
-          src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
+          src="/lovable-uploads/PedersonExterior.jpg" 
           alt="Architectural project showcase" 
           className="w-full h-full object-cover"
         />

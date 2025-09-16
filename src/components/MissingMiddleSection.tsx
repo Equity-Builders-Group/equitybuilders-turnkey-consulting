@@ -51,19 +51,21 @@ const MissingMiddleSection = () => {
         >
           <div className="text-center mb-12">
             <div className="inline-block bg-primary/10 backdrop-blur-sm px-8 py-4 rounded-full border border-primary/20 mb-8">
-              <span className="text-primary font-bold text-xl">🏢 HOUSING DENSITY SPECTRUM</span>
+              <span className="text-primary font-bold text-xl">OUR FOCUS IS ON THE MISSING MIDDLE</span>
             </div>
             
             <h2 className="text-4xl lg:text-5xl font-black mb-6 text-foreground">
-              UNDERSTANDING THE
+              THE GAP IN THE MARKET
               <span className="block text-primary drop-shadow-lg">
-                MISSING MIDDLE
+                MISSING MIDDLE HOUSING
               </span>
             </h2>
             
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Exploring the housing density spectrum from single family homes to mid-rise developments, 
-              and identifying opportunities in the often overlooked "missing middle" housing types.
+              The missing middle is the gap in the market with the highest returns and lowest barrier to entry. There is no old boys club, no huge
+              regulatory red tape, or huge capital requirements to get a significant return in a short amount of time. Municipalities all across the country and 
+              new lending guidlines are changing at this very moment.Your level of risk
+              goes down when you work with us. We have been where you want to go!
             </p>
           </div>
 

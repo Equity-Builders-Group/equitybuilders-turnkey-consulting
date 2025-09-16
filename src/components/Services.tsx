@@ -180,8 +180,8 @@ const Services = () => {
         {/* Floating service images - centered on mobile */}
         <div className="absolute top-16 left-1/2 transform -translate-x-1/2 lg:left-20 lg:transform-none w-48 h-48 lg:w-80 lg:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 lg:border-8 border-accent/50 -rotate-12 hover:-rotate-6 transition-all duration-700">
           <img 
-            src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
-            alt="Business development and consulting expert" 
+            src="/lovable-uploads/LavonReebok.png" 
+            alt="Lavon Reebok Shot" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-secondary/40"></div>
@@ -189,8 +189,8 @@ const Services = () => {
 
         <div className="hidden lg:block absolute bottom-20 right-32 w-72 h-72 rounded-2xl overflow-hidden shadow-xl border-6 border-white/40 rotate-12">
           <img 
-            src="/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png" 
-            alt="Architectural development project" 
+            src="/lovable-uploads/1017Calvin_Exterior.jpg" 
+            alt="1017 Calvin Avenue development project" 
             className="w-full h-full object-cover hover:scale-110 transition-all duration-500"
           />
         </div>
@@ -263,10 +263,10 @@ const Services = () => {
         {/* Bold CTA at bottom of services */}
         <div className="text-center mt-20">
           <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 max-w-2xl mx-auto">
-            <h3 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h3>
+            <h3 className="text-3xl font-bold text-white mb-4">Let's Get Started?</h3>
             <p className="text-white/90 text-xl mb-6">We can't make it any easier than this.</p>
             <div className="flex items-center justify-center gap-4 text-accent text-lg font-semibold">
-              Book Your Free Strategy Call Now
+              Book Your Pre-Qualification Call Today
             </div>
           </div>
         </div>
