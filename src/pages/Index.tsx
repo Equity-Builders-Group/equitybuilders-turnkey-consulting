@@ -7,7 +7,7 @@ import MissingMiddleSection from "@/components/MissingMiddleSection";
 import ClientShowcase from "@/components/ClientShowcase";
 import About from "@/components/About";
 import VideoShowcase from "@/components/VideoShowcase";
-import CTA from "@/components/CTA";
+import FAQ from "@/components/FAQ";
 import NovalTransition from "@/components/NovalTransition";
 import Footer from "@/components/Footer";
 
@@ -22,7 +22,7 @@ const Index = () => {
       <MissingMiddleSection />
       <ClientShowcase />
       <About />
-      <CTA />
+      <FAQ />
       <NovalTransition />
       <Footer />
     </div>
