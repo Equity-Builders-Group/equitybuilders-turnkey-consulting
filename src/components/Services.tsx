@@ -272,9 +272,9 @@ const Services = () => {
             <Button 
               onClick={() => setIsConsultationModalOpen(true)}
               size="lg"
-              className="text-accent text-lg font-semibold bg-white/10 hover:bg-white/20 border border-accent/50 hover:border-accent transition-all duration-300"
+              className="text-black text-lg font-semibold bg-yellow-400 hover:bg-yellow-500 border border-yellow-500 hover:border-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              Book Your Pre-Qualification Call Today
+              Book Your Call Today
             </Button>
           </div>
         </div>
