@@ -1,4 +1,4 @@
-import { Shield, Check } from "lucide-react";
+import { Shield, Check, Unlock } from "lucide-react";
 
 const Comparison = () => {
   const traditionalProblems = [
@@ -94,7 +94,7 @@ const Comparison = () => {
                 
                 <div className="relative z-10">
                   <div className="flex items-center justify-center w-16 h-16 bg-accent/20 backdrop-blur-sm rounded-2xl mb-6 mx-auto border border-accent/30">
-                    <span className="text-2xl font-bold text-white">🏗️</span>
+                    <Unlock className="w-8 h-8 text-white" strokeWidth={2.5} />
                   </div>
                   
                   <h3 className="text-2xl font-bold text-center mb-8 text-white">
