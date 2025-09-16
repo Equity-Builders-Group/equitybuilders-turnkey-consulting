@@ -37,7 +37,8 @@ const WhyWorkWithUs = () => {
   ];
 
   return (
-    <section className="w-full py-32 bg-gradient-to-br from-primary via-primary-dark to-secondary relative overflow-hidden">
+    <>
+      <section className="w-full py-32 bg-gradient-to-br from-primary via-primary-dark to-secondary relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
@@ -97,27 +98,6 @@ const WhyWorkWithUs = () => {
           ))}
         </div>
         
-      <div className="w-full">
-        {/* Heading */}
-        <div className="text-center py-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            See Us In Action
-          </h2>
-        </div>
-
-        {/* Video Container - Full width, height matches 16:9 aspect ratio */}
-        <div className="w-full">
-          <div className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh]">
-            <HLSVideoPlayer
-              ref={videoPlayerRef}
-              videoUrl="https://vz-447b6532-fd2.b-cdn.net/65558fdd-047e-401c-b75c-210360836388/playlist.m3u8"
-              autoPlay={true}
-              showControls={true}
-              className="w-full h-full"
-            />
-          </div>
-        </div>
-      </div>
         {/* Call to action */}
         <div className="text-center mt-20">
           <div className="bg-white/10 backdrop-blur-sm p-12 rounded-3xl border border-white/20 max-w-4xl mx-auto">
@@ -132,6 +112,33 @@ const WhyWorkWithUs = () => {
         </div>
       </div>
     </section>
+    
+    {/* Full Screen Video Section */}
+    <section className="w-full bg-black">
+      <div className="w-full">
+        {/* Heading */}
+        <div className="text-center py-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+            See Us In Action
+          </h2>
+        </div>
+
+        {/* Video Container - Full screen width */}
+        <div className="w-full">
+          <div className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh]">
+            <HLSVideoPlayer
+              ref={videoPlayerRef}
+              videoUrl="https://vz-447b6532-fd2.b-cdn.net/65558fdd-047e-401c-b75c-210360836388/playlist.m3u8"
+              autoPlay={true}
+              showControls={true}
+              className="w-screen h-full object-cover"
+              containerClassName="relative w-screen h-full"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    </>
   );
 };
 
