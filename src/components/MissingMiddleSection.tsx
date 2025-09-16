@@ -70,19 +70,21 @@ const MissingMiddleSection = () => {
         </div>
       </div>
 
-      {/* Full-width graphic section */}
-      <div 
-        className={`w-full transition-all duration-1200 delay-300 ease-out ${
-          isVisible 
-            ? 'opacity-100 scale-100' 
-            : 'opacity-0 scale-95'
-        }`}
-      >
-        <img 
-          src="/images/missing-middle-graphic.png"
-          alt="Missing Middle Density Housing Spectrum - showing progression from single family homes through ADU, duplex, fourplex, courtyard complex, townhouse, multiplex, live-work to mid-rise developments"
-          className="w-full h-auto object-contain"
-        />
+      {/* Centered graphic section */}
+      <div className="container mx-auto px-4">
+        <div 
+          className={`flex justify-center transition-all duration-1200 delay-300 ease-out ${
+            isVisible 
+              ? 'opacity-100 scale-100' 
+              : 'opacity-0 scale-95'
+          }`}
+        >
+          <img 
+            src="/images/missing-middle-graphic-new.png"
+            alt="Missing Middle Density Housing Spectrum - showing progression from ADU, duplex, fourplex, courtyard complex, townhouse, multiplex, live-work housing types"
+            className="max-w-4xl w-full h-auto object-contain"
+          />
+        </div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
