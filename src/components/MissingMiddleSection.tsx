@@ -51,7 +51,7 @@ const MissingMiddleSection = () => {
         >
           <div className="text-center mb-12">
             <div className="inline-block bg-primary/10 backdrop-blur-sm px-8 py-4 rounded-full border border-primary/20 mb-8">
-              <span className="text-primary font-bold text-xl">OUR FOCUS IS ON THE MISSING MIDDLE</span>
+              <span className="text-primary font-bold text-xl">OUR TARGET FOCUS</span>
             </div>
             
             <h2 className="text-4xl lg:text-5xl font-black mb-6 text-foreground drop-shadow-lg">

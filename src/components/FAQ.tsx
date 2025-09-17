@@ -10,11 +10,11 @@ const FAQ = () => {
   const faqs = [
     {
       question: "What types of real estate investment opportunities do you offer?",
-      answer: "We specialize in missing middle housing developments, multifamily properties, and strategic real estate investments. Our portfolio includes duplexes, fourplexes, townhouses, and small apartment complexes that provide strong cash flow and appreciation potential."
+      answer: "We specialize in missing middle housing developments, multifamily properties, and strategic real estate investments. Our target focus includes duplexes, triplexes, fourplexes, and small apartment complexes that provide strong cash flow and appreciation potential. We utilize the newly passed Chapter 42 ordinance that recently passed in the city of Houston, Texas."
     },
     {
       question: "How do you ensure profitable returns for investors?",
-      answer: "Our proven track record comes from thorough market analysis, strategic property selection, and professional management. We focus on undervalued properties in growing markets and apply our expertise in development and value-add strategies to maximize returns."
+      answer: "We can't guarantee anything, however we know that your chances of success are much higher when you work with us. Our proven track record comes thorough market analysis, strategic property selection, and professional management. We focus on undervalued properties in growing markets and apply our expertise in land development and value-add strategies to maximize returns."
     },
     {
       question: "What is the minimum investment required?",
@@ -22,7 +22,7 @@ const FAQ = () => {
     },
     {
       question: "Do you provide ongoing property management services?",
-      answer: "Yes, we offer comprehensive property management services including tenant screening, rent collection, maintenance coordination, and regular property inspections. Our goal is to provide passive income opportunities for our investors."
+      answer: "Yes, we offer comprehensive property management services including tenant screening, rent collection, maintenance coordination, and regular property inspections. Our goal is to build wealth together and establish a long term partners with our investors."
     },
     {
       question: "How do you identify and evaluate potential investment properties?",
@@ -30,15 +30,15 @@ const FAQ = () => {
     },
     {
       question: "What markets do you currently operate in?",
-      answer: "We focus primarily on high-growth suburban and urban markets with strong job growth, population increases, and housing demand. Our current markets include several key metropolitan areas where missing middle housing is in high demand."
+      answer: "This service is primarily offered in Houston Texas."
     },
     {
       question: "Can I invest in individual properties or only funds?",
-      answer: "We offer both individual property investment opportunities and fund structures. This flexibility allows investors to choose the approach that best fits their investment strategy, risk tolerance, and capital requirements."
+      answer: "We offer both individual property investment opportunities and a collective investment model through our alternative investment club structures. So if you have less capital to get started reach out and see if our group investments are a better fit. This flexibility allows investors to choose the approach that best fits their investment strategy, risk tolerance, and capital requirements."
     },
     {
       question: "What kind of returns can I expect from investments?",
-      answer: "While past performance doesn't guarantee future results, our properties typically target cash-on-cash returns of 8-12% annually, with additional appreciation upside. Returns vary based on property type, market conditions, and investment structure."
+      answer: "While past performance doesn't guarantee future results, our properties typically generate six figures plus in profit on top of initial capital invested per deal, with additional appreciation upside if you decide to hold the property for a longer term. Returns vary based on property type, market conditions, and investment structure."
     }
   ];
 
@@ -145,16 +145,16 @@ const FAQ = () => {
           <div className="text-center">
             <div className="bg-black/20 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg">
               <h3 className="text-2xl font-bold text-white mb-4">
-                Have Questions? We're Here to Help!
+                Still Have Questions?
               </h3>
               <p className="text-white/90 text-lg mb-6 max-w-2xl mx-auto">
-                Reach out to our support team for any queries or assistance.
+                Reach out to our AI chat assistant for any additional queries or assistance.
               </p>
               <Button 
                 size="lg"
                 className="px-8 py-3 text-lg bg-white text-primary hover:bg-white/90 font-bold transform hover:scale-105 transition-all duration-300"
               >
-                Contact Us
+                Open Chat
               </Button>
             </div>
           </div>
