@@ -107,7 +107,7 @@ const ClientShowcase = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-block bg-primary/10 backdrop-blur-sm px-8 py-4 rounded-full border border-primary/20 mb-8">
+          <div className="inline-block bg-primary/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-primary/20 mb-8">
             <span className="text-primary font-bold text-xl">PROJECT GALLERY</span>
           </div>
           

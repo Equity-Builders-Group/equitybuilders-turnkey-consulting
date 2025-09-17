@@ -48,7 +48,7 @@ const WhyWorkWithUs = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-full border border-white/30 mb-8">
+            <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/30 mb-8">
             <span className="text-white font-bold text-xl">WHY CHOOSE US</span>
           </div>
           

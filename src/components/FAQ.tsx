@@ -115,18 +115,18 @@ const FAQ = () => {
             {/* Left column - Header and intro */}
             <div className="space-y-8">
               <div className="space-y-6">
-                <div className="inline-block bg-highlight/20 backdrop-blur-sm px-6 py-3 rounded-full border border-highlight/40">
-                  <span className="text-white font-bold text-lg">Frequently Asked Questions</span>
+                <div className="inline-block bg-highlight/20 backdrop-blur-sm px-6 py-3 rounded-2xl border border-highlight/40">
+                  <span className="text-white font-bold text-lg drop-shadow-lg">Frequently Asked Questions</span>
                 </div>
                 
-                <h2 className="text-4xl lg:text-6xl font-black text-white leading-tight">
+                <h2 className="text-4xl lg:text-6xl font-black text-white leading-tight drop-shadow-lg">
                   Your Questions
                   <span className="block text-highlight">
                     Answered
                   </span>
                 </h2>
                 
-                <p className="text-white/90 text-xl leading-relaxed">
+                <p className="text-white/90 text-xl leading-relaxed drop-shadow-lg">
                   Get clarity on our investment opportunities, processes, and what makes our real estate development approach unique in Houston's growing market.
                 </p>
               </div>
@@ -176,10 +176,10 @@ const FAQ = () => {
                     value={`item-${index}`}
                     className="border border-white/20 rounded-xl px-6 py-2 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-all duration-300 group"
                   >
-                    <AccordionTrigger className="text-left font-semibold text-lg text-white hover:text-highlight transition-colors py-6 group-hover:pr-2">
+                    <AccordionTrigger className="text-left font-semibold text-lg text-white hover:text-highlight transition-colors py-6 group-hover:pr-2 drop-shadow-lg">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-white/85 text-base leading-relaxed pb-6 pl-2">
+                    <AccordionContent className="text-white/85 text-base leading-relaxed pb-6 pl-2 drop-shadow-lg">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>

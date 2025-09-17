@@ -225,8 +225,8 @@ const Services = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20 mt-48 lg:mt-0">
-          <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-full border border-white/30 mb-8">
-            <span className="text-white font-bold text-xl">OUR EXPERT SERVICES</span>
+          <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/30 mb-8">
+            <span className="text-white font-bold text-xl">OUR EXPERTISE</span>
           </div>
           
           <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white drop-shadow-lg">

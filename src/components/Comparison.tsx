@@ -34,7 +34,7 @@ const Comparison = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block bg-accent/10 backdrop-blur-sm px-6 py-2 rounded-full border border-accent/20 mb-6">
+          <div className="inline-block bg-accent/10 backdrop-blur-sm px-6 py-2 rounded-2xl border border-accent/20 mb-6">
             <span className="text-accent font-semibold text-sm uppercase tracking-wider">Comparison</span>
           </div>
           
