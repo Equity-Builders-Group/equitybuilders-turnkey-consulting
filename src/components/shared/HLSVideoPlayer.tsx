@@ -118,7 +118,10 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
   useEffect(() => {
     if (enablePlayheadStorage && videoRef.current && videoUrl && isVideoReady) {
       const storageKey = `video_playhead_${btoa(videoUrl)}`;
+      console.log(`${componentName}: Storage key for restore:`, storageKey);
+      console.log(`${componentName}: Video URL for storage:`, videoUrl);
       const storedTime = localStorage.getItem(storageKey);
+      console.log(`${componentName}: Stored time found:`, storedTime);
       if (storedTime) {
         const time = parseFloat(storedTime);
         if (!isNaN(time) && time > 0) {
