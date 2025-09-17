@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -5,9 +6,70 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useToast } from "@/hooks/use-toast";
 import textureBackground from "@/assets/texture-background.jpg";
 
 const FAQ = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("https://equitybuilders.co/wp-json/autonami/v1/webhook/?bwfan_autonami_webhook_id=3&bwfan_autonami_webhook_key=1307432ec34fc9c6cc445571d6f81c48", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors",
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          timestamp: new Date().toISOString(),
+          source: "FAQ Form"
+        }),
+      });
+
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "Failed to submit form. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
   const faqs = [
     {
       question: "What types of real estate investment opportunities do you offer?",
@@ -133,36 +195,60 @@ const FAQ = () => {
               
               {/* Email Contact Form */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                <h3 className="text-xl font-bold text-white mb-4">Get Investment Info</h3>
-                <form className="space-y-4">
-                  <div>
-                    <input 
-                      type="text" 
-                      placeholder="Full Name" 
-                      className="w-full px-4 py-3 rounded-lg bg-white border border-white/30 text-foreground placeholder-muted-foreground focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors"
-                    />
+                {!isSubmitted ? (
+                  <>
+                    <h3 className="text-xl font-bold text-white mb-4">Get Additional Clarity</h3>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div>
+                        <input 
+                          type="text" 
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          placeholder="Full Name" 
+                          className="w-full px-4 py-3 rounded-lg bg-white border border-white/30 text-foreground placeholder-muted-foreground focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <input 
+                          type="email" 
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          placeholder="Email Address" 
+                          className="w-full px-4 py-3 rounded-lg bg-white border border-white/30 text-foreground placeholder-muted-foreground focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <textarea 
+                          name="message"
+                          value={formData.message}
+                          onChange={handleInputChange}
+                          placeholder="What else can we clear up for you?" 
+                          rows={3}
+                          className="w-full px-4 py-3 rounded-lg bg-white border border-white/30 text-foreground placeholder-muted-foreground focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors resize-none"
+                          required
+                        />
+                      </div>
+                      <button 
+                        type="submit" 
+                        disabled={isLoading}
+                        className="w-full px-6 py-3 bg-highlight text-highlight-foreground font-bold rounded-lg hover:bg-highlight/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-lg"
+                      >
+                        {isLoading ? "Sending..." : "Send Message"}
+                      </button>
+                    </form>
+                  </>
+                ) : (
+                  <div className="text-center py-8">
+                    <h3 className="text-xl font-bold text-white mb-4">Message Sent!</h3>
+                    <p className="text-white/90 text-lg leading-relaxed">
+                      Thanks {formData.name || "for your"} for sending in your additional questions. We will respond within the next 24-48 hours.
+                    </p>
                   </div>
-                  <div>
-                    <input 
-                      type="email" 
-                      placeholder="Email Address" 
-                      className="w-full px-4 py-3 rounded-lg bg-white border border-white/30 text-foreground placeholder-muted-foreground focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <textarea 
-                      placeholder="Tell us about your investment goals..." 
-                      rows={3}
-                      className="w-full px-4 py-3 rounded-lg bg-white border border-white/30 text-foreground placeholder-muted-foreground focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors resize-none"
-                    />
-                  </div>
-                  <button 
-                    type="submit" 
-                    className="w-full px-6 py-3 bg-highlight text-highlight-foreground font-bold rounded-lg hover:bg-highlight/90 transition-colors shadow-lg"
-                  >
-                    Send Message
-                  </button>
-                </form>
+                )}
               </div>
               
             </div>
