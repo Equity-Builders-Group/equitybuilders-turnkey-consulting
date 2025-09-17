@@ -11,11 +11,11 @@ const Hero = () => {
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
   
   // Dramatic scroll reveal animations for Hero
-  const { elementRef: heroRef, isVisible: heroVisible } = useScrollReveal<HTMLElement>({ threshold: 0.1 });
-  const { elementRef: headlineRef, isVisible: headlineVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: phoneRef, isVisible: phoneVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: resultsRef, isVisible: resultsVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: heroRef, animationState: heroState } = useScrollReveal<HTMLElement>({ threshold: 0.1 });
+  const { elementRef: headlineRef, animationState: headlineState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: ctaRef, animationState: ctaState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: phoneRef, animationState: phoneState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: resultsRef, animationState: resultsState } = useScrollReveal<HTMLDivElement>();
   const { elementRef: floatingImagesRef, visibleItems: floatingVisible } = useStaggeredScrollReveal<HTMLDivElement>(4);
   
   // Listen for custom consultation event from exit intent modal

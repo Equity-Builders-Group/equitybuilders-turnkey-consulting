@@ -13,9 +13,7 @@ const BuildVsBuySection = () => {
       <div className="container mx-auto px-4">
         <div 
           ref={titleRef}
-          className={`text-center mb-16 transition-all duration-800 ${
-            titleVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-12'
-          }`}
+          className={`text-center mb-16 scroll-reveal-fade-down ${titleVisible ? 'visible' : ''}`}
         >
           <h2 className="text-4xl md:text-6xl font-black leading-tight text-foreground mb-6 drop-shadow-lg">
             Why Build Instead Of Buy
@@ -30,9 +28,7 @@ const BuildVsBuySection = () => {
         {/* Feature Image with Magnifying Glass */}
         <div 
           ref={imageRef}
-          className={`flex justify-center mb-8 transition-all duration-800 ${
-            imageVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-75'
-          }`}
+          className={`flex justify-center mb-8 scroll-reveal-scale-up ${imageVisible ? 'visible' : ''}`}
         >
           <div 
             className="relative group cursor-pointer max-w-4xl w-full"

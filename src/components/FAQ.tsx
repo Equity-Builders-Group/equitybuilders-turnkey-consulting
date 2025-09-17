@@ -11,9 +11,9 @@ import textureBackground from "@/assets/texture-background.jpg";
 import useScrollReveal from "@/hooks/useScrollReveal";
 
 const FAQ = () => {
-  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: formRef, isVisible: formVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: accordionRef, isVisible: accordionVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: headerRef, animationState: headerState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: formRef, animationState: formState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: accordionRef, animationState: accordionState } = useScrollReveal<HTMLDivElement>();
   
   const [formData, setFormData] = useState({
     name: '',

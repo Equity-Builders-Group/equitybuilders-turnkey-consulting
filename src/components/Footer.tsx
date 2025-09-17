@@ -6,9 +6,7 @@ const Footer = () => {
   return (
     <footer 
       ref={footerRef}
-      className={`w-full bg-emerald-900 border-t border-emerald-800 py-8 transition-all duration-800 ${
-        footerVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
-      }`}
+      className={`w-full bg-emerald-900 border-t border-emerald-800 py-8 scroll-reveal-fade-up ${footerVisible ? 'visible' : ''}`}
     >
       <div className="container mx-auto px-4">
         <div className="text-center">

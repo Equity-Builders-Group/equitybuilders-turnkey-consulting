@@ -2,12 +2,12 @@ import { Shield, Check, Unlock } from "lucide-react";
 import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const Comparison = () => {
-  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
-  const { elementRef: traditionalRef, isVisible: traditionalVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: vsMobileRef, isVisible: vsMobileVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: vsDesktopRef, isVisible: vsDesktopVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: turnkeyRef, isVisible: turnkeyVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal();
+  const { elementRef: headerRef, animationState: headerState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: traditionalRef, animationState: traditionalState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: vsMobileRef, animationState: vsMobileState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: vsDesktopRef, animationState: vsDesktopState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: turnkeyRef, animationState: turnkeyState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: ctaRef, animationState: ctaState } = useScrollReveal();
   
   const traditionalProblems = [
     "Limited Property Selection",

@@ -6,9 +6,9 @@ import useScrollReveal from "@/hooks/useScrollReveal";
 
 const WhyWorkWithUs = () => {
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
-  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
-  const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollReveal({ threshold: 0.05 });
-  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal();
+  const { elementRef: headerRef, animationState: headerState } = useScrollReveal();
+  const { elementRef: cardsRef, animationState: cardsState } = useScrollReveal({ threshold: 0.05 });
+  const { elementRef: ctaRef, animationState: ctaState } = useScrollReveal();
   const reasons = [
     {
       title: "Proven Track Record",

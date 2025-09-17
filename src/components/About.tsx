@@ -39,9 +39,7 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div 
             ref={contentRef}
-            className={`bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 transition-all duration-800 ${
-              contentVisible ? 'animate-reveal-fade-right' : 'opacity-0 -translate-x-12'
-            }`}
+            className={`bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 scroll-reveal-fade-up ${contentVisible ? 'visible' : ''}`}
           >
             <div className="space-y-8">
               <div className="space-y-4">
@@ -103,9 +101,7 @@ const About = () => {
           
           <div 
             ref={imageRef}
-            className={`relative transition-all duration-800 ${
-              imageVisible ? 'animate-reveal-fade-left' : 'opacity-0 translate-x-12'
-            }`}
+            className={`relative scroll-reveal-fade-up ${imageVisible ? 'visible' : ''}`}
           >
             <div className="aspect-[4/5] bg-gradient-primary rounded-2xl overflow-hidden shadow-2xl relative">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>

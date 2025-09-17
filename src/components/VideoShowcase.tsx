@@ -13,9 +13,7 @@ const VideoShowcase = () => {
         {/* Heading */}
         <div 
           ref={headingRef}
-          className={`text-center py-12 transition-all duration-800 ${
-            headingVisible ? 'animate-reveal-fade-down' : 'opacity-0 -translate-y-8'
-          }`}
+          className={`text-center py-12 reveal-fade-down ${headingState}`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-lg">
             See Us In Action
@@ -25,9 +23,7 @@ const VideoShowcase = () => {
         {/* Video Container - Full width, height matches 16:9 aspect ratio */}
         <div 
           ref={videoRef}
-          className={`w-full transition-all duration-1000 ${
-            videoVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-75'
-          }`}
+          className={`w-full reveal-scale-up ${videoState}`}
         >
           <div className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh]">
             <HLSVideoPlayer
