@@ -89,10 +89,6 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              
-              <Button size="lg" className="text-lg px-8 py-6">
-                Start Your Transformation
-              </Button>
             </div>
           </div>
           
