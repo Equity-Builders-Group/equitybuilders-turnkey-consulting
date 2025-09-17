@@ -29,6 +29,9 @@ All colors MUST be HSL.
     --accent: 120 90% 35%;
     --accent-foreground: 0 0% 100%;
 
+    --accent-gold: 42 88% 35%;
+    --accent-gold-foreground: 0 0% 100%;
+
     --highlight: 46 100% 50%;
     --highlight-foreground: 0 0% 0%;
 
@@ -84,6 +87,9 @@ All colors MUST be HSL.
 
     --accent: 120 100% 65%;
     --accent-foreground: 120 100% 8%;
+
+    --accent-gold: 42 88% 50%;
+    --accent-gold-foreground: 0 0% 100%;
 
     --highlight: 46 100% 60%;
     --highlight-foreground: 0 0% 0%;

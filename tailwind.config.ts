@@ -42,7 +42,9 @@ export default {
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					foreground: 'hsl(var(--accent-foreground))',
+					gold: 'hsl(var(--accent-gold))',
+					'gold-foreground': 'hsl(var(--accent-gold-foreground))'
 				},
 				highlight: {
 					DEFAULT: 'hsl(var(--highlight))',
