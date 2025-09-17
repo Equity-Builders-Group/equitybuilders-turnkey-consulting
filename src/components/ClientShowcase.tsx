@@ -87,7 +87,7 @@ const ClientShowcase = () => {
       return;
     }
     // Always open clicked project and close any others
-    setSelectedProject(projectId);
+    setSelectedProject(selectedProject === projectId ? null : projectId);
   };
 
   const handleImageClick = (e: React.MouseEvent, images: string[], index: number = 0) => {
