@@ -34,8 +34,8 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
         }
       },
       {
-        threshold: options.threshold || 0.1,
-        rootMargin: options.rootMargin || '0px 0px -50px 0px',
+        threshold: options.threshold || 0.05,
+        rootMargin: options.rootMargin || '100px 0px 0px 0px',
       }
     );
 
@@ -74,8 +74,8 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.05,
+        rootMargin: '100px 0px 0px 0px',
       }
     );
 
