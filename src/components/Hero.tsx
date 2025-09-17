@@ -206,10 +206,21 @@ const Hero = () => {
                 >
                 Book A Call Today
                 </Button>
-                
+
+                 {/* Pulse effect */}
+                <div 
+                  className="absolute inset-0 rounded-1xl pointer-events-none"
+                  style={{
+                    animation: 'pulse-shadow 1.5s infinite ease-out',
+                    animationName: 'pulse-shadow',
+                    animationDuration: '1.5s',
+                    animationIterationCount: 'infinite',
+                    animationTimingFunction: 'ease-out',
+                  }}
+                ></div>
                 {/* Floating finger press icon */}
                 <div className="absolute -bottom-2 -right-2 animate-pulse">
-                  <MousePointer2 className="w-8 h-8 text-white fill-current rotate-12" />
+                  <MousePointer2 className="w-16 h-16 text-white fill-current rotate-12" />
                 </div>
               </div>
               
@@ -279,7 +290,7 @@ const Hero = () => {
                         {/* Introduction overlay */}
                         <div className="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-sm rounded-2xl p-6">
                           <p className="text-white font-semibold text-center text-lg">
-                            👋 Your Construction Partner
+                            Your Construction Partner
                           </p>
                           <p className="text-white/80 text-base text-center mt-2">
                             Tap to see how we build together
