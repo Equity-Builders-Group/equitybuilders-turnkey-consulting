@@ -119,7 +119,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="container mx-auto px-6 sm:px-8 py-20 relative z-10">
+      <div className="container mx-auto px-8 sm:px-12 py-20 relative z-10">
         {/* Mobile-only top heading */}
         <div className="lg:hidden mb-12">
           <h2 className="text-5xl sm:text-6xl font-black leading-none text-white text-center drop-shadow-lg">
@@ -153,7 +153,7 @@ const Hero = () => {
 
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-2 items-center max-w-7xl">
           {/* Left content */}
-          <div className="space-y-12 order-2 lg:order-1 text-center lg:text-left px-2 sm:px-0">
+          <div className="space-y-12 order-2 lg:order-1 text-center lg:text-left px-4 sm:px-6 lg:px-0">
             {/* Main headline with bold styling */}
             <div className="space-y-6">
               {/* Desktop-only top heading */}
@@ -173,7 +173,7 @@ const Hero = () => {
                 <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">Do You Have Over $100K & NO TIME? This is for you!</span>
               </div>
               
-              <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white drop-shadow-lg">
+              <h1 className="text-4xl sm:text-5xl lg:text-8xl font-black leading-none text-white drop-shadow-lg">
                 GO FROM 
                 <span className="block text-accent-gold drop-shadow-2xl">
                   UNDEVELOPED LAND TO
@@ -186,7 +186,7 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl mx-auto lg:mx-0">
+              <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-2xl border border-white/20 max-w-2xl mx-auto lg:mx-0">
                 <p className="text-lg sm:text-2xl text-white font-semibold leading-relaxed">
                   Are you a busy professional looking to accelerate your retirement goals? <span className="font-normal text-white/80">You need the benefits of Real Estate and the tax write-offs that come with it to keep more of your money every year.</span>
                   <br /><br />
