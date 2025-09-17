@@ -209,7 +209,7 @@ const Hero = () => {
 
                  {/* Pulse effect */}
                 <div 
-                  className="absolute inset-0 rounded-1xl pointer-events-none"
+                  className="absolute inset-0 rounded-2xl pointer-events-none"
                   style={{
                     animation: 'pulse-shadow 1.5s infinite ease-out',
                     animationName: 'pulse-shadow',
@@ -219,8 +219,8 @@ const Hero = () => {
                   }}
                 ></div>
                 {/* Floating finger press icon */}
-                <div className="absolute -bottom-2 -right-2 animate-pulse">
-                  <MousePointer2 className="w-16 h-16 text-white fill-current rotate-12" />
+                <div className="absolute -bottom-6 -right-6 animate-pulse">
+                  <MousePointer2 className="w-12 h-12 text-white fill-current rotate-12" />
                 </div>
               </div>
               
