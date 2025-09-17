@@ -150,7 +150,7 @@ const ClientShowcase = () => {
                 {/* Image Gallery */}
                 <div className="relative h-64 overflow-hidden rounded-t-lg image-clickable">
                   <div 
-                    className="flex transition-transform duration-500 ease-in-out cursor-pointer group/image"
+                    className="flex transition-transform duration-500 ease-in cursor-pointer group/image"
                     onClick={(e) => handleImageClick(e, project.images, 0)}
                   >
                     <img 
