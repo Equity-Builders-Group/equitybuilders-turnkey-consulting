@@ -11,11 +11,11 @@ const Hero = () => {
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
   
   // Dramatic scroll reveal animations for Hero
-  const { elementRef: heroRef, animationState: heroState } = useScrollReveal<HTMLElement>({ threshold: 0.1 });
-  const { elementRef: headlineRef, animationState: headlineState } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: ctaRef, animationState: ctaState } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: phoneRef, animationState: phoneState } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: resultsRef, animationState: resultsState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: heroRef, isVisible: heroVisible } = useScrollReveal<HTMLElement>({ threshold: 0.1 });
+  const { elementRef: headlineRef, isVisible: headlineVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: phoneRef, isVisible: phoneVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: resultsRef, isVisible: resultsVisible } = useScrollReveal<HTMLDivElement>();
   const { elementRef: floatingImagesRef, visibleItems: floatingVisible } = useStaggeredScrollReveal<HTMLDivElement>(4);
   
   // Listen for custom consultation event from exit intent modal
@@ -40,9 +40,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className={`relative min-h-screen bg-gradient-primary overflow-hidden transition-all duration-1000 ${
-        heroVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
-      }`}
+      className={`relative min-h-screen bg-gradient-primary overflow-hidden scroll-reveal-fade-up ${heroVisible ? 'visible' : ''}`}
     >
       {/* Background image overlays with your real photos */}
       <div className="absolute inset-0 overflow-hidden">
@@ -70,8 +68,8 @@ const Hero = () => {
       {/* Left side floating construction images - hidden on mobile */}
       <div 
         ref={floatingImagesRef}
-        className={`hidden lg:block absolute top-20 left-8 w-64 h-64 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 rotate-6 transform hover:rotate-3 transition-all duration-500 ${
-          floatingVisible.has(0) ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
+        className={`hidden lg:block absolute top-20 left-8 w-64 h-64 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 rotate-6 transform hover:rotate-3 transition-all duration-500 scroll-reveal-scale-up ${
+          floatingVisible.has(0) ? 'visible' : ''
         }`}
         style={{ animationDelay: '1200ms' }}
       >
@@ -83,8 +81,8 @@ const Hero = () => {
       </div>
 
       {/* Pederson Exterior (Floating Left Bottom) */}
-      <div className={`hidden lg:block absolute bottom-40 left-16 w-72 h-48 rounded-3xl overflow-hidden shadow-2xl border-6 border-white/40 -rotate-3 transform hover:-rotate-1 transition-all duration-700 ${
-        floatingVisible.has(1) ? 'animate-reveal-scale-up' : 'opacity-0 scale-0'
+      <div className={`hidden lg:block absolute bottom-40 left-16 w-72 h-48 rounded-3xl overflow-hidden shadow-2xl border-6 border-white/40 -rotate-3 transform hover:-rotate-1 transition-all duration-700 scroll-reveal-scale-up ${
+        floatingVisible.has(1) ? 'visible' : ''
       }`}
       style={{ animationDelay: '1400ms' }}
       >
@@ -97,8 +95,8 @@ const Hero = () => {
       </div>
 
       {/* Right side floating professional images - hidden on mobile */}
-      <div className={`hidden lg:block absolute top-16 right-16 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700 ${
-        floatingVisible.has(2) ? 'animate-reveal-zoom-in' : 'opacity-0 scale-0'
+      <div className={`hidden lg:block absolute top-16 right-16 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700 scroll-reveal-zoom-in ${
+        floatingVisible.has(2) ? 'visible' : ''
       }`}
       style={{ animationDelay: '1600ms' }}
       >
@@ -111,8 +109,8 @@ const Hero = () => {
       </div>
 
       {/* Additional right side floating construction project image */}
-      <div className={`hidden lg:block absolute bottom-32 right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-6 transform hover:-rotate-3 transition-all duration-500 ${
-        floatingVisible.has(3) ? 'animate-reveal-flip-up' : 'opacity-0'
+      <div className={`hidden lg:block absolute bottom-32 right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-6 transform hover:-rotate-3 transition-all duration-500 scroll-reveal-fade-up ${
+        floatingVisible.has(3) ? 'visible' : ''
       }`}
       style={{ animationDelay: '1800ms' }}
       >
@@ -226,9 +224,7 @@ const Hero = () => {
             {/* Bold CTA section */}
             <div 
               ref={ctaRef}
-              className={`space-y-6 transition-all duration-1000 ${
-                ctaVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
-              }`}
+              className={`space-y-6 scroll-reveal-scale-up ${ctaVisible ? 'visible' : ''}`}
             >
               <div className="relative inline-block">
                 <Button 
@@ -269,9 +265,7 @@ const Hero = () => {
             {/* Results showcase */}
             <div 
               ref={resultsRef}
-              className={`bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 transition-all duration-1000 ${
-                resultsVisible ? 'animate-reveal-zoom-in' : 'opacity-0 scale-50'
-              }`}
+              className={`bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 scroll-reveal-zoom-in ${resultsVisible ? 'visible' : ''}`}
             >
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="text-center space-y-2">
@@ -297,9 +291,7 @@ const Hero = () => {
           {/* Right content - iPhone frame with your image */}
           <div 
             ref={phoneRef}
-            className={`relative flex justify-center lg:justify-start lg:pl-24 transition-all duration-1000 ${
-              phoneVisible ? 'animate-reveal-fade-left' : 'opacity-0 translate-x-16'
-            }`}
+            className={`relative flex justify-center lg:justify-start lg:pl-24 scroll-reveal-fade-up ${phoneVisible ? 'visible' : ''}`}
           >
             <div className="relative w-80 h-[600px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px]">
               {/* iPhone frame */}
@@ -375,9 +367,7 @@ const Hero = () => {
 
         {/* Mobile floating images - after content */}
         <div 
-          className={`lg:hidden mt-20 flex justify-center transition-all duration-800 ${
-            resultsVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
-          }`}
+          className={`lg:hidden mt-20 flex justify-center scroll-reveal-fade-up ${resultsVisible ? 'visible' : ''}`}
         >
           <div className="w-55 h-44 rounded-xl overflow-hidden shadow-lg border-2 border-accent/60 rotate-2">
             <img 

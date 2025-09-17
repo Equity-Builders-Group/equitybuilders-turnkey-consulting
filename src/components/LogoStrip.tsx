@@ -1,7 +1,7 @@
 import useScrollReveal from "@/hooks/useScrollReveal";
 
 const LogoStrip = () => {
-  const { elementRef: stripRef, animationState: stripState } = useScrollReveal<HTMLElement>();
+  const { elementRef: stripRef, isVisible: stripVisible } = useScrollReveal<HTMLElement>();
   // Array of logos with label and asset file name
   const logos = [
     {

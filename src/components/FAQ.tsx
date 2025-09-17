@@ -11,9 +11,9 @@ import textureBackground from "@/assets/texture-background.jpg";
 import useScrollReveal from "@/hooks/useScrollReveal";
 
 const FAQ = () => {
-  const { elementRef: headerRef, animationState: headerState } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: formRef, animationState: formState } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: accordionRef, animationState: accordionState } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: formRef, isVisible: formVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: accordionRef, isVisible: accordionVisible } = useScrollReveal<HTMLDivElement>();
   
   const [formData, setFormData] = useState({
     name: '',
@@ -183,9 +183,7 @@ const FAQ = () => {
             {/* Left column - Header and intro */}
             <div 
               ref={headerRef}
-              className={`space-y-8 transition-all duration-800 ${
-                headerVisible ? 'animate-reveal-fade-right' : 'opacity-0 -translate-x-12'
-              }`}
+              className={`space-y-8 scroll-reveal-fade-up ${headerVisible ? 'visible' : ''}`}
             >
               <div className="space-y-6">
                 <div className="inline-block bg-highlight/20 backdrop-blur-sm px-6 py-3 rounded-2xl border border-highlight/40">
@@ -207,9 +205,7 @@ const FAQ = () => {
               {/* Email Contact Form */}
               <div 
                 ref={formRef}
-                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transition-all duration-800 ${
-                  formVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-75'
-                }`}
+                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 scroll-reveal-scale-up ${formVisible ? 'visible' : ''}`}
               >
                 {!isSubmitted ? (
                   <>
@@ -272,9 +268,7 @@ const FAQ = () => {
             {/* Right column - FAQ Accordion */}
             <div 
               ref={accordionRef}
-              className={`space-y-4 transition-all duration-800 ${
-                accordionVisible ? 'animate-reveal-fade-left' : 'opacity-0 translate-x-12'
-              }`}
+              className={`space-y-4 scroll-reveal-fade-up ${accordionVisible ? 'visible' : ''}`}
             >
               <Accordion type="single" collapsible className="space-y-4">
                 {faqs.map((faq, index) => (

@@ -2,12 +2,12 @@ import { Shield, Check, Unlock } from "lucide-react";
 import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const Comparison = () => {
-  const { elementRef: headerRef, animationState: headerState } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: traditionalRef, animationState: traditionalState } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: vsMobileRef, animationState: vsMobileState } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: vsDesktopRef, animationState: vsDesktopState } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: turnkeyRef, animationState: turnkeyState } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: ctaRef, animationState: ctaState } = useScrollReveal();
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
+  const { elementRef: traditionalRef, isVisible: traditionalVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: vsMobileRef, isVisible: vsMobileVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: vsDesktopRef, isVisible: vsDesktopVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: turnkeyRef, isVisible: turnkeyVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal();
   
   const traditionalProblems = [
     "Limited Property Selection",
@@ -41,9 +41,7 @@ const Comparison = () => {
         {/* Header */}
         <div 
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-800 ${
-            headerVisible ? 'animate-reveal-slide-down' : 'opacity-0 -translate-y-12'
-          }`}
+          className={`text-center mb-16 scroll-reveal-fade-down ${headerVisible ? 'visible' : ''}`}
         >
           <div className="inline-block bg-accent/10 backdrop-blur-sm px-6 py-2 rounded-2xl border border-accent/20 mb-6">
             <span className="text-accent font-semibold text-sm uppercase tracking-wider">Comparison</span>
@@ -80,9 +78,7 @@ const Comparison = () => {
             {/* Traditional Approach - Left Side */}
             <div 
               ref={traditionalRef}
-              className={`relative transition-all duration-1000 ease-out ${
-                traditionalVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
-              }`}
+              className={`relative scroll-reveal-scale-up ${traditionalVisible ? 'visible' : ''}`}
             >
               <div className="bg-muted/30 backdrop-blur-sm rounded-3xl p-8 border border-muted/40 relative overflow-hidden">
                 {/* Background pattern */}
@@ -116,9 +112,7 @@ const Comparison = () => {
             {/* Mobile VS Badge - Between sections */}
             <div 
               ref={vsMobileRef}
-              className={`flex justify-center lg:hidden transition-all duration-1000 ease-out ${
-                vsMobileVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
-              }`}
+              className={`flex justify-center lg:hidden scroll-reveal-scale-up ${vsMobileVisible ? 'visible' : ''}`}
             >
               <div className="w-16 h-16 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-xl">
                 <span className="text-background font-bold text-base">VS</span>
@@ -128,9 +122,7 @@ const Comparison = () => {
             {/* TurnKey Development - Right Side */}
             <div 
               ref={turnkeyRef}
-              className={`relative transition-all duration-1000 ease-out ${
-                turnkeyVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
-              }`}
+              className={`relative scroll-reveal-scale-up ${turnkeyVisible ? 'visible' : ''}`}
             >
               <div className="bg-gradient-primary backdrop-blur-sm rounded-3xl p-8 border border-accent/30 relative overflow-hidden shadow-2xl">
                 {/* Background pattern */}
@@ -165,9 +157,7 @@ const Comparison = () => {
             <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 hidden lg:block pointer-events-none">
               <div 
                 ref={vsDesktopRef}
-                className={`w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl transition-all duration-1000 ease-out ${
-                  vsDesktopVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
-                }`}
+                className={`w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl scroll-reveal-scale-up ${vsDesktopVisible ? 'visible' : ''}`}
               >
                 <span className="text-background font-bold text-lg">VS</span>
               </div>
@@ -178,9 +168,7 @@ const Comparison = () => {
         {/* Bottom CTA */}
         <div 
           ref={ctaRef}
-          className={`text-center mt-16 transition-all duration-800 ${
-            ctaVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-75'
-          }`}
+          className={`text-center mt-16 scroll-reveal-scale-up ${ctaVisible ? 'visible' : ''}`}
         >
           <div className="bg-accent/10 backdrop-blur-sm rounded-2xl p-8 border border-accent/20 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-foreground mb-4">

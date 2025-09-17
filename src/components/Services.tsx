@@ -6,9 +6,9 @@ import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReve
 
 const Services = () => {
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
-  const { elementRef: headerRef, animationState: headerState } = useScrollReveal();
-  const { elementRef: cardsRef, animationState: cardsState } = useScrollReveal({ threshold: 0.05 });
-  const { elementRef: ctaRef, animationState: ctaState } = useScrollReveal();
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
+  const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollReveal({ threshold: 0.05 });
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal();
   const processSteps = [
     {
       title: "Land Search & Vetting",
@@ -230,9 +230,7 @@ const Services = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div 
           ref={headerRef}
-          className={`text-center mb-20 mt-48 lg:mt-0 transition-all duration-800 ${
-            headerVisible ? 'animate-reveal-fade-down' : 'opacity-0 -translate-y-12'
-          }`}
+          className={`text-center mb-20 mt-48 lg:mt-0 scroll-reveal-fade-down ${headerVisible ? 'visible' : ''}`}
         >
           <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/30 mb-8">
             <span className="text-white font-bold text-xl">OUR EXPERTISE</span>
@@ -254,9 +252,7 @@ const Services = () => {
           {allServices.map((service, index) => (
             <Card 
               key={index} 
-              className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:scale-105 bg-white/95 hover:bg-gradient-accent hover:text-white border-0 backdrop-blur-sm ${
-                cardsVisible ? `animate-reveal-fade-up-${Math.min(index + 1, 8)}` : 'opacity-0 translate-y-8'
-              }`}
+              className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:scale-105 bg-white/95 hover:bg-gradient-accent hover:text-white border-0 backdrop-blur-sm scroll-reveal-fade-up ${cardsVisible ? 'visible' : ''}`}
             >
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-4 group-hover:bg-white/20 group-hover:text-white transition-all duration-300 group-hover:scale-110">
@@ -281,9 +277,7 @@ const Services = () => {
         {/* Bold CTA at bottom of services */}
         <div 
           ref={ctaRef}
-          className={`text-center mt-20 transition-all duration-800 ${
-            ctaVisible ? 'animate-reveal-zoom-in' : 'opacity-0 scale-50'
-          }`}
+          className={`text-center mt-20 scroll-reveal-zoom-in ${ctaVisible ? 'visible' : ''}`}
         >
           <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 max-w-2xl mx-auto">
             <h3 className="text-3xl font-bold text-white mb-4">Working With Us Is Easy!</h3>

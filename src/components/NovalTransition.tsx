@@ -7,7 +7,7 @@ const NovalTransition = () => {
   return (
     <section 
       ref={sectionRef}
-      className={`w-full bg-emerald-800 py-8 border-t border-emerald-700 reveal-fade-up ${sectionState}`}
+      className={`w-full bg-emerald-800 py-8 border-t border-emerald-700 scroll-reveal-fade-up ${sectionVisible ? 'visible' : ''}`}
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
