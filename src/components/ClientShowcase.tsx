@@ -139,7 +139,7 @@ const ClientShowcase = () => {
               className={`group cursor-pointer transition-all duration-500 hover:shadow-2xl border-2 transform ${
                 selectedProject === project.id 
                   ? 'border-green-500 shadow-2xl bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 -translate-y-6 scale-105' 
-                  : 'hover:-translate-y-2 border-border hover:border-primary/50'
+                  : 'hover:-translate-y-10 border-border hover:border-primary/50'
               } ${
                 visibleItems.has(index) ? 'animate-reveal-scale-up' : 'opacity-0 scale-75'
               }`}
