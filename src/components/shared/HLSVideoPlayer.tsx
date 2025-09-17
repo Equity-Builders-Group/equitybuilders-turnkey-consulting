@@ -384,7 +384,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
                 ></div>
 
                 
-                <span className="relative text-white font-bold text-md z-10 flex items-center gap-2">
+                <span className="relative text-white font-bold text-md z-10 flex items-center gap-2 whitespace-nowrap">
                   <Volume2 
               size={unmuteButtonPosition === "center" ? 48 : 32} 
               className="text-white drop-shadow-2xl animate-pulse" 
