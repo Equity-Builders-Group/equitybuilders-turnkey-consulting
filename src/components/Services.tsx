@@ -267,8 +267,8 @@ const Services = () => {
         {/* Bold CTA at bottom of services */}
         <div className="text-center mt-20">
           <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 max-w-2xl mx-auto">
-            <h3 className="text-3xl font-bold text-white mb-4">Let's Get Started?</h3>
-            <p className="text-white/90 text-xl mb-6">We can't make it any easier than this.</p>
+            <h3 className="text-3xl font-bold text-white mb-4">Working With Us Is Easy!</h3>
+            <p className="text-white/90 text-xl mb-6">We already have the relationships, the experience, and the processes in place specifically in Houston, Texas.</p>
             <Button 
               onClick={() => setIsConsultationModalOpen(true)}
               size="lg"

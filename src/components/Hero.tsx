@@ -170,7 +170,7 @@ const Hero = () => {
               </div>
               
               <div className="inline-block bg-accent/20 backdrop-blur-sm px-6 py-3 rounded-full border border-white/60">
-                <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">Do You Have Over $100K? This is for you!</span>
+                <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">Do You Have Over $100K & NO TIME? This is for you!</span>
               </div>
               
               <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white drop-shadow-lg">
@@ -188,8 +188,8 @@ const Hero = () => {
               
               <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl mx-auto lg:mx-0">
                 <p className="text-lg sm:text-2xl text-white font-semibold leading-relaxed">
-                  Are you a busy professional looking to accelerate your retirement goals? <br/>You need the benefits of Real Estate and the tax write-offs that come with it to keep more of your money every year.
-                  <br/>
+                  Are you a busy professional looking to accelerate your retirement goals? <span className="font-normal text-white/80">You need the benefits of Real Estate and the tax write-offs that come with it to keep more of your money every year.</span>
+                  <br /><br />
                   Lets work together. We will handle every step of the  complex<span className="text-highlight"> new construction development process</span>
                   — from land search to permits to actual construction.
                 </p>
