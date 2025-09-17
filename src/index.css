@@ -125,12 +125,90 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 
+  /* CSS Scroll-driven Animations with keyframes */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-down {
+    from {
+      opacity: 0;
+      transform: translateY(-2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-up {
+    from {
+      opacity: 0;
+      transform: scale(0.75);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes stagger-up {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animation classes */
+  .scroll-fade-up {
+    animation: fade-up linear both;
+  }
+
+  .scroll-fade-down {
+    animation: fade-down linear both;
+  }
+
+  .scroll-scale-up {
+    animation: scale-up linear both;
+  }
+
+  .scroll-stagger > * {
+    animation: stagger-up linear both;
+  }
+
+  /* Apply timeline to make animations scroll-driven */
+  .scroll-fade-up,
+  .scroll-fade-down,
+  .scroll-scale-up,
+  .scroll-stagger > * {
+    animation-timeline: view();
+    animation-range: entry 0% entry 50%;
+  }
+
+  .scroll-stagger > *:nth-child(1) { animation-delay: 0ms; }
+  .scroll-stagger > *:nth-child(2) { animation-delay: 100ms; }
+  .scroll-stagger > *:nth-child(3) { animation-delay: 200ms; }
+  .scroll-stagger > *:nth-child(4) { animation-delay: 300ms; }
+  .scroll-stagger > *:nth-child(5) { animation-delay: 400ms; }
+  .scroll-stagger > *:nth-child(6) { animation-delay: 500ms; }
+
   /* Fallback for unsupported browsers */
   @supports not (animation-timeline: view()) {
-    .scroll-m-in-fade-up,
-    .scroll-m-in-fade-down,
-    .scroll-m-in-scale-up,
-    .scroll-m-stagger > * {
+    .scroll-fade-up,
+    .scroll-fade-down,
+    .scroll-scale-up,
+    .scroll-stagger > * {
       opacity: 1 !important;
       transform: none !important;
     }

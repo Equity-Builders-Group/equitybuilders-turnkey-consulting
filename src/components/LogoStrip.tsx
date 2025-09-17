@@ -24,7 +24,7 @@ const LogoStrip = () => {
   ];
 
   return (
-    <section className="w-full bg-primary py-8 overflow-hidden scroll-m-in-fade-up">
+    <section className="w-full bg-primary py-8 overflow-hidden scroll-fade-up">
       <div
         className="flex items-center"
         style={{

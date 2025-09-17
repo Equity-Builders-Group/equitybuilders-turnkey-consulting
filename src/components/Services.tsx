@@ -224,7 +224,7 @@ const Services = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20 mt-48 lg:mt-0 scroll-m-in-fade-down">
+        <div className="text-center mb-20 mt-48 lg:mt-0 scroll-fade-down">
           <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/30 mb-8">
             <span className="text-white font-bold text-xl">OUR EXPERTISE</span>
           </div>
@@ -241,7 +241,7 @@ const Services = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 scroll-m-stagger">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 scroll-stagger">
           {allServices.map((service, index) => (
             <Card 
               key={index} 
@@ -268,7 +268,7 @@ const Services = () => {
         </div>
         
         {/* Bold CTA at bottom of services */}
-        <div className="text-center mt-20 scroll-m-in-fade-up">
+        <div className="text-center mt-20 scroll-fade-up">
           <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 max-w-2xl mx-auto">
             <h3 className="text-3xl font-bold text-white mb-4">Working With Us Is Easy!</h3>
             <p className="text-white/90 text-xl mb-6">We already have the relationships, the experience, and the processes in place specifically in Houston, Texas.</p>
