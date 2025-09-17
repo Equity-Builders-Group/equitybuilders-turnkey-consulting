@@ -20,8 +20,9 @@ const ClientShowcase = () => {
       timeline: "6 months",
       team: "4 units",
       images: [
-        "/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png",
-        "/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png"
+        "/lovable-uploads/GlenAvePlans.png",
+        "/lovable-uploads/GlenAve_SitePlans.png",
+        "/lovable-uploads/GlenAve_TreeRemovalApproved.png"
       ],
       story: "From vacant lot to luxury 4-unit, two separate duplex development. This project showcases our end-to-end process from land acquisition through final construction.",
       highlights: ["Zoning Approval in 30 Days", "15% Under Budget", "Pre-sold 2 Units"]
@@ -30,12 +31,12 @@ const ClientShowcase = () => {
       id: 2,
       title: "Calhoun Estates Development",
       location: "Houston, TX",
-      status: "Planning Phase",
+      status: "Pre-Construction Phase",
       value: "$800K",
       timeline: "9 months",
       team: "4 units",
       images: [
-        "/lovable-uploads/5df938db-8063-4672-9fdb-4bb75420dbc7.png",
+        "/lovable-uploads/3909LavenderSt_ExteriorDesign.png",
         "/lovable-uploads/5df938db-8063-4672-9fdb-4bb75420dbc7.png"
       ],
       story: "Transforming underutilized riverside property into modern family housing. Complex permitting and environmental considerations successfully navigated.",
@@ -43,15 +44,15 @@ const ClientShowcase = () => {
     },
     {
       id: 3,
-      title: "Downtown Infill Project",
+      title: "Amboy Street Courtyard Development",
       location: "Dallas, TX",
-      status: "Completed",
-      value: "$950K",
-      timeline: "6 months",
-      team: "3 units",
+      status: "Planning Phase",
+      value: "$2.4M",
+      timeline: "12-18 months",
+      team: "8-12 units",
       images: [
-        "/lovable-uploads/d9e364d3-b8e5-4fa9-aa0f-abb5fc4965a8.png",
-        "/lovable-uploads/EB_Turnkey_LinkThumb.png"
+        "/lovable-uploads/2604-AmboySt_ExteriorDesign.png",
+        "/lovable-uploads/2604-AmboySt_SurveyAtScale_Planning.jpg"
       ],
       story: "Urban infill success story. Maximized density while respecting neighborhood character. All units sold before completion.",
       highlights: ["100% Pre-sold", "Neighborhood Integration", "ROI: 28%"]
@@ -61,6 +62,7 @@ const ClientShowcase = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Completed": return "bg-green-500";
+      case "Pre-Construction Phase": return "bg-orange-500";
       case "Under Construction": return "bg-yellow-500";
       case "Planning Phase": return "bg-blue-500";
       default: return "bg-gray-500";

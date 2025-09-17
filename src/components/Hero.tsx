@@ -174,9 +174,9 @@ const Hero = () => {
               </div>
               
               <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white drop-shadow-lg">
-                GO FROM AN EMPTY
+                GO FROM 
                 <span className="block text-accent drop-shadow-2xl">
-                  LOT TO
+                  UNDEVELOPED LAND TO
                 </span>
                 <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent drop-shadow-lg">
                   SIX FIGURE
