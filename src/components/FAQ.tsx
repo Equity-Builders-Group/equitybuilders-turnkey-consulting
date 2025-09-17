@@ -261,7 +261,7 @@ const FAQ = () => {
                   <div className="text-center py-8">
                     <h3 className="text-xl font-bold text-white mb-4">Message Sent!</h3>
                     <p className="text-white/90 text-lg leading-relaxed">
-                      Thanks {formData.name || "for your"} for sending in your additional questions. We will respond within the next 24-48 hours.
+                      Thanks {formData.name || ""} for sending in your additional questions. We will respond within the next 24-48 hours.
                     </p>
                   </div>
                 )}
