@@ -200,32 +200,7 @@ const FAQ = () => {
             </div>
           </div>
           
-          {/* Bottom CTA - Full width */}
-          <div className="mt-20">
-            <div className="bg-gradient-secondary/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-highlight/30 shadow-2xl text-center">
-              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                Ready to Start Your Investment Journey?
-              </h3>
-              <p className="text-white/90 text-lg mb-8 max-w-3xl mx-auto">
-                Connect with our team to explore personalized investment opportunities that align with your financial goals and risk tolerance.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button 
-                  size="lg"
-                  className="px-8 py-4 text-lg bg-highlight text-highlight-foreground hover:bg-highlight/90 font-bold transform hover:scale-105 transition-all duration-300 shadow-xl"
-                >
-                  Schedule Consultation
-                </Button>
-                <Button 
-                  variant="outline"
-                  size="lg"
-                  className="px-8 py-4 text-lg border-white/30 text-white hover:bg-white/10 font-bold transition-all duration-300"
-                >
-                  Download Investment Guide
-                </Button>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
