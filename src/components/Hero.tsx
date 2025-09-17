@@ -202,14 +202,14 @@ const Hero = () => {
                 <Button 
                   size="lg" 
                   onClick={() => setShowConsultationModal(true)}
-                  className="w-24 h-24 text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+                  className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
                 >
                 Book A Call Today
                 </Button>
                 
                 {/* Floating finger press icon */}
                 <div className="absolute -bottom-2 -right-2 animate-pulse">
-                  <Hand className="text-white fill-current rotate-12" />
+                  <Hand className="w-24 h-24 text-white fill-current rotate-12" />
                 </div>
               </div>
               
