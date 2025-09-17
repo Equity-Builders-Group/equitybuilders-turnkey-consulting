@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
-import { Play } from "lucide-react";
+import { Play, Hand } from "lucide-react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
 import ConsultationModal from "./ConsultationModal";
 import ExitIntentModal from "./ExitIntentModal";
@@ -198,13 +198,20 @@ const Hero = () => {
             
             {/* Bold CTA section */}
             <div className="space-y-6">
-              <Button 
-                size="lg" 
-                onClick={() => setShowConsultationModal(true)}
-                className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
-              >
-              Book A Call Today
-              </Button>
+              <div className="relative inline-block">
+                <Button 
+                  size="lg" 
+                  onClick={() => setShowConsultationModal(true)}
+                  className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+                >
+                Book A Call Today
+                </Button>
+                
+                {/* Floating finger press icon */}
+                <div className="absolute -top-2 -right-2 bg-white rounded-full p-2 shadow-lg animate-pulse">
+                  <Hand className="w-5 h-5 text-[#ff4800] fill-current" />
+                </div>
+              </div>
               
               <div className="flex items-center justify-center lg:justify-start gap-4 text-white/90">
                 <div className="flex -space-x-2">
