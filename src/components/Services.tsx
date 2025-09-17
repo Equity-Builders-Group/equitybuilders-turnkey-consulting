@@ -7,7 +7,7 @@ import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReve
 const Services = () => {
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
-  const { elementRef: cardsRef, visibleItems } = useStaggeredScrollReveal(16, 150);
+  const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollReveal({ threshold: 0.05 });
   const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal({ delay: 500 });
   const processSteps = [
     {
@@ -255,9 +255,11 @@ const Services = () => {
             <Card 
               key={index} 
               className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:scale-105 bg-white/95 hover:bg-gradient-accent hover:text-white border-0 backdrop-blur-sm ${
-                visibleItems.has(index) ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
+                cardsVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
               }`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              style={{ 
+                animationDelay: cardsVisible ? `${index * 100}ms` : '0ms'
+              }}
             >
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-4 group-hover:bg-white/20 group-hover:text-white transition-all duration-300 group-hover:scale-110">
