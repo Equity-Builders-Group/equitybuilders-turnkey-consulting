@@ -10,6 +10,7 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<T>(null);
   const hasTriggered = useRef(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const element = elementRef.current;
@@ -17,19 +18,25 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasTriggered.current) {
+        // Extra protection against multiple triggers
+        if (entry.isIntersecting && !hasTriggered.current && !isVisible) {
           hasTriggered.current = true;
           
-          // Add delay if specified
-          if (options.delay) {
-            setTimeout(() => {
-              setIsVisible(true);
-            }, options.delay);
-          } else {
-            setIsVisible(true);
+          // Clear any existing timeout
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
           }
           
-          // Disconnect to prevent re-firing
+          // Add delay if specified, with mobile-friendly handling
+          const delay = options.delay || 0;
+          timeoutRef.current = setTimeout(() => {
+            // Double-check we haven't already triggered
+            if (!isVisible) {
+              setIsVisible(true);
+            }
+          }, delay);
+          
+          // Disconnect immediately to prevent any re-firing
           observer.disconnect();
         }
       },
@@ -41,8 +48,13 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
 
     observer.observe(element);
 
-    return () => observer.disconnect();
-  }, [options.threshold, options.delay, options.rootMargin]);
+    return () => {
+      observer.disconnect();
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [options.threshold, options.delay, options.rootMargin, isVisible]);
 
   return { elementRef, isVisible };
 };
@@ -52,6 +64,7 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const elementRef = useRef<T>(null);
   const hasTriggered = useRef(false);
+  const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
 
   useEffect(() => {
     const element = elementRef.current;
@@ -59,14 +72,24 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasTriggered.current) {
+        if (entry.isIntersecting && !hasTriggered.current && visibleItems.size === 0) {
           hasTriggered.current = true;
+          
+          // Clear any existing timeouts
+          timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+          timeoutsRef.current = [];
           
           // Trigger staggered animations
           for (let i = 0; i < count; i++) {
-            setTimeout(() => {
-              setVisibleItems(prev => new Set([...prev, i]));
+            const timeout = setTimeout(() => {
+              setVisibleItems(prev => {
+                if (!prev.has(i)) {
+                  return new Set([...prev, i]);
+                }
+                return prev;
+              });
             }, i * staggerDelay);
+            timeoutsRef.current.push(timeout);
           }
           
           // Disconnect to prevent re-firing
@@ -81,8 +104,11 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
 
     observer.observe(element);
 
-    return () => observer.disconnect();
-  }, [count, staggerDelay]);
+    return () => {
+      observer.disconnect();
+      timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+    };
+  }, [count, staggerDelay, visibleItems.size]);
 
   return { elementRef, visibleItems };
 };
