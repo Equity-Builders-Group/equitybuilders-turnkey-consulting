@@ -3,8 +3,10 @@ import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReve
 
 const Comparison = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
-  const { elementRef: comparisonRef, isVisible: comparisonVisible } = useScrollReveal({ delay: 300 });
-  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal({ delay: 600 });
+  const { elementRef: traditionalRef, isVisible: traditionalVisible } = useScrollReveal<HTMLDivElement>({ delay: 300 });
+  const { elementRef: vsRef, isVisible: vsVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
+  const { elementRef: turnkeyRef, isVisible: turnkeyVisible } = useScrollReveal<HTMLDivElement>({ delay: 900 });
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal({ delay: 1200 });
   
   const traditionalProblems = [
     "Limited Property Selection",
@@ -71,16 +73,16 @@ const Comparison = () => {
         </div>
 
         {/* Comparison Grid */}
-        <div 
-          ref={comparisonRef}
-          className={`max-w-7xl mx-auto transition-all duration-1000 ${
-            comparisonVisible ? 'animate-reveal-slide-up' : 'opacity-0 translate-y-16'
-          }`}
-        >
+        <div className="max-w-7xl mx-auto relative">
           <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-start space-y-8 lg:space-y-0">
             
             {/* Traditional Approach - Left Side */}
-            <div className="relative">
+            <div 
+              ref={traditionalRef}
+              className={`relative transition-all duration-800 ${
+                traditionalVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
+              }`}
+            >
               <div className="bg-muted/30 backdrop-blur-sm rounded-3xl p-8 border border-muted/40 relative overflow-hidden">
                 {/* Background pattern */}
                 <div className="absolute inset-0 opacity-5">
@@ -111,14 +113,24 @@ const Comparison = () => {
             </div>
 
             {/* Mobile VS Badge - Between sections */}
-            <div className="flex justify-center lg:hidden">
+            <div 
+              ref={vsRef}
+              className={`flex justify-center lg:hidden transition-all duration-800 ${
+                vsVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
+              }`}
+            >
               <div className="w-16 h-16 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-xl">
                 <span className="text-background font-bold text-base">VS</span>
               </div>
             </div>
 
             {/* TurnKey Development - Right Side */}
-            <div className="relative">
+            <div 
+              ref={turnkeyRef}
+              className={`relative transition-all duration-800 ${
+                turnkeyVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
+              }`}
+            >
               <div className="bg-gradient-primary backdrop-blur-sm rounded-3xl p-8 border border-accent/30 relative overflow-hidden shadow-2xl">
                 {/* Background pattern */}
                 <div className="absolute inset-0 opacity-10">
@@ -150,7 +162,11 @@ const Comparison = () => {
           </div>
 
           {/* Desktop VS Badge */}
-          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:block">
+          <div 
+            className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:block transition-all duration-800 ${
+              vsVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
+            }`}
+          >
             <div className="w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl">
               <span className="text-background font-bold text-lg">VS</span>
             </div>
