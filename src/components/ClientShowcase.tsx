@@ -121,7 +121,7 @@ const ClientShowcase = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
           {projects.map((project, index) => (
             <Card 
               key={project.id} 
