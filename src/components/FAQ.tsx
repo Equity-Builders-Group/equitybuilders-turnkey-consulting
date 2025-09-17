@@ -51,7 +51,7 @@ const FAQ = () => {
       backgroundBlendMode: 'overlay'
     }}>
       {/* Main background overlay */}
-      <div className="absolute inset-0 bg-gradient-primary opacity-95"></div>
+      <div className="absolute inset-0 bg-gradient-primary opacity-75"></div>
       
       {/* Floating architectural images */}
       <div className="absolute inset-0">
