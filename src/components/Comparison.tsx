@@ -4,7 +4,8 @@ import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReve
 const Comparison = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { elementRef: traditionalRef, isVisible: traditionalVisible } = useScrollReveal<HTMLDivElement>({ delay: 300 });
-  const { elementRef: vsRef, isVisible: vsVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
+  const { elementRef: vsMobileRef, isVisible: vsMobileVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
+  const { elementRef: vsDesktopRef, isVisible: vsDesktopVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
   const { elementRef: turnkeyRef, isVisible: turnkeyVisible } = useScrollReveal<HTMLDivElement>({ delay: 900 });
   const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal({ delay: 1200 });
   
@@ -114,8 +115,9 @@ const Comparison = () => {
 
             {/* Mobile VS Badge - Between sections */}
             <div 
+              ref={vsMobileRef}
               className={`flex justify-center lg:hidden transition-all duration-1000 ease-out ${
-                vsVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
+                vsMobileVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
               }`}
             >
               <div className="w-16 h-16 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-xl">
@@ -162,9 +164,9 @@ const Comparison = () => {
             {/* Desktop VS Badge - Positioned within grid */}
             <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 hidden lg:block pointer-events-none">
               <div 
-                ref={vsRef}
+                ref={vsDesktopRef}
                 className={`w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl transition-all duration-1000 ease-out ${
-                  vsVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
+                  vsDesktopVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
                 }`}
               >
                 <span className="text-background font-bold text-lg">VS</span>
