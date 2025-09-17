@@ -40,6 +40,14 @@ const FAQ = () => {
     {
       question: "What kind of returns can I expect from investments?",
       answer: "While past performance doesn't guarantee future results, our properties typically generate six figures plus in profit on top of initial capital invested per deal, with additional appreciation upside if you decide to hold the property for a longer term. Returns vary based on property type, market conditions, and investment structure."
+    },
+    {
+      question: "Will you help me to secure financing?",
+      answer: "We can help you source business credit and partner with you to qualify for construction financing loans."
+    },
+    {
+      question: "Am I able to make the decision on whether we sell or hold the property?",
+      answer: "Yes!"
     }
   ];
 
@@ -56,7 +64,7 @@ const FAQ = () => {
       {/* Floating architectural images */}
       <div className="absolute inset-0">
         {/* Large featured project - top right */}
-        <div className="absolute top-16 right-8 lg:right-16 w-64 h-64 lg:w-80 lg:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-highlight/60 rotate-3 hover:rotate-1 transition-all duration-700">
+        <div className="absolute top-16 right-8 lg:right-16 w-64 h-64 lg:w-80 lg:h-60 rounded-3xl overflow-hidden shadow-2xl border-4 border-highlight/60 rotate-3 hover:rotate-1 transition-all duration-700">
           <img 
             src="/lovable-uploads/2604-AmboySt_ExteriorDesign.png" 
             alt="2604 Amboy Street exterior design" 
@@ -66,7 +74,7 @@ const FAQ = () => {
         </div>
         
         {/* Project showcase - bottom left */}
-        <div className="absolute bottom-20 left-8 lg:left-16 w-56 h-56 lg:w-72 lg:h-72 rounded-2xl overflow-hidden shadow-xl border-4 border-highlight/40 -rotate-6 hover:-rotate-3 transition-all duration-700">
+        <div className="absolute bottom-20 left-8 lg:left-16 w-56 h-56 lg:w-72 lg:h-62 rounded-2xl overflow-hidden shadow-xl border-4 border-highlight/40 -rotate-6 hover:-rotate-3 transition-all duration-700">
           <img 
             src="/lovable-uploads/3909LavenderSt_ExteriorDesign.png" 
             alt="3909 Lavender Street development" 
@@ -74,20 +82,11 @@ const FAQ = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
         </div>
-        
-        {/* Professional headshot - center left */}
-        <div className="absolute top-1/3 left-4 lg:left-12 w-48 h-48 lg:w-60 lg:h-60 rounded-full overflow-hidden shadow-xl border-6 border-highlight/50 hover:scale-105 transition-all duration-500">
-          <img 
-            src="/lovable-uploads/LavonNDiana_HeadShot_MCM.jpg" 
-            alt="Lavon professional headshot" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
+                
         {/* Construction progress - top center */}
-        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-40 h-40 lg:w-52 lg:h-52 rounded-xl overflow-hidden shadow-lg border-3 border-secondary/60 rotate-12 hover:rotate-6 transition-all duration-500">
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-60 h-50 lg:w-72 lg:h-62 rounded-xl overflow-hidden shadow-lg border-3 border-secondary/60 rotate-12 hover:rotate-6 transition-all duration-500">
           <img 
-            src="/lovable-uploads/PedersonExterior.jpg" 
+            src="/lovable-uploads/9622KinderAve_Exterior.jpg" 
             alt="Pederson exterior construction" 
             className="w-full h-full object-cover"
           />
@@ -117,7 +116,7 @@ const FAQ = () => {
             <div className="space-y-8">
               <div className="space-y-6">
                 <div className="inline-block bg-highlight/20 backdrop-blur-sm px-6 py-3 rounded-full border border-highlight/40">
-                  <span className="text-highlight font-bold text-lg">Investor FAQ</span>
+                  <span className="text-white font-bold text-lg">Frequently Asked Questions</span>
                 </div>
                 
                 <h2 className="text-4xl lg:text-6xl font-black text-white leading-tight">
@@ -166,17 +165,6 @@ const FAQ = () => {
                 </form>
               </div>
               
-              {/* Stats cards */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                  <div className="text-3xl font-black text-highlight mb-2">15+</div>
-                  <div className="text-white/90 text-sm font-medium">Projects Completed</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                  <div className="text-3xl font-black text-highlight mb-2">$2M+</div>
-                  <div className="text-white/90 text-sm font-medium">Capital Deployed</div>
-                </div>
-              </div>
             </div>
             
             {/* Right column - FAQ Accordion */}
