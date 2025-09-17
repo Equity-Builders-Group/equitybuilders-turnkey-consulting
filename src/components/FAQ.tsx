@@ -134,21 +134,21 @@ const FAQ = () => {
                     <input 
                       type="text" 
                       placeholder="Full Name" 
-                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 text-white placeholder-white/60 focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors"
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-white/30 text-foreground placeholder-muted-foreground focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors"
                     />
                   </div>
                   <div>
                     <input 
                       type="email" 
                       placeholder="Email Address" 
-                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 text-white placeholder-white/60 focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors"
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-white/30 text-foreground placeholder-muted-foreground focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors"
                     />
                   </div>
                   <div>
                     <textarea 
                       placeholder="Tell us about your investment goals..." 
                       rows={3}
-                      className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 text-white placeholder-white/60 focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-lg bg-white border border-white/30 text-foreground placeholder-muted-foreground focus:border-highlight focus:outline-none focus:ring-2 focus:ring-highlight/20 transition-colors resize-none"
                     />
                   </div>
                   <button 
