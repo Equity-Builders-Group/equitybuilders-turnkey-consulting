@@ -9,9 +9,14 @@ const BuildVsBuySection = () => {
     <section className="relative py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
-            Why Build Instead Of Buy an Investment Property
+          <h2 className="text-4xl md:text-6xl font-black leading-tight text-foreground mb-6 drop-shadow-lg">
+            Why Build Instead Of Buy
+            <span className="block text-accent drop-shadow-lg">an Investment Property?</span>
           </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Discover the compelling advantages of building new investment properties versus purchasing existing ones. 
+            This comprehensive comparison reveals why savvy investors are choosing the build route for superior returns.
+          </p>
         </div>
 
         {/* Feature Image with Magnifying Glass */}
