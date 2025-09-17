@@ -365,10 +365,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
           onClick={handleUnmuteClick}
         >
           <div className="flex flex-col items-center">
-            <Volume2 
-              size={unmuteButtonPosition === "center" ? 48 : 32} 
-              className="text-white drop-shadow-2xl mb-2 animate-pulse" 
-            />
+            
             
             <div className="relative">
               {/* Pulse animation wrapper */}
@@ -389,9 +386,13 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
                     animationTimingFunction: 'ease-out',
                   }}
                 ></div>
+
                 
                 <span className="relative text-white font-bold text-lg z-10">
-                  🔊 Turn On Sound
+                  <Volume2 
+              size={unmuteButtonPosition === "center" ? 48 : 32} 
+              className="text-white drop-shadow-2xl mb-2 animate-pulse" 
+            />Turn On Sound
                 </span>
               </div>
               
