@@ -65,7 +65,7 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
 
         <div className="p-4 sm:p-6 lg:p-12">
           {/* Large headline */}
-          <div className="text-center mb-4 sm:mb-8 drop-shadow-xl">
+          <div className="text-center mb-4 sm:mb-8 drop-shadow-lg">
             <h1 className="text-2xl sm:text-4xl lg:text-7xl font-black text-white leading-tight mb-2 sm:mb-4">
               WAIT! 
               <span className="block text-accent drop-shadow-2xl">
