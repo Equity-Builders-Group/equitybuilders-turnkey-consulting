@@ -81,13 +81,16 @@ const WhyWorkWithUs = () => {
           {reasons.map((reason, index) => (
             <Card 
               key={index} 
-              className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-6 hover:scale-105 bg-white/95 hover:bg-white border-0 backdrop-blur-sm text-center ${
+              className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-8 hover:scale-110 bg-white/95 hover:bg-gradient-to-br hover:from-white hover:to-accent/5 border-0 backdrop-blur-sm text-center transform-gpu ${
                 visibleItems.has(index) ? 'animate-reveal-scale-up' : 'opacity-0 scale-75'
               }`}
-              style={{ animationDelay: `${index * 200}ms` }}
+              style={{ 
+                animationDelay: `${index * 200}ms`,
+                transformOrigin: 'center',
+              }}
             >
               <CardHeader className="pb-4">
-                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-110 mx-auto">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-125 group-hover:shadow-lg mx-auto">
                   {reason.icon}
                 </div>
                 
