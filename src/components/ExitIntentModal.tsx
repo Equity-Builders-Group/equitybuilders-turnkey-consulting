@@ -65,7 +65,7 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
 
         <div className="p-4 sm:p-6 lg:p-12">
           {/* Large headline */}
-          <div className="text-center mb-4 sm:mb-8">
+          <div className="text-center mb-4 sm:mb-8 drop-shadow-xl">
             <h1 className="text-2xl sm:text-4xl lg:text-7xl font-black text-white leading-tight mb-2 sm:mb-4">
               WAIT! 
               <span className="block text-accent drop-shadow-2xl">
@@ -76,7 +76,7 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
               </span>
             </h1>
             <p className="text-sm sm:text-xl lg:text-2xl text-white/90 font-semibold">
-              See how we transform empty lots into profitable developments in just 90 seconds
+              See how we transform undeveloped land into profitable assets in this development class replay.
             </p>
           </div>
 
@@ -113,10 +113,10 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
               }}
               className="bg-white text-primary hover:bg-accent hover:text-white px-6 sm:px-12 py-3 sm:py-6 rounded-xl sm:rounded-2xl text-lg sm:text-2xl font-bold shadow-2xl transform hover:scale-105 transition-all duration-300"
             >
-              📞 Book Your Free Consultation Now
+            Book A Call
             </button>
             <p className="text-white/80 mt-2 sm:mt-4 text-sm sm:text-lg">
-              Limited spots available this month
+              Limited spots are available on the calendar.
             </p>
           </div>
         </div>
