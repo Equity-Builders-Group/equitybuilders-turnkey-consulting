@@ -175,7 +175,7 @@ const Hero = () => {
               
               <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white drop-shadow-lg">
                 GO FROM 
-                <span className="block text-accent-gold drop-shadow-2xl">
+                <span className="block text-accent-gold drop-shadow-2xl text-5xl sm:text-4xl lg:text-7xl">
                   UNDEVELOPED LAND TO
                 </span>
                 <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent drop-shadow-lg">
@@ -186,7 +186,7 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl mx-auto lg:mx-0">
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl mx-auto lg:mx-0 mx-4 sm:mx-auto">
                 <p className="text-lg sm:text-2xl text-white font-semibold leading-relaxed">
                   Are you a busy professional looking to accelerate your retirement goals? <span className="font-normal text-white/80">You need the benefits of Real Estate and the tax write-offs that come with it to keep more of your money every year.</span>
                   <br /><br />
