@@ -377,7 +377,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
               >
                 {/* Pulse effect */}
                 <div 
-                  className="absolute inset-0 rounded-full pointer-events-none"
+                  className="absolute inset-0 rounded-2xl pointer-events-none"
                   style={{
                     animation: 'pulse-shadow 1.5s infinite ease-out',
                     animationName: 'pulse-shadow',
