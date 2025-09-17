@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 const NovalTransition = () => {
   return (
-    <section className="w-full bg-emerald-800 py-8 border-t border-emerald-700 scroll-fade-up">
+    <section className="w-full bg-emerald-800 py-8 border-t border-emerald-700 scroll-m-in-fade-up">
       <div className="container mx-auto px-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
           {/* Text and Arrow */}

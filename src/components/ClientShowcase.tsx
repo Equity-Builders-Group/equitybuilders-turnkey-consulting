@@ -107,7 +107,7 @@ const ClientShowcase = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20 scroll-fade-down">
+        <div className="text-center mb-20 scroll-m-in-fade-down">
           <div className="inline-block bg-primary/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-primary/20 mb-8">
             <span className="text-primary font-bold text-xl">PROJECT GALLERY</span>
           </div>
@@ -124,7 +124,7 @@ const ClientShowcase = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-start scroll-stagger">
+        <div className="grid lg:grid-cols-3 gap-8 items-start scroll-m-stagger">
           {projects.map((project, index) => (
             <Card 
               key={project.id} 

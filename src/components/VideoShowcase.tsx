@@ -8,14 +8,14 @@ const VideoShowcase = () => {
     <section className="w-full bg-black">
       <div className="w-full">
         {/* Heading */}
-        <div className="text-center py-12 scroll-fade-down">
+        <div className="text-center py-12 scroll-m-in-fade-down">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-lg">
             See Us In Action
           </h2>
         </div>
         
         {/* Video Container - Full width, height matches 16:9 aspect ratio */}
-        <div className="w-full scroll-scale-up">
+        <div className="w-full scroll-m-in-scale-up">
           <div className="relative w-full h-[50vh] md:h-[60vh] lg:h-[70vh]">
             <HLSVideoPlayer
               ref={videoPlayerRef}

@@ -35,7 +35,7 @@ const About = () => {
       </div>
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 scroll-fade-up">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 scroll-m-in-fade-up">
             <div className="space-y-8">
               <div className="space-y-4">
                 <h2 className="text-4xl font-bold drop-shadow-lg">
@@ -94,7 +94,7 @@ const About = () => {
             </div>
           </div>
           
-          <div className="relative scroll-scale-up">
+          <div className="relative scroll-m-in-scale-up">
             <div className="aspect-[4/5] bg-gradient-primary rounded-2xl overflow-hidden shadow-2xl relative">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
               

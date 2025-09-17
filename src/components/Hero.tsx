@@ -29,7 +29,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-primary overflow-hidden scroll-fade-up">
+    <section className="relative min-h-screen bg-gradient-primary overflow-hidden scroll-m-in-fade-up">
       {/* Background image overlays with your real photos */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Large background professional image */}
@@ -54,7 +54,7 @@ const Hero = () => {
       </div>
 
       {/* Left side floating construction images - hidden on mobile */}
-      <div className="hidden lg:block absolute top-20 left-8 w-64 h-64 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 rotate-6 transform hover:rotate-3 transition-all duration-500 scroll-fade-up">
+      <div className="hidden lg:block absolute top-20 left-8 w-64 h-64 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 rotate-6 transform hover:rotate-3 transition-all duration-500 scroll-m-in-fade-up">
         <img 
           src="/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png" 
           alt="Construction project by TurnKey Development" 
@@ -63,7 +63,7 @@ const Hero = () => {
       </div>
 
       {/* Pederson Exterior (Floating Left Bottom) */}
-      <div className="hidden lg:block absolute bottom-40 left-16 w-72 h-48 rounded-3xl overflow-hidden shadow-2xl border-6 border-white/40 -rotate-3 transform hover:-rotate-1 transition-all duration-700 scroll-scale-up">
+      <div className="hidden lg:block absolute bottom-40 left-16 w-72 h-48 rounded-3xl overflow-hidden shadow-2xl border-6 border-white/40 -rotate-3 transform hover:-rotate-1 transition-all duration-700 scroll-m-in-scale-up">
         <img 
           src="/lovable-uploads/PedersonExterior.jpg" 
           alt="Architectural project showcase" 
@@ -73,7 +73,7 @@ const Hero = () => {
       </div>
 
       {/* Right side floating professional images - hidden on mobile */}
-      <div className="hidden lg:block absolute top-16 right-16 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700 scroll-fade-up">
+      <div className="hidden lg:block absolute top-16 right-16 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700 scroll-m-in-fade-up">
         <img 
           src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
           alt="TurnKey Development business consultant" 
@@ -83,7 +83,7 @@ const Hero = () => {
       </div>
 
       {/* Additional right side floating construction project image */}
-      <div className="hidden lg:block absolute bottom-32 right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-6 transform hover:-rotate-3 transition-all duration-500 scroll-scale-up">
+      <div className="hidden lg:block absolute bottom-32 right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-6 transform hover:-rotate-3 transition-all duration-500 scroll-m-in-scale-up">
         <img 
           src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
           alt="Architectural project showcase" 
@@ -192,7 +192,7 @@ const Hero = () => {
             </div>
             
             {/* Bold CTA section */}
-            <div className="space-y-6 scroll-fade-up">
+            <div className="space-y-6 scroll-m-in-fade-up">
               <div className="relative inline-block">
                 <Button 
                   size="lg" 
@@ -230,7 +230,7 @@ const Hero = () => {
             </div>
             
             {/* Results showcase */}
-            <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 scroll-scale-up">
+            <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 scroll-m-in-scale-up">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="text-center space-y-2">
                   <div className="text-4xl font-black text-highlight">5+</div>
@@ -253,7 +253,7 @@ const Hero = () => {
           </div>
 
           {/* Right content - iPhone frame with your image */}
-          <div className="relative flex justify-center lg:justify-start lg:pl-24 scroll-fade-up">
+          <div className="relative flex justify-center lg:justify-start lg:pl-24 scroll-m-in-fade-up">
             <div className="relative w-80 h-[600px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px]">
               {/* iPhone frame */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[3rem] p-2 shadow-2xl">
@@ -327,7 +327,7 @@ const Hero = () => {
         </div>
 
         {/* Mobile floating images - after content */}
-        <div className="lg:hidden mt-20 flex justify-center scroll-fade-up">
+        <div className="lg:hidden mt-20 flex justify-center scroll-m-in-fade-up">
           <div className="w-55 h-44 rounded-xl overflow-hidden shadow-lg border-2 border-accent/60 rotate-2">
             <img 
               src="/lovable-uploads/PedersonExterior.jpg" 

@@ -32,7 +32,7 @@ const Comparison = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 scroll-fade-down">
+        <div className="text-center mb-16 scroll-m-in-fade-down">
           <div className="inline-block bg-accent/10 backdrop-blur-sm px-6 py-2 rounded-2xl border border-accent/20 mb-6">
             <span className="text-accent font-semibold text-sm uppercase tracking-wider">Comparison</span>
           </div>
@@ -66,7 +66,7 @@ const Comparison = () => {
           <div className="relative lg:grid lg:grid-cols-2 lg:gap-12 items-start space-y-8 lg:space-y-0">
             
             {/* Traditional Approach - Left Side */}
-            <div className="relative scroll-scale-up">
+            <div className="relative scroll-m-in-scale-up">
               <div className="bg-muted/30 backdrop-blur-sm rounded-3xl p-8 border border-muted/40 relative overflow-hidden">
                 {/* Background pattern */}
                 <div className="absolute inset-0 opacity-5">
@@ -97,14 +97,14 @@ const Comparison = () => {
             </div>
 
             {/* Mobile VS Badge - Between sections */}
-            <div className="flex justify-center lg:hidden scroll-fade-up">
+            <div className="flex justify-center lg:hidden scroll-m-in-fade-up">
               <div className="w-16 h-16 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-xl">
                 <span className="text-background font-bold text-base">VS</span>
               </div>
             </div>
 
             {/* TurnKey Development - Right Side */}
-            <div className="relative scroll-scale-up">
+            <div className="relative scroll-m-in-scale-up">
               <div className="bg-gradient-primary backdrop-blur-sm rounded-3xl p-8 border border-accent/30 relative overflow-hidden shadow-2xl">
                 {/* Background pattern */}
                 <div className="absolute inset-0 opacity-10">
@@ -136,7 +136,7 @@ const Comparison = () => {
 
             {/* Desktop VS Badge - Positioned within grid */}
             <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 hidden lg:block pointer-events-none">
-              <div className="w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl scroll-fade-up">
+              <div className="w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl scroll-m-in-fade-up">
                 <span className="text-background font-bold text-lg">VS</span>
               </div>
             </div>
@@ -144,7 +144,7 @@ const Comparison = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16 scroll-fade-up">
+        <div className="text-center mt-16 scroll-m-in-fade-up">
           <div className="bg-accent/10 backdrop-blur-sm rounded-2xl p-8 border border-accent/20 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Ready to Experience the TurnKey Difference?

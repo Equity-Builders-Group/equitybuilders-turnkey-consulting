@@ -177,7 +177,7 @@ const FAQ = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             
             {/* Left column - Header and intro */}
-            <div className="space-y-8 scroll-fade-up">
+            <div className="space-y-8 scroll-m-in-fade-up">
               <div className="space-y-6">
                 <div className="inline-block bg-highlight/20 backdrop-blur-sm px-6 py-3 rounded-2xl border border-highlight/40">
                   <span className="text-white font-bold text-lg drop-shadow-lg">Frequently Asked Questions</span>
@@ -196,7 +196,7 @@ const FAQ = () => {
               </div>
               
               {/* Email Contact Form */}
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 scroll-scale-up">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 scroll-m-in-scale-up">
                 {!isSubmitted ? (
                   <>
                     <h3 className="text-xl font-bold text-white mb-4">Get Additional Clarity</h3>
@@ -256,7 +256,7 @@ const FAQ = () => {
             </div>
             
             {/* Right column - FAQ Accordion */}
-            <div className="space-y-4 scroll-fade-up">
+            <div className="space-y-4 scroll-m-in-fade-up">
               <Accordion type="single" collapsible className="space-y-4">
                 {faqs.map((faq, index) => (
                   <AccordionItem 
