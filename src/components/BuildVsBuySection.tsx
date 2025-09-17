@@ -6,7 +6,7 @@ import useScrollReveal from "@/hooks/useScrollReveal";
 const BuildVsBuySection = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal();
-  const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal({ delay: 200 });
+  const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal();
 
   return (
     <section className="relative py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">

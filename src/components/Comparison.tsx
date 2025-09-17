@@ -3,11 +3,11 @@ import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReve
 
 const Comparison = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
-  const { elementRef: traditionalRef, isVisible: traditionalVisible } = useScrollReveal<HTMLDivElement>({ delay: 300 });
-  const { elementRef: vsMobileRef, isVisible: vsMobileVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
-  const { elementRef: vsDesktopRef, isVisible: vsDesktopVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
-  const { elementRef: turnkeyRef, isVisible: turnkeyVisible } = useScrollReveal<HTMLDivElement>({ delay: 900 });
-  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal({ delay: 1200 });
+  const { elementRef: traditionalRef, isVisible: traditionalVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: vsMobileRef, isVisible: vsMobileVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: vsDesktopRef, isVisible: vsDesktopVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: turnkeyRef, isVisible: turnkeyVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal();
   
   const traditionalProblems = [
     "Limited Property Selection",

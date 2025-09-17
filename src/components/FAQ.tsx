@@ -12,8 +12,8 @@ import useScrollReveal from "@/hooks/useScrollReveal";
 
 const FAQ = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: formRef, isVisible: formVisible } = useScrollReveal<HTMLDivElement>({ delay: 200 });
-  const { elementRef: accordionRef, isVisible: accordionVisible } = useScrollReveal<HTMLDivElement>({ delay: 400 });
+  const { elementRef: formRef, isVisible: formVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: accordionRef, isVisible: accordionVisible } = useScrollReveal<HTMLDivElement>();
   
   const [formData, setFormData] = useState({
     name: '',

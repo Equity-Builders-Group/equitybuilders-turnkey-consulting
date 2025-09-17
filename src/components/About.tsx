@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import useScrollReveal from "@/hooks/useScrollReveal";
 const About = () => {
   const { elementRef: contentRef, isVisible: contentVisible } = useScrollReveal();
-  const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal({ delay: 300 });
+  const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal();
   
   return <section className="py-20 bg-gradient-to-br from-accent/20 via-background to-primary/10 relative overflow-hidden">
       {/* Background with architectural drawing */}

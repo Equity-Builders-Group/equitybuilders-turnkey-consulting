@@ -7,7 +7,7 @@ import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReve
 
 const ClientShowcase = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: cardsRef, visibleItems } = useStaggeredScrollReveal<HTMLDivElement>(3, 300);
+  const { elementRef: cardsRef, visibleItems } = useStaggeredScrollReveal<HTMLDivElement>(3);
   
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);

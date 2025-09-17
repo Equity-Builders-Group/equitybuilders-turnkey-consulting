@@ -8,7 +8,7 @@ const WhyWorkWithUs = () => {
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollReveal({ threshold: 0.05 });
-  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal({ delay: 400 });
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal();
   const reasons = [
     {
       title: "Proven Track Record",

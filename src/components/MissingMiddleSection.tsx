@@ -3,8 +3,8 @@ import useScrollReveal from "@/hooks/useScrollReveal";
 
 const MissingMiddleSection = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal<HTMLDivElement>({ delay: 300 });
-  const { elementRef: descriptionRef, isVisible: descriptionVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
+  const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: descriptionRef, isVisible: descriptionVisible } = useScrollReveal<HTMLDivElement>();
 
   return (
     <section className="w-full py-20 bg-background relative overflow-hidden">

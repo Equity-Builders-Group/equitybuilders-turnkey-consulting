@@ -8,7 +8,7 @@ const Services = () => {
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollReveal({ threshold: 0.05 });
-  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal({ delay: 500 });
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal();
   const processSteps = [
     {
       title: "Land Search & Vetting",

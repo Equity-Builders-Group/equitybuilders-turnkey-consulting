@@ -5,7 +5,7 @@ import useScrollReveal from "@/hooks/useScrollReveal";
 const VideoShowcase = () => {
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
   const { elementRef: headingRef, isVisible: headingVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: videoRef, isVisible: videoVisible } = useScrollReveal<HTMLDivElement>({ delay: 300 });
+  const { elementRef: videoRef, isVisible: videoVisible } = useScrollReveal<HTMLDivElement>();
 
   return (
     <section className="w-full bg-black">

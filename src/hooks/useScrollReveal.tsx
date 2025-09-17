@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 
 interface UseScrollRevealOptions {
   threshold?: number;
-  delay?: number;
   rootMargin?: string;
 }
 
@@ -37,18 +36,10 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
     if (isInView) {
       console.log(`[ScrollReveal ${id}] Initially in view, revealing immediately`);
       revealedElements.add(id);
-      if (options.delay) {
-        setTimeout(() => {
-          console.log(`[ScrollReveal ${id}] Delayed reveal triggered`);
-          setIsVisible(true);
-        }, options.delay);
-      } else {
-        setIsVisible(true);
-      }
+      setIsVisible(true);
       return;
     }
 
-    let timeoutId: NodeJS.Timeout;
     const observer = new IntersectionObserver(
       ([entry]) => {
         console.log(`[ScrollReveal ${id}] Observer callback - isIntersecting:`, entry.isIntersecting, 'already revealed:', revealedElements.has(id));
@@ -56,15 +47,7 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
           console.log(`[ScrollReveal ${id}] Triggering reveal via observer`);
           revealedElements.add(id);
           observer.disconnect();
-          
-          if (options.delay) {
-            timeoutId = setTimeout(() => {
-              console.log(`[ScrollReveal ${id}] Observer delayed reveal triggered`);
-              setIsVisible(true);
-            }, options.delay);
-          } else {
-            setIsVisible(true);
-          }
+          setIsVisible(true);
         }
       },
       {
@@ -79,15 +62,14 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
     return () => {
       console.log(`[ScrollReveal ${id}] Cleanup - disconnecting observer`);
       observer.disconnect();
-      if (timeoutId) clearTimeout(timeoutId);
     };
   }, []);
 
   return { elementRef, isVisible };
 };
 
-// Simplified staggered version
-export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>(count: number, staggerDelay: number = 100) => {
+// Simplified staggered version - no delays, immediate trigger
+export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>(count: number) => {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const elementRef = useRef<T>(null);
   const elementId = useRef<string>(`stagger-${Date.now()}-${Math.floor(Math.random() * 1000)}`);
