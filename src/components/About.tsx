@@ -109,8 +109,8 @@ const About = () => {
               {/* Your real professional image */}
               <div className="absolute inset-4 rounded-xl overflow-hidden">
                 <img 
-                  src="/lovable-uploads/099d43ed-30ee-447a-8302-8f31d970c7b5.png" 
-                  alt="TurnKey Development founder and business consultant" 
+                  src="/lovable-uploads/LavonNDiana_HeadShot_MCM.jpg" 
+                  alt="TurnKey Development founders and business consultants" 
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
