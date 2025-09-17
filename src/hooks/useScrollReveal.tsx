@@ -12,7 +12,7 @@ const revealedElements = new Set<string>();
 export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options: UseScrollRevealOptions = {}) => {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<T>(null);
-  const elementId = useRef<string>(Math.random().toString(36).substr(2, 9));
+  const elementId = useRef<string>(`reveal-${Date.now()}-${Math.floor(Math.random() * 1000)}`);
 
   useEffect(() => {
     const element = elementRef.current;
@@ -74,7 +74,7 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
 export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>(count: number, staggerDelay: number = 100) => {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const elementRef = useRef<T>(null);
-  const elementId = useRef<string>(Math.random().toString(36).substr(2, 9));
+  const elementId = useRef<string>(`stagger-${Date.now()}-${Math.floor(Math.random() * 1000)}`);
 
   useEffect(() => {
     const element = elementRef.current;

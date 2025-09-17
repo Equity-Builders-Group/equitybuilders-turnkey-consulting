@@ -227,7 +227,19 @@ export default {
 				'reveal-slide-up': 'slide-up 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
 				'reveal-slide-down': 'slide-down 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
 				'reveal-flip-up': 'flip-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
-				'reveal-bounce-in': 'bounce-in 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards'
+				'reveal-bounce-in': 'bounce-in 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards',
+				// Staggered delay animations (mobile-safe)
+				'reveal-scale-up-1': 'scale-up 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0ms',
+				'reveal-scale-up-2': 'scale-up 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 300ms',
+				'reveal-scale-up-3': 'scale-up 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 600ms',
+				'reveal-fade-up-1': 'fade-up 0.8s ease-out forwards 0ms',
+				'reveal-fade-up-2': 'fade-up 0.8s ease-out forwards 100ms',
+				'reveal-fade-up-3': 'fade-up 0.8s ease-out forwards 200ms',
+				'reveal-fade-up-4': 'fade-up 0.8s ease-out forwards 300ms',
+				'reveal-fade-up-5': 'fade-up 0.8s ease-out forwards 400ms',
+				'reveal-fade-up-6': 'fade-up 0.8s ease-out forwards 500ms',
+				'reveal-fade-up-7': 'fade-up 0.8s ease-out forwards 600ms',
+				'reveal-fade-up-8': 'fade-up 0.8s ease-out forwards 700ms'
 			}
 		}
 	},
