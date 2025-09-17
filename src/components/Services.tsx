@@ -255,9 +255,9 @@ const Services = () => {
             <Card 
               key={index} 
               className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:scale-105 bg-white/95 hover:bg-gradient-accent hover:text-white border-0 backdrop-blur-sm ${
-                visibleItems.has(index) ? 'animate-reveal-bounce-in' : 'opacity-0 scale-75'
+                visibleItems.has(index) ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
               }`}
-              style={{ animationDelay: `${index * 150}ms` }}
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-4 group-hover:bg-white/20 group-hover:text-white transition-all duration-300 group-hover:scale-110">

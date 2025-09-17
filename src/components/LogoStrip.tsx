@@ -27,12 +27,7 @@ const LogoStrip = () => {
   ];
 
   return (
-    <section 
-      ref={stripRef}
-      className={`w-full bg-primary py-8 overflow-hidden transition-all duration-800 ${
-        stripVisible ? 'animate-reveal-fade-left' : 'opacity-0 translate-x-12'
-      }`}
-    >
+    <section className="w-full bg-primary py-8 overflow-hidden">
       <div
         className="flex items-center"
         style={{

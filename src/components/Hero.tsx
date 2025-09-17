@@ -153,11 +153,7 @@ const Hero = () => {
       
       <div className="container mx-auto px-6 sm:px-8 py-20 relative z-10">
         {/* Mobile-only top heading */}
-        <div 
-          className={`lg:hidden mb-12 transition-all duration-800 ${
-            headlineVisible ? 'animate-reveal-slide-down' : 'opacity-0 -translate-y-12'
-          }`}
-        >
+        <div className="lg:hidden mb-12">
           <h2 className="text-5xl sm:text-6xl font-black leading-none text-white text-center drop-shadow-lg">
             TURN KEY DEVELOPMENT
             <span className="block text-accent drop-shadow-2xl">
@@ -191,12 +187,7 @@ const Hero = () => {
           {/* Left content */}
           <div className="space-y-12 order-2 lg:order-1 text-center lg:text-left px-2 sm:px-0">
             {/* Main headline with bold styling */}
-            <div 
-              ref={headlineRef}
-              className={`space-y-6 transition-all duration-1000 ${
-                headlineVisible ? 'animate-reveal-slide-up' : 'opacity-0 translate-y-16'
-              }`}
-            >
+            <div className="space-y-6">
               {/* Desktop-only top heading */}
               <div className="hidden lg:block">
                 <h3 className="text-3xl font-black leading-none text-white text-left mb-4 drop-shadow-lg">
