@@ -1,11 +1,17 @@
 import { Button } from "@/components/ui/button";
+
 const About = () => {
-  return <section className="py-20 bg-gradient-to-br from-accent/20 via-background to-primary/10 relative overflow-hidden">
+  return (
+    <section className="py-20 bg-gradient-to-br from-accent/20 via-background to-primary/10 relative overflow-hidden">
       {/* Background with architectural drawing */}
       <div className="absolute inset-0">
         {/* Architectural drawing background */}
         <div className="absolute inset-0 opacity-30">
-          <img src="/lovable-uploads/5df938db-8063-4672-9fdb-4bb75420dbc7.png" alt="Construction site plan and architectural drawing" className="w-full h-full object-cover object-center" />
+          <img 
+            src="/lovable-uploads/5df938db-8063-4672-9fdb-4bb75420dbc7.png" 
+            alt="Construction site plan and architectural drawing" 
+            className="w-full h-full object-cover object-center"
+          />
           <div className="absolute inset-0 bg-gradient-to-br from-background/20 via-transparent to-background/20"></div>
         </div>
       </div>
@@ -15,15 +21,15 @@ const About = () => {
         {/* Architectural texture overlays */}
         <div className="absolute inset-0 opacity-5">
           <div className="w-full h-full" style={{
-          backgroundImage: `
+            backgroundImage: `
               linear-gradient(45deg, rgba(120, 100, 25, 0.1) 25%, transparent 25%),
               linear-gradient(-45deg, rgba(120, 100, 25, 0.1) 25%, transparent 25%),
               linear-gradient(45deg, transparent 75%, rgba(120, 100, 25, 0.1) 75%),
               linear-gradient(-45deg, transparent 75%, rgba(120, 100, 25, 0.1) 75%)
             `,
-          backgroundSize: '30px 30px',
-          backgroundPosition: '0 0, 0 15px, 15px -15px, -15px 0px'
-        }}></div>
+            backgroundSize: '30px 30px',
+            backgroundPosition: '0 0, 0 15px, 15px -15px, -15px 0px'
+          }}></div>
         </div>
         
         {/* Wood grain texture */}
@@ -36,7 +42,7 @@ const About = () => {
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
             <div className="space-y-8">
               <div className="space-y-4">
-                <h2 className="text-4xl font-bold">
+                <h2 className="text-4xl font-bold drop-shadow-lg">
                   Why Choose TurnKey Development?
                 </h2>
                 <p className="text-xl text-muted-foreground">
@@ -102,18 +108,53 @@ const About = () => {
               
               {/* Your real professional image */}
               <div className="absolute inset-4 rounded-xl overflow-hidden">
-                <img src="/lovable-uploads/099d43ed-30ee-447a-8302-8f31d970c7b5.png" alt="TurnKey Development founder and business consultant" className="w-full h-full object-cover" />
+                <img 
+                  src="/lovable-uploads/LavonNDiana_HeadShot_MCM.jpg" 
+                  alt="TurnKey Development founders and business consultants" 
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
               </div>
               
               {/* Construction project overlay */}
+              <div className="absolute bottom-4 right-4 w-24 h-24 rounded-xl overflow-hidden border-4 border-white/30">
+                <img 
+                  src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
+                  alt="Construction project showcase" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
               
-              
-              
+              <div className="relative z-10 h-full p-8 flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-white/30">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Growth-Focused Results</h3>
+                  <p className="text-white/90">
+                    Average 40% improvement in operational efficiency within the first 6 months.
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center border border-white/30">
+                    <div className="text-2xl font-bold text-accent">40%</div>
+                    <div className="text-sm text-white/80">Efficiency Gain</div>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center border border-white/30">
+                    <div className="text-2xl font-bold text-accent">6mo</div>
+                    <div className="text-sm text-white/80">Avg Timeline</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default About;
