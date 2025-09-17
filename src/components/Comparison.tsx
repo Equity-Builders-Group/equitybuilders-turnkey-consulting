@@ -6,20 +6,18 @@ const Comparison = () => {
     "Limited Market Knowledge",
     "You Don't Know What You Don't Know",
     "Lack of Construction Expertise",
-    "You Need To Build A Team From Scratch",
+    "You Need To Build A Team From Scratch (Most Costly)",
     "No Project Management Experience",
-    "Inconsistent Quality Control",
-    "Prior Experience Required for Financing", 
+    "Prior Experience Is Required for Financing (x3)", 
   ];
 
   const turnkeyAdvantages = [
     "Curated Investment Opportunities",
     "Streamlined Financing Solutions",
     "Complete Market Analysis Provided",
-    "Full Permit & Legal Handling",
+    "Full Permit & Entitlements Handling",
     "Expert Construction Management",
     "End-to-End Project Oversight",
-    "Guaranteed Quality Standards",
     "Six Figures Delivered On A Silver Platter!"
   ];
 

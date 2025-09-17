@@ -8,9 +8,9 @@ const WhyWorkWithUs = () => {
   const reasons = [
     {
       title: "Proven Track Record",
-      description: "Over $1.2M in active construction and $2.4M+ in development in the pipeline.",
+      description: "Over $1.2M in active construction and $3.2M+ in development in the pipeline.",
       icon: <Award className="w-8 h-8" />,
-      stats: "$5M+",
+      stats: "$4M+",
       statsLabel: "Pending Developments"
     },
     {
