@@ -119,7 +119,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-6 sm:px-8 py-20 relative z-10">
         {/* Mobile-only top heading */}
         <div className="lg:hidden mb-12">
           <h2 className="text-5xl sm:text-6xl font-black leading-none text-white text-center drop-shadow-lg">
@@ -153,7 +153,7 @@ const Hero = () => {
 
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-2 items-center max-w-7xl">
           {/* Left content */}
-          <div className="space-y-12 order-2 lg:order-1 text-center lg:text-left">
+          <div className="space-y-12 order-2 lg:order-1 text-center lg:text-left px-2 sm:px-0">
             {/* Main headline with bold styling */}
             <div className="space-y-6">
               {/* Desktop-only top heading */}
