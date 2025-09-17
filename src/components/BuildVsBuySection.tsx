@@ -14,7 +14,7 @@ const BuildVsBuySection = () => {
             <span className="block text-accent drop-shadow-lg">an Investment Property?</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            The numbers speak for themselves. When you build you walk into a strong equity position from day one. New construction is the wholesale side of real estate. You have a brand new product that can be depreciated over time to offer huge tax write-offs. 
+            The numbers speak for themselves. When you build you walk into a strong equity position from day one. Building a property is like buying a product at a wholesale price. You have a brand new product that can be depreciated over time to offer huge tax write-offs. 
             Your repair cost for the first 5-10 years will be very minimal because major items are covered by the warranty. Its just a no brainer!
           </p>
         </div>
