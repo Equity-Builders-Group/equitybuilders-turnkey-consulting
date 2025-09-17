@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
-import { Play, MousePointer2 } from "lucide-react";
+import { Play, Hand } from "lucide-react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
 import ConsultationModal from "./ConsultationModal";
 import ExitIntentModal from "./ExitIntentModal";
@@ -209,7 +209,7 @@ const Hero = () => {
                 
                 {/* Floating finger press icon */}
                 <div className="absolute -bottom-2 -right-2 animate-pulse">
-                  <MousePointer2 className="w-8 h-8 text-white fill-current rotate-12" />
+                  <Hand className="w-10 h-10 text-white fill-current rotate-12" />
                 </div>
               </div>
               
