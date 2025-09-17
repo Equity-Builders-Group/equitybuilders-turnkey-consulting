@@ -1,40 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
+import useScrollReveal from "@/hooks/useScrollReveal";
 
 const MissingMiddleSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '-50px 0px'
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal<HTMLDivElement>({ delay: 300 });
+  const { elementRef: descriptionRef, isVisible: descriptionVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
 
   return (
-    <section 
-      ref={sectionRef}
-      className="w-full py-20 bg-background relative overflow-hidden"
-    >
+    <section className="w-full py-20 bg-background relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
@@ -43,10 +16,9 @@ const MissingMiddleSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div 
-          className={`transition-all duration-1000 ease-out ${
-            isVisible 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-10'
+          ref={headerRef}
+          className={`transition-all duration-1000 ${
+            headerVisible ? 'animate-reveal-fade-down' : 'opacity-0 -translate-y-12'
           }`}
         >
           <div className="text-center mb-12">
@@ -75,10 +47,9 @@ const MissingMiddleSection = () => {
       {/* Centered graphic section */}
       <div className="container mx-auto px-4">
         <div 
-          className={`flex justify-center transition-all duration-1200 delay-300 ease-out ${
-            isVisible 
-              ? 'opacity-100 scale-100' 
-              : 'opacity-0 scale-95'
+          ref={imageRef}
+          className={`flex justify-center transition-all duration-1200 ${
+            imageVisible ? 'animate-reveal-zoom-in' : 'opacity-0 scale-75'
           }`}
         >
           <img 
@@ -91,10 +62,9 @@ const MissingMiddleSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div 
-          className={`text-center mt-12 transition-all duration-1000 delay-600 ease-out ${
-            isVisible 
-              ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-5'
+          ref={descriptionRef}
+          className={`text-center mt-12 transition-all duration-1000 ${
+            descriptionVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
           }`}
         >
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
