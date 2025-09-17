@@ -62,6 +62,18 @@ const BuildVsBuySection = () => {
         <div className="absolute top-20 left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-secondary/15 rounded-full blur-2xl"></div>
       </div>
+
+      {/* Green gradient dashed divider */}
+      <div className="absolute bottom-0 left-0 right-0 flex justify-center">
+        <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-green-500 to-transparent relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400 to-transparent opacity-60" 
+               style={{
+                 backgroundImage: 'repeating-linear-gradient(to right, transparent 0px, transparent 8px, currentColor 8px, currentColor 16px)',
+                 color: 'rgb(34 197 94)'
+               }}>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
