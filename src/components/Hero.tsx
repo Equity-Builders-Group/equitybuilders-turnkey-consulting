@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
-import { Play, Hand } from "lucide-react";
+import { Play, MousePointer2 } from "lucide-react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
 import ConsultationModal from "./ConsultationModal";
 import ExitIntentModal from "./ExitIntentModal";
@@ -209,7 +209,7 @@ const Hero = () => {
                 
                 {/* Floating finger press icon */}
                 <div className="absolute -bottom-2 -right-2 animate-pulse">
-                  <Hand className="w-24 h-24 text-white fill-current rotate-12" />
+                  <MousePointer2 className="w-8 h-8 text-white fill-current rotate-12" />
                 </div>
               </div>
               
@@ -279,7 +279,7 @@ const Hero = () => {
                         {/* Introduction overlay */}
                         <div className="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-sm rounded-2xl p-6">
                           <p className="text-white font-semibold text-center text-lg">
-                            Your Construction Partner
+                            👋 Your Construction Partner
                           </p>
                           <p className="text-white/80 text-base text-center mt-2">
                             Tap to see how we build together
