@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import textureBackground from "@/assets/texture-background.jpg";
 
 const FAQ = () => {
   const faqs = [
@@ -43,7 +44,12 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-br from-background via-muted/50 to-background relative overflow-hidden">
+    <section className="py-32 bg-gradient-to-br from-background via-muted/50 to-background relative overflow-hidden" style={{
+      backgroundImage: `url(${textureBackground}), linear-gradient(135deg, hsl(var(--background)), hsl(var(--muted)/0.5), hsl(var(--background)))`,
+      backgroundSize: '200px 200px, cover',
+      backgroundRepeat: 'repeat, no-repeat',
+      backgroundBlendMode: 'multiply'
+    }}>
       {/* Main background overlay */}
       <div className="absolute inset-0 bg-gradient-primary opacity-95"></div>
       
