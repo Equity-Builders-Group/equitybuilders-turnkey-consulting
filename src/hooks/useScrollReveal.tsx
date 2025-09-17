@@ -8,40 +8,41 @@ interface UseScrollRevealOptions {
 
 export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options: UseScrollRevealOptions = {}) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hasBeenVisible, setHasBeenVisible] = useState(false);
   const elementRef = useRef<T>(null);
+  const hasTriggered = useRef(false);
 
   useEffect(() => {
     const element = elementRef.current;
-    if (!element || hasBeenVisible) return;
+    if (!element || hasTriggered.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasBeenVisible) {
+        if (entry.isIntersecting && !hasTriggered.current) {
+          hasTriggered.current = true;
+          
           // Add delay if specified
           if (options.delay) {
             setTimeout(() => {
               setIsVisible(true);
-              setHasBeenVisible(true);
             }, options.delay);
           } else {
             setIsVisible(true);
-            setHasBeenVisible(true);
           }
-          // Disconnect after first trigger to prevent re-firing
+          
+          // Disconnect to prevent re-firing
           observer.disconnect();
         }
       },
       {
-        threshold: options.threshold || 0.05, // Reduced threshold for mobile
-        rootMargin: options.rootMargin || '0px 0px -50px 0px', // Less aggressive margin
+        threshold: options.threshold || 0.1,
+        rootMargin: options.rootMargin || '0px 0px -50px 0px',
       }
     );
 
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, [options.threshold, options.delay, options.rootMargin, hasBeenVisible]);
+  }, [options.threshold, options.delay, options.rootMargin]);
 
   return { elementRef, isVisible };
 };
@@ -50,20 +51,26 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
 export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>(count: number, staggerDelay: number = 100) => {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const elementRef = useRef<T>(null);
+  const hasTriggered = useRef(false);
 
   useEffect(() => {
     const element = elementRef.current;
-    if (!element) return;
+    if (!element || hasTriggered.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasTriggered.current) {
+          hasTriggered.current = true;
+          
           // Trigger staggered animations
           for (let i = 0; i < count; i++) {
             setTimeout(() => {
               setVisibleItems(prev => new Set([...prev, i]));
             }, i * staggerDelay);
           }
+          
+          // Disconnect to prevent re-firing
+          observer.disconnect();
         }
       },
       {
