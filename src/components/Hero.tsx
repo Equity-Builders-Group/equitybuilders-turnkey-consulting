@@ -159,7 +159,7 @@ const Hero = () => {
               {/* Desktop-only top heading */}
               <div className="hidden lg:block">
                 <h3 className="text-3xl font-black leading-none text-white text-left mb-4 drop-shadow-lg">
-                  TURN KEY DEVELOPMENT,
+                  TURN KEY DEVELOPMENT
                   <span className="block text-accent drop-shadow-2xl">
                     DONE-FOR-YOU.
                   </span>
@@ -175,7 +175,7 @@ const Hero = () => {
               
               <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white drop-shadow-lg">
                 GO FROM 
-                <span className="block text-accent-gold drop-shadow-2xl text-5xl sm:text-4xl lg:text-7xl">
+                <span className="block text-accent-gold drop-shadow-2xl text-5xl sm:text-4xl lg:text-8xl">
                   UNDEVELOPED LAND TO
                 </span>
                 <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent drop-shadow-lg">
@@ -186,7 +186,7 @@ const Hero = () => {
                 </span>
               </h1>
               
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl mx-auto lg:mx-0 mx-4 sm:mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 max-w-2xl mx-auto lg:mx-0 mx-8 sm:mx-auto">
                 <p className="text-lg sm:text-2xl text-white font-semibold leading-relaxed">
                   Are you a busy professional looking to accelerate your retirement goals? <span className="font-normal text-white/80">You need the benefits of Real Estate and the tax write-offs that come with it to keep more of your money every year.</span>
                   <br /><br />
@@ -203,7 +203,7 @@ const Hero = () => {
                 onClick={() => setShowConsultationModal(true)}
                 className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-white text-primary hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
               >
-                📞 Book Your Pre-Qualification Call Today
+              Book A Call Today
               </Button>
               
               <div className="flex items-center justify-center lg:justify-start gap-4 text-white/90">
@@ -315,10 +315,10 @@ const Hero = () => {
 
         {/* Mobile floating images - after content */}
         <div className="lg:hidden mt-20 flex justify-center">
-          <div className="w-40 h-24 rounded-xl overflow-hidden shadow-lg border-2 border-accent/60 rotate-2">
+          <div className="w-55 h-44 rounded-xl overflow-hidden shadow-lg border-2 border-accent/60 rotate-2">
             <img 
-              src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
-              alt="Architectural project showcase" 
+              src="/lovable-uploads/PedersonExterior.jpg" 
+              alt="Pederson St Exterior" 
               className="w-full h-full object-cover"
             />
           </div>
