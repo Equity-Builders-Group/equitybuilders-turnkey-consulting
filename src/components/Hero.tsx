@@ -202,7 +202,7 @@ const Hero = () => {
                 <Button 
                   size="lg" 
                   onClick={() => setShowConsultationModal(true)}
-                  className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+                  className="w-24 h-24 text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
                 >
                 Book A Call Today
                 </Button>
@@ -279,7 +279,7 @@ const Hero = () => {
                         {/* Introduction overlay */}
                         <div className="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-sm rounded-2xl p-6">
                           <p className="text-white font-semibold text-center text-lg">
-                            👋 Your Construction Partner
+                            Your Construction Partner
                           </p>
                           <p className="text-white/80 text-base text-center mt-2">
                             Tap to see how we build together
