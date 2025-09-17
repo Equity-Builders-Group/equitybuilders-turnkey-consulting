@@ -48,13 +48,21 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
 
   return (
     <div 
-      className={`fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-2 sm:p-4 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+      className={`fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-black/90 backdrop-blur-md z-[9999] transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
       onClick={handleOverlayClick}
+      style={{ 
+        position: 'fixed',
+        inset: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 9999 
+      }}
     >
-      <div 
-        className={`relative bg-gradient-primary rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-sm sm:max-w-2xl lg:max-w-4xl xl:max-w-6xl max-h-[95vh] overflow-y-auto transform transition-all duration-300 ${isOpen ? 'scale-100' : 'scale-95'}`}
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="absolute inset-0 flex items-center justify-center p-2 sm:p-4">
+        <div 
+          className={`relative bg-gradient-primary rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-sm sm:max-w-2xl lg:max-w-4xl xl:max-w-6xl max-h-[95vh] overflow-y-auto transform transition-all duration-300 ${isOpen ? 'scale-100' : 'scale-95'}`}
+          onClick={(e) => e.stopPropagation()}
+        >
         {/* Close button */}
         <button
           onClick={handleClose}
@@ -118,6 +126,7 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
             <p className="text-white/80 mt-2 sm:mt-4 text-sm sm:text-lg">
               Limited spots are available on the calendar.
             </p>
+          </div>
           </div>
         </div>
       </div>

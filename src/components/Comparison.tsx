@@ -1,6 +1,14 @@
 import { Shield, Check, Unlock } from "lucide-react";
+import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const Comparison = () => {
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
+  const { elementRef: traditionalRef, isVisible: traditionalVisible } = useScrollReveal<HTMLDivElement>({ delay: 300 });
+  const { elementRef: vsMobileRef, isVisible: vsMobileVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
+  const { elementRef: vsDesktopRef, isVisible: vsDesktopVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
+  const { elementRef: turnkeyRef, isVisible: turnkeyVisible } = useScrollReveal<HTMLDivElement>({ delay: 900 });
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal({ delay: 1200 });
+  
   const traditionalProblems = [
     "Limited Property Selection",
     "Limited Market Knowledge",
@@ -31,7 +39,12 @@ const Comparison = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-800 ${
+            headerVisible ? 'animate-reveal-slide-down' : 'opacity-0 -translate-y-12'
+          }`}
+        >
           <div className="inline-block bg-accent/10 backdrop-blur-sm px-6 py-2 rounded-2xl border border-accent/20 mb-6">
             <span className="text-accent font-semibold text-sm uppercase tracking-wider">Comparison</span>
           </div>
@@ -62,10 +75,15 @@ const Comparison = () => {
 
         {/* Comparison Grid */}
         <div className="max-w-7xl mx-auto">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-start space-y-8 lg:space-y-0">
+          <div className="relative lg:grid lg:grid-cols-2 lg:gap-12 items-start space-y-8 lg:space-y-0">
             
             {/* Traditional Approach - Left Side */}
-            <div className="relative">
+            <div 
+              ref={traditionalRef}
+              className={`relative transition-all duration-1000 ease-out ${
+                traditionalVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
+              }`}
+            >
               <div className="bg-muted/30 backdrop-blur-sm rounded-3xl p-8 border border-muted/40 relative overflow-hidden">
                 {/* Background pattern */}
                 <div className="absolute inset-0 opacity-5">
@@ -96,14 +114,24 @@ const Comparison = () => {
             </div>
 
             {/* Mobile VS Badge - Between sections */}
-            <div className="flex justify-center lg:hidden">
+            <div 
+              ref={vsMobileRef}
+              className={`flex justify-center lg:hidden transition-all duration-1000 ease-out ${
+                vsMobileVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
+              }`}
+            >
               <div className="w-16 h-16 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-xl">
                 <span className="text-background font-bold text-base">VS</span>
               </div>
             </div>
 
             {/* TurnKey Development - Right Side */}
-            <div className="relative">
+            <div 
+              ref={turnkeyRef}
+              className={`relative transition-all duration-1000 ease-out ${
+                turnkeyVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
+              }`}
+            >
               <div className="bg-gradient-primary backdrop-blur-sm rounded-3xl p-8 border border-accent/30 relative overflow-hidden shadow-2xl">
                 {/* Background pattern */}
                 <div className="absolute inset-0 opacity-10">
@@ -132,18 +160,28 @@ const Comparison = () => {
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Desktop VS Badge */}
-          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:block">
-            <div className="w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl">
-              <span className="text-background font-bold text-lg">VS</span>
+            {/* Desktop VS Badge - Positioned within grid */}
+            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 hidden lg:block pointer-events-none">
+              <div 
+                ref={vsDesktopRef}
+                className={`w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl transition-all duration-1000 ease-out ${
+                  vsDesktopVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
+                }`}
+              >
+                <span className="text-background font-bold text-lg">VS</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <div 
+          ref={ctaRef}
+          className={`text-center mt-16 transition-all duration-800 ${
+            ctaVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-75'
+          }`}
+        >
           <div className="bg-accent/10 backdrop-blur-sm rounded-2xl p-8 border border-accent/20 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Ready to Experience the TurnKey Difference?
