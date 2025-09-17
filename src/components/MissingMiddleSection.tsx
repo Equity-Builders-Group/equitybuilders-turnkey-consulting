@@ -1,10 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import useScrollReveal from "@/hooks/useScrollReveal";
-
 const MissingMiddleSection = () => {
-  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal<HTMLDivElement>({ delay: 300 });
-  const { elementRef: descriptionRef, isVisible: descriptionVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
 
   return (
     <section className="w-full py-20 bg-background relative overflow-hidden">
@@ -15,12 +9,7 @@ const MissingMiddleSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div 
-          ref={headerRef}
-          className={`transition-all duration-1000 ${
-            headerVisible ? 'animate-reveal-fade-down' : 'opacity-0 -translate-y-12'
-          }`}
-        >
+        <div className="scroll-fade-down">
           <div className="text-center mb-12">
             <div className="inline-block bg-primary/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-primary/20 mb-8">
               <span className="text-primary font-bold text-xl">OUR TARGET FOCUS</span>
@@ -46,12 +35,7 @@ const MissingMiddleSection = () => {
 
       {/* Centered graphic section */}
       <div className="container mx-auto px-4">
-        <div 
-          ref={imageRef}
-          className={`flex justify-center transition-all duration-1200 ${
-            imageVisible ? 'animate-reveal-zoom-in' : 'opacity-0 scale-75'
-          }`}
-        >
+        <div className="flex justify-center scroll-scale-up">
           <img 
             src="/images/missing-middle-graphic-new.png"
             alt="Missing Middle Density Housing Spectrum - showing progression from ADU, duplex, fourplex, courtyard complex, townhouse, multiplex, live-work housing types"
@@ -61,12 +45,7 @@ const MissingMiddleSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div 
-          ref={descriptionRef}
-          className={`text-center mt-12 transition-all duration-1000 ${
-            descriptionVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
-          }`}
-        >
+        <div className="text-center mt-12 scroll-fade-up">
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
             The "missing middle" represents a crucial gap in housing options between single-family homes and large apartment buildings. 
             These housing types offer opportunities for increased density while maintaining neighborhood character and affordability.

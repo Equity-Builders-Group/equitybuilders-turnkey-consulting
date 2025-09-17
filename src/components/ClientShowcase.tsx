@@ -3,11 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, DollarSign, Users, Image as ImageIcon, Search, X } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const ClientShowcase = () => {
-  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: cardsRef, visibleItems } = useStaggeredScrollReveal<HTMLDivElement>(3, 300);
   
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -110,12 +107,7 @@ const ClientShowcase = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div 
-          ref={headerRef}
-          className={`text-center mb-20 transition-all duration-800 ${
-            headerVisible ? 'animate-reveal-fade-down' : 'opacity-0 -translate-y-12'
-          }`}
-        >
+        <div className="text-center mb-20 scroll-fade-down">
           <div className="inline-block bg-primary/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-primary/20 mb-8">
             <span className="text-primary font-bold text-xl">PROJECT GALLERY</span>
           </div>
@@ -132,7 +124,7 @@ const ClientShowcase = () => {
           </p>
         </div>
 
-        <div ref={cardsRef} className="grid lg:grid-cols-3 gap-8 items-start">
+        <div className="grid lg:grid-cols-3 gap-8 items-start scroll-stagger">
           {projects.map((project, index) => (
             <Card 
               key={project.id} 
@@ -140,8 +132,6 @@ const ClientShowcase = () => {
                 selectedProject === project.id 
                   ? 'border-green-500 shadow-2xl bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 -translate-y-6 scale-105' 
                   : 'hover:-translate-y-2 border-border hover:border-primary/50'
-              } ${
-                visibleItems.has(index) ? `animate-reveal-scale-up-${Math.min(index + 1, 3)}` : 'opacity-0 scale-75'
               }`}
               onClick={(e) => handleCardClick(e, project.id)}
             >

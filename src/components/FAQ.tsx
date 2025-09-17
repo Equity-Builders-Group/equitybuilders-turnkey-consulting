@@ -8,12 +8,8 @@ import {
 } from "@/components/ui/accordion";
 import { useToast } from "@/hooks/use-toast";
 import textureBackground from "@/assets/texture-background.jpg";
-import useScrollReveal from "@/hooks/useScrollReveal";
 
 const FAQ = () => {
-  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>();
-  const { elementRef: formRef, isVisible: formVisible } = useScrollReveal<HTMLDivElement>({ delay: 200 });
-  const { elementRef: accordionRef, isVisible: accordionVisible } = useScrollReveal<HTMLDivElement>({ delay: 400 });
   
   const [formData, setFormData] = useState({
     name: '',
@@ -181,12 +177,7 @@ const FAQ = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             
             {/* Left column - Header and intro */}
-            <div 
-              ref={headerRef}
-              className={`space-y-8 transition-all duration-800 ${
-                headerVisible ? 'animate-reveal-fade-right' : 'opacity-0 -translate-x-12'
-              }`}
-            >
+            <div className="space-y-8 scroll-fade-up">
               <div className="space-y-6">
                 <div className="inline-block bg-highlight/20 backdrop-blur-sm px-6 py-3 rounded-2xl border border-highlight/40">
                   <span className="text-white font-bold text-lg drop-shadow-lg">Frequently Asked Questions</span>
@@ -205,12 +196,7 @@ const FAQ = () => {
               </div>
               
               {/* Email Contact Form */}
-              <div 
-                ref={formRef}
-                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 transition-all duration-800 ${
-                  formVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-75'
-                }`}
-              >
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 scroll-scale-up">
                 {!isSubmitted ? (
                   <>
                     <h3 className="text-xl font-bold text-white mb-4">Get Additional Clarity</h3>
@@ -270,12 +256,7 @@ const FAQ = () => {
             </div>
             
             {/* Right column - FAQ Accordion */}
-            <div 
-              ref={accordionRef}
-              className={`space-y-4 transition-all duration-800 ${
-                accordionVisible ? 'animate-reveal-fade-left' : 'opacity-0 translate-x-12'
-              }`}
-            >
+            <div className="space-y-4 scroll-fade-up">
               <Accordion type="single" collapsible className="space-y-4">
                 {faqs.map((faq, index) => (
                   <AccordionItem 
