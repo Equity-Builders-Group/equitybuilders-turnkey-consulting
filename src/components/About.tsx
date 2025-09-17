@@ -4,7 +4,7 @@ const About = () => {
       {/* Background with architectural drawing */}
       <div className="absolute inset-0">
         {/* Architectural drawing background */}
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 opacity-90">
           <img src="/lovable-uploads/5df938db-8063-4672-9fdb-4bb75420dbc7.png" alt="Construction site plan and architectural drawing" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-br from-background/20 via-transparent to-background/20"></div>
         </div>
