@@ -370,7 +370,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
             <div className="relative">
               {/* Pulse animation wrapper */}
               <div 
-                className="relative bg-black/80 backdrop-blur-sm px-6 py-3 rounded-full border-2 border-white"
+                className="relative bg-black/80 backdrop-blur-sm px-6 py-3 rounded-2xl border-2 border-white"
                 style={{
                   boxShadow: '0 0 0 1.5px rgba(0, 0, 0, 0.08)'
                 }}
