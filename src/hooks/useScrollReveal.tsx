@@ -12,6 +12,15 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<T>(null);
   const elementId = useRef<string>(`reveal-${Date.now()}-${Math.floor(Math.random() * 1000)}`);
+  const isRevealedRef = useRef<boolean>(false);
+
+  const triggerReveal = () => {
+    if (!isRevealedRef.current) {
+      isRevealedRef.current = true;
+      revealedElements.add(elementId.current);
+      setIsVisible(true);
+    }
+  };
 
   useEffect(() => {
     const element = elementRef.current;
@@ -19,11 +28,11 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
     
     console.log(`[ScrollReveal ${id}] Effect started, element:`, !!element, 'already revealed:', revealedElements.has(id));
     
-    if (!element || revealedElements.has(id)) {
-      if (revealedElements.has(id)) {
-        console.log(`[ScrollReveal ${id}] Already revealed, setting visible`);
-        setIsVisible(true);
-      }
+    if (!element) return;
+    
+    if (revealedElements.has(id)) {
+      console.log(`[ScrollReveal ${id}] Already revealed, setting visible`);
+      triggerReveal();
       return;
     }
 
@@ -35,19 +44,17 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
     
     if (isInView) {
       console.log(`[ScrollReveal ${id}] Initially in view, revealing immediately`);
-      revealedElements.add(id);
-      setIsVisible(true);
+      triggerReveal();
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log(`[ScrollReveal ${id}] Observer callback - isIntersecting:`, entry.isIntersecting, 'already revealed:', revealedElements.has(id));
-        if (entry.isIntersecting && !revealedElements.has(id)) {
+        console.log(`[ScrollReveal ${id}] Observer callback - isIntersecting:`, entry.isIntersecting, 'already revealed:', isRevealedRef.current);
+        if (entry.isIntersecting && !isRevealedRef.current) {
           console.log(`[ScrollReveal ${id}] Triggering reveal via observer`);
-          revealedElements.add(id);
           observer.disconnect();
-          setIsVisible(true);
+          triggerReveal();
         }
       },
       {
@@ -73,6 +80,15 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const elementRef = useRef<T>(null);
   const elementId = useRef<string>(`stagger-${Date.now()}-${Math.floor(Math.random() * 1000)}`);
+  const isRevealedRef = useRef<boolean>(false);
+
+  const triggerReveal = () => {
+    if (!isRevealedRef.current) {
+      isRevealedRef.current = true;
+      revealedElements.add(elementId.current);
+      setVisibleItems(new Set(Array.from({ length: count }, (_, i) => i)));
+    }
+  };
 
   useEffect(() => {
     const element = elementRef.current;
@@ -80,11 +96,11 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
     
     console.log(`[StaggeredReveal ${id}] Effect started, element:`, !!element, 'count:', count, 'already revealed:', revealedElements.has(id));
     
-    if (!element || revealedElements.has(id)) {
-      if (revealedElements.has(id)) {
-        console.log(`[StaggeredReveal ${id}] Already revealed, setting all visible`);
-        setVisibleItems(new Set(Array.from({ length: count }, (_, i) => i)));
-      }
+    if (!element) return;
+    
+    if (revealedElements.has(id)) {
+      console.log(`[StaggeredReveal ${id}] Already revealed, setting all visible`);
+      triggerReveal();
       return;
     }
 
@@ -96,21 +112,17 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
     
     if (isInView) {
       console.log(`[StaggeredReveal ${id}] Initially in view, revealing all items`);
-      revealedElements.add(id);
-      setVisibleItems(new Set(Array.from({ length: count }, (_, i) => i)));
+      triggerReveal();
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log(`[StaggeredReveal ${id}] Observer callback - isIntersecting:`, entry.isIntersecting, 'already revealed:', revealedElements.has(id));
-        if (entry.isIntersecting && !revealedElements.has(id)) {
+        console.log(`[StaggeredReveal ${id}] Observer callback - isIntersecting:`, entry.isIntersecting, 'already revealed:', isRevealedRef.current);
+        if (entry.isIntersecting && !isRevealedRef.current) {
           console.log(`[StaggeredReveal ${id}] Triggering staggered reveal via observer`);
-          revealedElements.add(id);
           observer.disconnect();
-          
-          // Reveal all items at once, let CSS handle staggering
-          setVisibleItems(new Set(Array.from({ length: count }, (_, i) => i)));
+          triggerReveal();
         }
       },
       {
