@@ -37,7 +37,14 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
     if (isInView) {
       console.log(`[ScrollReveal ${id}] Initially in view, revealing immediately`);
       revealedElements.add(id);
-      setIsVisible(true);
+      if (options.delay) {
+        setTimeout(() => {
+          console.log(`[ScrollReveal ${id}] Delayed reveal triggered`);
+          setIsVisible(true);
+        }, options.delay);
+      } else {
+        setIsVisible(true);
+      }
       return;
     }
 
