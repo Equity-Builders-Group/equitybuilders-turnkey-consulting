@@ -2,12 +2,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, BookOpen, Key, Handshake } from "lucide-react";
 import { useRef } from "react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
-import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
+import useScrollReveal from "@/hooks/useScrollReveal";
 
 const WhyWorkWithUs = () => {
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
-  const { elementRef: cardsRef, visibleItems } = useStaggeredScrollReveal(4, 200);
+  const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollReveal({ threshold: 0.05 });
   const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal({ delay: 400 });
   const reasons = [
     {
@@ -82,10 +82,10 @@ const WhyWorkWithUs = () => {
             <Card 
               key={index} 
               className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-8 hover:scale-110 bg-white/95 hover:bg-gradient-to-br hover:from-white hover:to-accent/5 border-0 backdrop-blur-sm text-center transform-gpu ${
-                visibleItems.has(index) ? 'animate-reveal-scale-up' : 'opacity-0 scale-75'
+                cardsVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-75'
               }`}
               style={{ 
-                animationDelay: `${index * 200}ms`,
+                animationDelay: cardsVisible ? `${index * 200}ms` : '0ms',
                 transformOrigin: 'center',
               }}
             >
