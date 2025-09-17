@@ -73,8 +73,8 @@ const Comparison = () => {
         </div>
 
         {/* Comparison Grid */}
-        <div className="max-w-7xl mx-auto relative">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-start space-y-8 lg:space-y-0 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative lg:grid lg:grid-cols-2 lg:gap-12 items-start space-y-8 lg:space-y-0">
             
             {/* Traditional Approach - Left Side */}
             <div 
@@ -114,7 +114,6 @@ const Comparison = () => {
 
             {/* Mobile VS Badge - Between sections */}
             <div 
-              ref={vsRef}
               className={`flex justify-center lg:hidden transition-all duration-1000 ease-out ${
                 vsVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
               }`}
@@ -159,16 +158,17 @@ const Comparison = () => {
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Desktop VS Badge */}
-          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:block">
-            <div 
-              className={`w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl transition-all duration-1000 ease-out ${
-                vsVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
-              }`}
-            >
-              <span className="text-background font-bold text-lg">VS</span>
+            {/* Desktop VS Badge - Positioned within grid */}
+            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 hidden lg:block pointer-events-none">
+              <div 
+                ref={vsRef}
+                className={`w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl transition-all duration-1000 ease-out ${
+                  vsVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
+                }`}
+              >
+                <span className="text-background font-bold text-lg">VS</span>
+              </div>
             </div>
           </div>
         </div>
