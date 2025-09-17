@@ -357,11 +357,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       {/* Unmute button - only show when video is muted and ready */}
       {showUnmuteButton && isVideoMuted && isVideoReady && (
         <div 
-          className={`absolute cursor-pointer z-20 ${
-            unmuteButtonPosition === "center" 
-              ? "top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" 
-              : "bottom-6 left-6 right-6"
-          }`}
+          className="absolute cursor-pointer z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           onClick={handleUnmuteClick}
         >
           <div className="flex flex-col items-center">
