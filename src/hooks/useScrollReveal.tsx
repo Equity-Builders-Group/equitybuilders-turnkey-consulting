@@ -9,25 +9,33 @@ interface UseScrollRevealOptions {
 export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options: UseScrollRevealOptions = {}) => {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<T>(null);
+  const hasTriggered = useRef(false);
 
   useEffect(() => {
     const element = elementRef.current;
-    if (!element) return;
+    if (!element || hasTriggered.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasTriggered.current) {
+          hasTriggered.current = true;
+          
           // Add delay if specified
           if (options.delay) {
-            setTimeout(() => setIsVisible(true), options.delay);
+            setTimeout(() => {
+              setIsVisible(true);
+            }, options.delay);
           } else {
             setIsVisible(true);
           }
+          
+          // Disconnect to prevent re-firing
+          observer.disconnect();
         }
       },
       {
-        threshold: options.threshold || 0.1,
-        rootMargin: options.rootMargin || '0px 0px -100px 0px',
+        threshold: options.threshold || 0.05,
+        rootMargin: options.rootMargin || '100px 0px 0px 0px',
       }
     );
 
@@ -43,25 +51,31 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
 export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>(count: number, staggerDelay: number = 100) => {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const elementRef = useRef<T>(null);
+  const hasTriggered = useRef(false);
 
   useEffect(() => {
     const element = elementRef.current;
-    if (!element) return;
+    if (!element || hasTriggered.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasTriggered.current) {
+          hasTriggered.current = true;
+          
           // Trigger staggered animations
           for (let i = 0; i < count; i++) {
             setTimeout(() => {
               setVisibleItems(prev => new Set([...prev, i]));
             }, i * staggerDelay);
           }
+          
+          // Disconnect to prevent re-firing
+          observer.disconnect();
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.05,
+        rootMargin: '100px 0px 0px 0px',
       }
     );
 
