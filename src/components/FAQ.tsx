@@ -43,119 +43,147 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-      {/* Background images with your real photos and construction projects */}
+    <section className="py-32 bg-gradient-to-br from-background via-muted/50 to-background relative overflow-hidden">
+      {/* Main background overlay */}
+      <div className="absolute inset-0 bg-gradient-primary opacity-95"></div>
+      
+      {/* Floating architectural images */}
       <div className="absolute inset-0">
-        <div className="absolute right-0 top-0 w-1/2 h-full opacity-25">
+        {/* Large featured project - top right */}
+        <div className="absolute top-16 right-8 lg:right-16 w-64 h-64 lg:w-80 lg:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-accent-gold/60 rotate-3 hover:rotate-1 transition-all duration-700">
           <img 
-            src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
-            alt="Business transformation expert and consultant" 
-            className="w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-l from-slate-800/90 via-slate-700/70 to-slate-800/90"></div>
-        </div>
-        
-        {/* Construction project texture background */}
-        <div className="absolute left-0 bottom-0 w-3/5 h-2/3 opacity-15">
-          <img 
-            src="/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png" 
-            alt="Quality construction and development projects" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-800/80 to-transparent"></div>
-        </div>
-        
-        {/* Floating CTA images - adjusted for mobile */}
-        <div className="absolute bottom-20 left-4 lg:left-16 w-48 h-48 lg:w-80 lg:h-80 rounded-2xl overflow-hidden shadow-2xl border-4 lg:border-6 border-accent-gold/60 rotate-6 hover:rotate-3 transition-all duration-700">
-          <img 
-            src="/lovable-uploads/099d43ed-30ee-447a-8302-8f31d970c7b5.png" 
-            alt="Professional business growth expert" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-accent-gold/20"></div>
-        </div>
-        
-        {/* Additional construction project showcase - centered on mobile */}
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 lg:top-20 lg:left-auto lg:right-20 lg:transform-none w-48 h-48 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-xl border-4 border-accent-gold/50 -rotate-12">
-          <img 
-            src="/lovable-uploads/9622KinderAve_Exterior.jpg" 
-            alt="9622 Kinder Avenue development expertise" 
+            src="/lovable-uploads/2604-AmboySt_ExteriorDesign.png" 
+            alt="2604 Amboy Street exterior design" 
             className="w-full h-full object-cover hover:scale-110 transition-all duration-500"
           />
+          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/30"></div>
+        </div>
+        
+        {/* Project showcase - bottom left */}
+        <div className="absolute bottom-20 left-8 lg:left-16 w-56 h-56 lg:w-72 lg:h-72 rounded-2xl overflow-hidden shadow-xl border-4 border-accent-gold/40 -rotate-6 hover:-rotate-3 transition-all duration-700">
+          <img 
+            src="/lovable-uploads/3909LavenderSt_ExteriorDesign.png" 
+            alt="3909 Lavender Street development" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+        </div>
+        
+        {/* Professional headshot - center left */}
+        <div className="absolute top-1/3 left-4 lg:left-12 w-48 h-48 lg:w-60 lg:h-60 rounded-full overflow-hidden shadow-xl border-6 border-accent-gold/50 hover:scale-105 transition-all duration-500">
+          <img 
+            src="/lovable-uploads/LavonNDiana_HeadShot_MCM.jpg" 
+            alt="Lavon professional headshot" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        {/* Construction progress - top center */}
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-40 h-40 lg:w-52 lg:h-52 rounded-xl overflow-hidden shadow-lg border-3 border-secondary/60 rotate-12 hover:rotate-6 transition-all duration-500">
+          <img 
+            src="/lovable-uploads/PedersonExterior.jpg" 
+            alt="Pederson exterior construction" 
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
 
-      {/* Enhanced textured background elements */}
+      {/* Geometric pattern overlay */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-accent-gold/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-10 right-20 w-80 h-80 bg-blue-500/20 rounded-full blur-2xl"></div>
-        <div className="absolute top-1/3 left-1/3 w-[600px] h-[600px] bg-accent-gold/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-accent-gold/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-secondary/20 rounded-full blur-2xl"></div>
         
-        {/* Construction/blueprint texture */}
-        <div className="absolute inset-0 opacity-10">
+        {/* Hexagonal pattern */}
+        <div className="absolute inset-0 opacity-5">
           <div className="w-full h-full" style={{
-            backgroundImage: `
-              linear-gradient(0deg, rgba(170,117,9,0.15) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(170,117,9,0.15) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '60px 60px'
           }}></div>
         </div>
-        
-        {/* Material texture overlay */}
-        <div className="absolute inset-0 opacity-8">
-          <div className="w-full h-full bg-gradient-to-br from-accent-gold/15 via-blue-500/5 to-slate-600/20"></div>
-        </div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 mt-48 lg:mt-0">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <div className="inline-block bg-accent-gold/20 backdrop-blur-sm px-8 py-4 rounded-full border border-accent-gold/40 mb-8">
-              <span className="text-accent-gold font-bold text-xl">FAQs</span>
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Split layout: Header on left, FAQ on right */}
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            
+            {/* Left column - Header and intro */}
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <div className="inline-block bg-accent-gold/20 backdrop-blur-sm px-6 py-3 rounded-full border border-accent-gold/40">
+                  <span className="text-accent-gold font-bold text-lg">Investor FAQ</span>
+                </div>
+                
+                <h2 className="text-4xl lg:text-6xl font-black text-white leading-tight">
+                  Your Questions
+                  <span className="block text-accent-gold">
+                    Answered
+                  </span>
+                </h2>
+                
+                <p className="text-white/90 text-xl leading-relaxed">
+                  Get clarity on our investment opportunities, processes, and what makes our real estate development approach unique in Houston's growing market.
+                </p>
+              </div>
+              
+              {/* Stats cards */}
+              <div className="grid grid-cols-2 gap-4 mt-12">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <div className="text-3xl font-black text-accent-gold mb-2">15+</div>
+                  <div className="text-white/90 text-sm font-medium">Projects Completed</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <div className="text-3xl font-black text-accent-gold mb-2">$2M+</div>
+                  <div className="text-white/90 text-sm font-medium">Capital Deployed</div>
+                </div>
+              </div>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl font-black mb-6 text-white leading-tight">
-              Frequently Asked Questions
-            </h2>
+            {/* Right column - FAQ Accordion */}
+            <div className="space-y-4">
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`}
+                    className="border border-white/20 rounded-xl px-6 py-2 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-all duration-300 group"
+                  >
+                    <AccordionTrigger className="text-left font-semibold text-lg text-white hover:text-accent-gold transition-colors py-6 group-hover:pr-2">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-white/85 text-base leading-relaxed pb-6 pl-2">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
           </div>
-
-          {/* FAQ Accordion */}
-          <div className="mb-16">
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className="border border-accent-gold/30 rounded-lg px-6 py-2 bg-slate-800/60 backdrop-blur-lg hover:bg-slate-800/80 transition-colors"
-                >
-                  <AccordionTrigger className="text-left font-semibold text-lg text-white hover:text-accent-gold transition-colors py-6">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-slate-200 text-base leading-relaxed pb-6">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-
-          {/* Contact CTA */}
-          <div className="text-center">
-            <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 border border-accent-gold/40 shadow-xl">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Still Have Questions?
+          
+          {/* Bottom CTA - Full width */}
+          <div className="mt-20">
+            <div className="bg-gradient-secondary/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-accent-gold/30 shadow-2xl text-center">
+              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                Ready to Start Your Investment Journey?
               </h3>
-              <p className="text-slate-200 text-lg mb-6 max-w-2xl mx-auto">
-                Reach out to our AI chat assistant for any additional queries or assistance.
+              <p className="text-white/90 text-lg mb-8 max-w-3xl mx-auto">
+                Connect with our team to explore personalized investment opportunities that align with your financial goals and risk tolerance.
               </p>
-              <Button 
-                size="lg"
-                className="px-8 py-3 text-lg bg-accent-gold text-accent-gold-foreground hover:bg-accent-gold/90 font-bold transform hover:scale-105 transition-all duration-300 shadow-lg"
-              >
-                Open Chat
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button 
+                  size="lg"
+                  className="px-8 py-4 text-lg bg-accent-gold text-accent-gold-foreground hover:bg-accent-gold/90 font-bold transform hover:scale-105 transition-all duration-300 shadow-xl"
+                >
+                  Schedule Consultation
+                </Button>
+                <Button 
+                  variant="outline"
+                  size="lg"
+                  className="px-8 py-4 text-lg border-white/30 text-white hover:bg-white/10 font-bold transition-all duration-300"
+                >
+                  Download Investment Guide
+                </Button>
+              </div>
             </div>
           </div>
         </div>
