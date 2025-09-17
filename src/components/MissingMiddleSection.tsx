@@ -103,6 +103,18 @@ const MissingMiddleSection = () => {
           </p>
         </div>
       </div>
+
+      {/* Green gradient dashed divider */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-green-500 to-transparent relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400 to-transparent opacity-60" 
+               style={{
+                 backgroundImage: 'repeating-linear-gradient(to right, transparent 0px, transparent 8px, currentColor 8px, currentColor 16px)',
+                 color: 'rgb(34 197 94)'
+               }}>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
