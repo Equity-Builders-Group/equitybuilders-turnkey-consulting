@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 interface UseScrollRevealOptions {
   threshold?: number;
@@ -10,97 +10,114 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<T>(null);
   const hasTriggered = useRef(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Memoize the callback to prevent re-renders
+  const handleIntersection = useCallback(([entry]: IntersectionObserverEntry[]) => {
+    if (entry.isIntersecting && !hasTriggered.current && !isVisible) {
+      hasTriggered.current = true;
+      
+      // Immediately disconnect to prevent any re-firing
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+      
+      // Clear any existing timeout
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
+      
+      const delay = options.delay || 0;
+      if (delay > 0) {
+        timeoutRef.current = setTimeout(() => {
+          if (!isVisible) {
+            setIsVisible(true);
+          }
+        }, delay);
+      } else {
+        setIsVisible(true);
+      }
+    }
+  }, [isVisible, options.delay]);
 
   useEffect(() => {
     const element = elementRef.current;
-    if (!element || hasTriggered.current) return;
+    if (!element || hasTriggered.current || isVisible) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Extra protection against multiple triggers
-        if (entry.isIntersecting && !hasTriggered.current) {
-          hasTriggered.current = true;
-          
-          // Clear any existing timeout
-          if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-          }
-          
-          // Add delay if specified, with mobile-friendly handling
-          const delay = options.delay || 0;
-          timeoutRef.current = setTimeout(() => {
-            setIsVisible(true);
-          }, delay);
-          
-          // Disconnect immediately to prevent any re-firing
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: options.threshold || 0.05,
-        rootMargin: options.rootMargin || '100px 0px 0px 0px',
-      }
-    );
+    // Create observer with memoized callback
+    observerRef.current = new IntersectionObserver(handleIntersection, {
+      threshold: options.threshold || 0.05,
+      rootMargin: options.rootMargin || '100px 0px 0px 0px',
+    });
 
-    observer.observe(element);
+    observerRef.current.observe(element);
 
     return () => {
-      observer.disconnect();
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
       }
     };
-  }, [options.threshold, options.delay, options.rootMargin]);
+  }, [handleIntersection, options.threshold, options.rootMargin, isVisible]);
 
   return { elementRef, isVisible };
 };
 
-// Multiple elements with staggered animations
+// Simplified staggered scroll reveal
 export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>(count: number, staggerDelay: number = 100) => {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const elementRef = useRef<T>(null);
   const hasTriggered = useRef(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
   const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
+
+  const handleIntersection = useCallback(([entry]: IntersectionObserverEntry[]) => {
+    if (entry.isIntersecting && !hasTriggered.current && visibleItems.size === 0) {
+      hasTriggered.current = true;
+      
+      // Immediately disconnect
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
+      
+      // Clear existing timeouts
+      timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+      timeoutsRef.current = [];
+      
+      // Set all items visible at once with CSS delays instead of JS delays
+      const allItems = new Set(Array.from({ length: count }, (_, i) => i));
+      setVisibleItems(allItems);
+    }
+  }, [count, visibleItems.size]);
 
   useEffect(() => {
     const element = elementRef.current;
-    if (!element || hasTriggered.current) return;
+    if (!element || hasTriggered.current || visibleItems.size > 0) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasTriggered.current) {
-          hasTriggered.current = true;
-          
-          // Clear any existing timeouts
-          timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
-          timeoutsRef.current = [];
-          
-          // Trigger staggered animations
-          for (let i = 0; i < count; i++) {
-            const timeout = setTimeout(() => {
-              setVisibleItems(prev => new Set([...prev, i]));
-            }, i * staggerDelay);
-            timeoutsRef.current.push(timeout);
-          }
-          
-          // Disconnect to prevent re-firing
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.05,
-        rootMargin: '100px 0px 0px 0px',
-      }
-    );
+    observerRef.current = new IntersectionObserver(handleIntersection, {
+      threshold: 0.05,
+      rootMargin: '100px 0px 0px 0px',
+    });
 
-    observer.observe(element);
+    observerRef.current.observe(element);
 
     return () => {
-      observer.disconnect();
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+        observerRef.current = null;
+      }
       timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+      timeoutsRef.current = [];
     };
-  }, [count, staggerDelay]);
+  }, [handleIntersection, visibleItems.size]);
 
   return { elementRef, visibleItems };
 };
