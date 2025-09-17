@@ -3,8 +3,6 @@ import { useState, useRef, useEffect } from "react";
 import { Play, MousePointer2 } from "lucide-react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
 import ConsultationModal from "./ConsultationModal";
-import ExitIntentModal from "./ExitIntentModal";
-import useExitIntent from "@/hooks/useExitIntent";
 import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const Hero = () => {
@@ -20,9 +18,6 @@ const Hero = () => {
   const { elementRef: resultsRef, isVisible: resultsVisible } = useScrollReveal<HTMLDivElement>({ delay: 1000 });
   const { elementRef: floatingImagesRef, visibleItems: floatingVisible } = useStaggeredScrollReveal<HTMLDivElement>(4, 200);
   
-  // Exit intent functionality
-  const { showExitIntent, closeExitIntent } = useExitIntent();
-
   // Listen for custom consultation event from exit intent modal
   useEffect(() => {
     const handleOpenConsultation = () => {
@@ -398,10 +393,6 @@ const Hero = () => {
       <ConsultationModal 
         isOpen={showConsultationModal} 
         onClose={() => setShowConsultationModal(false)} 
-      />
-      <ExitIntentModal 
-        isOpen={showExitIntent} 
-        onClose={closeExitIntent} 
       />
     </section>
   );
