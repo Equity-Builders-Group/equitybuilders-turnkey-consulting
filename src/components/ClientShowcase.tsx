@@ -86,7 +86,8 @@ const ClientShowcase = () => {
     if ((e.target as HTMLElement).closest('.image-clickable')) {
       return;
     }
-    setSelectedProject(selectedProject === projectId ? null : projectId);
+    // Always open clicked project and close any others
+    setSelectedProject(projectId);
   };
 
   const handleImageClick = (e: React.MouseEvent, images: string[], index: number = 0) => {
