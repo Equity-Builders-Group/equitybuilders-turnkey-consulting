@@ -45,16 +45,17 @@ const FAQ = () => {
       const response = await fetch("https://equitybuilders.co/wp-json/autonami/v1/webhook/?bwfan_autonami_webhook_id=3&bwfan_autonami_webhook_key=1307432ec34fc9c6cc445571d6f81c48", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Accept": "application/json",
         },
         mode: "no-cors",
-        body: JSON.stringify({
+        body: new URLSearchParams({
           name: formData.name,
           email: formData.email,
           message: formData.message,
           timestamp: new Date().toISOString(),
           source: "FAQ Form"
-        }),
+        }).toString(),
       });
 
       setIsSubmitted(true);
