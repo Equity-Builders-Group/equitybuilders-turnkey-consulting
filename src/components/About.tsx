@@ -106,19 +106,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
               </div>
               
-              {/* Construction project overlay */}
-              <div className="absolute bottom-4 right-4 w-24 h-24 rounded-xl overflow-hidden border-4 border-white/30">
-                <img src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" alt="Construction project showcase" className="w-full h-full object-cover" />
-              </div>
               
-              <div className="relative z-10 h-full p-8 flex flex-col justify-between">
-                
-                
-                <div className="grid grid-cols-2 gap-4">
-                  
-                  
-                </div>
-              </div>
             </div>
           </div>
         </div>
