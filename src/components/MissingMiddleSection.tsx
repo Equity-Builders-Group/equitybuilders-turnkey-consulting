@@ -17,9 +17,9 @@ const MissingMiddleSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div 
           ref={headerRef}
-          className={`transition-all duration-1000 ${
-            headerVisible ? 'animate-reveal-fade-down' : 'opacity-0 -translate-y-12'
-          }`}
+      className={`transition-all duration-1000 ${
+        headerVisible ? 'reveal-fade-down animate' : 'reveal-fade-down'
+      }`}
         >
           <div className="text-center mb-12">
             <div className="inline-block bg-primary/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-primary/20 mb-8">
@@ -49,7 +49,7 @@ const MissingMiddleSection = () => {
         <div 
           ref={imageRef}
           className={`flex justify-center transition-all duration-1200 ${
-            imageVisible ? 'animate-reveal-zoom-in' : 'opacity-0 scale-75'
+            imageVisible ? 'reveal-zoom-in animate' : 'reveal-zoom-in'
           }`}
         >
           <img 
@@ -64,7 +64,7 @@ const MissingMiddleSection = () => {
         <div 
           ref={descriptionRef}
           className={`text-center mt-12 transition-all duration-1000 ${
-            descriptionVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
+            descriptionVisible ? 'reveal-fade-up animate' : 'reveal-fade-up'
           }`}
         >
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">

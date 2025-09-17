@@ -12,54 +12,35 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<T>(null);
   const elementId = useRef<string>(`reveal-${Date.now()}-${Math.floor(Math.random() * 1000)}`);
-  const hasTriggeredRef = useRef<boolean>(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const element = elementRef.current;
     const id = elementId.current;
     
-    // If already triggered, never do anything again
-    if (hasTriggeredRef.current) {
-      return;
-    }
+    if (!element) return;
     
-    // If globally tracked as revealed, trigger once and mark as done
+    // If already revealed globally, just set visible immediately
     if (revealedElements.has(id)) {
-      hasTriggeredRef.current = true;
       setIsVisible(true);
       return;
     }
-    
-    if (!element) return;
 
     // Check if already in view on mount
     const rect = element.getBoundingClientRect();
     const isInView = rect.top < window.innerHeight && rect.bottom > 0;
     
     if (isInView) {
-      hasTriggeredRef.current = true;
       revealedElements.add(id);
       setIsVisible(true);
       return;
     }
 
-    // Clean up any existing observer
-    if (observerRef.current) {
-      observerRef.current.disconnect();
-    }
-
-    // Create new observer
-    observerRef.current = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasTriggeredRef.current) {
-          hasTriggeredRef.current = true;
+        if (entry.isIntersecting) {
           revealedElements.add(id);
-          if (observerRef.current) {
-            observerRef.current.disconnect();
-            observerRef.current = null;
-          }
           setIsVisible(true);
+          observer.disconnect();
         }
       },
       {
@@ -68,15 +49,10 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
       }
     );
 
-    observerRef.current.observe(element);
+    observer.observe(element);
 
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-        observerRef.current = null;
-      }
-    };
-  }, []); // Empty dependency array to prevent re-execution
+    return () => observer.disconnect();
+  }, []);
 
   return { elementRef, isVisible };
 };
@@ -85,54 +61,35 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const elementRef = useRef<T>(null);
   const elementId = useRef<string>(`stagger-${Date.now()}-${Math.floor(Math.random() * 1000)}`);
-  const hasTriggeredRef = useRef<boolean>(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const element = elementRef.current;
     const id = elementId.current;
     
-    // If already triggered, never do anything again
-    if (hasTriggeredRef.current) {
-      return;
-    }
+    if (!element) return;
     
-    // If globally tracked as revealed, trigger once and mark as done
+    // If already revealed globally, set all items visible immediately
     if (revealedElements.has(id)) {
-      hasTriggeredRef.current = true;
       setVisibleItems(new Set(Array.from({ length: count }, (_, i) => i)));
       return;
     }
-    
-    if (!element) return;
 
     // Check if already in view on mount
     const rect = element.getBoundingClientRect();
     const isInView = rect.top < window.innerHeight && rect.bottom > 0;
     
     if (isInView) {
-      hasTriggeredRef.current = true;
       revealedElements.add(id);
       setVisibleItems(new Set(Array.from({ length: count }, (_, i) => i)));
       return;
     }
 
-    // Clean up any existing observer
-    if (observerRef.current) {
-      observerRef.current.disconnect();
-    }
-
-    // Create new observer
-    observerRef.current = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasTriggeredRef.current) {
-          hasTriggeredRef.current = true;
+        if (entry.isIntersecting) {
           revealedElements.add(id);
-          if (observerRef.current) {
-            observerRef.current.disconnect();
-            observerRef.current = null;
-          }
           setVisibleItems(new Set(Array.from({ length: count }, (_, i) => i)));
+          observer.disconnect();
         }
       },
       {
@@ -141,15 +98,10 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
       }
     );
 
-    observerRef.current.observe(element);
+    observer.observe(element);
 
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-        observerRef.current = null;
-      }
-    };
-  }, []); // Empty dependency array to prevent re-execution
+    return () => observer.disconnect();
+  }, [count]);
 
   return { elementRef, visibleItems };
 };

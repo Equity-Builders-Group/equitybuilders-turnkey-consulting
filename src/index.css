@@ -125,3 +125,68 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Scroll reveal animations - play once and stay in final state */
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+.reveal-fade-up.animate {
+  animation: reveal-fade-up 0.6s ease-out forwards;
+}
+
+.reveal-fade-down {
+  opacity: 0;
+  transform: translateY(-2rem);
+}
+
+.reveal-fade-down.animate {
+  animation: reveal-fade-down 0.6s ease-out forwards;
+}
+
+.reveal-scale-up {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.reveal-scale-up.animate {
+  animation: reveal-scale-up 0.6s ease-out forwards;
+}
+
+.reveal-zoom-in {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.reveal-zoom-in.animate {
+  animation: reveal-zoom-in 0.8s ease-out forwards;
+}
+
+@keyframes reveal-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-fade-down {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-scale-up {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes reveal-zoom-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
