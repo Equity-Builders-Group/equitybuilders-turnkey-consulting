@@ -74,13 +74,13 @@ const Comparison = () => {
 
         {/* Comparison Grid */}
         <div className="max-w-7xl mx-auto relative">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-start space-y-8 lg:space-y-0">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-start space-y-8 lg:space-y-0 relative">
             
             {/* Traditional Approach - Left Side */}
             <div 
               ref={traditionalRef}
-              className={`relative transition-all duration-800 ${
-                traditionalVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
+              className={`relative transition-all duration-1000 ease-out ${
+                traditionalVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
               }`}
             >
               <div className="bg-muted/30 backdrop-blur-sm rounded-3xl p-8 border border-muted/40 relative overflow-hidden">
@@ -115,8 +115,8 @@ const Comparison = () => {
             {/* Mobile VS Badge - Between sections */}
             <div 
               ref={vsRef}
-              className={`flex justify-center lg:hidden transition-all duration-800 ${
-                vsVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
+              className={`flex justify-center lg:hidden transition-all duration-1000 ease-out ${
+                vsVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
               }`}
             >
               <div className="w-16 h-16 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-xl">
@@ -127,8 +127,8 @@ const Comparison = () => {
             {/* TurnKey Development - Right Side */}
             <div 
               ref={turnkeyRef}
-              className={`relative transition-all duration-800 ${
-                turnkeyVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
+              className={`relative transition-all duration-1000 ease-out ${
+                turnkeyVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
               }`}
             >
               <div className="bg-gradient-primary backdrop-blur-sm rounded-3xl p-8 border border-accent/30 relative overflow-hidden shadow-2xl">
@@ -162,12 +162,12 @@ const Comparison = () => {
           </div>
 
           {/* Desktop VS Badge */}
-          <div 
-            className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:block transition-all duration-800 ${
-              vsVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
-            }`}
-          >
-            <div className="w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl">
+          <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:block">
+            <div 
+              className={`w-20 h-20 bg-highlight rounded-full flex items-center justify-center border-4 border-background shadow-2xl transition-all duration-1000 ease-out ${
+                vsVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-90'
+              }`}
+            >
               <span className="text-background font-bold text-lg">VS</span>
             </div>
           </div>
