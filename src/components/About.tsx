@@ -1,5 +1,9 @@
 import { Button } from "@/components/ui/button";
+import useScrollReveal from "@/hooks/useScrollReveal";
 const About = () => {
+  const { elementRef: contentRef, isVisible: contentVisible } = useScrollReveal();
+  const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal({ delay: 300 });
+  
   return <section className="py-20 bg-gradient-to-br from-accent/20 via-background to-primary/10 relative overflow-hidden">
       {/* Background with architectural drawing */}
       <div className="absolute inset-0">
@@ -33,7 +37,12 @@ const About = () => {
       </div>
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+          <div 
+            ref={contentRef}
+            className={`bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20 transition-all duration-800 ${
+              contentVisible ? 'animate-reveal-fade-right' : 'opacity-0 -translate-x-12'
+            }`}
+          >
             <div className="space-y-8">
               <div className="space-y-4">
                 <h2 className="text-4xl font-bold drop-shadow-lg">
@@ -96,7 +105,12 @@ const About = () => {
             </div>
           </div>
           
-          <div className="relative">
+          <div 
+            ref={imageRef}
+            className={`relative transition-all duration-800 ${
+              imageVisible ? 'animate-reveal-fade-left' : 'opacity-0 translate-x-12'
+            }`}
+          >
             <div className="aspect-[4/5] bg-gradient-primary rounded-2xl overflow-hidden shadow-2xl relative">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
               

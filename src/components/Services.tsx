@@ -2,9 +2,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import ConsultationModal from "@/components/ConsultationModal";
 import { useState } from "react";
+import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const Services = () => {
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
+  const { elementRef: cardsRef, visibleItems } = useStaggeredScrollReveal(16, 150);
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal({ delay: 500 });
   const processSteps = [
     {
       title: "Land Search & Vetting",
@@ -224,7 +228,12 @@ const Services = () => {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20 mt-48 lg:mt-0">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-20 mt-48 lg:mt-0 transition-all duration-800 ${
+            headerVisible ? 'animate-reveal-fade-down' : 'opacity-0 -translate-y-12'
+          }`}
+        >
           <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/30 mb-8">
             <span className="text-white font-bold text-xl">OUR EXPERTISE</span>
           </div>
@@ -241,9 +250,15 @@ const Services = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {allServices.map((service, index) => (
-            <Card key={index} className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:scale-105 bg-white/95 hover:bg-gradient-accent hover:text-white border-0 backdrop-blur-sm">
+            <Card 
+              key={index} 
+              className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:scale-105 bg-white/95 hover:bg-gradient-accent hover:text-white border-0 backdrop-blur-sm ${
+                visibleItems.has(index) ? 'animate-reveal-bounce-in' : 'opacity-0 scale-75'
+              }`}
+              style={{ animationDelay: `${index * 150}ms` }}
+            >
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-4 group-hover:bg-white/20 group-hover:text-white transition-all duration-300 group-hover:scale-110">
                   {service.icon}
@@ -265,7 +280,12 @@ const Services = () => {
         </div>
         
         {/* Bold CTA at bottom of services */}
-        <div className="text-center mt-20">
+        <div 
+          ref={ctaRef}
+          className={`text-center mt-20 transition-all duration-800 ${
+            ctaVisible ? 'animate-reveal-zoom-in' : 'opacity-0 scale-50'
+          }`}
+        >
           <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 max-w-2xl mx-auto">
             <h3 className="text-3xl font-bold text-white mb-4">Working With Us Is Easy!</h3>
             <p className="text-white/90 text-xl mb-6">We already have the relationships, the experience, and the processes in place specifically in Houston, Texas.</p>

@@ -1,11 +1,18 @@
 import { useRef } from "react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
+import useScrollReveal from "@/hooks/useScrollReveal";
 
 const VideoShowcase = () => {
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
+  const { elementRef: sectionRef, isVisible: sectionVisible } = useScrollReveal();
 
   return (
-    <section className="w-full bg-black">
+    <section 
+      ref={sectionRef}
+      className={`w-full bg-black transition-all duration-1000 ${
+        sectionVisible ? 'animate-reveal-zoom-in' : 'opacity-0 scale-75'
+      }`}
+    >
       <div className="w-full">
         {/* Heading */}
         <div className="text-center py-12">

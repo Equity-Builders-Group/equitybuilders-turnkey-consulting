@@ -3,8 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, DollarSign, Users, Image as ImageIcon, Search, X } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const ClientShowcase = () => {
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: cardsRef, visibleItems } = useStaggeredScrollReveal<HTMLDivElement>(3, 300);
+  
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
@@ -106,7 +110,12 @@ const ClientShowcase = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-20 transition-all duration-800 ${
+            headerVisible ? 'animate-reveal-fade-down' : 'opacity-0 -translate-y-12'
+          }`}
+        >
           <div className="inline-block bg-primary/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-primary/20 mb-8">
             <span className="text-primary font-bold text-xl">PROJECT GALLERY</span>
           </div>
