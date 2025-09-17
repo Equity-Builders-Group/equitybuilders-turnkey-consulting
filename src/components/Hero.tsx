@@ -209,7 +209,7 @@ const Hero = () => {
                 
                 {/* Floating finger press icon */}
                 <div className="absolute -bottom-2 -right-2 animate-pulse">
-                  <Hand className="w-10 h-10 text-white fill-current rotate-12" />
+                  <Hand className="text-white fill-current rotate-12" />
                 </div>
               </div>
               
