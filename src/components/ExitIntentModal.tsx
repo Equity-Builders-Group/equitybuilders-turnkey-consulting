@@ -48,7 +48,7 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
 
   return (
     <div 
-      className={`fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-2 sm:p-4 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+      className={`fixed inset-0 bg-black/90 backdrop-blur-md z-[9999] flex items-center justify-center p-2 sm:p-4 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
       onClick={handleOverlayClick}
     >
       <div 
