@@ -64,8 +64,8 @@ const BuildVsBuySection = () => {
       </div>
 
       {/* Green gradient dashed divider */}
-      <div className="absolute bottom-0 left-0 right-0 flex justify-center">
-        <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-green-500 to-transparent relative">
+      <div className="absolute bottom-0 left-0 right-0">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-green-500 to-transparent relative">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400 to-transparent opacity-60" 
                style={{
                  backgroundImage: 'repeating-linear-gradient(to right, transparent 0px, transparent 8px, currentColor 8px, currentColor 16px)',
