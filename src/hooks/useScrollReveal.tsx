@@ -19,7 +19,7 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
     const observer = new IntersectionObserver(
       ([entry]) => {
         // Extra protection against multiple triggers
-        if (entry.isIntersecting && !hasTriggered.current && !isVisible) {
+        if (entry.isIntersecting && !hasTriggered.current) {
           hasTriggered.current = true;
           
           // Clear any existing timeout
@@ -30,10 +30,7 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
           // Add delay if specified, with mobile-friendly handling
           const delay = options.delay || 0;
           timeoutRef.current = setTimeout(() => {
-            // Double-check we haven't already triggered
-            if (!isVisible) {
-              setIsVisible(true);
-            }
+            setIsVisible(true);
           }, delay);
           
           // Disconnect immediately to prevent any re-firing
@@ -54,7 +51,7 @@ export const useScrollReveal = <T extends HTMLElement = HTMLDivElement>(options:
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [options.threshold, options.delay, options.rootMargin, isVisible]);
+  }, [options.threshold, options.delay, options.rootMargin]);
 
   return { elementRef, isVisible };
 };
@@ -72,7 +69,7 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasTriggered.current && visibleItems.size === 0) {
+        if (entry.isIntersecting && !hasTriggered.current) {
           hasTriggered.current = true;
           
           // Clear any existing timeouts
@@ -82,12 +79,7 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
           // Trigger staggered animations
           for (let i = 0; i < count; i++) {
             const timeout = setTimeout(() => {
-              setVisibleItems(prev => {
-                if (!prev.has(i)) {
-                  return new Set([...prev, i]);
-                }
-                return prev;
-              });
+              setVisibleItems(prev => new Set([...prev, i]));
             }, i * staggerDelay);
             timeoutsRef.current.push(timeout);
           }
@@ -108,7 +100,7 @@ export const useStaggeredScrollReveal = <T extends HTMLElement = HTMLDivElement>
       observer.disconnect();
       timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
     };
-  }, [count, staggerDelay, visibleItems.size]);
+  }, [count, staggerDelay]);
 
   return { elementRef, visibleItems };
 };
