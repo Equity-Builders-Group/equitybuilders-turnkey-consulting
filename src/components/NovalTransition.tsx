@@ -1,8 +1,16 @@
 import { ArrowRight } from "lucide-react";
+import useScrollReveal from "@/hooks/useScrollReveal";
 
 const NovalTransition = () => {
+  const { elementRef: sectionRef, isVisible: sectionVisible } = useScrollReveal();
+  
   return (
-    <section className="w-full bg-emerald-800 py-8 border-t border-emerald-700 scroll-fade-up">
+    <section 
+      ref={sectionRef}
+      className={`w-full bg-emerald-800 py-8 border-t border-emerald-700 transition-all duration-800 ${
+        sectionVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
           {/* Text and Arrow */}

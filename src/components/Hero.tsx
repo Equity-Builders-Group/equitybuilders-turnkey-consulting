@@ -3,11 +3,20 @@ import { useState, useRef, useEffect } from "react";
 import { Play, MousePointer2 } from "lucide-react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
 import ConsultationModal from "./ConsultationModal";
+import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true); // Auto-start video
   const [showConsultationModal, setShowConsultationModal] = useState(false);
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
+  
+  // Dramatic scroll reveal animations for Hero
+  const { elementRef: heroRef, isVisible: heroVisible } = useScrollReveal<HTMLElement>({ threshold: 0.1 });
+  const { elementRef: headlineRef, isVisible: headlineVisible } = useScrollReveal<HTMLDivElement>({ delay: 300 });
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal<HTMLDivElement>({ delay: 600 });
+  const { elementRef: phoneRef, isVisible: phoneVisible } = useScrollReveal<HTMLDivElement>({ delay: 800 });
+  const { elementRef: resultsRef, isVisible: resultsVisible } = useScrollReveal<HTMLDivElement>({ delay: 1000 });
+  const { elementRef: floatingImagesRef, visibleItems: floatingVisible } = useStaggeredScrollReveal<HTMLDivElement>(4, 200);
   
   // Listen for custom consultation event from exit intent modal
   useEffect(() => {
@@ -29,7 +38,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-primary overflow-hidden scroll-fade-up">
+    <section 
+      ref={heroRef}
+      className={`relative min-h-screen bg-gradient-primary overflow-hidden transition-all duration-1000 ${
+        heroVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
+      }`}
+    >
       {/* Background image overlays with your real photos */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Large background professional image */}
@@ -54,7 +68,13 @@ const Hero = () => {
       </div>
 
       {/* Left side floating construction images - hidden on mobile */}
-      <div className="hidden lg:block absolute top-20 left-8 w-64 h-64 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 rotate-6 transform hover:rotate-3 transition-all duration-500 scroll-fade-up">
+      <div 
+        ref={floatingImagesRef}
+        className={`hidden lg:block absolute top-20 left-8 w-64 h-64 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 rotate-6 transform hover:rotate-3 transition-all duration-500 ${
+          floatingVisible.has(0) ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
+        }`}
+        style={{ animationDelay: '1200ms' }}
+      >
         <img 
           src="/lovable-uploads/f48a2dc0-af37-42d8-824b-fc482c4ceb7f.png" 
           alt="Construction project by TurnKey Development" 
@@ -63,7 +83,11 @@ const Hero = () => {
       </div>
 
       {/* Pederson Exterior (Floating Left Bottom) */}
-      <div className="hidden lg:block absolute bottom-40 left-16 w-72 h-48 rounded-3xl overflow-hidden shadow-2xl border-6 border-white/40 -rotate-3 transform hover:-rotate-1 transition-all duration-700 scroll-scale-up">
+      <div className={`hidden lg:block absolute bottom-40 left-16 w-72 h-48 rounded-3xl overflow-hidden shadow-2xl border-6 border-white/40 -rotate-3 transform hover:-rotate-1 transition-all duration-700 ${
+        floatingVisible.has(1) ? 'animate-reveal-scale-up' : 'opacity-0 scale-0'
+      }`}
+      style={{ animationDelay: '1400ms' }}
+      >
         <img 
           src="/lovable-uploads/PedersonExterior.jpg" 
           alt="Architectural project showcase" 
@@ -73,7 +97,11 @@ const Hero = () => {
       </div>
 
       {/* Right side floating professional images - hidden on mobile */}
-      <div className="hidden lg:block absolute top-16 right-16 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700 scroll-fade-up">
+      <div className={`hidden lg:block absolute top-16 right-16 w-80 h-80 rounded-3xl overflow-hidden shadow-2xl border-8 border-white/40 rotate-3 transform hover:rotate-1 transition-all duration-700 ${
+        floatingVisible.has(2) ? 'animate-reveal-zoom-in' : 'opacity-0 scale-0'
+      }`}
+      style={{ animationDelay: '1600ms' }}
+      >
         <img 
           src="/lovable-uploads/993aef6a-33f5-465f-8eba-159acc3d0dd8.png" 
           alt="TurnKey Development business consultant" 
@@ -83,7 +111,11 @@ const Hero = () => {
       </div>
 
       {/* Additional right side floating construction project image */}
-      <div className="hidden lg:block absolute bottom-32 right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-6 transform hover:-rotate-3 transition-all duration-500 scroll-scale-up">
+      <div className={`hidden lg:block absolute bottom-32 right-8 w-56 h-56 rounded-2xl overflow-hidden shadow-xl border-4 border-accent/60 -rotate-6 transform hover:-rotate-3 transition-all duration-500 ${
+        floatingVisible.has(3) ? 'animate-reveal-flip-up' : 'opacity-0'
+      }`}
+      style={{ animationDelay: '1800ms' }}
+      >
         <img 
           src="/lovable-uploads/4a2cd88c-1e89-4f93-a9e5-ccb59cbce7a6.png" 
           alt="Architectural project showcase" 
@@ -192,7 +224,12 @@ const Hero = () => {
             </div>
             
             {/* Bold CTA section */}
-            <div className="space-y-6 scroll-fade-up">
+            <div 
+              ref={ctaRef}
+              className={`space-y-6 transition-all duration-1000 ${
+                ctaVisible ? 'animate-reveal-bounce-in' : 'opacity-0 scale-0'
+              }`}
+            >
               <div className="relative inline-block">
                 <Button 
                   size="lg" 
@@ -230,7 +267,12 @@ const Hero = () => {
             </div>
             
             {/* Results showcase */}
-            <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 scroll-scale-up">
+            <div 
+              ref={resultsRef}
+              className={`bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 transition-all duration-1000 ${
+                resultsVisible ? 'animate-reveal-zoom-in' : 'opacity-0 scale-50'
+              }`}
+            >
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="text-center space-y-2">
                   <div className="text-4xl font-black text-highlight">5+</div>
@@ -253,7 +295,12 @@ const Hero = () => {
           </div>
 
           {/* Right content - iPhone frame with your image */}
-          <div className="relative flex justify-center lg:justify-start lg:pl-24 scroll-fade-up">
+          <div 
+            ref={phoneRef}
+            className={`relative flex justify-center lg:justify-start lg:pl-24 transition-all duration-1000 ${
+              phoneVisible ? 'animate-reveal-fade-left' : 'opacity-0 translate-x-16'
+            }`}
+          >
             <div className="relative w-80 h-[600px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px]">
               {/* iPhone frame */}
               <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900 rounded-[3rem] p-2 shadow-2xl">
@@ -327,7 +374,11 @@ const Hero = () => {
         </div>
 
         {/* Mobile floating images - after content */}
-        <div className="lg:hidden mt-20 flex justify-center scroll-fade-up">
+        <div 
+          className={`lg:hidden mt-20 flex justify-center transition-all duration-800 ${
+            resultsVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <div className="w-55 h-44 rounded-xl overflow-hidden shadow-lg border-2 border-accent/60 rotate-2">
             <img 
               src="/lovable-uploads/PedersonExterior.jpg" 

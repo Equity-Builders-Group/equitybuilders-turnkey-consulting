@@ -1,4 +1,7 @@
+import useScrollReveal from "@/hooks/useScrollReveal";
+
 const LogoStrip = () => {
+  const { elementRef: stripRef, isVisible: stripVisible } = useScrollReveal<HTMLElement>();
   // Array of logos with label and asset file name
   const logos = [
     {
@@ -24,7 +27,7 @@ const LogoStrip = () => {
   ];
 
   return (
-    <section className="w-full bg-primary py-8 overflow-hidden scroll-fade-up">
+    <section className="w-full bg-primary py-8 overflow-hidden">
       <div
         className="flex items-center"
         style={{

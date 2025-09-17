@@ -243,8 +243,5 @@ export default {
 			}
 		}
 	},
-  plugins: [
-    require("tailwindcss-animate"),
-    require("@adam.plesnik/tailwindcss-scroll-driven-animations"),
-  ],
+	plugins: [require("tailwindcss-animate")],
 } satisfies Config;

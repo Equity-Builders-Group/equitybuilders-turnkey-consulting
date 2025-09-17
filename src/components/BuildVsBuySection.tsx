@@ -1,14 +1,22 @@
 import { useState } from "react";
 import { Search, X } from "lucide-react";
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
+import useScrollReveal from "@/hooks/useScrollReveal";
 
 const BuildVsBuySection = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal();
+  const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal({ delay: 200 });
 
   return (
     <section className="relative py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 scroll-fade-up">
+        <div 
+          ref={titleRef}
+          className={`text-center mb-16 transition-all duration-800 ${
+            titleVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-12'
+          }`}
+        >
           <h2 className="text-4xl md:text-6xl font-black leading-tight text-foreground mb-6 drop-shadow-lg">
             Why Build Instead Of Buy
             <span className="block text-accent drop-shadow-lg">an Investment Property?</span>
@@ -20,7 +28,12 @@ const BuildVsBuySection = () => {
         </div>
 
         {/* Feature Image with Magnifying Glass */}
-        <div className="flex justify-center mb-8 scroll-scale-up">
+        <div 
+          ref={imageRef}
+          className={`flex justify-center mb-8 transition-all duration-800 ${
+            imageVisible ? 'animate-reveal-scale-up' : 'opacity-0 scale-75'
+          }`}
+        >
           <div 
             className="relative group cursor-pointer max-w-4xl w-full"
             onClick={() => setIsLightboxOpen(true)}

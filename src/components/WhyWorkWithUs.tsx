@@ -2,9 +2,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, BookOpen, Key, Handshake } from "lucide-react";
 import { useRef } from "react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
+import useScrollReveal from "@/hooks/useScrollReveal";
 
 const WhyWorkWithUs = () => {
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
+  const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollReveal({ threshold: 0.05 });
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal({ delay: 400 });
   const reasons = [
     {
       title: "Proven Track Record",
@@ -47,7 +51,12 @@ const WhyWorkWithUs = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-20 scroll-fade-up">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-20 transition-all duration-800 ${
+            headerVisible ? 'animate-reveal-fade-up' : 'opacity-0 translate-y-12'
+          }`}
+        >
             <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/30 mb-8">
             <span className="text-white font-bold text-xl">WHY CHOOSE US</span>
           </div>
@@ -68,11 +77,13 @@ const WhyWorkWithUs = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 scroll-stagger">
+        <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reasons.map((reason, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-8 hover:scale-110 bg-white/95 hover:bg-gradient-to-br hover:from-white hover:to-accent/5 border-0 backdrop-blur-sm text-center"
+              className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-8 hover:scale-110 bg-white/95 hover:bg-gradient-to-br hover:from-white hover:to-accent/5 border-0 backdrop-blur-sm text-center ${
+                cardsVisible ? `animate-reveal-fade-up-${Math.min(index + 1, 8)}` : 'opacity-0 translate-y-8'
+              }`}
             >
               <CardHeader className="pb-4">
                 <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all duration-300 group-hover:scale-125 group-hover:shadow-lg mx-auto">
@@ -102,7 +113,12 @@ const WhyWorkWithUs = () => {
         </div>
         
         {/* Call to action */}
-        <div className="text-center mt-20 scroll-fade-up">
+        <div 
+          ref={ctaRef}
+          className={`text-center mt-20 transition-all duration-800 ${
+            ctaVisible ? 'animate-reveal-flip-up' : 'opacity-0 scale-75 rotate-x-90'
+          }`}
+        >
           <div className="bg-white/10 backdrop-blur-sm p-12 rounded-3xl border border-white/20 max-w-4xl mx-auto">
               <h3 className="text-4xl font-bold text-white mb-6 uppercase drop-shadow-lg">Let's start building up your net-worth</h3>
             <p className="text-white/90 text-xl mb-8 leading-relaxed">
