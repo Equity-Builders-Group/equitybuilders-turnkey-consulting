@@ -6,6 +6,7 @@ const useExitIntent = () => {
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
+    let blurTimeout: NodeJS.Timeout;
 
     const handleMouseLeave = (e: MouseEvent) => {
       console.log('Mouse leave detected:', e.clientY);
@@ -29,17 +30,69 @@ const useExitIntent = () => {
       }
     };
 
+    // Mobile exit intent detection
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (!hasShownExitIntent) {
+        console.log('Back button/navigation detected on mobile');
+        // Prevent default navigation
+        e.preventDefault();
+        e.returnValue = '';
+        
+        // Show exit intent modal
+        setShowExitIntent(true);
+        setHasShownExitIntent(true);
+        
+        return '';
+      }
+    };
+
+    const handleWindowBlur = () => {
+      if (!hasShownExitIntent) {
+        console.log('Window blur detected (address bar interaction)');
+        // Add delay to avoid false positives
+        blurTimeout = setTimeout(() => {
+          console.log('Address bar exit intent triggered');
+          setShowExitIntent(true);
+          setHasShownExitIntent(true);
+        }, 1000);
+      }
+    };
+
+    const handleWindowFocus = () => {
+      // Clear blur timeout if user comes back quickly
+      if (blurTimeout) {
+        console.log('Window focused, canceling address bar exit intent');
+        clearTimeout(blurTimeout);
+      }
+    };
+
     console.log('Exit intent listeners attached');
-    // Add event listeners
+    // Add event listeners for desktop
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
+    
+    // Add event listeners for mobile
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener('blur', handleWindowBlur);
+    window.addEventListener('focus', handleWindowFocus);
 
     return () => {
       console.log('Exit intent listeners removed');
+      // Clean up desktop listeners
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
+      
+      // Clean up mobile listeners
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener('blur', handleWindowBlur);
+      window.removeEventListener('focus', handleWindowFocus);
+      
+      // Clean up timeouts
       if (timeout) {
         clearTimeout(timeout);
+      }
+      if (blurTimeout) {
+        clearTimeout(blurTimeout);
       }
     };
   }, [hasShownExitIntent]);
