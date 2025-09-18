@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { MousePointer2 } from "lucide-react";
 import useScrollReveal from "@/hooks/useScrollReveal";
 const About = () => {
   const { elementRef: contentRef, isVisible: contentVisible } = useScrollReveal();
@@ -9,7 +9,7 @@ const About = () => {
       {/* Background with architectural drawing */}
       <div className="absolute inset-0">
         {/* Architectural drawing background */}
-        <div className="absolute inset-0 opacity-90">
+        <div className="absolute inset-0 opacity-60">
           <img src="/lovable-uploads/5df938db-8063-4672-9fdb-4bb75420dbc7.png" alt="Construction site plan and architectural drawing" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-br from-background/20 via-transparent to-background/20"></div>
         </div>
@@ -42,15 +42,34 @@ const About = () => {
             This section has been moved to the "Why Work With Us" section above.
           </p>
           
-          <Button
-            onClick={() => {
-              window.dispatchEvent(new Event('openConsultation'));
-            }}
-            className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
-          >
+          <div className="relative inline-block">
+            <Button 
+              size="lg" 
+              onClick={() => {
+                const event = new CustomEvent('openConsultation');
+                window.dispatchEvent(event);
+              }}
+              className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+            >
             Get Started Today
-            <ArrowRight className="ml-2" size={24} />
-          </Button>
+            </Button>
+
+             {/* Pulse effect */}
+            <div 
+              className="absolute inset-0 rounded-2xl pointer-events-none"
+              style={{
+                animation: 'pulse-shadow 1.5s infinite ease-out',
+                animationName: 'pulse-shadow',
+                animationDuration: '1.5s',
+                animationIterationCount: 'infinite',
+                animationTimingFunction: 'ease-out',
+              }}
+            ></div>
+            {/* Floating finger press icon */}
+            <div className="absolute -bottom-6 -right-6 animate-pulse">
+              <MousePointer2 className="w-12 h-12 text-white fill-current rotate-12" />
+            </div>
+          </div>
         </div>
       </div>
     </section>;
