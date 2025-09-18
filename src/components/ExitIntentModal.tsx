@@ -28,8 +28,8 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
 
   useEffect(() => {
     if (isOpen && showModal) {
-      console.log('ExitIntentModal: Modal opened, resetting video player');
-      videoPlayerRef.current?.reset();
+      console.log('ExitIntentModal: Modal opened, video ready');
+      // Don't reset video to allow playhead position restoration
     }
   }, [isOpen, showModal]);
 
@@ -102,7 +102,7 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
               containerClassName="w-full h-full"
               enableProgressGate={true}
               progressGatePercentage={20}
-              enablePlayheadStorage={false}
+              enablePlayheadStorage={true}
               onProgressGateSubmit={(data) => {
                 console.log('Progress gate form submitted:', data);
                 // Handle form submission - save to database, etc.
