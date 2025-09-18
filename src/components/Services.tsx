@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { TrendingUp, Users, Building, Shield, Target, Star, MousePointer2 } from "lucide-react";
 import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const Services = () => {
@@ -279,16 +280,34 @@ const Services = () => {
           <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 max-w-2xl mx-auto">
             <h3 className="text-3xl font-bold text-white mb-4">Working With Us Is Easy!</h3>
             <p className="text-white/90 text-xl mb-6">We already have the relationships, the experience, and the processes in place specifically in Houston, Texas.</p>
-            <Button 
-              onClick={() => {
-                const event = new CustomEvent('openConsultation');
-                window.dispatchEvent(event);
-              }}
-              size="lg"
-              className="text-black text-lg font-semibold bg-yellow-400 hover:bg-yellow-500 border border-yellow-500 hover:border-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Book Your Call Today
-            </Button>
+            <div className="relative inline-block">
+              <Button 
+                size="lg" 
+                onClick={() => {
+                  const event = new CustomEvent('openConsultation');
+                  window.dispatchEvent(event);
+                }}
+                className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+              >
+                Book Your Call Today
+              </Button>
+
+              {/* Pulse effect */}
+              <div 
+                className="absolute inset-0 rounded-2xl pointer-events-none"
+                style={{
+                  animation: 'pulse-shadow 1.5s infinite ease-out',
+                  animationName: 'pulse-shadow',
+                  animationDuration: '1.5s',
+                  animationIterationCount: 'infinite',
+                  animationTimingFunction: 'ease-out',
+                }}
+              ></div>
+              {/* Floating finger press icon */}
+              <div className="absolute -bottom-6 -right-6 animate-pulse">
+                <MousePointer2 className="w-12 h-12 text-white fill-current rotate-12" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
