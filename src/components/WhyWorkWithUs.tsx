@@ -19,7 +19,7 @@ const WhyWorkWithUs = () => {
     },
     {
       title: "Experience",
-      description: "From mortgage brokering to property management to development — we cover the full transaction.",
+      description: "From mortgage brokering to property management to development — we can cover the full transaction.",
       icon: <BookOpen className="w-8 h-8" />,
       stats: "Full Stack",
       statsLabel: "Real Estate Services"
@@ -33,7 +33,7 @@ const WhyWorkWithUs = () => {
     },
     {
       title: "Mentorship Included",
-      description: "We will let you see behind the curtain and process full transparency of actual costs and process.",
+      description: "We will let you see behind the curtain with full transparency of actual costs and the process.",
       icon: <Handshake className="w-8 h-8" />,
       stats: "FULL",
       statsLabel: "Transparency"
@@ -70,7 +70,7 @@ const WhyWorkWithUs = () => {
               We don’t just talk about results — we deliver them.<br /><br />
               Our track record is proven and documented, with HUD statements to back it up. You won’t find another partner as vertically integrated as we are — from financing to development to construction, we cover it all under one roof.
               <br /><br />
-              Lavon Woods, our founder, is a licensed mortgage broker, real estate developer, and builder with over 20 years in the industry. Over the past 5 years, he has sharpened his construction expertise during one of the most challenging times to build in the last 50 years — navigating supply chain chaos and the Covid-19 pandemic. Having been through the trenches, Lavon knows exactly what it takes to bring a project from blueprint to completion.
+              Lavon Woods, our founder, is a licensed mortgage broker, real estate developer, and builder with over 20 years in the industry. Over the past 5 years, he has sharpened his construction expertise during one of the most challenging times to build in the last 50 years — navigating supply chain chaos during and after the Covid-19 pandemic. Having been through the trenches, Lavon knows exactly what it takes to bring a project from blueprint to completion.
               <br /><br />
               And if you want to learn along the way, we’re transparent. We’ll not only show you the process step by step, but also teach you the strategies that make this business work — so you can build, invest, and grow with confidence.
           </p>
@@ -117,14 +117,14 @@ const WhyWorkWithUs = () => {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h2 className="text-4xl font-bold drop-shadow-lg text-foreground">
-                  Think About Your Why?
+                  Our Why?
                 </h2>
                 <p className="text-xl text-muted-foreground">
-                    My purpose is to break down the barriers that keep everyday people like yourself — from accessing the wealth, control, and freedom that real estate development provides. God didn't give us a table and a chair. He gave us the tree. What will you do with it?
+                    Our purpose is to break down the barriers that keep everyday people like yourself — from accessing the wealth, control, and freedom that real estate development provides. God didn't give us a table and a chair. He gave us the tree. What will you do with it?
                     <br /><br />
-                    I've lived the reality: traditional paths to wealth (retirement accounts, stocks, W-2 income) don’t create enough wealth fast enough, with control. By mastering house hacking, new construction, and financing, I’ve found a way to build wealth through one of the hardest industries to break into.
+                    We've lived the reality of traditional paths to wealth via retirement accounts, stocks, W-2 income. They don’t create enough wealth fast enough, with control. By mastering house hacking, new construction, and financing, we’ve found a way to build wealth in one of the hardest industries to break into.
                     <br /><br />
-                    Now, my mission is to help myself by helping others. I can't reap if I don't sow. Don't block my blessings by not allowing me to serve you!
+                    Now, our mission is to help ourself by helping others. We can't reap if we don't sow. Don't block our blessings by not allowing us to serve you!
                     {/*— giving others the tools, education, capital access, and hands-on mentorship to not only invest but also develop and own the neighborhoods where they live.*/}
                 </p>
               </div>

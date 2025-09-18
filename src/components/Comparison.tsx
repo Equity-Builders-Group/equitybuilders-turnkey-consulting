@@ -59,9 +59,9 @@ const Comparison = () => {
             <span className="block text-accent drop-shadow-lg">The Rule Of 72</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            The best alternative investments out today may give you a return of 10%, 15%, maybe 20% on the high end. With those returns it would take you 3.6 - 7.2 years to double your money.
+            The best alternative investments available today may give you a return on your initial investment of 10%, 15%, or maybe 20% on the high end. With those returns it would take you 3.6 - 7.2 years to double your money.
             If you want to determine how fast you can multiply your money just divide your expected percentage returns by 72. This will give you the number of years it will take to double your money. This is called the "Rule of 72".
-            We are doubling out initial investment in 9-12 months! The best part about this is that we will do all the heavy lifting for you! You can participate as much or as little as you want.
+            We are doubling our initial investment on average within 12-18 months! The best part about this is that we will do all the heavy lifting for you! You can participate as much or as little as you want.
             <br />
           </p>
         </div>
