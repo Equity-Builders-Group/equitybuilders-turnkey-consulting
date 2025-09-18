@@ -294,10 +294,10 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
         videoRef.current.play();
       }
     } else {
-      // If form was closed without submission, reset the video to beginning
+      // If form was closed without submission, reset the video to beginning and auto-play
       if (videoRef.current) {
-        videoRef.current.pause();
         videoRef.current.currentTime = 0;
+        videoRef.current.play().catch(console.warn);
       }
     }
 
