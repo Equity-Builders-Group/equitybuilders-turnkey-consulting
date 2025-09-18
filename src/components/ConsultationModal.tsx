@@ -10,6 +10,13 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      // Auto-scroll to bring modal into view on mobile
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }, 100);
     } else {
       document.body.style.overflow = 'unset';
     }

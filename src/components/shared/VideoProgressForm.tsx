@@ -109,8 +109,8 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
                      formData.consent;
 
   return (
-    <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-30 p-2">
-      <div className="bg-white rounded-xl p-4 max-w-sm w-full mx-2 relative">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[10000] p-2">
+      <div className="bg-white rounded-xl p-4 max-w-sm w-full mx-2 relative max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
