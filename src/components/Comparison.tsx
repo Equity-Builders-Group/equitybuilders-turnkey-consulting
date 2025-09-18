@@ -75,10 +75,10 @@ const Comparison = () => {
               ref={traditionalRef}
               className={`relative scroll-reveal-scale-up ${traditionalVisible ? 'visible' : ''}`}
             >
-              <div className="bg-yellow-50/80 backdrop-blur-sm rounded-3xl p-8 border border-yellow-200/40 relative overflow-hidden">
+              <div className="bg-muted/50 backdrop-blur-sm rounded-3xl p-8 border border-muted/60 relative overflow-hidden">
                 {/* Background pattern */}
                 <div className="absolute inset-0 opacity-5">
-                  <div className="w-full h-full bg-gradient-to-br from-yellow-100/20 to-yellow-50/30"></div>
+                  <div className="w-full h-full bg-gradient-to-br from-muted/30 to-muted-foreground/10"></div>
                 </div>
                 
                 <div className="relative z-10">
@@ -92,7 +92,7 @@ const Comparison = () => {
                   
                   <div className="space-y-4">
                     {traditionalProblems.map((problem, index) => (
-                      <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-yellow-100/20 border border-yellow-200/30">
+                      <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-muted/30 border border-muted/50">
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mt-0.5 shadow-md border-2 border-gray-200/40 hover:scale-110 transition-all duration-300">
                           <ThumbsDown className="w-6 h-6 text-red-500" strokeWidth={2.5} />
                         </div>
