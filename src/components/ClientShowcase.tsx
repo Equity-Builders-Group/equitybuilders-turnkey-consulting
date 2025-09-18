@@ -115,7 +115,7 @@ const ClientShowcase = () => {
           className={`text-center mb-20 scroll-reveal-fade-down ${headerVisible ? 'visible' : ''}`}
         >
           <div className="inline-block bg-primary/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-primary/20 mb-8">
-            <span className="text-primary font-bold text-xl">PROJECT GALLERY</span>
+            <span className="text-primary font-bold text-xl">IN THE PIPELINE</span>
           </div>
           
           <h2 className="text-5xl lg:text-6xl font-black mb-8 text-foreground drop-shadow-lg">
@@ -126,7 +126,7 @@ const ClientShowcase = () => {
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Real projects, real results. See how we've transformed visions into reality for developers just like you.
+            Real projects, real results. See how we've transformed visions into reality for investors just like you.
           </p>
         </div>
 
