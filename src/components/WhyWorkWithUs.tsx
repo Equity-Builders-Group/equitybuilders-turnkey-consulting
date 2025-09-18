@@ -117,12 +117,15 @@ const WhyWorkWithUs = () => {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h2 className="text-4xl font-bold drop-shadow-lg text-foreground">
-                  Why Choose TurnKey Development?
+                  Whats Your Why?
                 </h2>
                 <p className="text-xl text-muted-foreground">
-                  With over 15 years of experience in business consulting, we've helped 
-                  hundreds of organizations achieve their strategic objectives and 
-                  overcome complex challenges.
+                    My purpose is to break down the barriers that keep everyday people like myself — from accessing the wealth, control, and freedom that real estate development provides. God didn't give us a table and a chair. He gave us the tree. What will you do with it?
+                    <br /><br />
+                    I've lived the reality: traditional paths to wealth (retirement accounts, stocks, W-2 income) don’t create enough wealth fast enough, with control. By mastering house hacking, new construction, and financing, I’ve found a way through one of the hardest industries to break into.
+                    <br /><br />
+                    Now, my mission is to help myself by helping others. I can't reap if I don't sow. Don't block my blessings by not allowing me to serve you!
+                    {/*— giving others the tools, education, capital access, and hands-on mentorship to not only invest but also develop and own the neighborhoods where they live.*/}
                 </p>
               </div>
               
@@ -134,9 +137,9 @@ const WhyWorkWithUs = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2 text-foreground">Proven Track Record</h3>
+                      <h3 className="text-lg font-semibold mb-2 text-foreground">Generational impact</h3>
                     <p className="text-muted-foreground">
-                      Successfully delivered 500+ projects with 98% client satisfaction rate.
+                      Leaving a legacy of ownership, not just money and teaching my girls by example.
                     </p>
                   </div>
                 </div>
@@ -148,9 +151,9 @@ const WhyWorkWithUs = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2 text-foreground">Industry Expertise</h3>
+                      <h3 className="text-lg font-semibold mb-2 text-foreground">Access and empowerment</h3>
                     <p className="text-muted-foreground">
-                      Deep knowledge across multiple industries including technology, healthcare, finance, and manufacturing.
+                       Opening doors for people who’ve been locked out of development.
                     </p>
                   </div>
                 </div>
@@ -162,12 +165,27 @@ const WhyWorkWithUs = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2 text-foreground">Tailored Solutions</h3>
+                    <h3 className="text-lg font-semibold mb-2 text-foreground">Teaching by doing</h3>
                     <p className="text-muted-foreground">
-                      Custom strategies designed specifically for your unique business challenges and objectives.
+                       Being transparent and showing others how to fish, not just giving them the fish.
                     </p>
                   </div>
                 </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <svg className="w-4 h-4 text-primary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 text-foreground">Neighborhood revitalization</h3>
+                    <p className="text-muted-foreground">
+                      Turning blighted undeveloped land into thriving communities, one project at a time.
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -195,7 +213,7 @@ const WhyWorkWithUs = () => {
           <div className="bg-white/10 backdrop-blur-sm p-12 rounded-3xl border border-white/20 max-w-4xl mx-auto">
               <h3 className="text-4xl font-bold text-white mb-6 uppercase drop-shadow-lg">Let's start building up your net-worth</h3>
             <p className="text-white/90 text-xl mb-8 leading-relaxed">
-              Join the ranks of successful developers by leveraging our experience and track record to accelerate your path to success. We will do what it takes to get you across the finish line with a return on your investment.
+              Leverage our experience and track record to accelerate your path to success. We will do what it takes to get you across the finish line.
             </p>
             <div className="flex items-center justify-center gap-4 text-yellow-400 text-2xl font-bold uppercase">
               One Step At A Time...

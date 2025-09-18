@@ -142,7 +142,7 @@ const FAQ = () => {
         </div>
         
         {/* Project showcase - bottom left */}
-        <div className="absolute bottom-20 left-8 lg:left-16 w-56 h-56 lg:w-72 lg:h-62 rounded-2xl overflow-hidden shadow-xl border-4 border-highlight/40 -rotate-6 hover:-rotate-3 transition-all duration-700">
+        <div className="absolute top-10 left-8 lg:left-16 w-56 h-56 lg:w-72 lg:h-62 rounded-2xl overflow-hidden shadow-xl border-4 border-highlight/40 -rotate-6 hover:-rotate-3 transition-all duration-700">
           <img 
             src="/lovable-uploads/3909LavenderSt_ExteriorDesign.png" 
             alt="3909 Lavender Street development" 
@@ -167,7 +167,7 @@ const FAQ = () => {
         <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-secondary/20 rounded-full blur-2xl"></div>
         
         {/* Hexagonal pattern */}
-        <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 opacity-45">
           <div className="w-full h-full" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             backgroundSize: '60px 60px'
@@ -179,12 +179,14 @@ const FAQ = () => {
         <div className="max-w-6xl mx-auto">
           
           {/* Section Title */}
-          <div className="text-center mb-16">
+          <div className="text-center mt-48 mb-8">
             <div 
               ref={headerRef}
-              className={`inline-block bg-highlight/20 backdrop-blur-sm px-6 py-3 rounded-2xl border border-highlight/40 scroll-reveal-fade-up ${headerVisible ? 'visible' : ''}`}
+              className={`inline-block px-6 py-3 scroll-reveal-fade-up ${headerVisible ? 'visible' : ''}`}
             >
-              <span className="text-white font-bold text-lg drop-shadow-lg">Frequently Asked Questions</span>
+              <h2 className="text-5xl lg:text-6xl font-black text-white leading-tight drop-shadow-lg">
+                Frequently Asked Questions
+              </h2>
             </div>
           </div>
 
@@ -241,7 +243,7 @@ const FAQ = () => {
               className={`space-y-8 scroll-reveal-scale-up ${formVisible ? 'visible' : ''}`}
             >
               <div className="text-center space-y-6">
-                <h2 className="text-4xl lg:text-6xl font-black text-white leading-tight drop-shadow-lg">
+                <h2 className="text-5xl lg:text-6xl font-black text-white leading-tight drop-shadow-lg">
                   Your Questions
                   <span className="block text-highlight">
                     Answered
