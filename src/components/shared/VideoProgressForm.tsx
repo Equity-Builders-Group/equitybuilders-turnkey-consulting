@@ -7,10 +7,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 
 interface VideoProgressFormProps {
-  onClose: () => void;
+  onClose: (submitted?: boolean) => void;
+  videoUrl: string;
 }
 
-const VideoProgressForm = ({ onClose }: VideoProgressFormProps) => {
+const VideoProgressForm = ({ onClose, videoUrl }: VideoProgressFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -131,6 +132,10 @@ const VideoProgressForm = ({ onClose }: VideoProgressFormProps) => {
         }).toString(),
       });
 
+      // Store submission status in localStorage
+      const storageKey = `video_form_submitted_${btoa(videoUrl)}`;
+      localStorage.setItem(storageKey, 'true');
+      
       setIsSubmitted(true);
       setFormData({ name: '', email: '', phone: '', consent: false });
       
@@ -139,9 +144,9 @@ const VideoProgressForm = ({ onClose }: VideoProgressFormProps) => {
         description: "Thank you! You can now continue watching.",
       });
       
-      // Close the modal after a short delay
+      // Close the modal with submitted flag after a short delay
       setTimeout(() => {
-        onClose();
+        onClose(true);
       }, 2000);
       
     } catch (error) {
@@ -165,7 +170,7 @@ const VideoProgressForm = ({ onClose }: VideoProgressFormProps) => {
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[10000] p-2">
       <div className="bg-white rounded-xl p-4 max-w-sm w-full mx-2 relative max-h-[90vh] overflow-y-auto">
         <button
-          onClick={onClose}
+          onClick={() => onClose(false)}
           className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors"
         >
           <X className="w-5 h-5" />

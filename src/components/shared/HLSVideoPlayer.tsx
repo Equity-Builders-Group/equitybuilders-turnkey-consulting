@@ -275,13 +275,22 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
     };
   }, [videoUrl, autoPlay, componentName, onVideoReady, onError]);
 
-  const handleProgressFormClose = () => {
-    // When the form closes (either manually or after successful submission),
-    // mark as submitted and continue video
-    if (videoUrl) {
+  const handleProgressFormClose = (submitted = false) => {
+    // Only mark as submitted if the form was actually submitted
+    if (submitted && videoUrl) {
       const storageKey = `video_form_submitted_${btoa(videoUrl)}`;
       localStorage.setItem(storageKey, 'true');
       setHasSubmittedForm(true);
+      
+      // Resume video playback after successful submission
+      if (videoRef.current) {
+        videoRef.current.play();
+      }
+    } else {
+      // If form was closed without submission, pause the video
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
     }
 
     setShowProgressForm(false);
@@ -342,6 +351,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       {showProgressForm && (
         <VideoProgressForm
           onClose={handleProgressFormClose}
+          videoUrl={videoUrl}
         />
       )}
 
