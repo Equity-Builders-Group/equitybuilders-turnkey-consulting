@@ -28,7 +28,7 @@ const Hero = () => {
   return (
     <section 
       ref={heroRef}
-      className={`relative min-h-screen bg-gradient-primary overflow-hidden scroll-reveal-fade-up ${heroVisible ? 'visible' : ''}`}
+      className="relative min-h-screen bg-gradient-primary overflow-hidden"
     >
       {/* Background image overlays with your real photos */}
       <div className="absolute inset-0 overflow-hidden">
@@ -132,7 +132,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="container mx-auto px-6 sm:px-8 py-20 relative z-10">
+      <div className={`container mx-auto px-6 sm:px-8 py-20 relative z-10 scroll-reveal-fade-up ${heroVisible ? 'visible' : ''}`}>
         {/* Mobile-only top heading */}
         <div className="lg:hidden mb-12">
           <h2 className="text-5xl sm:text-6xl font-black leading-none text-white text-center drop-shadow-lg">
