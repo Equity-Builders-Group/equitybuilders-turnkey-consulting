@@ -287,17 +287,18 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
         videoRef.current.play();
       }
     } else {
-      // If form was closed without submission, pause the video
+      // If form was closed without submission, reset the video to beginning
       if (videoRef.current) {
         videoRef.current.pause();
+        videoRef.current.currentTime = 0;
       }
     }
 
     setShowProgressForm(false);
     setIsGatePaused(false);
     
-    // Resume video playback if not muted
-    if (videoRef.current && !isVideoMuted) {
+    // Only resume video playback if form was submitted and not muted
+    if (submitted && videoRef.current && !isVideoMuted) {
       videoRef.current.play().catch(console.warn);
     }
   };
