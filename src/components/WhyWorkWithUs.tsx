@@ -56,7 +56,7 @@ const WhyWorkWithUs = () => {
           className={`text-center mb-20 scroll-reveal-fade-up ${headerVisible ? 'visible' : ''}`}
         >
             <div className="inline-block bg-white/10 backdrop-blur-sm px-8 py-4 rounded-2xl border border-white/30 mb-8">
-            <span className="text-white font-bold text-xl">WHY CHOOSE US</span>
+            <span className="text-white font-bold text-xl">OUR DIFFERENTIATOR</span>
           </div>
           
           <h2 className="text-5xl lg:text-6xl font-black mb-8 text-white drop-shadow-lg">
