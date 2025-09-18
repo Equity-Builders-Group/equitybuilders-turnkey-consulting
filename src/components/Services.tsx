@@ -242,8 +242,11 @@ const Services = () => {
           </h2>
           
           <p className="text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-            Use our experience, our team, our vendors, relationships, and take all of our knowledge and processes around developing residential multi-family properties for a flat fee.
+            Leverage our experience, team, vendor network, and proven processes to develop residential multi-family properties — all for a flat fee.
           </p>
+          <h3 className="text-2xl font-bold text-foreground mb-4 text-white justify-center mt-12">
+            Our Proven 11-Step Process
+          </h3>
         </div>
         
         <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">

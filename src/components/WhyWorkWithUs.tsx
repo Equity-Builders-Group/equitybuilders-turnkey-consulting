@@ -120,7 +120,7 @@ const WhyWorkWithUs = () => {
                   Whats Your Why?
                 </h2>
                 <p className="text-xl text-muted-foreground">
-                    My purpose is to break down the barriers that keep everyday people like myself — from accessing the wealth, control, and freedom that real estate development provides. God didn't give us a table and a chair. He gave us the tree. What will you do with it?
+                    My purpose is to break down the barriers that keep everyday people like yourself — from accessing the wealth, control, and freedom that real estate development provides. God didn't give us a table and a chair. He gave us the tree. What will you do with it?
                     <br /><br />
                     I've lived the reality: traditional paths to wealth (retirement accounts, stocks, W-2 income) don’t create enough wealth fast enough, with control. By mastering house hacking, new construction, and financing, I’ve found a way through one of the hardest industries to break into.
                     <br /><br />

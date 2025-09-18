@@ -29,7 +29,7 @@ const ClientShowcase = () => {
         "/lovable-uploads/GlenAve_TreeRemovalApproved.png"
       ],
       story: "From vacant lot to luxury 4-unit, two separate duplex development. This project showcases our end-to-end process from land acquisition through final construction.",
-      highlights: ["Zoning Approval in 30 Days", "15% Under Budget", "Pre-sold 2 Units"]
+      highlights: ["Permit Approvals in Two Weeks", "Build To Rent", "Long Term Hold"]
     },
     {
       id: 2,
@@ -44,12 +44,12 @@ const ClientShowcase = () => {
         "/lovable-uploads/5df938db-8063-4672-9fdb-4bb75420dbc7.png"
       ],
       story: "Transforming underutilized riverside property into modern family housing. Complex permitting and environmental considerations successfully navigated.",
-      highlights: ["Environmental Clearance", "Community Support", "Innovative Design"]
+      highlights: ["Maximizing Density", "Generational Land", "Innovative Design"]
     },
     {
       id: 3,
       title: "Amboy Street Courtyard Development",
-      location: "Dallas, TX",
+      location: "houston, TX (Fifth Ward)",
       status: "Planning Phase",
       value: "$2.4M",
       timeline: "12-18 months",
@@ -58,8 +58,8 @@ const ClientShowcase = () => {
         "/lovable-uploads/2604-AmboySt_ExteriorDesign.png",
         "/lovable-uploads/2604-AmboySt_SurveyAtScale_Planning.jpg"
       ],
-      story: "Urban infill success story. Maximized density while respecting neighborhood character. All units sold before completion.",
-      highlights: ["100% Pre-sold", "Neighborhood Integration", "ROI: 28%"]
+      story: "Urban courtyard development. Maximizing new ordinance density rules while respecting neighborhood character.",
+      highlights: ["Affordable Housing", "Neighborhood Integration", "Livable Places Ordinance"]
     }
   ];
 

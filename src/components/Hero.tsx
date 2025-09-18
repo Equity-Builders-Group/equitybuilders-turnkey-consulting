@@ -268,7 +268,7 @@ const Hero = () => {
                   <div className="text-white/80 font-medium">Success Rate</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-highlight">1.8x+</div>
+                  <div className="text-4xl font-black text-highlight">1.2x+</div>
                   <div className="text-white/80 font-medium">ROI Multiples</div>
                 </div>
                 <div className="text-center space-y-2">
