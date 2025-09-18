@@ -87,7 +87,7 @@ const Comparison = () => {
                 </div>
                 
                 <div className="relative z-10">
-                  <div className="flex items-center justify-center w-16 h-16 bg-red-100 rounded-2xl mb-6 mx-auto">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gray-100 rounded-2xl mb-6 mx-auto">
                     <ThumbsDown className="w-8 h-8 text-red-500" />
                   </div>
                   
@@ -98,7 +98,7 @@ const Comparison = () => {
                   <div className="space-y-4">
                     {traditionalProblems.map((problem, index) => (
                       <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-yellow-100/20 border border-yellow-200/30">
-                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mt-0.5 shadow-md border-2 border-red-200/40 hover:scale-110 transition-all duration-300">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mt-0.5 shadow-md border-2 border-gray-200/40 hover:scale-110 transition-all duration-300">
                           <ThumbsDown className="w-6 h-6 text-red-500" strokeWidth={2.5} />
                         </div>
                         <span className="text-foreground font-bold text-lg">{problem}</span>
