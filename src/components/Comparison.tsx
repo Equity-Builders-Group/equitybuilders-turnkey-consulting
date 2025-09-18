@@ -1,4 +1,4 @@
-import { Shield, Check, Unlock } from "lucide-react";
+import { ThumbsDown, Check, Unlock } from "lucide-react";
 import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const Comparison = () => {
@@ -80,26 +80,26 @@ const Comparison = () => {
               ref={traditionalRef}
               className={`relative scroll-reveal-scale-up ${traditionalVisible ? 'visible' : ''}`}
             >
-              <div className="bg-muted/30 backdrop-blur-sm rounded-3xl p-8 border border-muted/40 relative overflow-hidden">
+              <div className="bg-yellow-50/80 backdrop-blur-sm rounded-3xl p-8 border border-yellow-200/40 relative overflow-hidden">
                 {/* Background pattern */}
                 <div className="absolute inset-0 opacity-5">
-                  <div className="w-full h-full bg-gradient-to-br from-destructive/20 to-muted/30"></div>
+                  <div className="w-full h-full bg-gradient-to-br from-yellow-100/20 to-yellow-50/30"></div>
                 </div>
                 
                 <div className="relative z-10">
-                  <div className="flex items-center justify-center w-16 h-16 bg-muted rounded-2xl mb-6 mx-auto">
-                    <Shield className="w-8 h-8 text-muted-foreground" />
+                  <div className="flex items-center justify-center w-16 h-16 bg-red-100 rounded-2xl mb-6 mx-auto">
+                    <ThumbsDown className="w-8 h-8 text-red-500" />
                   </div>
                   
                   <h3 className="text-2xl font-bold text-center mb-8 text-foreground">
-                    Traditional Approaches
+                    On Your Own
                   </h3>
                   
                   <div className="space-y-4">
                     {traditionalProblems.map((problem, index) => (
-                      <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-muted/20 border border-muted/30">
-                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted flex items-center justify-center mt-0.5 shadow-md border-2 border-muted-foreground/20 hover:scale-110 transition-all duration-300">
-                          <Shield className="w-6 h-6 text-muted-foreground" strokeWidth={2.5} />
+                      <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-yellow-100/20 border border-yellow-200/30">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mt-0.5 shadow-md border-2 border-red-200/40 hover:scale-110 transition-all duration-300">
+                          <ThumbsDown className="w-6 h-6 text-red-500" strokeWidth={2.5} />
                         </div>
                         <span className="text-foreground font-bold text-lg">{problem}</span>
                       </div>
@@ -136,7 +136,7 @@ const Comparison = () => {
                   </div>
                   
                   <h3 className="text-2xl font-bold text-center mb-8 text-white">
-                    TurnKey Development
+                    Utilizing Us
                   </h3>
                   
                   <div className="space-y-4">
