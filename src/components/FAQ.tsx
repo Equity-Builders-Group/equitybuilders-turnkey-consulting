@@ -91,7 +91,7 @@ const FAQ = () => {
     },
     {
       question: "Do you provide ongoing property management services?",
-      answer: "Yes, we offer comprehensive property management services including tenant screening, rent collection, maintenance coordination, and regular property inspections. Our goal is to build wealth together and establish a long term partners with our investors."
+      answer: "Yes, we offer comprehensive property management services including tenant screening, rent collection, maintenance coordination, and regular property inspections. Our goal is to build wealth together and establish a long term partnership with our investors."
     },
     {
       question: "How do you identify and evaluate potential investment properties?",
