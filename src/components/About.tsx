@@ -67,7 +67,7 @@ const About = () => {
             ></div>
             {/* Floating finger press icon */}
             <div className="absolute -bottom-6 -right-6 animate-pulse">
-              <MousePointer2 className="w-12 h-12 text-white fill-current rotate-12" />
+              <MousePointer2 className="w-12 h-12 text-highlight fill-current rotate-12" />
             </div>
           </div>
         </div>
