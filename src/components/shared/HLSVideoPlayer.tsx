@@ -187,7 +187,9 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       console.log(`${componentName}: Video URL:`, videoUrl);
       
       // Reset video state
-      video.currentTime = 0;
+      if (!enablePlayheadStorage) {
+        video.currentTime = 0;
+      }
       video.muted = true;
       setIsVideoMuted(true);
       setHasUnmutedOnce(false);
@@ -300,7 +302,10 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       // If video was previously muted and is now unmuted for the first time
       if (previousMuted && !currentMuted && !hasUnmutedOnce) {
         setHasUnmutedOnce(true);
-        videoRef.current.currentTime = 0; // Restart from beginning
+        // Only restart from beginning if playhead storage is disabled
+        if (!enablePlayheadStorage) {
+          videoRef.current.currentTime = 0;
+        }
       }
     }
   };
@@ -311,7 +316,10 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       setIsVideoMuted(false);
       if (!hasUnmutedOnce) {
         setHasUnmutedOnce(true);
-        videoRef.current.currentTime = 0;
+        // Only restart from beginning if playhead storage is disabled
+        if (!enablePlayheadStorage) {
+          videoRef.current.currentTime = 0;
+        }
       }
     }
   };
