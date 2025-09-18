@@ -102,10 +102,6 @@ const FAQ = () => {
       answer: "This service is primarily offered in Houston Texas."
     },
     {
-      question: "Can I invest in individual properties or only funds?",
-      answer: "We offer both individual property investment opportunities and a collective investment model through our alternative investment club structures. So if you have less capital to get started reach out and see if our group investments are a better fit. This flexibility allows investors to choose the approach that best fits their investment strategy, risk tolerance, and capital requirements."
-    },
-    {
       question: "What kind of returns can I expect from investments?",
       answer: "While past performance doesn't guarantee future results, our properties typically generate six figures plus in profit on top of initial capital invested per deal, with additional appreciation upside if you decide to hold the property for a longer term. Returns vary based on property type, market conditions, and investment structure."
     },
@@ -116,6 +112,14 @@ const FAQ = () => {
     {
       question: "Am I able to make the decision on whether we sell or hold the property?",
       answer: "Yes!"
+    },
+    {
+      question: "Can I invest in individual properties?",
+      answer: "We offer both individual property investment opportunities and a collective investment model through our investment club structure. So if you have less capital to get started reach out and see if our group investments are a better fit. This flexibility allows investors to choose the approach that best fits their investment strategy, risk tolerance, and capital requirements."
+    },
+    {
+      question: "Is this an SEC compliant investment fund?",
+      answer: 'No this is not a fund opportunity. SEC rules apply differently to joint ventures based on participation; if investors contribute cash with little involvement, their interest is likely a security under an "investment contract" test, requiring disclosures and prohibitions against fraud, but if all parties actively participate with meaningful management roles and voting rights, it is generally not a security and falls under standard joint venture agreements and state law. The core distinction is whether the parties are engaged in a common enterprise with profits expected from the efforts of others (a security) or are actively working together on the project.'
     }
   ];
 
