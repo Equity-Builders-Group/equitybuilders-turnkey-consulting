@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import useScrollReveal from "@/hooks/useScrollReveal";
 const About = () => {
   const { elementRef: contentRef, isVisible: contentVisible } = useScrollReveal();
@@ -37,9 +38,19 @@ const About = () => {
       </div>
       <div className="container mx-auto px-4">
         <div className="text-center">
-          <p className="text-xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8">
             This section has been moved to the "Why Work With Us" section above.
           </p>
+          
+          <Button
+            onClick={() => {
+              window.dispatchEvent(new Event('openConsultation'));
+            }}
+            className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+          >
+            Get Started Today
+            <ArrowRight className="ml-2" size={24} />
+          </Button>
         </div>
       </div>
     </section>;
