@@ -92,7 +92,7 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
           <div className="relative bg-black rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl aspect-video max-w-4xl mx-auto">
             <HLSVideoPlayer
               ref={videoPlayerRef}
-              videoUrl="https://vz-447b6532-fd2.b-cdn.net/65558fdd-047e-401c-b75c-210360836388/playlist.m3u8"
+              videoUrl="https://vz-447b6532-fd2.b-cdn.net/114d20b4-b152-48e8-b8d1-0a0e12470326/playlist.m3u8"
               autoPlay={isOpen && showModal}
               showControls={true}
               showUnmuteButton={true}
