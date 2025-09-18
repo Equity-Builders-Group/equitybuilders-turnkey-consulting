@@ -177,19 +177,70 @@ const FAQ = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Split layout: Header on left, FAQ on right */}
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            
-            {/* Left column - Header and intro */}
+          
+          {/* Section Title */}
+          <div className="text-center mb-16">
             <div 
               ref={headerRef}
-              className={`space-y-8 scroll-reveal-fade-up ${headerVisible ? 'visible' : ''}`}
+              className={`inline-block bg-highlight/20 backdrop-blur-sm px-6 py-3 rounded-2xl border border-highlight/40 scroll-reveal-fade-up ${headerVisible ? 'visible' : ''}`}
             >
-              <div className="space-y-6">
-                <div className="inline-block bg-highlight/20 backdrop-blur-sm px-6 py-3 rounded-2xl border border-highlight/40">
-                  <span className="text-white font-bold text-lg drop-shadow-lg">Frequently Asked Questions</span>
-                </div>
-                
+              <span className="text-white font-bold text-lg drop-shadow-lg">Frequently Asked Questions</span>
+            </div>
+          </div>
+
+          {/* FAQ Questions in Two Columns */}
+          <div 
+            ref={accordionRef}
+            className={`grid lg:grid-cols-2 gap-8 mb-20 scroll-reveal-fade-up ${accordionVisible ? 'visible' : ''}`}
+          >
+            {/* Left Column */}
+            <div className="space-y-4">
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.slice(0, Math.ceil(faqs.length / 2)).map((faq, index) => (
+                  <AccordionItem 
+                    key={index} 
+                    value={`item-${index}`}
+                    className="border border-white/20 rounded-xl px-6 py-2 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-all duration-300 group"
+                  >
+                    <AccordionTrigger className="text-left font-semibold text-lg text-white hover:text-highlight transition-colors py-6 group-hover:pr-2 drop-shadow-lg">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-white/85 text-base leading-relaxed pb-6 pl-2 drop-shadow-lg">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+
+            {/* Right Column */}
+            <div className="space-y-4">
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.slice(Math.ceil(faqs.length / 2)).map((faq, index) => (
+                  <AccordionItem 
+                    key={index + Math.ceil(faqs.length / 2)} 
+                    value={`item-${index + Math.ceil(faqs.length / 2)}`}
+                    className="border border-white/20 rounded-xl px-6 py-2 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-all duration-300 group"
+                  >
+                    <AccordionTrigger className="text-left font-semibold text-lg text-white hover:text-highlight transition-colors py-6 group-hover:pr-2 drop-shadow-lg">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-white/85 text-base leading-relaxed pb-6 pl-2 drop-shadow-lg">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+
+          {/* Form Section Below FAQ */}
+          <div className="max-w-3xl mx-auto">
+            <div 
+              ref={formRef}
+              className={`space-y-8 scroll-reveal-scale-up ${formVisible ? 'visible' : ''}`}
+            >
+              <div className="text-center space-y-6">
                 <h2 className="text-4xl lg:text-6xl font-black text-white leading-tight drop-shadow-lg">
                   Your Questions
                   <span className="block text-highlight">
@@ -203,13 +254,10 @@ const FAQ = () => {
               </div>
               
               {/* Email Contact Form */}
-              <div 
-                ref={formRef}
-                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 scroll-reveal-scale-up ${formVisible ? 'visible' : ''}`}
-              >
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                 {!isSubmitted ? (
                   <>
-                    <h3 className="text-xl font-bold text-white mb-4">Get Additional Clarity</h3>
+                    <h3 className="text-xl font-bold text-white mb-4 text-center">Get Additional Clarity</h3>
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>
                         <input 
@@ -262,34 +310,8 @@ const FAQ = () => {
                   </div>
                 )}
               </div>
-              
-            </div>
-            
-            {/* Right column - FAQ Accordion */}
-            <div 
-              ref={accordionRef}
-              className={`space-y-4 scroll-reveal-fade-up ${accordionVisible ? 'visible' : ''}`}
-            >
-              <Accordion type="single" collapsible className="space-y-4">
-                {faqs.map((faq, index) => (
-                  <AccordionItem 
-                    key={index} 
-                    value={`item-${index}`}
-                    className="border border-white/20 rounded-xl px-6 py-2 bg-white/5 backdrop-blur-lg hover:bg-white/10 transition-all duration-300 group"
-                  >
-                    <AccordionTrigger className="text-left font-semibold text-lg text-white hover:text-highlight transition-colors py-6 group-hover:pr-2 drop-shadow-lg">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-white/85 text-base leading-relaxed pb-6 pl-2 drop-shadow-lg">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
             </div>
           </div>
-          
-          
         </div>
       </div>
     </section>
