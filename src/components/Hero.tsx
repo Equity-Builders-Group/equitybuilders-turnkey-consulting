@@ -1,13 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Play, MousePointer2 } from "lucide-react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
-import ConsultationModal from "./ConsultationModal";
 import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true); // Auto-start video
-  const [showConsultationModal, setShowConsultationModal] = useState(false);
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
   
   // Dramatic scroll reveal animations for Hero
@@ -17,16 +15,6 @@ const Hero = () => {
   const { elementRef: phoneRef, isVisible: phoneVisible } = useScrollReveal<HTMLDivElement>();
   const { elementRef: resultsRef, isVisible: resultsVisible } = useScrollReveal<HTMLDivElement>();
   const { elementRef: floatingImagesRef, visibleItems: floatingVisible } = useStaggeredScrollReveal<HTMLDivElement>(4);
-  
-  // Listen for custom consultation event from exit intent modal
-  useEffect(() => {
-    const handleOpenConsultation = () => {
-      setShowConsultationModal(true);
-    };
-
-    window.addEventListener('openConsultation', handleOpenConsultation);
-    return () => window.removeEventListener('openConsultation', handleOpenConsultation);
-  }, []);
 
   const handleVideoStart = () => {
     setIsVideoPlaying(true);
@@ -229,7 +217,10 @@ const Hero = () => {
               <div className="relative inline-block">
                 <Button 
                   size="lg" 
-                  onClick={() => setShowConsultationModal(true)}
+                  onClick={() => {
+                    const event = new CustomEvent('openConsultation');
+                    window.dispatchEvent(event);
+                  }}
                   className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
                 >
                 Book A Call Today
@@ -379,11 +370,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Modals */}
-      <ConsultationModal 
-        isOpen={showConsultationModal} 
-        onClose={() => setShowConsultationModal(false)} 
-      />
     </section>
   );
 };

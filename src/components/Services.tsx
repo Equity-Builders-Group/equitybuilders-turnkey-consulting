@@ -1,11 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import ConsultationModal from "@/components/ConsultationModal";
-import { useState } from "react";
 import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 
 const Services = () => {
-  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollReveal({ threshold: 0.05 });
   const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal();
@@ -283,7 +280,10 @@ const Services = () => {
             <h3 className="text-3xl font-bold text-white mb-4">Working With Us Is Easy!</h3>
             <p className="text-white/90 text-xl mb-6">We already have the relationships, the experience, and the processes in place specifically in Houston, Texas.</p>
             <Button 
-              onClick={() => setIsConsultationModalOpen(true)}
+              onClick={() => {
+                const event = new CustomEvent('openConsultation');
+                window.dispatchEvent(event);
+              }}
               size="lg"
               className="text-black text-lg font-semibold bg-yellow-400 hover:bg-yellow-500 border border-yellow-500 hover:border-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
@@ -293,10 +293,6 @@ const Services = () => {
         </div>
       </div>
 
-      <ConsultationModal 
-        isOpen={isConsultationModalOpen}
-        onClose={() => setIsConsultationModalOpen(false)}
-      />
     </section>
   );
 };
