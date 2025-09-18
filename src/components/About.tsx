@@ -58,7 +58,11 @@ const About = () => {
             <div 
               className="absolute inset-0 rounded-2xl pointer-events-none"
               style={{
-                animation: 'pulse-green 1.5s infinite ease-out',
+                animation: 'pulse-shadow 1.5s infinite ease-out',
+                animationName: 'pulse-shadow',
+                animationDuration: '1.5s',
+                animationIterationCount: 'infinite',
+                animationTimingFunction: 'ease-out',
               }}
             ></div>
             {/* Floating finger press icon */}
