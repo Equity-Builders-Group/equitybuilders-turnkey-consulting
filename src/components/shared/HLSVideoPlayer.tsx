@@ -53,7 +53,6 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
   const [hasUnmutedOnce, setHasUnmutedOnce] = useState(false);
   const [isVideoReady, setIsVideoReady] = useState(false);
   const [showProgressForm, setShowProgressForm] = useState(false);
-  const [hasTriggeredGate, setHasTriggeredGate] = useState(false);
   const [isGatePaused, setIsGatePaused] = useState(false);
   const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
 
@@ -77,7 +76,6 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
         setIsVideoMuted(true);
         setHasUnmutedOnce(false);
         setShowProgressForm(false);
-        setHasTriggeredGate(false);
         setIsGatePaused(false);
         // Don't reset hasSubmittedForm - this should persist
       }
@@ -152,31 +150,41 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
     };
   }, [enablePlayheadStorage, videoUrl]);
 
-  // Progress gate logic
+  // Progress gate logic - enforce watch gate continuously
   useEffect(() => {
-    if (!enableProgressGate || !videoRef.current || hasSubmittedForm) return;
+    if (!enableProgressGate || !videoRef.current) return;
 
     const video = videoRef.current;
 
     const handleTimeUpdate = () => {
-      if (video.duration > 0) {
+      if (video.duration > 0 && !hasSubmittedForm) {
         const percentage = (video.currentTime / video.duration) * 100;
-        if (percentage >= progressGatePercentage && !hasTriggeredGate && !hasSubmittedForm) {
+        const gateTimePosition = (progressGatePercentage / 100) * video.duration;
+        
+        // If user tries to watch or scrub past the gate without submitting form
+        if (video.currentTime >= gateTimePosition) {
           video.pause();
+          video.currentTime = gateTimePosition; // Keep at gate position
           setShowProgressForm(true);
-          setHasTriggeredGate(true);
           setIsGatePaused(true);
-          console.log(`${componentName}: Progress gate triggered at ${percentage}%`);
+          console.log(`${componentName}: Watch gate enforced at ${percentage}%`);
         }
       }
     };
 
+    const handleSeeked = () => {
+      // Also check when user manually scrubs the video
+      handleTimeUpdate();
+    };
+
     video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('seeked', handleSeeked);
 
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('seeked', handleSeeked);
     };
-  }, [enableProgressGate, progressGatePercentage, hasTriggeredGate, hasSubmittedForm, componentName]);
+  }, [enableProgressGate, progressGatePercentage, hasSubmittedForm, componentName]);
 
   useEffect(() => {
     if (videoRef.current && videoUrl) {
@@ -195,7 +203,6 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       setHasUnmutedOnce(false);
       setIsVideoReady(false);
       setShowProgressForm(false);
-      setHasTriggeredGate(false);
       setIsGatePaused(false);
       // Don't reset hasSubmittedForm here - it should persist across video reloads
 
