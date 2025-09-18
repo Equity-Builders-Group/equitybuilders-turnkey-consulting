@@ -16,7 +16,7 @@ const Comparison = () => {
     "Lack of Construction Expertise",
     "You Need To Build A Team From Scratch (Most Costly)",
     "No Project Management Experience",
-    "Prior Experience Is Required for Financing (x3)", 
+    "(x3) Prior Experience Is Required for Financing",
   ];
 
   const turnkeyAdvantages = [
@@ -101,7 +101,7 @@ const Comparison = () => {
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted flex items-center justify-center mt-0.5 shadow-md border-2 border-muted-foreground/20 hover:scale-110 transition-all duration-300">
                           <Shield className="w-6 h-6 text-muted-foreground" strokeWidth={2.5} />
                         </div>
-                        <span className="text-foreground font-medium">{problem}</span>
+                        <span className="text-foreground font-bold text-lg">{problem}</span>
                       </div>
                     ))}
                   </div>
@@ -141,11 +141,11 @@ const Comparison = () => {
                   
                   <div className="space-y-4">
                     {turnkeyAdvantages.map((advantage, index) => (
-                      <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20">
+                      <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:scale-110 transition-all duration-300">
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-accent flex items-center justify-center mt-0.5 shadow-lg border-2 border-white/30 hover:scale-110 transition-all duration-300">
                           <Check className="w-6 h-6 text-white drop-shadow-md" strokeWidth={3} />
                         </div>
-                        <span className="text-white font-medium">{advantage}</span>
+                        <span className="text-white font-medium text-lg">{advantage}</span>
                       </div>
                     ))}
                   </div>

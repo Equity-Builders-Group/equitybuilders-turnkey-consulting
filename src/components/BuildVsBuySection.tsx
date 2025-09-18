@@ -17,7 +17,7 @@ const BuildVsBuySection = () => {
         >
           <h2 className="text-4xl md:text-6xl font-black leading-tight text-foreground mb-6 drop-shadow-lg">
             Why Build Instead Of Buy
-            <span className="block text-accent drop-shadow-lg">an Investment Property?</span>
+            <span className="block text-accent drop-shadow-lg">An Investment Property?</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             The numbers speak for themselves. When you build you walk into a strong equity position from day one. Building a property is like buying a product at a wholesale price. You have a brand new product that can be depreciated over time to offer huge tax write-offs. 
