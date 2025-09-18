@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useToast } from "@/hooks/use-toast";
 
 interface VideoProgressFormProps {
-  onSubmit: (data: { name: string; email: string; phone: string; consent: boolean }) => void;
   onClose: () => void;
 }
 
-const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
+const VideoProgressForm = ({ onClose }: VideoProgressFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,6 +31,10 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
     phone: false,
     consent: false
   });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
@@ -81,7 +85,7 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
     validateField(field, formData[field as keyof typeof formData]);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Mark all fields as touched
@@ -98,8 +102,57 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
     const phoneValid = validateField("phone", formData.phone);
     const consentValid = validateField("consent", formData.consent);
 
-    if (nameValid && emailValid && phoneValid && consentValid) {
-      onSubmit(formData);
+    if (!nameValid || !emailValid || !phoneValid || !consentValid) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields correctly",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("https://equitybuilders.co/wp-json/autonami/v1/webhook/?bwfan_autonami_webhook_id=4&bwfan_autonami_webhook_key=c51beeb407845e6557a68ba29ca44957", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Accept": "application/json",
+        },
+        mode: "no-cors",
+        body: new URLSearchParams({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          consent: formData.consent.toString(),
+          timestamp: new Date().toISOString(),
+          source: "Video Progress Form"
+        }).toString(),
+      });
+
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', consent: false });
+      
+      toast({
+        title: "Success!",
+        description: "Thank you! You can now continue watching.",
+      });
+      
+      // Close the modal after a short delay
+      setTimeout(() => {
+        onClose();
+      }, 2000);
+      
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "Failed to submit form. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -118,16 +171,18 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
           <X className="w-5 h-5" />
         </button>
 
-        <div className="text-center mb-3">
-          <h3 className="text-lg font-bold text-gray-900 mb-1">
-            Continue Watching
-          </h3>
-          <p className="text-xs text-gray-600">
-            Enter your information to unlock the rest of this content
-          </p>
-        </div>
+        {!isSubmitted ? (
+          <>
+            <div className="text-center mb-3">
+              <h3 className="text-lg font-bold text-gray-900 mb-1">
+                Continue Watching
+              </h3>
+              <p className="text-xs text-gray-600">
+                Enter your information to unlock the rest of this content
+              </p>
+            </div>
 
-        <form onSubmit={handleSubmit} className="space-y-2">
+            <form onSubmit={handleSubmit} className="space-y-2">
           <div>
             <Input
               type="text"
@@ -198,18 +253,27 @@ const VideoProgressForm = ({ onSubmit, onClose }: VideoProgressFormProps) => {
             )}
           </div>
 
-          <Button
-            type="submit"
-            disabled={!isFormValid}
-            className="w-full bg-primary hover:bg-primary/90 text-white py-2 text-sm font-semibold mt-3"
-          >
-            Continue Watching
-          </Button>
-        </form>
+              <Button
+                type="submit"
+                disabled={!isFormValid || isLoading}
+                className="w-full bg-primary hover:bg-primary/90 text-white py-2 text-sm font-semibold mt-3"
+              >
+                {isLoading ? "Submitting..." : "Continue Watching"}
+              </Button>
+            </form>
 
-        <p className="text-xs text-gray-500 text-center mt-2">
-          Your information is secure and never shared
-        </p>
+            <p className="text-xs text-gray-500 text-center mt-2">
+              Your information is secure and never shared
+            </p>
+          </>
+        ) : (
+          <div className="text-center py-8">
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Thank You!</h3>
+            <p className="text-sm text-gray-600">
+              Your information has been submitted successfully. You can now continue watching.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -273,8 +273,9 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
     };
   }, [videoUrl, autoPlay, componentName, onVideoReady, onError]);
 
-  const handleProgressFormSubmit = (data: { name: string; email: string; phone: string; consent: boolean }) => {
-    // Save form submission to localStorage
+  const handleProgressFormClose = () => {
+    // When the form closes (either manually or after successful submission),
+    // mark as submitted and continue video
     if (videoUrl) {
       const storageKey = `video_form_submitted_${btoa(videoUrl)}`;
       localStorage.setItem(storageKey, 'true');
@@ -283,27 +284,10 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
 
     setShowProgressForm(false);
     setIsGatePaused(false);
-    onProgressGateSubmit?.(data);
     
-    // Resume video playback
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.error(`${componentName}: Error resuming video after form submission:`, error);
-      });
-    }
-  };
-
-  const handleProgressFormClose = () => {
-    setShowProgressForm(false);
-    setIsGatePaused(false);
-    setHasTriggeredGate(false); // Reset so gate can trigger again
-    
-    // Reset video to start and resume playback
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(error => {
-        console.error(`${componentName}: Error restarting video after form close:`, error);
-      });
+    // Resume video playback if not muted
+    if (videoRef.current && !isVideoMuted) {
+      videoRef.current.play().catch(console.warn);
     }
   };
 
@@ -349,7 +333,6 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       {/* Progress Gate Form Overlay */}
       {showProgressForm && (
         <VideoProgressForm
-          onSubmit={handleProgressFormSubmit}
           onClose={handleProgressFormClose}
         />
       )}
