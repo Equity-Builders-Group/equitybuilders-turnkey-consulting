@@ -67,11 +67,12 @@ const WhyWorkWithUs = () => {
           </h2>
           
           <p className="text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
-            We don't just talk about results — we deliver them. We have a proven track record with HUD statements to back it up. You will not find another partner like us that is as vertically integrated from top to bottom.
-            Lavon is a licensed real estate mortgage broker, developer, and builder. He has been in the Real Estate industry for over 20 years with most recent construction experience built up and honed over the last 5 years during probably
-            one of the hardest times to build in the last 50 years with the Covid-19 pandemic. He has been through the trenches and knows what it takes to get a project done.<br/><br/>
-            
-            If you want to learn along the way we will also be very transparent and teach you how to fish in this Real Estate development game as an additional benefit.
+              We don’t just talk about results — we deliver them.<br /><br />
+              Our track record is proven and documented, with HUD statements to back it up. You won’t find another partner as vertically integrated as we are — from financing to development to construction, we cover it all under one roof.
+              <br /><br />
+              Lavon Woods, our founder, is a licensed mortgage broker, real estate developer, and builder with over 20 years in the industry. Over the past 5 years, he has sharpened his construction expertise during one of the most challenging times to build in the last 50 years — navigating supply chain chaos and the Covid-19 pandemic. Having been through the trenches, Lavon knows exactly what it takes to bring a project from blueprint to completion.
+              <br /><br />
+              And if you want to learn along the way, we’re transparent. We’ll not only show you the process step by step, but also teach you the strategies that make this business work — so you can build, invest, and grow with confidence.
           </p>
         </div>
         
