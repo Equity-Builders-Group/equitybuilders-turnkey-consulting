@@ -12,13 +12,31 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
   useEffect(() => {
     if (isOpen) {
       setShowModal(true);
+      // Prevent scrolling on mobile and desktop
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.height = '100%';
+      
+      // Auto-scroll to top and bring modal into view on mobile
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }, 100);
     } else {
       document.body.style.overflow = 'unset';
+      document.body.style.position = 'unset';
+      document.body.style.width = 'unset';
+      document.body.style.height = 'unset';
     }
 
     return () => {
       document.body.style.overflow = 'unset';
+      document.body.style.position = 'unset';
+      document.body.style.width = 'unset';
+      document.body.style.height = 'unset';
     };
   }, [isOpen]);
 
@@ -47,10 +65,14 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
         zIndex: 9999 
       }}
     >
-      <div className="absolute inset-0 flex items-center justify-center p-4">
+      <div className="absolute inset-0 flex items-center justify-center p-2 sm:p-4 overflow-hidden">
         <div 
-          className={`relative bg-background rounded-2xl shadow-2xl w-full max-w-4xl h-[90vh] overflow-hidden transform transition-all duration-300 ${isOpen ? 'scale-100' : 'scale-95'}`}
+          className={`relative bg-background rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-4xl h-[95vh] sm:h-[90vh] max-h-screen overflow-hidden transform transition-all duration-300 ${isOpen ? 'scale-100' : 'scale-95'}`}
           onClick={(e) => e.stopPropagation()}
+          style={{
+            minHeight: '90vh',
+            maxHeight: '95vh'
+          }}
         >
           {/* Close button */}
           <button
@@ -67,12 +89,13 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
           </div>
 
           {/* Iframe container */}
-          <div className="w-full h-[calc(100%-120px)]">
+          <div className="w-full h-[calc(100%-120px)] min-h-0 flex-1">
             <iframe
               src="https://equitybuilders.co/turnkey-call/"
               className="w-full h-full border-none"
               title="Book Your Pre-Qualification Call"
               allow="fullscreen"
+              style={{ minHeight: '400px' }}
             />
           </div>
         </div>
