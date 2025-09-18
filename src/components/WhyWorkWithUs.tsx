@@ -117,12 +117,12 @@ const WhyWorkWithUs = () => {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h2 className="text-4xl font-bold drop-shadow-lg text-foreground">
-                  Whats Your Why?
+                  Think About Your Why?
                 </h2>
                 <p className="text-xl text-muted-foreground">
                     My purpose is to break down the barriers that keep everyday people like yourself — from accessing the wealth, control, and freedom that real estate development provides. God didn't give us a table and a chair. He gave us the tree. What will you do with it?
                     <br /><br />
-                    I've lived the reality: traditional paths to wealth (retirement accounts, stocks, W-2 income) don’t create enough wealth fast enough, with control. By mastering house hacking, new construction, and financing, I’ve found a way through one of the hardest industries to break into.
+                    I've lived the reality: traditional paths to wealth (retirement accounts, stocks, W-2 income) don’t create enough wealth fast enough, with control. By mastering house hacking, new construction, and financing, I’ve found a way to build wealth through one of the hardest industries to break into.
                     <br /><br />
                     Now, my mission is to help myself by helping others. I can't reap if I don't sow. Don't block my blessings by not allowing me to serve you!
                     {/*— giving others the tools, education, capital access, and hands-on mentorship to not only invest but also develop and own the neighborhoods where they live.*/}
