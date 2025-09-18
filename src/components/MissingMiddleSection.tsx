@@ -25,16 +25,15 @@ const MissingMiddleSection = () => {
             </div>
             
             <h2 className="text-4xl lg:text-5xl font-black mb-6 text-foreground drop-shadow-lg">
-              THE GAP IN THE MARKET
+              IS THE GAP IN THE MARKET
               <span className="block text-primary drop-shadow-lg">
                 MISSING MIDDLE HOUSING
               </span>
             </h2>
             
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              The missing middle is the gap in the market with the highest returns and lowest barrier to entry. There is no old boys club, no huge
-              regulatory red tape, or huge capital requirements to get a significant return in a short amount of time. Municipalities all across the country and 
-              new lending guidelines are changing at this very moment.Your level of risk
+              Missing middle housing offers the highest returns and lowest barrier to entry. There is no old boys club, no prior minimum net-worth needed, or huge capital requirements to get a significant return in a short amount of time. Local zoning departments in cities all across the country
+              are changing zoning laws and ordinances already. At the very same time national lending guidelines are changing to make it easier to borrow financing for multi-family properties. This is the perfect time to get in the game! Your level of risk
               goes down when you work with us. We have been where you want to go!
             </p>
           </div>
@@ -53,18 +52,6 @@ const MissingMiddleSection = () => {
             alt="Missing Middle Density Housing Spectrum - showing progression from ADU, duplex, fourplex, courtyard complex, townhouse, multiplex, live-work housing types"
             className="max-w-4xl w-full h-auto object-contain"
           />
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div 
-          ref={descriptionRef}
-          className={`text-center mt-12 scroll-reveal-fade-up ${descriptionVisible ? 'visible' : ''}`}
-        >
-          <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-            The "missing middle" represents a crucial gap in housing options between single-family homes and large apartment buildings. 
-            These housing types offer opportunities for increased density while maintaining neighborhood character and affordability.
-          </p>
         </div>
       </div>
 

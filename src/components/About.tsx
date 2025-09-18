@@ -51,7 +51,7 @@ const About = () => {
               }}
               className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
             >
-            Get Started Today
+            YES, I'm Ready!
             </Button>
 
              {/* Pulse effect */}
@@ -67,7 +67,7 @@ const About = () => {
             ></div>
             {/* Floating finger press icon */}
             <div className="absolute -bottom-6 -right-6 animate-pulse">
-              <MousePointer2 className="w-12 h-12 text-highlight fill-current rotate-12" />
+              <MousePointer2 className="w-12 h-12 text-highlight fill-current rotate-12 animate-bounce" />
             </div>
           </div>
         </div>
