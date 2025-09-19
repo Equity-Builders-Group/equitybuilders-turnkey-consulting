@@ -186,16 +186,16 @@ const Hero = () => {
                 <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">Do You Have Over $100K & NO TIME? This is for you!</span>
               </div>
               
-              <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white drop-shadow-lg">
+              <h1 className="text-6xl sm:text-5xl lg:text-6xl font-black leading-none text-white drop-shadow-lg">
                 CONVERT CASH OR
                 <span className="block text-accent-gold drop-shadow-2xl text-5xl sm:text-4xl lg:text-8xl">
                   UNDEVELOPED LAND INTO
                 </span>
                 <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent drop-shadow-lg">
-                  SIX FIGURE
+                  SIX FIGURE PROFITS
                 </span>
                 <span className="block text-white drop-shadow-lg">
-                  PROFITS
+                  
                 </span>
               </h1>
               
