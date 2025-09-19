@@ -136,7 +136,7 @@ const Hero = () => {
         {/* Mobile-only top heading */}
         <div className="lg:hidden mb-12">
           <h2 className="text-5xl sm:text-6xl font-black leading-none text-white text-center drop-shadow-lg">
-            TURN KEY DEVELOPMENT
+            TURNKEY DEVELOPMENT
             <span className="block text-accent drop-shadow-2xl">
               WE WILL DO
             </span>
@@ -172,7 +172,7 @@ const Hero = () => {
               {/* Desktop-only top heading */}
               <div className="hidden lg:block">
                 <h3 className="text-3xl font-black leading-none text-white text-left mb-4 drop-shadow-lg">
-                  TURN KEY DEVELOPMENT
+                  TURNKEY DEVELOPMENT
                   <span className="block text-accent drop-shadow-2xl">
                     DONE-FOR-YOU.
                   </span>
@@ -186,12 +186,14 @@ const Hero = () => {
                 <span className="text-white drop-shadow-lg font-bold text-sm sm:text-lg">Do You Have Over $100K & NO TIME? This is for you!</span>
               </div>
               
-              <h1 className="text-6xl sm:text-5xl lg:text-6xl font-black leading-none text-white drop-shadow-lg">
-                CONVERT CASH OR
-                <span className="block text-accent-gold drop-shadow-2xl text-5xl sm:text-4xl lg:text-8xl">
+              <h1 className="text-6xl sm:text-5xl lg:text-7xl font-black leading-none text-white drop-shadow-lg">
+                <span className="block drop-shadow-2xl text-5xl sm:text-4xl lg:text-6xl">
+                  CONVERT CASH OR
+                </span>
+                <span className="block text-accent-gold drop-shadow-2xl text-5xl sm:text-5xl lg:text-7xl">
                   UNDEVELOPED LAND INTO
                 </span>
-                <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent drop-shadow-lg">
+                <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-6xl lg:text-8xl text-transparent drop-shadow-lg">
                   SIX FIGURE PROFITS
                 </span>
                 <span className="block text-white drop-shadow-lg">
@@ -282,7 +284,7 @@ const Hero = () => {
           {/* Right content - iPhone frame with your image */}
           <div 
             ref={phoneRef}
-            className={`relative flex justify-center lg:justify-start lg:pl-24 scroll-reveal-fade-up ${phoneVisible ? 'visible' : ''}`}
+            className={`relative flex justify-center lg:pl-24 scroll-reveal-fade-up ${phoneVisible ? 'visible' : ''}`}
           >
             <div className="relative w-80 h-[600px] sm:w-80 sm:h-[600px] lg:w-96 lg:h-[800px]">
               {/* iPhone frame */}
