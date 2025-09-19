@@ -87,7 +87,7 @@ const FAQ = () => {
     },
     {
       question: "What is the minimum investment required?",
-      answer: "Investment minimums vary by project and investment structure. We offer opportunities ranging from direct property ownership to partnership arrangements. Contact us to discuss options that align with your investment goals and capital availability."
+      answer: "Investment minimums vary by project and investment structure. We typically tell people to have at least 100K or be able to bring multiple people together with at least $100K in cash, credit, or other liquid assets from retirement accounts and we can get started. We offer opportunities ranging from direct property ownership to partnership arrangements. Contact us to discuss options that align with your investment goals and capital availability."
     },
     {
       question: "Do you provide ongoing property management services?",
@@ -99,7 +99,7 @@ const FAQ = () => {
     },
     {
       question: "What markets do you currently operate in?",
-      answer: "This service is primarily offered in Houston Texas."
+      answer: "This service is primarily offered in Houston Texas. You can live anywhere in the country and invest into Houston via this service."
     },
     {
       question: "What kind of returns can I expect from investments?",
@@ -119,7 +119,7 @@ const FAQ = () => {
     },
     {
       question: "Is this an SEC compliant investment fund?",
-      answer: 'No this is not a fund opportunity. SEC rules apply differently to joint ventures based on participation; if investors contribute cash with little involvement, their interest is likely a security under an "investment contract" test, requiring disclosures and prohibitions against fraud, but if all parties actively participate with meaningful management roles and voting rights, it is generally not a security and falls under standard joint venture agreements and state law. The core distinction is whether the parties are engaged in a common enterprise with profits expected from the efforts of others (a security) or are actively working together on the project.'
+      answer: 'No this is not a fund opportunity. SEC rules apply differently to joint ventures based on participation; We structure any partnerships that form through this offer as a joint venture where you get participation credit through decision making and control of the project outcome.'
     }
   ];
 
