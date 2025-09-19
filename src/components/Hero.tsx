@@ -187,9 +187,9 @@ const Hero = () => {
               </div>
               
               <h1 className="text-6xl sm:text-5xl lg:text-8xl font-black leading-none text-white drop-shadow-lg">
-                GO FROM 
+                CONVERT CASH OR
                 <span className="block text-accent-gold drop-shadow-2xl text-5xl sm:text-4xl lg:text-8xl">
-                  UNDEVELOPED LAND TO
+                  UNDEVELOPED LAND INTO
                 </span>
                 <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent drop-shadow-lg">
                   SIX FIGURE
