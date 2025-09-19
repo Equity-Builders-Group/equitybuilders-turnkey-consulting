@@ -87,7 +87,7 @@ const FAQ = () => {
     },
     {
       question: "What is the minimum investment required?",
-      answer: "Investment minimums vary by project and investment structure. We typically tell people to have at least 100K or be able to bring multiple people together with at least $100K in cash, credit, or other liquid assets from retirement accounts and we can get started. We offer opportunities ranging from direct property ownership to partnership arrangements. Contact us to discuss options that align with your investment goals and capital availability."
+      answer: "Investment minimums vary by project and investment structure. We typically tell people to have at least 100K or be able to bring multiple people together with at least $150K in cash, access to credit, or other liquid assets from retirement accounts and we can get started. We offer opportunities ranging from direct property ownership to partnership arrangements. Contact us to discuss options that align with your investment goals and capital availability."
     },
     {
       question: "Do you provide ongoing property management services?",

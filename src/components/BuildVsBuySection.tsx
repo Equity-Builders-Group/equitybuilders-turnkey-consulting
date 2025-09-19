@@ -20,8 +20,8 @@ const BuildVsBuySection = () => {
             <span className="block text-accent drop-shadow-lg">An Investment Property?</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            The numbers speak for themselves. When you build you walk into a strong equity position from day one. Building a property is like buying a product at a wholesale price. You have a brand new product that can be depreciated over time to offer huge tax write-offs. 
-            Your repair cost for the first 5-10 years will be very minimal because major items are covered by the warranty. Its just a no brainer!
+            The numbers speak for themselves. In my new book House Hacking The American Dream, I call Forced Appreciation the 10th Wonder of the World. Forced appreciation is the ability to create equity in a property through renovations or new construction. When you build from the ground up, your equity position on day one can be as high as 20-30% — if done right.
+            <br /><br />
           </p>
         </div>
 

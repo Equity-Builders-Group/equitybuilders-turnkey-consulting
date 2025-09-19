@@ -14,9 +14,9 @@ const Comparison = () => {
     "Limited Market Knowledge",
     "You Don't Know What You Don't Know",
     "Lack of Construction Expertise",
-    "You Need To Build A Team From Scratch (Most Costly)",
     "No Project Management Experience",
-    "(x3) Prior Experience Is Required for Financing",
+    "You Need To Build A Team From Scratch (Most Costly)",
+    "(x3) Prior Build Experiences Required for Financing",
   ];
 
   const turnkeyAdvantages = [
@@ -52,7 +52,9 @@ const Comparison = () => {
             <span className="block text-accent drop-shadow-lg">Development Apart</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Real estate is the only asset class that gives you full control of a property while only investing a fraction of its cost. You get the benefit of the entire property’s value, even though you only put in a small percentage up front. Compare that to syndications or the stock market — where you’re just a passenger with no control. With real estate, you hold a tangible asset that delivers security and strong returns. And when you build instead of buy, the profits are huge!
+            Think of it like getting a product at a wholesale price: you’re creating a brand-new property at a lower cost than its finished value. If you hold the property for the long term, you can depreciate the property over time for massive tax write-offs, while keeping repair costs minimal for the first 5–10 years because all major items are brand new. It’s simply a no-brainer!
+            <br /><br />            
+            Real estate is the only asset class in the world that gives you full control of an asset while only investing a fraction of its cost. You get the benefit of the entire property’s value, any profits from it, even though you only put in a small percentage up front. Compare that to gold, oil, or the stock market — where you’re just a passenger with no control over outcomes or value. With real estate, you hold a real tangible income generating asset that delivers security and strong returns!
             <br /><br />
           </p>
           <h2 className="text-4xl md:text-6xl font-black leading-tight text-foreground mb-6 drop-shadow-lg">
@@ -170,7 +172,7 @@ const Comparison = () => {
               Ready to Experience the TurnKey Difference?
             </h3>
             <p className="text-lg text-muted-foreground mb-6">
-              Join successful investors who chose the smarter path to real estate wealth building.
+              Chose the smarter path to real estate wealth building. By partnering with us.
             </p>
             <div className="flex items-center justify-center gap-2 text-accent font-semibold">
               <Check className="w-5 h-5" />
