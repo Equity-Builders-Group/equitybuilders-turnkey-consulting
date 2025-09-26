@@ -53,25 +53,25 @@ const CountdownTimer = ({ targetDate, className = "", compact = false }: Countdo
         
         <div className="flex gap-2">
           <div className="flex items-center gap-1">
-            <div className="text-sm font-bold text-highlight bg-white/10 rounded px-2 py-1 min-w-[32px] text-center">
+            <div className="text-lg font-bold text-highlight bg-white/10 rounded px-2 py-1 min-w-[36px] text-center">
               {timeLeft.days.toString().padStart(2, '0')}
             </div>
             <span className="text-white/80 text-xs">d</span>
           </div>
           <div className="flex items-center gap-1">
-            <div className="text-sm font-bold text-highlight bg-white/10 rounded px-2 py-1 min-w-[32px] text-center">
+            <div className="text-lg font-bold text-highlight bg-white/10 rounded px-2 py-1 min-w-[36px] text-center">
               {timeLeft.hours.toString().padStart(2, '0')}
             </div>
             <span className="text-white/80 text-xs">h</span>
           </div>
           <div className="flex items-center gap-1">
-            <div className="text-sm font-bold text-highlight bg-white/10 rounded px-2 py-1 min-w-[32px] text-center">
+            <div className="text-lg font-bold text-highlight bg-white/10 rounded px-2 py-1 min-w-[36px] text-center">
               {timeLeft.minutes.toString().padStart(2, '0')}
             </div>
             <span className="text-white/80 text-xs">m</span>
           </div>
           <div className="flex items-center gap-1">
-            <div className="text-sm font-bold text-highlight bg-white/10 rounded px-2 py-1 min-w-[32px] text-center">
+            <div className="text-lg font-bold text-highlight bg-white/10 rounded px-2 py-1 min-w-[36px] text-center">
               {timeLeft.seconds.toString().padStart(2, '0')}
             </div>
             <span className="text-white/80 text-xs">s</span>
