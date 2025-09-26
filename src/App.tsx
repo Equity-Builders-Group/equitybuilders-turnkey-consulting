@@ -48,24 +48,23 @@ const App = () => {
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          
+          {/* Modals inside Router context */}
+          <ExitIntentModal 
+            isOpen={showExitIntent} 
+            onClose={closeExitIntent} 
+          />
+          
+          <ConsultationModal 
+            isOpen={showConsultationModal} 
+            onClose={() => setShowConsultationModal(false)} 
+          />
+          
+          <WebinarRegistrationModal 
+            isOpen={showWebinarModal} 
+            onClose={() => setShowWebinarModal(false)} 
+          />
         </BrowserRouter>
-        
-        {/* Exit Intent Modal at top level */}
-        <ExitIntentModal 
-          isOpen={showExitIntent} 
-          onClose={closeExitIntent} 
-        />
-        
-        {/* Consultation Modal at top level */}
-        <ConsultationModal 
-          isOpen={showConsultationModal} 
-          onClose={() => setShowConsultationModal(false)} 
-        />
-        
-        <WebinarRegistrationModal 
-          isOpen={showWebinarModal} 
-          onClose={() => setShowWebinarModal(false)} 
-        />
       </TooltipProvider>
     </QueryClientProvider>
   );
