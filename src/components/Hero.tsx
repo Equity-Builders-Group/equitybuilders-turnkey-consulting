@@ -4,6 +4,7 @@ import { Play, MousePointer2 } from "lucide-react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
 import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
 import { useCTAConfig } from "@/hooks/useCTAConfig";
+import CountdownTimer from "@/components/CountdownTimer";
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true); // Auto-start video
@@ -250,29 +251,38 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Results showcase */}
+            {/* Results showcase - conditional rendering based on CTA */}
             <div 
               ref={resultsRef}
-              className={`bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 scroll-reveal-zoom-in ${resultsVisible ? 'visible' : ''}`}
+              className={`scroll-reveal-zoom-in ${resultsVisible ? 'visible' : ''}`}
             >
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-highlight">5+</div>
-                  <div className="text-white/80 font-medium">Projects Delivered</div>
+              {ctaConfig.eventName === 'openWebinarRegistration' ? (
+                <CountdownTimer 
+                  targetDate={new Date('2025-10-03T19:00:00')} 
+                  className="max-w-2xl mx-auto lg:mx-0"
+                />
+              ) : (
+                <div className="bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="text-center space-y-2">
+                      <div className="text-4xl font-black text-highlight">5+</div>
+                      <div className="text-white/80 font-medium">Projects Delivered</div>
+                    </div>
+                    <div className="text-center space-y-2">
+                      <div className="text-4xl font-black text-highlight">100%</div>
+                      <div className="text-white/80 font-medium">Success Rate</div>
+                    </div>
+                    <div className="text-center space-y-2">
+                      <div className="text-4xl font-black text-highlight">1.2x+</div>
+                      <div className="text-white/80 font-medium">ROI Multiples</div>
+                    </div>
+                    <div className="text-center space-y-2">
+                      <div className="text-4xl font-black text-highlight">5+</div>
+                      <div className="text-white/80 font-medium">Years of Experience</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-highlight">100%</div>
-                  <div className="text-white/80 font-medium">Success Rate</div>
-                </div>
-                <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-highlight">1.2x+</div>
-                  <div className="text-white/80 font-medium">ROI Multiples</div>
-                </div>
-                <div className="text-center space-y-2">
-                  <div className="text-4xl font-black text-highlight">5+</div>
-                  <div className="text-white/80 font-medium">Years of Experience</div>
-                </div>
-              </div>
+              )}
             </div>
           </div>
 
