@@ -26,10 +26,11 @@ const WebinarRegistrationModal = ({ isOpen, onClose }: WebinarRegistrationModalP
           <p className="text-white/90 mt-2">Register for our exclusive real estate investment webinar.</p>
           
           {/* Countdown Timer */}
-          <div className="mt-6">
+          <div className="mt-4">
             <CountdownTimer 
               targetDate={new Date('2025-10-03T19:00:00')} 
               className="bg-white/10 border-white/30"
+              compact={true}
             />
           </div>
         </div>

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 interface CountdownTimerProps {
   targetDate: Date;
   className?: string;
+  compact?: boolean;
 }
 
 interface TimeLeft {
@@ -12,7 +13,7 @@ interface TimeLeft {
   seconds: number;
 }
 
-const CountdownTimer = ({ targetDate, className = "" }: CountdownTimerProps) => {
+const CountdownTimer = ({ targetDate, className = "", compact = false }: CountdownTimerProps) => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -44,6 +45,43 @@ const CountdownTimer = ({ targetDate, className = "" }: CountdownTimerProps) => 
     // Cleanup interval on component unmount
     return () => clearInterval(timer);
   }, [targetDate]);
+
+  if (compact) {
+    return (
+      <div className={`bg-white/10 backdrop-blur-sm p-3 rounded-xl border border-white/20 ${className}`}>
+        <div className="text-center mb-2">
+          <h4 className="text-sm font-semibold text-white">Webinar Starts In:</h4>
+        </div>
+        
+        <div className="flex justify-center gap-3">
+          <div className="text-center">
+            <div className="text-lg font-bold text-highlight bg-white/10 rounded-lg py-1 px-2 min-w-[40px]">
+              {timeLeft.days.toString().padStart(2, '0')}
+            </div>
+            <div className="text-white/80 font-medium text-xs mt-1">Days</div>
+          </div>
+          <div className="text-center">
+            <div className="text-lg font-bold text-highlight bg-white/10 rounded-lg py-1 px-2 min-w-[40px]">
+              {timeLeft.hours.toString().padStart(2, '0')}
+            </div>
+            <div className="text-white/80 font-medium text-xs mt-1">Hours</div>
+          </div>
+          <div className="text-center">
+            <div className="text-lg font-bold text-highlight bg-white/10 rounded-lg py-1 px-2 min-w-[40px]">
+              {timeLeft.minutes.toString().padStart(2, '0')}
+            </div>
+            <div className="text-white/80 font-medium text-xs mt-1">Min</div>
+          </div>
+          <div className="text-center">
+            <div className="text-lg font-bold text-highlight bg-white/10 rounded-lg py-1 px-2 min-w-[40px]">
+              {timeLeft.seconds.toString().padStart(2, '0')}
+            </div>
+            <div className="text-white/80 font-medium text-xs mt-1">Sec</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`bg-black/20 backdrop-blur-sm p-8 rounded-3xl border border-white/20 ${className}`}>
