@@ -1,6 +1,7 @@
 import { X } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
+import { useCTAConfig } from "@/hooks/useCTAConfig";
 
 interface ExitIntentModalProps {
   isOpen: boolean;
@@ -10,6 +11,7 @@ interface ExitIntentModalProps {
 const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
   const [showModal, setShowModal] = useState(false);
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
+  const ctaConfig = useCTAConfig();
 
   console.log('ExitIntentModal render - isOpen:', isOpen, 'showModal:', showModal);
 
@@ -115,13 +117,13 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
             <button
               onClick={() => {
                 handleClose();
-                // Trigger consultation modal
-                const event = new CustomEvent('openConsultation');
+                // Trigger appropriate modal based on CTA config
+                const event = new CustomEvent(ctaConfig.eventName);
                 window.dispatchEvent(event);
               }}
               className="bg-white text-primary hover:bg-accent hover:text-white px-6 sm:px-12 py-3 sm:py-6 rounded-xl sm:rounded-2xl text-lg sm:text-2xl font-bold shadow-2xl transform hover:scale-105 transition-all duration-300"
             >
-            Book A Call
+            {ctaConfig.buttonText === 'Book A Call Today' ? 'Book A Call' : ctaConfig.buttonText}
             </button>
             <p className="text-white/80 mt-2 sm:mt-4 text-sm sm:text-lg">
               Limited spots are available on the calendar.

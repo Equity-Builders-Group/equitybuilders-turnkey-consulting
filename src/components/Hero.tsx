@@ -3,10 +3,12 @@ import { useState, useRef } from "react";
 import { Play, MousePointer2 } from "lucide-react";
 import HLSVideoPlayer, { HLSVideoPlayerRef } from "@/components/shared/HLSVideoPlayer";
 import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
+import { useCTAConfig } from "@/hooks/useCTAConfig";
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true); // Auto-start video
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
+  const ctaConfig = useCTAConfig();
   
   // Dramatic scroll reveal animations for Hero
   const { elementRef: heroRef, isVisible: heroVisible } = useScrollReveal<HTMLElement>({ threshold: 0.1 });
@@ -213,12 +215,12 @@ const Hero = () => {
                 <Button 
                   size="lg" 
                   onClick={() => {
-                    const event = new CustomEvent('openConsultation');
+                    const event = new CustomEvent(ctaConfig.eventName);
                     window.dispatchEvent(event);
                   }}
                   className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
                 >
-                Book A Call Today
+                {ctaConfig.buttonText}
                 </Button>
 
                  {/* Pulse effect */}

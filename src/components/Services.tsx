@@ -2,11 +2,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Users, Building, Shield, Target, Star, MousePointer2 } from "lucide-react";
 import useScrollReveal, { useStaggeredScrollReveal } from "@/hooks/useScrollReveal";
+import { useCTAConfig } from "@/hooks/useCTAConfig";
 
 const Services = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollReveal({ threshold: 0.05 });
   const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal();
+  const ctaConfig = useCTAConfig();
   const processSteps = [
     {
       title: "Land Search & Vetting",
@@ -287,12 +289,12 @@ const Services = () => {
               <Button 
                 size="lg" 
                 onClick={() => {
-                  const event = new CustomEvent('openConsultation');
+                  const event = new CustomEvent(ctaConfig.eventName);
                   window.dispatchEvent(event);
                 }}
                 className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
               >
-                Book Your Call Today
+                {ctaConfig.buttonText === 'Book A Call Today' ? 'Book Your Call Today' : ctaConfig.buttonText}
               </Button>
 
               {/* Pulse effect */}

@@ -1,13 +1,14 @@
+import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ExitIntentModal from "./components/ExitIntentModal";
 import ConsultationModal from "./components/ConsultationModal";
+import WebinarRegistrationModal from "./components/WebinarRegistrationModal";
 import useExitIntent from "./hooks/useExitIntent";
 
 const queryClient = new QueryClient();
@@ -15,6 +16,7 @@ const queryClient = new QueryClient();
 const App = () => {
   const { showExitIntent, closeExitIntent } = useExitIntent();
   const [showConsultationModal, setShowConsultationModal] = useState(false);
+  const [showWebinarModal, setShowWebinarModal] = useState(false);
 
   // Listen for custom consultation event
   useEffect(() => {
@@ -22,8 +24,17 @@ const App = () => {
       setShowConsultationModal(true);
     };
 
+    const handleOpenWebinarRegistration = () => {
+      setShowWebinarModal(true);
+    };
+
     window.addEventListener('openConsultation', handleOpenConsultation);
-    return () => window.removeEventListener('openConsultation', handleOpenConsultation);
+    window.addEventListener('openWebinarRegistration', handleOpenWebinarRegistration);
+    
+    return () => {
+      window.removeEventListener('openConsultation', handleOpenConsultation);
+      window.removeEventListener('openWebinarRegistration', handleOpenWebinarRegistration);
+    };
   }, []);
   
   return (
@@ -49,6 +60,11 @@ const App = () => {
         <ConsultationModal 
           isOpen={showConsultationModal} 
           onClose={() => setShowConsultationModal(false)} 
+        />
+        
+        <WebinarRegistrationModal 
+          isOpen={showWebinarModal} 
+          onClose={() => setShowWebinarModal(false)} 
         />
       </TooltipProvider>
     </QueryClientProvider>

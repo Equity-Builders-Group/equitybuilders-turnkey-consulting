@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { MousePointer2 } from "lucide-react";
 import useScrollReveal from "@/hooks/useScrollReveal";
+import { ArrowRight, MousePointer2 } from "lucide-react";
+import { useCTAConfig } from "@/hooks/useCTAConfig";
+
 const About = () => {
-  const { elementRef: contentRef, isVisible: contentVisible } = useScrollReveal();
-  const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal();
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: contentRef, isVisible: contentVisible } = useScrollReveal<HTMLDivElement>();
+  const { elementRef: ctaRef, isVisible: ctaVisible } = useScrollReveal<HTMLDivElement>();
+  const ctaConfig = useCTAConfig();
   
   return <section className="py-20 bg-gradient-to-br from-accent/20 via-background to-primary/10 relative overflow-hidden">
       {/* Background with architectural drawing */}
@@ -46,12 +50,12 @@ const About = () => {
             <Button 
               size="lg" 
               onClick={() => {
-                const event = new CustomEvent('openConsultation');
+                const event = new CustomEvent(ctaConfig.eventName);
                 window.dispatchEvent(event);
               }}
               className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
             >
-            YES, I'm Ready!
+            {ctaConfig.buttonText === 'Book A Call Today' ? "YES, I'm Ready!" : ctaConfig.buttonText}
             </Button>
 
              {/* Pulse effect */}
