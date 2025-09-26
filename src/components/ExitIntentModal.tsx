@@ -6,9 +6,10 @@ import { useCTAConfig } from "@/hooks/useCTAConfig";
 interface ExitIntentModalProps {
   isOpen: boolean;
   onClose: () => void;
+  otherModalsOpen?: boolean;
 }
 
-const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
+const ExitIntentModal = ({ isOpen, onClose, otherModalsOpen = false }: ExitIntentModalProps) => {
   const [showModal, setShowModal] = useState(false);
   const videoPlayerRef = useRef<HLSVideoPlayerRef>(null);
   const ctaConfig = useCTAConfig();
@@ -34,6 +35,12 @@ const ExitIntentModal = ({ isOpen, onClose }: ExitIntentModalProps) => {
       // Don't reset video to allow playhead position restoration
     }
   }, [isOpen, showModal]);
+
+  // Don't show if other modals are already open
+  if (otherModalsOpen && isOpen) {
+    onClose();
+    return null;
+  }
 
   if (!showModal) return null;
 

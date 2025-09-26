@@ -1,4 +1,5 @@
 import { X } from "lucide-react";
+import CountdownTimer from "@/components/CountdownTimer";
 
 interface WebinarRegistrationModalProps {
   isOpen: boolean;
@@ -23,10 +24,18 @@ const WebinarRegistrationModal = ({ isOpen, onClose }: WebinarRegistrationModalP
         <div className="p-6 border-b bg-gradient-primary text-white">
           <h2 className="text-2xl font-bold">Webinar Registration</h2>
           <p className="text-white/90 mt-2">Register for our exclusive real estate investment webinar.</p>
+          
+          {/* Countdown Timer */}
+          <div className="mt-6">
+            <CountdownTimer 
+              targetDate={new Date('2025-10-03T19:00:00')} 
+              className="bg-white/10 border-white/30"
+            />
+          </div>
         </div>
 
         {/* Iframe container */}
-        <div className="w-full h-[calc(100%-120px)] min-h-0 flex-1">
+        <div className="w-full h-[calc(100%-200px)] min-h-0 flex-1">
           <iframe
             src="https://multiculturemortgage.com/consultation"
             className="w-full h-full border-none"

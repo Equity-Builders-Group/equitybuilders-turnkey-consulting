@@ -53,6 +53,7 @@ const App = () => {
           <ExitIntentModal 
             isOpen={showExitIntent} 
             onClose={closeExitIntent} 
+            otherModalsOpen={showConsultationModal || showWebinarModal}
           />
           
           <ConsultationModal 
