@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import ExitIntentModal from "./components/ExitIntentModal";
 import ConsultationModal from "./components/ConsultationModal";
 import WebinarRegistrationModal from "./components/WebinarRegistrationModal";
+import DebugBar from "./components/DebugBar";
 import useExitIntent from "./hooks/useExitIntent";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <DebugBar />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/class-replay" element={<ClassReplay />} />
