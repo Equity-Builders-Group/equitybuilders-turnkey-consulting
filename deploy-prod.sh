@@ -17,7 +17,7 @@ git checkout main-git-pages
 
 # Step 3: Clean up old assets
 echo "🧹 Cleaning up old assets..."
-rm -rf assets lovable-uploads
+rm -rf assets lovable-uploads images
 
 # Step 4: Copy new build files
 echo "📋 Copying new build files..."
