@@ -91,7 +91,7 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
           {/* Iframe container */}
           <div className="w-full h-[calc(100%-120px)] min-h-0 flex-1">
             <iframe
-              src="https://equitybuilders.co/turnkey-call/"
+              src="https://equitybuilders.co/?fluent-booking=calendar&host=a5c8d672_admin&event=turnkey-30min"
               className="w-full h-full border-none"
               title="Book Your Pre-Qualification Call"
               allow="fullscreen"
