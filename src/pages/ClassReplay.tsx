@@ -29,12 +29,14 @@ const ClassReplay = () => {
         <div className="container relative z-10 mx-auto px-4 py-12 md:py-20">
           {/* Hero Text */}
           <div className="text-center mb-8 md:mb-12">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight drop-shadow-2xl">
-              CONVERT CASH OR
-              <br />
-              UNDEVELOPED LAND INTO
-              <br />
-              <span className="bg-gradient-to-r from-accent to-highlight bg-clip-text text-transparent">
+            <h1 className="text-6xl sm:text-5xl lg:text-7xl font-black leading-none text-white drop-shadow-lg">
+              <span className="block drop-shadow-2xl text-5xl sm:text-4xl lg:text-6xl">
+                CONVERT CASH OR
+              </span>
+              <span className="block text-accent-gold drop-shadow-2xl text-5xl sm:text-5xl lg:text-7xl">
+                UNDEVELOPED LAND INTO
+              </span>
+              <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-6xl lg:text-8xl text-transparent drop-shadow-lg">
                 SIX FIGURE PROFITS
               </span>
             </h1>
@@ -68,7 +70,7 @@ const ClassReplay = () => {
             <Button
               onClick={handleBookCall}
               size="lg"
-              className="bg-white text-primary hover:bg-accent hover:text-white px-8 md:px-12 py-6 md:py-8 rounded-xl md:rounded-2xl text-xl md:text-2xl font-bold shadow-2xl transform hover:scale-105 transition-all duration-300"
+              className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
             >
               Book A Call
             </Button>
