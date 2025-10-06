@@ -42,6 +42,9 @@ const ClassReplay = () => {
 
           {/* Hero Text */}
           <div className="text-center mb-8 md:mb-12">
+            <p className="text-2xl md:text-3xl text-white font-semibold mb-4 drop-shadow-lg">
+              We help busy professionals to
+            </p>
             <h1 className="text-6xl sm:text-5xl lg:text-7xl font-black leading-none text-white drop-shadow-lg">
               <span className="block drop-shadow-2xl text-5xl sm:text-4xl lg:text-6xl">
                 CONVERT CASH OR
