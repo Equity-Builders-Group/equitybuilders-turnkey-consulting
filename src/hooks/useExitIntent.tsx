@@ -10,6 +10,10 @@ const useExitIntent = () => {
 
     const handleMouseLeave = (e: MouseEvent) => {
       console.log('Mouse leave detected:', e.clientY);
+      // Don't trigger on class replay page
+      if (window.location.pathname === '/class-replay') {
+        return;
+      }
       // Only trigger if mouse leaves from the top of the page and hasn't been shown yet
       if (e.clientY <= 0 && !hasShownExitIntent) {
         console.log('Exit intent triggered! Starting timeout...');
@@ -32,6 +36,10 @@ const useExitIntent = () => {
 
     // Mobile exit intent detection
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      // Don't trigger on class replay page
+      if (window.location.pathname === '/class-replay') {
+        return;
+      }
       if (!hasShownExitIntent) {
         console.log('Back button/navigation detected on mobile');
         // Prevent default navigation
@@ -47,6 +55,10 @@ const useExitIntent = () => {
     };
 
     const handleWindowBlur = () => {
+      // Don't trigger on class replay page
+      if (window.location.pathname === '/class-replay') {
+        return;
+      }
       if (!hasShownExitIntent) {
         console.log('Window blur detected (address bar interaction)');
         // Add delay to avoid false positives

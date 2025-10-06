@@ -27,6 +27,19 @@ const ClassReplay = () => {
         />
         
         <div className="container relative z-10 mx-auto px-4 py-12 md:py-20">
+          {/* Top Heading */}
+          <div className="text-center mb-8">
+            <h2 className="text-5xl sm:text-6xl font-black leading-none text-white drop-shadow-lg">
+              TURNKEY DEVELOPMENT
+              <span className="block text-accent drop-shadow-2xl">
+                DONE FOR YOU.
+              </span>
+              <span className="block bg-gradient-to-r from-white to-highlight bg-clip-text text-transparent drop-shadow-lg">
+                WE'LL DO ALL THE WORK!
+              </span>
+            </h2>
+          </div>
+
           {/* Hero Text */}
           <div className="text-center mb-8 md:mb-12">
             <h1 className="text-6xl sm:text-5xl lg:text-7xl font-black leading-none text-white drop-shadow-lg">
@@ -67,13 +80,27 @@ const ClassReplay = () => {
 
           {/* CTA Button */}
           <div className="text-center">
-            <Button
-              onClick={handleBookCall}
-              size="lg"
-              className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
-            >
-              Book A Call
-            </Button>
+            <div className="relative inline-block">
+              <Button
+                onClick={handleBookCall}
+                size="lg"
+                className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+              >
+                Book A Call
+              </Button>
+
+              {/* Pulse effect */}
+              <div 
+                className="absolute inset-0 rounded-2xl pointer-events-none"
+                style={{
+                  animation: 'pulse-shadow 1.5s infinite ease-out',
+                  animationName: 'pulse-shadow',
+                  animationDuration: '1.5s',
+                  animationIterationCount: 'infinite',
+                  animationTimingFunction: 'ease-out',
+                }}
+              ></div>
+            </div>
             <p className="text-white/90 mt-4 text-base md:text-lg font-semibold">
               Limited spots are available on the calendar.
             </p>
