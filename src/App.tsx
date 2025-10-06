@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import ClassReplay from "./pages/ClassReplay";
 import NotFound from "./pages/NotFound";
 import ExitIntentModal from "./components/ExitIntentModal";
 import ConsultationModal from "./components/ConsultationModal";
@@ -45,6 +46,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/class-replay" element={<ClassReplay />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
