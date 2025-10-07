@@ -44,18 +44,13 @@ const DebugBar = () => {
             Class Replay
           </Link>
           
-          <button
-            onClick={() => {
-              const event = new CustomEvent('openWebinarRegistration', {
-                detail: { fromDebug: true }
-              });
-              window.dispatchEvent(event);
-            }}
+          <Link
+            to="/?cta=reg"
             className="flex items-center gap-1 px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold rounded shadow transition-colors"
           >
             <Calendar className="w-4 h-4" />
-            Webinar Modal
-          </button>
+            Webinar Page
+          </Link>
         </div>
       </div>
     </div>
