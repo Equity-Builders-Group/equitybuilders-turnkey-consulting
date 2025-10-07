@@ -6,6 +6,13 @@ import { PostHogProvider } from 'posthog-js/react'
 import { PostHogConfig } from 'posthog-js'
 import { POSTHOG_CONFIG } from './config/analytics.ts'
 
+// Handle GitHub Pages SPA routing
+const redirect = sessionStorage.redirect;
+delete sessionStorage.redirect;
+if (redirect && redirect !== location.href) {
+    history.replaceState(null, '', redirect);
+}
+
 const options = {
     api_host: POSTHOG_CONFIG.VITE_PUBLIC_POSTHOG_HOST,
     defaults: {
