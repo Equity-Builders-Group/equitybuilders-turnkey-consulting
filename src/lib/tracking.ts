@@ -56,7 +56,7 @@ export const trackEvent = (eventName: string, data?: Record<string, any>) => {
 
 // Track CTA clicks
 export const trackCTAClick = (ctaType: 'consultation' | 'webinar') => {
-  trackEvent('CTA Clicked', { cta: ctaType });
+  trackEvent('CTAClicked', { cta: ctaType });
 };
 
 // Track complete registration with Base64 encoded user data
