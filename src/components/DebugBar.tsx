@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Video } from 'lucide-react';
+import { Home, Video, Calendar } from 'lucide-react';
 
 const DebugBar = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,6 +43,17 @@ const DebugBar = () => {
             <Video className="w-4 h-4" />
             Class Replay
           </Link>
+          
+          <button
+            onClick={() => {
+              const event = new CustomEvent('openWebinarRegistration');
+              window.dispatchEvent(event);
+            }}
+            className="flex items-center gap-1 px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold rounded shadow transition-colors"
+          >
+            <Calendar className="w-4 h-4" />
+            Webinar (?cta=reg)
+          </button>
         </div>
       </div>
     </div>
