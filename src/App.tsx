@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useNavigate, useSearchParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import ClassReplay from "./pages/ClassReplay";
 import NotFound from "./pages/NotFound";
@@ -12,6 +12,7 @@ import ConsultationModal from "./components/ConsultationModal";
 import WebinarRegistrationModal from "./components/WebinarRegistrationModal";
 import DebugBar from "./components/DebugBar";
 import useExitIntent from "./hooks/useExitIntent";
+import ReactPixel from 'react-facebook-pixel';
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,16 @@ const RedirectHandler = () => {
   return null;
 };
 
+const PageViewTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactPixel.pageView();
+  }, [location]);
+
+  return null;
+};
+
 const App = () => {
   const { showExitIntent, closeExitIntent } = useExitIntent();
   const [showConsultationModal, setShowConsultationModal] = useState(false);
@@ -37,10 +48,12 @@ const App = () => {
   // Listen for custom consultation event
   useEffect(() => {
     const handleOpenConsultation = () => {
+      ReactPixel.trackCustom('CTA Clicked', { cta: 'consultation' });
       setShowConsultationModal(true);
     };
 
     const handleOpenWebinarRegistration = () => {
+      ReactPixel.trackCustom('CTA Clicked', { cta: 'webinar' });
       setShowWebinarModal(true);
     };
 
@@ -59,6 +72,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <PageViewTracker />
           <DebugBar />
           <Routes>
             <Route path="/" element={<Index />} />
