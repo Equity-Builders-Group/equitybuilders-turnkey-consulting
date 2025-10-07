@@ -83,26 +83,39 @@ const ClassReplay = () => {
 
           {/* CTA Button */}
           <div className="text-center">
-            <div className="relative inline-block">
-              <Button
-                onClick={handleBookCall}
-                size="lg"
-                className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
-              >
-                Book A Call
-              </Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <div className="relative inline-block">
+                <Button
+                  onClick={handleBookCall}
+                  size="lg"
+                  className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-[#ff4800] text-white hover:bg-accent hover:text-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+                >
+                  Book A Call
+                </Button>
 
-              {/* Pulse effect */}
-              <div 
-                className="absolute inset-0 rounded-2xl pointer-events-none"
-                style={{
-                  animation: 'pulse-shadow 1.5s infinite ease-out',
-                  animationName: 'pulse-shadow',
-                  animationDuration: '1.5s',
-                  animationIterationCount: 'infinite',
-                  animationTimingFunction: 'ease-out',
-                }}
-              ></div>
+                {/* Pulse effect */}
+                <div 
+                  className="absolute inset-0 rounded-2xl pointer-events-none"
+                  style={{
+                    animation: 'pulse-shadow 1.5s infinite ease-out',
+                    animationName: 'pulse-shadow',
+                    animationDuration: '1.5s',
+                    animationIterationCount: 'infinite',
+                    animationTimingFunction: 'ease-out',
+                  }}
+                ></div>
+              </div>
+              
+              <span className="text-white text-2xl sm:text-3xl font-bold">OR</span>
+              
+              <Button
+                onClick={() => window.location.href = '/'}
+                size="lg"
+                variant="outline"
+                className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-white text-primary hover:bg-white/90 hover:text-primary border-2 border-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
+              >
+                Learn More
+              </Button>
             </div>
             <p className="text-white/90 mt-4 text-base md:text-lg font-semibold">
               Limited spots are available on the calendar.
