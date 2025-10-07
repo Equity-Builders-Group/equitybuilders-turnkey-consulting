@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from "re
 import { Volume2 } from "lucide-react";
 import Hls from "hls.js";
 import VideoProgressForm from "./VideoProgressForm";
+import ReactPixel from 'react-facebook-pixel';
 
 interface HLSVideoPlayerProps {
   videoUrl: string;
@@ -337,6 +338,22 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
         if (!enablePlayheadStorage) {
           videoRef.current.currentTime = 0;
         }
+      }
+      
+      // Fire ViewContent event to Facebook Pixel with appropriate content_id
+      let contentId = '';
+      if (videoUrl.includes('114d20b4-b152-48e8-b8d1-0a0e12470326')) {
+        contentId = '114d20b4-b152-48e8-b8d1-0a0e12470326'; // Class replay & exit intent
+      } else if (videoUrl.includes('c6b998b8-9763-4324-94ea-1b19b14c3dc1')) {
+        contentId = 'c6b998b8-9763-4324-94ea-1b19b14c3dc1'; // Hero section
+      } else if (videoUrl.includes('65558fdd-047e-401c-b75c-210360836388')) {
+        contentId = '65558fdd-047e-401c-b75c-210360836388'; // VideoShowcase
+      }
+      
+      if (contentId) {
+        ReactPixel.track('ViewContent', {
+          content_ids: contentId
+        });
       }
     }
   };
