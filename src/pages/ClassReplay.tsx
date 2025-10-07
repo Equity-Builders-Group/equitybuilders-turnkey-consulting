@@ -109,7 +109,10 @@ const ClassReplay = () => {
               <span className="text-white text-2xl sm:text-3xl font-bold">OR</span>
               
               <Button
-                onClick={() => window.location.href = '/'}
+                onClick={() => {
+                  const currentParams = window.location.search;
+                  window.location.href = `/${currentParams}`;
+                }}
                 size="lg"
                 variant="outline"
                 className="text-lg sm:text-2xl px-8 sm:px-12 py-6 sm:py-8 bg-white text-primary hover:bg-white/90 hover:text-primary border-2 border-white shadow-2xl transform hover:scale-105 transition-all duration-300 font-bold"
