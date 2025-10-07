@@ -5,11 +5,10 @@ import { StrictMode } from 'react'
 import { PostHogProvider } from 'posthog-js/react'
 import { PostHogConfig } from 'posthog-js'
 import { POSTHOG_CONFIG } from './config/analytics.ts'
-import ReactPixel from 'react-facebook-pixel'
+import { initTracking } from './lib/tracking'
 
-// Initialize Facebook Pixel
-ReactPixel.init('1094603982657805');
-ReactPixel.pageView();
+// Initialize all tracking platforms
+initTracking();
 
 // Handle GitHub Pages SPA routing
 const redirect = sessionStorage.redirect;

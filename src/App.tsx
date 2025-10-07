@@ -12,7 +12,7 @@ import ConsultationModal from "./components/ConsultationModal";
 import WebinarRegistrationModal from "./components/WebinarRegistrationModal";
 import DebugBar from "./components/DebugBar";
 import useExitIntent from "./hooks/useExitIntent";
-import ReactPixel from 'react-facebook-pixel';
+import { trackPageView, trackCTAClick } from "./lib/tracking";
 
 const queryClient = new QueryClient();
 
@@ -34,7 +34,7 @@ const PageViewTracker = () => {
   const location = useLocation();
 
   useEffect(() => {
-    ReactPixel.pageView();
+    trackPageView();
   }, [location]);
 
   return null;
@@ -48,12 +48,12 @@ const App = () => {
   // Listen for custom consultation event
   useEffect(() => {
     const handleOpenConsultation = () => {
-      ReactPixel.trackCustom('CTA Clicked', { cta: 'consultation' });
+      trackCTAClick('consultation');
       setShowConsultationModal(true);
     };
 
     const handleOpenWebinarRegistration = () => {
-      ReactPixel.trackCustom('CTA Clicked', { cta: 'webinar' });
+      trackCTAClick('webinar');
       setShowWebinarModal(true);
     };
 

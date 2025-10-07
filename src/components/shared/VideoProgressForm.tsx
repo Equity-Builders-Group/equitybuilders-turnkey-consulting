@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
-import ReactPixel from 'react-facebook-pixel';
+import { trackCompleteRegistration } from "@/lib/tracking";
 
 interface VideoProgressFormProps {
   onClose: (submitted?: boolean) => void;
@@ -142,18 +142,12 @@ const VideoProgressForm = ({ onClose, videoUrl }: VideoProgressFormProps) => {
       const firstName = nameParts[0] || '';
       const lastName = nameParts.slice(1).join(' ') || '';
       
-      // Base64 encode user data for Facebook Pixel
-      const encodedFirstName = btoa(firstName);
-      const encodedLastName = btoa(lastName);
-      const encodedEmail = btoa(formData.email);
-      const encodedPhone = btoa(formData.phone);
-      
-      // Fire CompleteRegistration event to Facebook Pixel
-      ReactPixel.track('CompleteRegistration', {
-        firstName: encodedFirstName,
-        lastName: encodedLastName,
-        email: encodedEmail,
-        phone: encodedPhone
+      // Track registration completion across all platforms
+      trackCompleteRegistration({
+        firstName,
+        lastName,
+        email: formData.email,
+        phone: formData.phone
       });
       
       setIsSubmitted(true);
