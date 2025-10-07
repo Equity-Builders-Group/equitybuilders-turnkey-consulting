@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from "re
 import { Volume2 } from "lucide-react";
 import Hls from "hls.js";
 import VideoProgressForm from "./VideoProgressForm";
-import { trackViewContent, getContentIdFromUrl } from "@/lib/tracking";
+import { trackViewContent, getContentIdFromUrl, trackEvent } from "@/lib/tracking";
 
 interface HLSVideoPlayerProps {
   videoUrl: string;
@@ -56,6 +56,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
   const [showProgressForm, setShowProgressForm] = useState(false);
   const [isGatePaused, setIsGatePaused] = useState(false);
   const [hasSubmittedForm, setHasSubmittedForm] = useState(false);
+  const [trackedMilestones, setTrackedMilestones] = useState<Set<number>>(new Set());
 
   // Expose methods via ref
   useImperativeHandle(ref, () => ({
@@ -151,6 +152,44 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
     };
   }, [enablePlayheadStorage, videoUrl]);
 
+  // Track video progress milestones
+  useEffect(() => {
+    if (!videoRef.current || !videoUrl) return;
+
+    const video = videoRef.current;
+    const milestones = [25, 50, 75, 100];
+
+    const handleTimeUpdate = () => {
+      if (video.duration > 0) {
+        const percentage = (video.currentTime / video.duration) * 100;
+        
+        // Check each milestone
+        milestones.forEach(milestone => {
+          if (percentage >= milestone && !trackedMilestones.has(milestone)) {
+            const contentId = getContentIdFromUrl(videoUrl);
+            
+            // Fire the VideoWatched event
+            trackEvent('VideoWatched', {
+              percentage: milestone,
+              content_ids: contentId || undefined
+            });
+            
+            console.log(`${componentName}: VideoWatched event fired at ${milestone}%`, { content_ids: contentId });
+            
+            // Mark this milestone as tracked
+            setTrackedMilestones(prev => new Set(prev).add(milestone));
+          }
+        });
+      }
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, [videoUrl, trackedMilestones, componentName]);
+
   // Progress gate logic - enforce watch gate continuously
   useEffect(() => {
     if (!enableProgressGate || !videoRef.current) return;
@@ -205,6 +244,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
       setIsVideoReady(false);
       setShowProgressForm(false);
       setIsGatePaused(false);
+      setTrackedMilestones(new Set()); // Reset milestone tracking for new video
       // Don't reset hasSubmittedForm here - it should persist across video reloads
 
       // Cleanup any existing HLS instance
