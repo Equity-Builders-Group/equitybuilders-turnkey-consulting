@@ -47,13 +47,21 @@ const App = () => {
 
   // Listen for custom consultation event
   useEffect(() => {
-    const handleOpenConsultation = () => {
-      trackCTAClick('consultation');
+    const handleOpenConsultation = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      // Only track if not from debug bar
+      if (!customEvent.detail?.fromDebug) {
+        trackCTAClick('consultation');
+      }
       setShowConsultationModal(true);
     };
 
-    const handleOpenWebinarRegistration = () => {
-      trackCTAClick('webinar');
+    const handleOpenWebinarRegistration = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      // Only track if not from debug bar
+      if (!customEvent.detail?.fromDebug) {
+        trackCTAClick('webinar');
+      }
       setShowWebinarModal(true);
     };
 
