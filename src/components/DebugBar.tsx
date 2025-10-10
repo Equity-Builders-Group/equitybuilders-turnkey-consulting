@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Video, Calendar } from 'lucide-react';
+import { Home, Video, Calendar, Shield } from 'lucide-react';
 
 const DebugBar = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -50,6 +50,14 @@ const DebugBar = () => {
           >
             <Calendar className="w-4 h-4" />
             Webinar Page
+          </Link>
+          
+          <Link
+            to="/privacy-policy"
+            className="flex items-center gap-1 px-3 py-1 bg-white hover:bg-gray-100 text-gray-800 text-sm font-semibold rounded shadow transition-colors"
+          >
+            <Shield className="w-4 h-4" />
+            Privacy Policy
           </Link>
         </div>
       </div>
