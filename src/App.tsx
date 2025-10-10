@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, useNavigate, useSearchParams, useLocation
 import Index from "./pages/Index";
 import ClassReplay from "./pages/ClassReplay";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 import ExitIntentModal from "./components/ExitIntentModal";
 import ConsultationModal from "./components/ConsultationModal";
@@ -87,6 +88,7 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/class-replay" element={<ClassReplay />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

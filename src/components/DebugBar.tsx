@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Video, Calendar, Shield } from 'lucide-react';
+import { Home, Video, Calendar, Shield, FileText } from 'lucide-react';
 
 const DebugBar = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,7 +57,15 @@ const DebugBar = () => {
             className="flex items-center gap-1 px-3 py-1 bg-white hover:bg-gray-100 text-gray-800 text-sm font-semibold rounded shadow transition-colors"
           >
             <Shield className="w-4 h-4" />
-            Privacy Policy
+            Privacy
+          </Link>
+          
+          <Link
+            to="/terms-of-service"
+            className="flex items-center gap-1 px-3 py-1 bg-white hover:bg-gray-100 text-gray-800 text-sm font-semibold rounded shadow transition-colors"
+          >
+            <FileText className="w-4 h-4" />
+            Terms
           </Link>
         </div>
       </div>
