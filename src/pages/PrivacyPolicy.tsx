@@ -58,7 +58,7 @@ const PrivacyPolicy = () => {
 
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">4. Marketing and Tracking</h2>
             <p className="mb-4">
-              We share your marketing email address and phone number with third-party marketing channels and platforms for the purposes of:
+              We share your marketing email address with third-party marketing channels and platforms for the purposes of:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>Tracking campaign performance and effectiveness</li>
@@ -68,6 +68,9 @@ const PrivacyPolicy = () => {
             </ul>
             <p className="mb-4">
               These marketing channels may include social media platforms, advertising networks, and email marketing services. This data sharing is limited to marketing purposes only and does not include other private or sensitive information.
+            </p>
+            <p className="mb-4">
+              <strong>Important:</strong> We do not share mobile phone numbers with third parties for marketing or promotional purposes. Your mobile number is used only for direct communication between you and Equity Builders Group LLC.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Use of Projects as Marketing Material</h2>
@@ -90,7 +93,7 @@ const PrivacyPolicy = () => {
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2">
               <li><strong>Service Providers:</strong> Third-party vendors who assist us in operating our business, such as payment processors, website hosting, and email services. These providers are contractually obligated to protect your information.</li>
-              <li><strong>Marketing Platforms:</strong> As described in Section 4, we share marketing email addresses and phone numbers with marketing channels for tracking and retargeting purposes only.</li>
+              <li><strong>Marketing Platforms:</strong> As described in Section 4, we share marketing email addresses (but not mobile phone numbers) with marketing channels for tracking and retargeting purposes only.</li>
               <li><strong>Legal Requirements:</strong> When required by law, subpoena, or other legal process, or when we believe disclosure is necessary to protect our rights, your safety, or the safety of others.</li>
             </ul>
 
