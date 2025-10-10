@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import ClassReplay from "./pages/ClassReplay";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 import ExitIntentModal from "./components/ExitIntentModal";
 import ConsultationModal from "./components/ConsultationModal";
@@ -85,6 +86,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/class-replay" element={<ClassReplay />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
