@@ -166,6 +166,12 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
         // Check each milestone
         milestones.forEach(milestone => {
           if (percentage >= milestone && !trackedMilestones.has(milestone)) {
+            // Only track if user has unmuted the video (indicates actual engagement)
+            if (!hasUnmutedOnce) {
+              console.log(`${componentName}: Skipping VideoWatched event at ${milestone}% - video not unmuted yet`);
+              return;
+            }
+
             const contentId = getContentIdFromUrl(videoUrl);
             
             // Fire the VideoWatched event
@@ -188,7 +194,7 @@ const HLSVideoPlayer = forwardRef<HLSVideoPlayerRef, HLSVideoPlayerProps>(({
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate);
     };
-  }, [videoUrl, trackedMilestones, componentName]);
+  }, [videoUrl, trackedMilestones, hasUnmutedOnce, componentName]);
 
   // Progress gate logic - enforce watch gate continuously
   useEffect(() => {
